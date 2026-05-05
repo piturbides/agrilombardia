@@ -1,0 +1,10 @@
+Analysis;Statistic / Value;p-value
+Shapiro-Wilk Soresina;0.9192;1.03e-15
+Shapiro-Wilk Rezzato;0.9316;2.40e-14
+Mann-Whitney U test;6986938.5;1.56e-06
+Mean Soresina;26.57;
+Mean Rezzato;24.65;
+Mean difference Soresina-Rezzato;1.92;
+Median Soresina;22.99;
+Median Rezzato;22.02;
+Median difference Soresina-Rezzato;0.97;

@@ -1,0 +1,6 @@
+Analysis;Statistic / Value;p-value
+Monthly Shapiro-Wilk Soresina;0.9186;1.99e-06
+Monthly Shapiro-Wilk Rezzato;0.9336;1.62e-05
+Monthly Mann-Whitney U test;7749.0;3.08e-01
+Monthly Wilcoxon paired test;2298.0;4.86e-04
+Seasonal Wilcoxon paired test;181.0;2.89e-03
