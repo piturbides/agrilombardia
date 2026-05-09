@@ -1,17 +1,32 @@
 # Human Health and Environment Data Science Laboratory
 
-Preliminary statistical analysis of air pollution data for the project.
+Preliminary and statistical analysis of air pollution data for the Human Health and Environment Data Science Laboratory project.
 
-## Current analysis
+## Project context
 
-- NO2 comparison between Soresina and Rezzato
-- Daily analysis
-- Monthly and seasonal analysis
-- Statistical tests: Shapiro-Wilk, Mann-Whitney U, Wilcoxon signed-rank
+The project investigates differences in air pollution patterns between areas with different territorial and emission profiles in Lombardy, with a focus on the comparison between agricultural/rural and industrial/urban contexts.
 
-## How to run
+The current environmental analysis focuses on measured air pollutant concentrations from ARPA Lombardia monitoring stations.
 
-Install the required libraries:
+## Current analyses
 
-```bash
-pip install -r requirements.txt
+### NO2 analysis: Soresina vs Rezzato
+
+NO2 concentrations were compared between:
+
+- Soresina, used as a proxy for an agricultural/rural context;
+- Rezzato, used as a proxy for a more industrialized context in the Brescia area.
+
+The analysis includes:
+
+- daily mean NO2 comparison;
+- monthly mean NO2 comparison;
+- seasonal mean NO2 comparison;
+- exclusion of COVID-related years 2020, 2021 and 2022;
+- statistical tests: Shapiro-Wilk, Mann-Whitney U, Wilcoxon signed-rank;
+- graphical outputs and CSV summary tables.
+
+The definitive NO2 non-COVID analysis is saved in:
+
+```text
+Dati/output/1-Statistical tests/1.3-NO2_definitivo
