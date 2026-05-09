@@ -1,0 +1,5 @@
+Season;N paired years;Mean Soresina;Mean Rezzato;Mean difference Soresina-Rezzato;Wilcoxon statistic;p-value
+Winter;5;45.05;36.56;8.49;0.0;6.25e-02
+Spring;7;21.62;20.49;1.13;10.0;5.78e-01
+Summer;7;16.24;15.72;0.51;10.0;5.78e-01
+Autumn;7;27.48;26.08;1.4;9.0;4.69e-01

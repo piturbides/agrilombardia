@@ -1,0 +1,10 @@
+Analysis;Statistic / Value;p-value
+Daily Shapiro-Wilk Soresina;0.9121;1.97e-16
+Daily Shapiro-Wilk Rezzato;0.955;3.20e-11
+Daily Mann-Whitney U test;3392083.0;1.89e-03
+Daily mean Soresina;26.79;
+Daily mean Rezzato;24.79;
+Daily mean difference Soresina-Rezzato;2.0;
+Daily median Soresina;22.89;
+Daily median Rezzato;22.63;
+Daily median difference Soresina-Rezzato;0.25;

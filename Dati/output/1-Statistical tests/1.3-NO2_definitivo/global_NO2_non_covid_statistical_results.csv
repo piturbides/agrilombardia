@@ -1,0 +1,27 @@
+Analysis;Statistic / Value;p-value
+Daily Shapiro-Wilk Soresina;0.9121;1.97e-16
+Daily Shapiro-Wilk Rezzato;0.955;3.20e-11
+Daily Mann-Whitney U test;3392083.0;1.89e-03
+Daily mean Soresina;26.79;
+Daily mean Rezzato;24.79;
+Daily mean difference Soresina-Rezzato;2.0;
+Daily median Soresina;22.89;
+Daily median Rezzato;22.63;
+Daily median difference Soresina-Rezzato;0.25;
+Monthly Shapiro-Wilk Soresina;0.9062;1.45e-05
+Monthly Shapiro-Wilk Rezzato;0.9423;9.28e-04
+Monthly Mann-Whitney U test;3751.0;4.80e-01
+Monthly Wilcoxon paired test;1133.0;3.64e-03
+Monthly mean Soresina;26.82;
+Monthly mean Rezzato;24.79;
+Monthly mean difference Soresina-Rezzato;2.03;
+Monthly median Soresina;23.36;
+Monthly median Rezzato;21.85;
+Monthly median difference Soresina-Rezzato;1.51;
+Seasonal Wilcoxon paired test;77.0;1.10e-02
+Seasonal mean Soresina;26.25;
+Seasonal mean Rezzato;23.8;
+Seasonal mean difference Soresina-Rezzato;2.45;
+Seasonal median Soresina;22.82;
+Seasonal median Rezzato;23.39;
+Seasonal median difference Soresina-Rezzato;-0.57;
