@@ -1,0 +1,27 @@
+Analysis;Statistic / Value;p-value
+Daily Shapiro-Wilk Soresina;0.8927;3.36e-18
+Daily Shapiro-Wilk Brescia Villaggio Sereno;0.8702;5.57e-20
+Daily Mann-Whitney U test;3204207.0;2.52e-15
+Daily mean Soresina;26.87;
+Daily mean Brescia Villaggio Sereno;24.07;
+Daily mean difference Soresina-Brescia;2.8;
+Daily median Soresina;23.0;
+Daily median Brescia Villaggio Sereno;19.0;
+Daily median difference Soresina-Brescia;4.0;
+Monthly Shapiro-Wilk Soresina;0.9297;1.96e-04
+Monthly Shapiro-Wilk Brescia Villaggio Sereno;0.9094;2.04e-05
+Monthly Mann-Whitney U test;4231.0;2.58e-02
+Monthly Wilcoxon paired test;592.0;1.03e-07
+Monthly mean Soresina;26.94;
+Monthly mean Brescia Villaggio Sereno;24.0;
+Monthly mean difference Soresina-Brescia;2.94;
+Monthly median Soresina;24.72;
+Monthly median Brescia Villaggio Sereno;19.26;
+Monthly median difference Soresina-Brescia;5.46;
+Seasonal Wilcoxon paired test;30.0;6.03e-05
+Seasonal mean Soresina;26.04;
+Seasonal mean Brescia Villaggio Sereno;22.91;
+Seasonal mean difference Soresina-Brescia;3.13;
+Seasonal median Soresina;24.42;
+Seasonal median Brescia Villaggio Sereno;19.28;
+Seasonal median difference Soresina-Brescia;5.13;

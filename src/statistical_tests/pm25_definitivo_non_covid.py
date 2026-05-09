@@ -9,10 +9,10 @@ from src.data_loader import load_pollution_data
 COVID_YEARS = [2020, 2021, 2022]
 STATION_COLORS = {
     "Soresina": "tab:orange",
-    "Rezzato": "tab:blue"
+    "Brescia Villaggio Sereno": "tab:blue"
 }
 
-STATION_ORDER = ["Rezzato", "Soresina"]
+STATION_ORDER = ["Brescia Villaggio Sereno", "Soresina"]
 
 
 def assign_season(month):
@@ -66,27 +66,11 @@ def filter_non_covid_years(df):
     """
     return df[~df["Data"].dt.year.isin(COVID_YEARS)].copy()
 
+
 def add_time_gaps_for_plot(data, date_column, value_column, max_gap_days):
     """
     Add NaN values after large temporal gaps so that line plots
     do not connect separate time periods.
-
-    Parameters
-    ----------
-    data : pandas.DataFrame
-        Dataframe containing the time series.
-    date_column : str
-        Name of the date column.
-    value_column : str
-        Name of the pollutant/value column.
-    max_gap_days : int
-        Maximum allowed gap between consecutive observations.
-        Larger gaps are interrupted in the plot.
-
-    Returns
-    -------
-    pandas.DataFrame
-        Dataframe with additional NaN rows used to break plot lines.
     """
 
     data = data.sort_values(date_column).copy()
@@ -112,32 +96,25 @@ def add_time_gaps_for_plot(data, date_column, value_column, max_gap_days):
     return pd.DataFrame(rows)
 
 
-def save_series_description(series, output_path):
+def run_pm25_definitivo_non_covid_analysis():
     """
-    Save descriptive statistics of a pandas Series.
-    """
-    series.describe().round(2).to_csv(output_path, sep=";")
-
-
-def run_no2_definitivo_non_covid_analysis():
-    """
-    Definitive statistical comparison of NO2 concentrations between
-    Soresina and Rezzato, excluding COVID-related years 2020-2022.
+    Definitive statistical comparison of PM2.5 concentrations between
+    Soresina and Brescia Villaggio Sereno, excluding COVID-related years 2020-2022.
 
     The analysis includes:
-    - daily aggregation and statistical comparison
-    - monthly aggregation and statistical comparison
-    - seasonal aggregation and statistical comparison
+    - daily comparison
+    - monthly aggregation and comparison
+    - seasonal aggregation and comparison
     """
 
     # =========================
     # 1. PATHS
     # =========================
 
-    soresina_path = "Dati/raw/Soresina_NO2_2016_2025.csv"
-    rezzato_path = "Dati/raw/Rezzato_NO2_2016_2025.csv"
+    soresina_path = "Dati/raw/Soresina_2016_2025_PM25.csv"
+    brescia_path = "Dati/raw/Brescia_VillagioSereno_PM25_2016_2025.csv"
 
-    output_dir = "Dati/output/1-Statistical tests/1.3-NO2_definitivo"
+    output_dir = "Dati/output/1-Statistical tests/1.4-PM25_definitivo"
     os.makedirs(output_dir, exist_ok=True)
 
     # =========================
@@ -147,24 +124,24 @@ def run_no2_definitivo_non_covid_analysis():
     soresina = load_pollution_data(
         path=soresina_path,
         station_name="Soresina",
-        pollutant_name="NO2"
+        pollutant_name="PM25"
     )
 
-    rezzato = load_pollution_data(
-        path=rezzato_path,
-        station_name="Rezzato",
-        pollutant_name="NO2"
+    brescia = load_pollution_data(
+        path=brescia_path,
+        station_name="Brescia Villaggio Sereno",
+        pollutant_name="PM25"
     )
 
-    df = pd.concat([soresina, rezzato], ignore_index=True)
+    df = pd.concat([soresina, brescia], ignore_index=True)
 
     print("\n==============================")
-    print("NO2 DEFINITIVE NON-COVID ANALYSIS")
+    print("PM2.5 DEFINITIVE NON-COVID ANALYSIS")
     print("==============================")
 
     print("\nDataset before COVID-years exclusion:")
     print(df.info())
-    print(df.groupby("Station")["NO2"].count())
+    print(df.groupby("Station")["PM25"].count())
 
     # =========================
     # 3. REMOVE COVID YEARS
@@ -175,7 +152,7 @@ def run_no2_definitivo_non_covid_analysis():
     print("\nExcluded years: 2020, 2021, 2022")
     print("Dataset after COVID-years exclusion:")
     print(df.info())
-    print(df.groupby("Station")["NO2"].count())
+    print(df.groupby("Station")["PM25"].count())
 
     included_years = sorted(df["Data"].dt.year.unique())
     print(f"\nIncluded years: {included_years}")
@@ -200,14 +177,15 @@ def run_no2_definitivo_non_covid_analysis():
     df["Date"] = df["Data"].dt.date
     df["Date"] = pd.to_datetime(df["Date"])
 
+    # PM2.5 data are already daily, but we group by date for safety.
     daily = (
-        df.groupby(["Date", "Station"])["NO2"]
+        df.groupby(["Date", "Station"])["PM25"]
         .mean()
         .reset_index()
     )
 
     daily.to_csv(
-        f"{output_dir}/daily_NO2_non_covid_dataset.csv",
+        f"{output_dir}/daily_PM25_non_covid_dataset.csv",
         index=False,
         sep=";"
     )
@@ -215,7 +193,7 @@ def run_no2_definitivo_non_covid_analysis():
     print("\nDaily dataset:")
     print(daily.head())
 
-    daily_stats = daily.groupby("Station")["NO2"].describe().round(2)
+    daily_stats = daily.groupby("Station")["PM25"].describe().round(2)
 
     print("\n--- Daily descriptive statistics ---")
     print(daily_stats)
@@ -234,37 +212,37 @@ def run_no2_definitivo_non_covid_analysis():
         subset_with_gaps = add_time_gaps_for_plot(
             data=subset,
             date_column="Date",
-            value_column="NO2",
+            value_column="PM25",
             max_gap_days=7
         )
 
         plt.plot(
             subset_with_gaps["Date"],
-            subset_with_gaps["NO2"],
+            subset_with_gaps["PM25"],
             label=station,
             alpha=0.7,
-            color=STATION_COLORS[station]
+            color = STATION_COLORS[station]
         )
 
-    plt.title("Daily mean NO2 concentration: Soresina vs Rezzato (non-COVID years)")
+    plt.title("Daily mean PM2.5 concentration: Soresina vs Brescia Villaggio Sereno (non-COVID years)")
     plt.xlabel("Date")
-    plt.ylabel("Daily mean NO2 concentration")
+    plt.ylabel("Daily mean PM2.5 concentration")
     plt.legend()
     plt.tight_layout()
-    plt.savefig(f"{output_dir}/daily_mean_NO2_non_covid_time_series.png", dpi=300)
+    plt.savefig(f"{output_dir}/daily_mean_PM25_non_covid_time_series.png", dpi=300)
     plt.show()
 
     # Daily histogram
-    soresina_daily = daily[daily["Station"] == "Soresina"]["NO2"].dropna()
-    rezzato_daily = daily[daily["Station"] == "Rezzato"]["NO2"].dropna()
+    soresina_daily = daily[daily["Station"] == "Soresina"]["PM25"].dropna()
+    brescia_daily = daily[daily["Station"] == "Brescia Villaggio Sereno"]["PM25"].dropna()
 
     plt.figure(figsize=(8, 5))
     plt.hist(
-        rezzato_daily,
+        brescia_daily,
         bins=40,
         alpha=0.5,
-        label="Rezzato",
-        color=STATION_COLORS["Rezzato"]
+        label="Brescia Villaggio Sereno",
+        color=STATION_COLORS["Brescia Villaggio Sereno"]
     )
     plt.hist(
         soresina_daily,
@@ -273,29 +251,30 @@ def run_no2_definitivo_non_covid_analysis():
         label="Soresina",
         color=STATION_COLORS["Soresina"]
     )
-    plt.title("Distribution of daily mean NO2 concentration (non-COVID years)")
-    plt.xlabel("Daily mean NO2 concentration")
+    plt.title("Distribution of daily mean PM2.5 concentration (non-COVID years)")
+    plt.xlabel("Daily mean PM2.5 concentration")
     plt.ylabel("Frequency")
     plt.legend()
     plt.tight_layout()
-    plt.savefig(f"{output_dir}/daily_NO2_distribution_histogram.png", dpi=300)
+    plt.savefig(f"{output_dir}/daily_PM25_distribution_histogram.png", dpi=300)
     plt.show()
 
     # Daily boxplot
-    plt.figure(figsize=(7, 5))
+    plt.figure(figsize=(8, 5))
     daily_boxplot = daily.copy()
     daily_boxplot["Station"] = pd.Categorical(
         daily_boxplot["Station"],
         categories=STATION_ORDER,
         ordered=True
     )
-    daily_boxplot.boxplot(column="NO2", by="Station")
-    plt.title("Daily NO2 distribution by station (non-COVID years)")
+    daily_boxplot.boxplot(column="PM25", by="Station")
+    plt.title("Daily PM2.5 distribution by station (non-COVID years)")
     plt.suptitle("")
     plt.xlabel("Station")
-    plt.ylabel("Daily mean NO2 concentration")
+    plt.ylabel("Daily mean PM2.5 concentration")
+    plt.xticks(rotation=10)
     plt.tight_layout()
-    plt.savefig(f"{output_dir}/daily_NO2_boxplot_by_station.png", dpi=300)
+    plt.savefig(f"{output_dir}/daily_PM25_boxplot_by_station.png", dpi=300)
     plt.show()
 
     # Daily normality test
@@ -304,13 +283,13 @@ def run_no2_definitivo_non_covid_analysis():
         random_state=1
     )
 
-    rezzato_daily_sample = rezzato_daily.sample(
-        min(500, len(rezzato_daily)),
+    brescia_daily_sample = brescia_daily.sample(
+        min(500, len(brescia_daily)),
         random_state=1
     )
 
     shapiro_soresina_daily = shapiro(soresina_daily_sample)
-    shapiro_rezzato_daily = shapiro(rezzato_daily_sample)
+    shapiro_brescia_daily = shapiro(brescia_daily_sample)
 
     print("\n--- Daily Shapiro-Wilk normality test ---")
     print(
@@ -318,14 +297,14 @@ def run_no2_definitivo_non_covid_analysis():
         f"p-value = {shapiro_soresina_daily.pvalue:.4e}"
     )
     print(
-        f"Rezzato: statistic = {shapiro_rezzato_daily.statistic:.4f}, "
-        f"p-value = {shapiro_rezzato_daily.pvalue:.4e}"
+        f"Brescia Villaggio Sereno: statistic = {shapiro_brescia_daily.statistic:.4f}, "
+        f"p-value = {shapiro_brescia_daily.pvalue:.4e}"
     )
 
     # Daily Mann-Whitney U test
     daily_u_stat, daily_p_value = mannwhitneyu(
         soresina_daily,
-        rezzato_daily,
+        brescia_daily,
         alternative="two-sided"
     )
 
@@ -336,29 +315,29 @@ def run_no2_definitivo_non_covid_analysis():
     daily_summary = pd.DataFrame({
         "Analysis": [
             "Daily Shapiro-Wilk Soresina",
-            "Daily Shapiro-Wilk Rezzato",
+            "Daily Shapiro-Wilk Brescia Villaggio Sereno",
             "Daily Mann-Whitney U test",
             "Daily mean Soresina",
-            "Daily mean Rezzato",
-            "Daily mean difference Soresina-Rezzato",
+            "Daily mean Brescia Villaggio Sereno",
+            "Daily mean difference Soresina-Brescia",
             "Daily median Soresina",
-            "Daily median Rezzato",
-            "Daily median difference Soresina-Rezzato"
+            "Daily median Brescia Villaggio Sereno",
+            "Daily median difference Soresina-Brescia"
         ],
         "Statistic / Value": [
             round(shapiro_soresina_daily.statistic, 4),
-            round(shapiro_rezzato_daily.statistic, 4),
+            round(shapiro_brescia_daily.statistic, 4),
             round(daily_u_stat, 2),
             round(soresina_daily.mean(), 2),
-            round(rezzato_daily.mean(), 2),
-            round(soresina_daily.mean() - rezzato_daily.mean(), 2),
+            round(brescia_daily.mean(), 2),
+            round(soresina_daily.mean() - brescia_daily.mean(), 2),
             round(soresina_daily.median(), 2),
-            round(rezzato_daily.median(), 2),
-            round(soresina_daily.median() - rezzato_daily.median(), 2)
+            round(brescia_daily.median(), 2),
+            round(soresina_daily.median() - brescia_daily.median(), 2)
         ],
         "p-value": [
             f"{shapiro_soresina_daily.pvalue:.2e}",
-            f"{shapiro_rezzato_daily.pvalue:.2e}",
+            f"{shapiro_brescia_daily.pvalue:.2e}",
             f"{daily_p_value:.2e}",
             "",
             "",
@@ -388,13 +367,13 @@ def run_no2_definitivo_non_covid_analysis():
     df["MonthPeriod"] = df["Data"].dt.to_period("M").dt.to_timestamp()
 
     monthly = (
-        df.groupby(["MonthPeriod", "Year", "Month", "Station"])["NO2"]
+        df.groupby(["MonthPeriod", "Year", "Month", "Station"])["PM25"]
         .mean()
         .reset_index()
     )
 
     monthly.to_csv(
-        f"{output_dir}/monthly_NO2_non_covid_dataset.csv",
+        f"{output_dir}/monthly_PM25_non_covid_dataset.csv",
         index=False,
         sep=";"
     )
@@ -402,7 +381,7 @@ def run_no2_definitivo_non_covid_analysis():
     print("\nMonthly dataset:")
     print(monthly.head())
 
-    monthly_stats = monthly.groupby("Station")["NO2"].describe().round(2)
+    monthly_stats = monthly.groupby("Station")["PM25"].describe().round(2)
 
     print("\n--- Monthly descriptive statistics ---")
     print(monthly_stats)
@@ -421,13 +400,13 @@ def run_no2_definitivo_non_covid_analysis():
         subset_with_gaps = add_time_gaps_for_plot(
             data=subset,
             date_column="MonthPeriod",
-            value_column="NO2",
+            value_column="PM25",
             max_gap_days=45
         )
 
         plt.plot(
             subset_with_gaps["MonthPeriod"],
-            subset_with_gaps["NO2"],
+            subset_with_gaps["PM25"],
             marker="o",
             markersize=3,
             label=station,
@@ -435,17 +414,17 @@ def run_no2_definitivo_non_covid_analysis():
             color=STATION_COLORS[station]
         )
 
-    plt.title("Monthly mean NO2 concentration: Soresina vs Rezzato (non-COVID years)")
+    plt.title("Monthly mean PM2.5 concentration: Soresina vs Brescia Villaggio Sereno (non-COVID years)")
     plt.xlabel("Date")
-    plt.ylabel("Monthly mean NO2 concentration")
+    plt.ylabel("Monthly mean PM2.5 concentration")
     plt.legend()
     plt.tight_layout()
-    plt.savefig(f"{output_dir}/monthly_mean_NO2_non_covid_time_series.png", dpi=300)
+    plt.savefig(f"{output_dir}/monthly_mean_PM25_non_covid_time_series.png", dpi=300)
     plt.show()
 
     # Monthly climatology
     monthly_climatology = (
-        monthly.groupby(["Month", "Station"])["NO2"]
+        monthly.groupby(["Month", "Station"])["PM25"]
         .mean()
         .reset_index()
     )
@@ -453,7 +432,7 @@ def run_no2_definitivo_non_covid_analysis():
     monthly_climatology_pivot = monthly_climatology.pivot(
         index="Month",
         columns="Station",
-        values="NO2"
+        values="PM25"
     )
 
     print("\n--- Monthly climatology ---")
@@ -470,43 +449,44 @@ def run_no2_definitivo_non_covid_analysis():
         figsize=(9, 5),
         color=[STATION_COLORS[station] for station in STATION_ORDER]
     )
-    plt.title("Average monthly NO2 pattern (non-COVID years)")
+    plt.title("Average monthly PM2.5 pattern (non-COVID years)")
     plt.xlabel("Month")
-    plt.ylabel("Mean NO2 concentration")
+    plt.ylabel("Mean PM2.5 concentration")
     plt.xticks(range(1, 13))
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
-    plt.savefig(f"{output_dir}/monthly_climatology_NO2.png", dpi=300)
+    plt.savefig(f"{output_dir}/monthly_climatology_PM25.png", dpi=300)
     plt.show()
 
     # Monthly boxplot
-    plt.figure(figsize=(7, 5))
+    plt.figure(figsize=(8, 5))
     monthly_boxplot = monthly.copy()
     monthly_boxplot["Station"] = pd.Categorical(
         monthly_boxplot["Station"],
         categories=STATION_ORDER,
         ordered=True
     )
-    monthly_boxplot.boxplot(column="NO2", by="Station")
-    plt.title("Monthly NO2 distribution by station (non-COVID years)")
+    monthly_boxplot.boxplot(column="PM25", by="Station")
+    plt.title("Monthly PM2.5 distribution by station (non-COVID years)")
     plt.suptitle("")
     plt.xlabel("Station")
-    plt.ylabel("Monthly mean NO2 concentration")
+    plt.ylabel("Monthly mean PM2.5 concentration")
+    plt.xticks(rotation=10)
     plt.tight_layout()
-    plt.savefig(f"{output_dir}/monthly_NO2_boxplot_by_station.png", dpi=300)
+    plt.savefig(f"{output_dir}/monthly_PM25_boxplot_by_station.png", dpi=300)
     plt.show()
 
     # Monthly histogram
-    soresina_monthly = monthly[monthly["Station"] == "Soresina"]["NO2"].dropna()
-    rezzato_monthly = monthly[monthly["Station"] == "Rezzato"]["NO2"].dropna()
+    soresina_monthly = monthly[monthly["Station"] == "Soresina"]["PM25"].dropna()
+    brescia_monthly = monthly[monthly["Station"] == "Brescia Villaggio Sereno"]["PM25"].dropna()
 
     plt.figure(figsize=(8, 5))
     plt.hist(
-        rezzato_monthly,
+        brescia_monthly,
         bins=25,
         alpha=0.5,
-        label="Rezzato",
-        color=STATION_COLORS["Rezzato"]
+        label="Brescia Villaggio Sereno",
+        color=STATION_COLORS["Brescia Villaggio Sereno"]
     )
     plt.hist(
         soresina_monthly,
@@ -515,17 +495,17 @@ def run_no2_definitivo_non_covid_analysis():
         label="Soresina",
         color=STATION_COLORS["Soresina"]
     )
-    plt.title("Distribution of monthly mean NO2 concentration (non-COVID years)")
-    plt.xlabel("Monthly mean NO2 concentration")
+    plt.title("Distribution of monthly mean PM2.5 concentration (non-COVID years)")
+    plt.xlabel("Monthly mean PM2.5 concentration")
     plt.ylabel("Frequency")
     plt.legend()
     plt.tight_layout()
-    plt.savefig(f"{output_dir}/monthly_NO2_distribution_histogram.png", dpi=300)
+    plt.savefig(f"{output_dir}/monthly_PM25_distribution_histogram.png", dpi=300)
     plt.show()
 
     # Monthly normality
     shapiro_soresina_monthly = shapiro(soresina_monthly)
-    shapiro_rezzato_monthly = shapiro(rezzato_monthly)
+    shapiro_brescia_monthly = shapiro(brescia_monthly)
 
     print("\n--- Monthly Shapiro-Wilk normality test ---")
     print(
@@ -533,14 +513,14 @@ def run_no2_definitivo_non_covid_analysis():
         f"p-value = {shapiro_soresina_monthly.pvalue:.4e}"
     )
     print(
-        f"Rezzato: statistic = {shapiro_rezzato_monthly.statistic:.4f}, "
-        f"p-value = {shapiro_rezzato_monthly.pvalue:.4e}"
+        f"Brescia Villaggio Sereno: statistic = {shapiro_brescia_monthly.statistic:.4f}, "
+        f"p-value = {shapiro_brescia_monthly.pvalue:.4e}"
     )
 
     # Monthly Mann-Whitney
     monthly_u_stat, monthly_p_value = mannwhitneyu(
         soresina_monthly,
-        rezzato_monthly,
+        brescia_monthly,
         alternative="two-sided"
     )
 
@@ -552,12 +532,12 @@ def run_no2_definitivo_non_covid_analysis():
     monthly_pivot = monthly.pivot(
         index="MonthPeriod",
         columns="Station",
-        values="NO2"
+        values="PM25"
     ).dropna()
 
     monthly_wilcoxon_stat, monthly_wilcoxon_p = safe_wilcoxon(
         monthly_pivot["Soresina"],
-        monthly_pivot["Rezzato"]
+        monthly_pivot["Brescia Villaggio Sereno"]
     )
 
     print("\n--- Monthly Wilcoxon signed-rank test ---")
@@ -565,9 +545,9 @@ def run_no2_definitivo_non_covid_analysis():
     print(f"Statistic: {monthly_wilcoxon_stat}")
     print(f"p-value: {monthly_wilcoxon_p:.4e}")
 
-    monthly_difference = monthly_pivot["Soresina"] - monthly_pivot["Rezzato"]
+    monthly_difference = monthly_pivot["Soresina"] - monthly_pivot["Brescia Villaggio Sereno"]
 
-    print("\n--- Monthly difference summary: Soresina - Rezzato ---")
+    print("\n--- Monthly difference summary: Soresina - Brescia Villaggio Sereno ---")
     print(monthly_difference.describe().round(2))
 
     monthly_difference.describe().round(2).to_csv(
@@ -584,24 +564,24 @@ def run_no2_definitivo_non_covid_analysis():
         month_pivot = month_data.pivot(
             index="Year",
             columns="Station",
-            values="NO2"
+            values="PM25"
         ).dropna()
 
         if len(month_pivot) >= 3:
             stat, p_value = safe_wilcoxon(
                 month_pivot["Soresina"],
-                month_pivot["Rezzato"]
+                month_pivot["Brescia Villaggio Sereno"]
             )
 
             mean_soresina = month_pivot["Soresina"].mean()
-            mean_rezzato = month_pivot["Rezzato"].mean()
+            mean_brescia = month_pivot["Brescia Villaggio Sereno"].mean()
 
             month_specific_results.append({
                 "Month": month,
                 "N paired years": len(month_pivot),
                 "Mean Soresina": round(mean_soresina, 2),
-                "Mean Rezzato": round(mean_rezzato, 2),
-                "Mean difference Soresina-Rezzato": round(mean_soresina - mean_rezzato, 2),
+                "Mean Brescia Villaggio Sereno": round(mean_brescia, 2),
+                "Mean difference Soresina-Brescia": round(mean_soresina - mean_brescia, 2),
                 "Wilcoxon statistic": stat,
                 "p-value": f"{p_value:.2e}" if p_value is not None else ""
             })
@@ -620,31 +600,31 @@ def run_no2_definitivo_non_covid_analysis():
     monthly_summary = pd.DataFrame({
         "Analysis": [
             "Monthly Shapiro-Wilk Soresina",
-            "Monthly Shapiro-Wilk Rezzato",
+            "Monthly Shapiro-Wilk Brescia Villaggio Sereno",
             "Monthly Mann-Whitney U test",
             "Monthly Wilcoxon paired test",
             "Monthly mean Soresina",
-            "Monthly mean Rezzato",
-            "Monthly mean difference Soresina-Rezzato",
+            "Monthly mean Brescia Villaggio Sereno",
+            "Monthly mean difference Soresina-Brescia",
             "Monthly median Soresina",
-            "Monthly median Rezzato",
-            "Monthly median difference Soresina-Rezzato"
+            "Monthly median Brescia Villaggio Sereno",
+            "Monthly median difference Soresina-Brescia"
         ],
         "Statistic / Value": [
             round(shapiro_soresina_monthly.statistic, 4),
-            round(shapiro_rezzato_monthly.statistic, 4),
+            round(shapiro_brescia_monthly.statistic, 4),
             round(monthly_u_stat, 2),
             round(monthly_wilcoxon_stat, 2) if monthly_wilcoxon_stat is not None else "",
             round(soresina_monthly.mean(), 2),
-            round(rezzato_monthly.mean(), 2),
-            round(soresina_monthly.mean() - rezzato_monthly.mean(), 2),
+            round(brescia_monthly.mean(), 2),
+            round(soresina_monthly.mean() - brescia_monthly.mean(), 2),
             round(soresina_monthly.median(), 2),
-            round(rezzato_monthly.median(), 2),
-            round(soresina_monthly.median() - rezzato_monthly.median(), 2)
+            round(brescia_monthly.median(), 2),
+            round(soresina_monthly.median() - brescia_monthly.median(), 2)
         ],
         "p-value": [
             f"{shapiro_soresina_monthly.pvalue:.2e}",
-            f"{shapiro_rezzato_monthly.pvalue:.2e}",
+            f"{shapiro_brescia_monthly.pvalue:.2e}",
             f"{monthly_p_value:.2e}",
             f"{monthly_wilcoxon_p:.2e}" if monthly_wilcoxon_p is not None else "",
             "",
@@ -674,7 +654,7 @@ def run_no2_definitivo_non_covid_analysis():
     df["SeasonYear"] = df["Data"].apply(assign_season_year)
 
     monthly_for_season = (
-        df.groupby(["Year", "Month", "MonthPeriod", "SeasonYear", "Season", "Station"])["NO2"]
+        df.groupby(["Year", "Month", "MonthPeriod", "SeasonYear", "Season", "Station"])["PM25"]
         .mean()
         .reset_index()
     )
@@ -694,7 +674,7 @@ def run_no2_definitivo_non_covid_analysis():
     )
 
     seasonal = (
-        monthly_complete_seasons.groupby(["SeasonYear", "Season", "Station"])["NO2"]
+        monthly_complete_seasons.groupby(["SeasonYear", "Season", "Station"])["PM25"]
         .mean()
         .reset_index()
     )
@@ -710,7 +690,7 @@ def run_no2_definitivo_non_covid_analysis():
     seasonal = seasonal.sort_values(["SeasonYear", "Season", "Station"])
 
     seasonal.to_csv(
-        f"{output_dir}/seasonal_NO2_non_covid_dataset.csv",
+        f"{output_dir}/seasonal_PM25_non_covid_dataset.csv",
         index=False,
         sep=";"
     )
@@ -718,7 +698,7 @@ def run_no2_definitivo_non_covid_analysis():
     print("\nSeasonal dataset:")
     print(seasonal.head())
 
-    seasonal_stats = seasonal.groupby("Station")["NO2"].describe().round(2)
+    seasonal_stats = seasonal.groupby("Station")["PM25"].describe().round(2)
 
     print("\n--- Seasonal descriptive statistics ---")
     print(seasonal_stats)
@@ -730,7 +710,7 @@ def run_no2_definitivo_non_covid_analysis():
 
     # Seasonal climatology
     seasonal_climatology = (
-        seasonal.groupby(["Season", "Station"], observed=True)["NO2"]
+        seasonal.groupby(["Season", "Station"], observed=True)["PM25"]
         .mean()
         .reset_index()
     )
@@ -738,7 +718,7 @@ def run_no2_definitivo_non_covid_analysis():
     seasonal_climatology_pivot = seasonal_climatology.pivot(
         index="Season",
         columns="Station",
-        values="NO2"
+        values="PM25"
     ).reindex(season_order)
 
     print("\n--- Seasonal climatology ---")
@@ -755,13 +735,13 @@ def run_no2_definitivo_non_covid_analysis():
         figsize=(8, 5),
         color=[STATION_COLORS[station] for station in STATION_ORDER]
     )
-    plt.title("Average seasonal NO2 concentration (non-COVID years)")
+    plt.title("Average seasonal PM2.5 concentration (non-COVID years)")
     plt.xlabel("Season")
-    plt.ylabel("Mean NO2 concentration")
+    plt.ylabel("Mean PM2.5 concentration")
     plt.xticks(rotation=0)
     plt.grid(True, axis="y", alpha=0.3)
     plt.tight_layout()
-    plt.savefig(f"{output_dir}/seasonal_climatology_NO2.png", dpi=300)
+    plt.savefig(f"{output_dir}/seasonal_climatology_PM25.png", dpi=300)
     plt.show()
 
     # Seasonal boxplot
@@ -772,26 +752,27 @@ def run_no2_definitivo_non_covid_analysis():
         categories=STATION_ORDER,
         ordered=True
     )
-    seasonal_boxplot.boxplot(column="NO2", by="Station")
-    plt.title("Seasonal NO2 distribution by station (non-COVID years)")
+    seasonal_boxplot.boxplot(column="PM25", by="Station")
+    plt.title("Seasonal PM2.5 distribution by station (non-COVID years)")
     plt.suptitle("")
     plt.xlabel("Station")
-    plt.ylabel("Seasonal mean NO2 concentration")
+    plt.ylabel("Seasonal mean PM2.5 concentration")
+    plt.xticks(rotation=10)
     plt.tight_layout()
-    plt.savefig(f"{output_dir}/seasonal_NO2_boxplot_by_station.png", dpi=300)
+    plt.savefig(f"{output_dir}/seasonal_PM25_boxplot_by_station.png", dpi=300)
     plt.show()
 
     # Seasonal paired Wilcoxon
     seasonal_pivot = seasonal.pivot_table(
         index=["SeasonYear", "Season"],
         columns="Station",
-        values="NO2",
+        values="PM25",
         observed=True
     ).dropna()
 
     seasonal_wilcoxon_stat, seasonal_wilcoxon_p = safe_wilcoxon(
         seasonal_pivot["Soresina"],
-        seasonal_pivot["Rezzato"]
+        seasonal_pivot["Brescia Villaggio Sereno"]
     )
 
     print("\n--- Seasonal Wilcoxon signed-rank test ---")
@@ -799,9 +780,9 @@ def run_no2_definitivo_non_covid_analysis():
     print(f"Statistic: {seasonal_wilcoxon_stat}")
     print(f"p-value: {seasonal_wilcoxon_p:.4e}")
 
-    seasonal_difference = seasonal_pivot["Soresina"] - seasonal_pivot["Rezzato"]
+    seasonal_difference = seasonal_pivot["Soresina"] - seasonal_pivot["Brescia Villaggio Sereno"]
 
-    print("\n--- Seasonal difference summary: Soresina - Rezzato ---")
+    print("\n--- Seasonal difference summary: Soresina - Brescia Villaggio Sereno ---")
     print(seasonal_difference.describe().round(2))
 
     seasonal_difference.describe().round(2).to_csv(
@@ -818,24 +799,24 @@ def run_no2_definitivo_non_covid_analysis():
         season_pivot = season_data.pivot(
             index="SeasonYear",
             columns="Station",
-            values="NO2"
+            values="PM25"
         ).dropna()
 
         if len(season_pivot) >= 3:
             stat, p_value = safe_wilcoxon(
                 season_pivot["Soresina"],
-                season_pivot["Rezzato"]
+                season_pivot["Brescia Villaggio Sereno"]
             )
 
             mean_soresina = season_pivot["Soresina"].mean()
-            mean_rezzato = season_pivot["Rezzato"].mean()
+            mean_brescia = season_pivot["Brescia Villaggio Sereno"].mean()
 
             season_specific_results.append({
                 "Season": season,
                 "N paired years": len(season_pivot),
                 "Mean Soresina": round(mean_soresina, 2),
-                "Mean Rezzato": round(mean_rezzato, 2),
-                "Mean difference Soresina-Rezzato": round(mean_soresina - mean_rezzato, 2),
+                "Mean Brescia Villaggio Sereno": round(mean_brescia, 2),
+                "Mean difference Soresina-Brescia": round(mean_soresina - mean_brescia, 2),
                 "Wilcoxon statistic": stat,
                 "p-value": f"{p_value:.2e}" if p_value is not None else ""
             })
@@ -855,20 +836,20 @@ def run_no2_definitivo_non_covid_analysis():
         "Analysis": [
             "Seasonal Wilcoxon paired test",
             "Seasonal mean Soresina",
-            "Seasonal mean Rezzato",
-            "Seasonal mean difference Soresina-Rezzato",
+            "Seasonal mean Brescia Villaggio Sereno",
+            "Seasonal mean difference Soresina-Brescia",
             "Seasonal median Soresina",
-            "Seasonal median Rezzato",
-            "Seasonal median difference Soresina-Rezzato"
+            "Seasonal median Brescia Villaggio Sereno",
+            "Seasonal median difference Soresina-Brescia"
         ],
         "Statistic / Value": [
             round(seasonal_wilcoxon_stat, 2) if seasonal_wilcoxon_stat is not None else "",
             round(seasonal_pivot["Soresina"].mean(), 2),
-            round(seasonal_pivot["Rezzato"].mean(), 2),
-            round(seasonal_pivot["Soresina"].mean() - seasonal_pivot["Rezzato"].mean(), 2),
+            round(seasonal_pivot["Brescia Villaggio Sereno"].mean(), 2),
+            round(seasonal_pivot["Soresina"].mean() - seasonal_pivot["Brescia Villaggio Sereno"].mean(), 2),
             round(seasonal_pivot["Soresina"].median(), 2),
-            round(seasonal_pivot["Rezzato"].median(), 2),
-            round(seasonal_pivot["Soresina"].median() - seasonal_pivot["Rezzato"].median(), 2)
+            round(seasonal_pivot["Brescia Villaggio Sereno"].median(), 2),
+            round(seasonal_pivot["Soresina"].median() - seasonal_pivot["Brescia Villaggio Sereno"].median(), 2)
         ],
         "p-value": [
             f"{seasonal_wilcoxon_p:.2e}" if seasonal_wilcoxon_p is not None else "",
@@ -897,7 +878,7 @@ def run_no2_definitivo_non_covid_analysis():
     )
 
     global_results.to_csv(
-        f"{output_dir}/global_NO2_non_covid_statistical_results.csv",
+        f"{output_dir}/global_PM25_non_covid_statistical_results.csv",
         index=False,
         sep=";"
     )

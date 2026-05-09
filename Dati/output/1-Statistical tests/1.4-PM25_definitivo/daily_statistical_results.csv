@@ -1,0 +1,10 @@
+Analysis;Statistic / Value;p-value
+Daily Shapiro-Wilk Soresina;0.8927;3.36e-18
+Daily Shapiro-Wilk Brescia Villaggio Sereno;0.8702;5.57e-20
+Daily Mann-Whitney U test;3204207.0;2.52e-15
+Daily mean Soresina;26.87;
+Daily mean Brescia Villaggio Sereno;24.07;
+Daily mean difference Soresina-Brescia;2.8;
+Daily median Soresina;23.0;
+Daily median Brescia Villaggio Sereno;19.0;
+Daily median difference Soresina-Brescia;4.0;

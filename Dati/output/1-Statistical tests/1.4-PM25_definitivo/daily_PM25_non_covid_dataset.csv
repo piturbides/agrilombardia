@@ -1,0 +1,4759 @@
+Date;Station;PM25
+2016-01-01;Brescia Villaggio Sereno;64.0
+2016-01-01;Soresina;42.0
+2016-01-02;Brescia Villaggio Sereno;61.0
+2016-01-02;Soresina;41.0
+2016-01-03;Brescia Villaggio Sereno;30.0
+2016-01-03;Soresina;24.0
+2016-01-04;Brescia Villaggio Sereno;38.0
+2016-01-04;Soresina;34.0
+2016-01-05;Brescia Villaggio Sereno;36.0
+2016-01-05;Soresina;30.0
+2016-01-06;Brescia Villaggio Sereno;42.0
+2016-01-06;Soresina;42.0
+2016-01-07;Brescia Villaggio Sereno;51.0
+2016-01-07;Soresina;45.0
+2016-01-08;Brescia Villaggio Sereno;55.0
+2016-01-09;Brescia Villaggio Sereno;61.0
+2016-01-09;Soresina;49.0
+2016-01-10;Brescia Villaggio Sereno;44.0
+2016-01-10;Soresina;38.0
+2016-01-11;Brescia Villaggio Sereno;33.0
+2016-01-11;Soresina;29.0
+2016-01-12;Brescia Villaggio Sereno;31.0
+2016-01-12;Soresina;19.0
+2016-01-13;Brescia Villaggio Sereno;23.0
+2016-01-13;Soresina;8.0
+2016-01-14;Brescia Villaggio Sereno;33.0
+2016-01-14;Soresina;29.0
+2016-01-15;Brescia Villaggio Sereno;39.0
+2016-01-15;Soresina;28.0
+2016-01-16;Soresina;31.0
+2016-01-17;Soresina;9.0
+2016-01-18;Soresina;28.0
+2016-01-19;Brescia Villaggio Sereno;21.0
+2016-01-19;Soresina;43.0
+2016-01-20;Brescia Villaggio Sereno;49.0
+2016-01-21;Brescia Villaggio Sereno;57.0
+2016-01-21;Soresina;74.0
+2016-01-22;Brescia Villaggio Sereno;64.0
+2016-01-22;Soresina;91.0
+2016-01-23;Brescia Villaggio Sereno;89.0
+2016-01-23;Soresina;87.0
+2016-01-24;Brescia Villaggio Sereno;81.0
+2016-01-24;Soresina;114.0
+2016-01-25;Brescia Villaggio Sereno;86.0
+2016-01-25;Soresina;122.0
+2016-01-26;Brescia Villaggio Sereno;59.0
+2016-01-26;Soresina;90.0
+2016-01-27;Brescia Villaggio Sereno;82.0
+2016-01-27;Soresina;107.0
+2016-01-28;Brescia Villaggio Sereno;106.0
+2016-01-28;Soresina;106.0
+2016-01-29;Brescia Villaggio Sereno;98.0
+2016-01-29;Soresina;103.0
+2016-01-30;Brescia Villaggio Sereno;62.0
+2016-01-31;Brescia Villaggio Sereno;56.0
+2016-01-31;Soresina;38.0
+2016-02-01;Brescia Villaggio Sereno;48.0
+2016-02-01;Soresina;38.0
+2016-02-02;Brescia Villaggio Sereno;64.0
+2016-02-02;Soresina;46.0
+2016-02-03;Soresina;32.0
+2016-02-04;Brescia Villaggio Sereno;27.0
+2016-02-04;Soresina;15.0
+2016-02-05;Brescia Villaggio Sereno;30.0
+2016-02-05;Soresina;33.0
+2016-02-06;Brescia Villaggio Sereno;42.0
+2016-02-06;Soresina;50.0
+2016-02-07;Brescia Villaggio Sereno;11.0
+2016-02-07;Soresina;39.0
+2016-02-08;Brescia Villaggio Sereno;31.0
+2016-02-08;Soresina;30.0
+2016-02-09;Brescia Villaggio Sereno;31.0
+2016-02-09;Soresina;39.0
+2016-02-10;Brescia Villaggio Sereno;12.0
+2016-02-10;Soresina;14.0
+2016-02-11;Brescia Villaggio Sereno;22.0
+2016-02-11;Soresina;18.0
+2016-02-12;Brescia Villaggio Sereno;26.0
+2016-02-12;Soresina;34.0
+2016-02-13;Brescia Villaggio Sereno;44.0
+2016-02-13;Soresina;44.0
+2016-02-14;Brescia Villaggio Sereno;37.0
+2016-02-14;Soresina;39.0
+2016-02-15;Brescia Villaggio Sereno;26.0
+2016-02-15;Soresina;35.0
+2016-02-16;Brescia Villaggio Sereno;30.0
+2016-02-16;Soresina;19.0
+2016-02-17;Brescia Villaggio Sereno;17.0
+2016-02-17;Soresina;19.0
+2016-02-18;Brescia Villaggio Sereno;24.0
+2016-02-18;Soresina;30.0
+2016-02-19;Brescia Villaggio Sereno;26.0
+2016-02-19;Soresina;39.0
+2016-02-20;Brescia Villaggio Sereno;27.0
+2016-02-20;Soresina;24.0
+2016-02-21;Brescia Villaggio Sereno;32.0
+2016-02-21;Soresina;26.0
+2016-02-22;Brescia Villaggio Sereno;56.0
+2016-02-22;Soresina;59.0
+2016-02-23;Brescia Villaggio Sereno;58.0
+2016-02-23;Soresina;66.0
+2016-02-24;Soresina;22.0
+2016-02-25;Soresina;17.0
+2016-02-26;Soresina;27.0
+2016-02-27;Soresina;20.0
+2016-02-28;Soresina;6.0
+2016-02-29;Soresina;8.0
+2016-03-01;Brescia Villaggio Sereno;31.0
+2016-03-01;Soresina;33.0
+2016-03-02;Brescia Villaggio Sereno;29.0
+2016-03-02;Soresina;33.0
+2016-03-03;Brescia Villaggio Sereno;17.0
+2016-03-03;Soresina;10.0
+2016-03-04;Soresina;23.0
+2016-03-05;Soresina;20.0
+2016-03-06;Soresina;30.0
+2016-03-07;Soresina;37.0
+2016-03-08;Brescia Villaggio Sereno;22.0
+2016-03-08;Soresina;32.0
+2016-03-09;Brescia Villaggio Sereno;34.0
+2016-03-09;Soresina;21.0
+2016-03-10;Brescia Villaggio Sereno;41.0
+2016-03-10;Soresina;39.0
+2016-03-11;Brescia Villaggio Sereno;33.0
+2016-03-11;Soresina;31.0
+2016-03-12;Brescia Villaggio Sereno;32.0
+2016-03-12;Soresina;36.0
+2016-03-13;Brescia Villaggio Sereno;29.0
+2016-03-13;Soresina;22.0
+2016-03-14;Brescia Villaggio Sereno;24.0
+2016-03-14;Soresina;18.0
+2016-03-15;Brescia Villaggio Sereno;33.0
+2016-03-15;Soresina;36.0
+2016-03-16;Brescia Villaggio Sereno;16.0
+2016-03-16;Soresina;11.0
+2016-03-17;Brescia Villaggio Sereno;33.0
+2016-03-17;Soresina;31.0
+2016-03-18;Brescia Villaggio Sereno;42.0
+2016-03-18;Soresina;35.0
+2016-03-19;Soresina;31.0
+2016-03-20;Soresina;20.0
+2016-03-21;Brescia Villaggio Sereno;36.0
+2016-03-21;Soresina;29.0
+2016-03-22;Brescia Villaggio Sereno;41.0
+2016-03-22;Soresina;35.0
+2016-03-23;Brescia Villaggio Sereno;22.0
+2016-03-23;Soresina;19.0
+2016-03-24;Brescia Villaggio Sereno;14.0
+2016-03-24;Soresina;26.0
+2016-03-25;Brescia Villaggio Sereno;26.0
+2016-03-25;Soresina;23.0
+2016-03-26;Brescia Villaggio Sereno;33.0
+2016-03-26;Soresina;36.0
+2016-03-27;Brescia Villaggio Sereno;44.0
+2016-03-27;Soresina;34.0
+2016-03-28;Brescia Villaggio Sereno;36.0
+2016-03-28;Soresina;34.0
+2016-03-29;Brescia Villaggio Sereno;22.0
+2016-03-29;Soresina;19.0
+2016-03-30;Brescia Villaggio Sereno;24.0
+2016-03-30;Soresina;29.0
+2016-03-31;Brescia Villaggio Sereno;32.0
+2016-03-31;Soresina;36.0
+2016-04-01;Brescia Villaggio Sereno;36.0
+2016-04-01;Soresina;36.0
+2016-04-02;Brescia Villaggio Sereno;37.0
+2016-04-02;Soresina;32.0
+2016-04-03;Brescia Villaggio Sereno;28.0
+2016-04-03;Soresina;29.0
+2016-04-04;Brescia Villaggio Sereno;38.0
+2016-04-04;Soresina;34.0
+2016-04-05;Brescia Villaggio Sereno;51.0
+2016-04-05;Soresina;40.0
+2016-04-06;Brescia Villaggio Sereno;58.0
+2016-04-06;Soresina;53.0
+2016-04-07;Brescia Villaggio Sereno;48.0
+2016-04-07;Soresina;47.0
+2016-04-08;Brescia Villaggio Sereno;42.0
+2016-04-08;Soresina;34.0
+2016-04-09;Brescia Villaggio Sereno;18.0
+2016-04-09;Soresina;13.0
+2016-04-10;Brescia Villaggio Sereno;16.0
+2016-04-10;Soresina;16.0
+2016-04-11;Brescia Villaggio Sereno;17.0
+2016-04-11;Soresina;17.0
+2016-04-12;Brescia Villaggio Sereno;17.0
+2016-04-12;Soresina;14.0
+2016-04-13;Brescia Villaggio Sereno;19.0
+2016-04-13;Soresina;18.0
+2016-04-14;Brescia Villaggio Sereno;20.0
+2016-04-14;Soresina;17.0
+2016-04-15;Brescia Villaggio Sereno;14.0
+2016-04-15;Soresina;14.0
+2016-04-16;Brescia Villaggio Sereno;8.0
+2016-04-16;Soresina;6.0
+2016-04-17;Brescia Villaggio Sereno;13.0
+2016-04-17;Soresina;14.0
+2016-04-18;Brescia Villaggio Sereno;10.0
+2016-04-18;Soresina;10.0
+2016-04-19;Brescia Villaggio Sereno;8.0
+2016-04-19;Soresina;10.0
+2016-04-20;Brescia Villaggio Sereno;18.0
+2016-04-22;Soresina;27.0
+2016-04-23;Brescia Villaggio Sereno;23.0
+2016-04-23;Soresina;22.0
+2016-04-24;Brescia Villaggio Sereno;21.0
+2016-04-24;Soresina;9.0
+2016-04-27;Brescia Villaggio Sereno;2.0
+2016-04-28;Brescia Villaggio Sereno;13.0
+2016-04-29;Brescia Villaggio Sereno;13.0
+2016-04-30;Brescia Villaggio Sereno;17.0
+2016-05-02;Brescia Villaggio Sereno;19.0
+2016-05-03;Brescia Villaggio Sereno;15.0
+2016-05-04;Brescia Villaggio Sereno;10.0
+2016-05-04;Soresina;11.0
+2016-05-05;Brescia Villaggio Sereno;9.0
+2016-05-05;Soresina;7.0
+2016-05-06;Brescia Villaggio Sereno;15.0
+2016-05-06;Soresina;20.0
+2016-05-07;Brescia Villaggio Sereno;19.0
+2016-05-07;Soresina;22.0
+2016-05-08;Soresina;11.0
+2016-05-09;Soresina;27.0
+2016-05-10;Soresina;50.0
+2016-05-11;Soresina;25.0
+2016-05-12;Brescia Villaggio Sereno;14.0
+2016-05-12;Soresina;12.0
+2016-05-13;Brescia Villaggio Sereno;22.0
+2016-05-13;Soresina;25.0
+2016-05-14;Brescia Villaggio Sereno;23.0
+2016-05-14;Soresina;17.0
+2016-05-15;Brescia Villaggio Sereno;15.0
+2016-05-15;Soresina;8.0
+2016-05-16;Brescia Villaggio Sereno;8.0
+2016-05-16;Soresina;6.0
+2016-05-17;Brescia Villaggio Sereno;14.0
+2016-05-17;Soresina;19.0
+2016-05-18;Brescia Villaggio Sereno;19.0
+2016-05-19;Brescia Villaggio Sereno;6.0
+2016-05-20;Brescia Villaggio Sereno;9.0
+2016-05-21;Brescia Villaggio Sereno;14.0
+2016-05-21;Soresina;19.0
+2016-05-22;Brescia Villaggio Sereno;12.0
+2016-05-22;Soresina;13.0
+2016-05-23;Brescia Villaggio Sereno;17.0
+2016-05-23;Soresina;15.0
+2016-05-24;Brescia Villaggio Sereno;15.0
+2016-05-24;Soresina;10.0
+2016-05-25;Brescia Villaggio Sereno;15.0
+2016-05-25;Soresina;14.0
+2016-05-26;Brescia Villaggio Sereno;19.0
+2016-05-27;Brescia Villaggio Sereno;28.0
+2016-05-27;Soresina;25.0
+2016-05-28;Brescia Villaggio Sereno;22.0
+2016-05-28;Soresina;26.0
+2016-05-29;Soresina;28.0
+2016-05-30;Soresina;16.0
+2016-05-31;Brescia Villaggio Sereno;7.0
+2016-05-31;Soresina;15.0
+2016-06-01;Brescia Villaggio Sereno;16.0
+2016-06-01;Soresina;24.0
+2016-06-02;Soresina;27.0
+2016-06-03;Brescia Villaggio Sereno;12.0
+2016-06-03;Soresina;22.0
+2016-06-04;Brescia Villaggio Sereno;9.0
+2016-06-04;Soresina;22.0
+2016-06-05;Brescia Villaggio Sereno;12.0
+2016-06-05;Soresina;24.0
+2016-06-06;Brescia Villaggio Sereno;10.0
+2016-06-06;Soresina;24.0
+2016-06-07;Brescia Villaggio Sereno;11.0
+2016-06-07;Soresina;36.0
+2016-06-08;Brescia Villaggio Sereno;14.0
+2016-06-11;Brescia Villaggio Sereno;22.0
+2016-06-12;Brescia Villaggio Sereno;10.0
+2016-06-13;Brescia Villaggio Sereno;17.0
+2016-06-14;Brescia Villaggio Sereno;8.0
+2016-06-15;Brescia Villaggio Sereno;9.0
+2016-06-16;Brescia Villaggio Sereno;18.0
+2016-06-16;Soresina;11.0
+2016-06-17;Soresina;11.0
+2016-06-18;Brescia Villaggio Sereno;12.0
+2016-06-18;Soresina;12.0
+2016-06-19;Brescia Villaggio Sereno;16.0
+2016-06-19;Soresina;16.0
+2016-06-20;Brescia Villaggio Sereno;9.0
+2016-06-20;Soresina;11.0
+2016-06-21;Brescia Villaggio Sereno;15.0
+2016-06-21;Soresina;2.0
+2016-06-22;Brescia Villaggio Sereno;17.0
+2016-06-22;Soresina;19.0
+2016-06-23;Brescia Villaggio Sereno;24.0
+2016-06-23;Soresina;35.0
+2016-06-24;Brescia Villaggio Sereno;26.0
+2016-06-24;Soresina;37.0
+2016-06-25;Brescia Villaggio Sereno;23.0
+2016-06-25;Soresina;30.0
+2016-06-26;Brescia Villaggio Sereno;17.0
+2016-06-26;Soresina;12.0
+2016-06-27;Brescia Villaggio Sereno;5.0
+2016-06-27;Soresina;11.0
+2016-06-28;Brescia Villaggio Sereno;9.0
+2016-06-28;Soresina;10.0
+2016-06-29;Brescia Villaggio Sereno;10.0
+2016-06-29;Soresina;7.0
+2016-06-30;Brescia Villaggio Sereno;13.0
+2016-06-30;Soresina;15.0
+2016-07-01;Soresina;22.0
+2016-07-02;Soresina;27.0
+2016-07-03;Soresina;16.0
+2016-07-04;Soresina;6.0
+2016-07-05;Brescia Villaggio Sereno;14.0
+2016-07-05;Soresina;21.0
+2016-07-06;Brescia Villaggio Sereno;17.0
+2016-07-06;Soresina;16.0
+2016-07-07;Brescia Villaggio Sereno;14.0
+2016-07-07;Soresina;18.0
+2016-07-08;Soresina;16.0
+2016-07-09;Soresina;22.0
+2016-07-10;Soresina;29.0
+2016-07-11;Soresina;20.0
+2016-07-12;Soresina;17.0
+2016-07-13;Soresina;13.0
+2016-07-15;Soresina;4.0
+2016-07-16;Soresina;8.0
+2016-07-17;Soresina;9.0
+2016-07-18;Soresina;16.0
+2016-07-19;Brescia Villaggio Sereno;27.0
+2016-07-19;Soresina;26.0
+2016-07-20;Brescia Villaggio Sereno;23.0
+2016-07-20;Soresina;22.0
+2016-07-21;Brescia Villaggio Sereno;22.0
+2016-07-21;Soresina;18.0
+2016-07-22;Brescia Villaggio Sereno;25.0
+2016-07-22;Soresina;22.0
+2016-07-23;Brescia Villaggio Sereno;23.0
+2016-07-23;Soresina;14.0
+2016-07-24;Brescia Villaggio Sereno;14.0
+2016-07-24;Soresina;12.0
+2016-07-25;Brescia Villaggio Sereno;16.0
+2016-07-25;Soresina;16.0
+2016-07-26;Brescia Villaggio Sereno;8.0
+2016-07-26;Soresina;13.0
+2016-07-27;Brescia Villaggio Sereno;17.0
+2016-07-27;Soresina;11.0
+2016-07-28;Brescia Villaggio Sereno;9.0
+2016-07-28;Soresina;11.0
+2016-07-29;Brescia Villaggio Sereno;12.0
+2016-07-29;Soresina;18.0
+2016-07-30;Brescia Villaggio Sereno;18.0
+2016-07-30;Soresina;26.0
+2016-07-31;Brescia Villaggio Sereno;11.0
+2016-07-31;Soresina;10.0
+2016-08-01;Brescia Villaggio Sereno;9.0
+2016-08-01;Soresina;10.0
+2016-08-02;Brescia Villaggio Sereno;6.0
+2016-08-02;Soresina;7.0
+2016-08-03;Brescia Villaggio Sereno;10.0
+2016-08-03;Soresina;18.0
+2016-08-04;Brescia Villaggio Sereno;14.0
+2016-08-04;Soresina;18.0
+2016-08-05;Brescia Villaggio Sereno;6.0
+2016-08-05;Soresina;7.0
+2016-08-06;Brescia Villaggio Sereno;2.0
+2016-08-06;Soresina;11.0
+2016-08-07;Brescia Villaggio Sereno;4.0
+2016-08-07;Soresina;6.0
+2016-08-08;Brescia Villaggio Sereno;11.0
+2016-08-08;Soresina;13.0
+2016-08-09;Soresina;16.0
+2016-08-10;Soresina;6.0
+2016-08-11;Soresina;4.0
+2016-08-12;Brescia Villaggio Sereno;6.0
+2016-08-12;Soresina;10.0
+2016-08-13;Brescia Villaggio Sereno;9.0
+2016-08-13;Soresina;16.0
+2016-08-14;Brescia Villaggio Sereno;16.0
+2016-08-14;Soresina;19.0
+2016-08-15;Brescia Villaggio Sereno;16.0
+2016-08-15;Soresina;20.0
+2016-08-16;Soresina;11.0
+2016-08-17;Brescia Villaggio Sereno;2.0
+2016-08-17;Soresina;11.0
+2016-08-18;Brescia Villaggio Sereno;11.0
+2016-08-18;Soresina;12.0
+2016-08-19;Brescia Villaggio Sereno;14.0
+2016-08-19;Soresina;21.0
+2016-08-20;Soresina;23.0
+2016-08-21;Soresina;20.0
+2016-08-22;Soresina;4.0
+2016-08-23;Soresina;13.0
+2016-08-24;Brescia Villaggio Sereno;11.0
+2016-08-24;Soresina;14.0
+2016-08-25;Brescia Villaggio Sereno;12.0
+2016-08-25;Soresina;14.0
+2016-08-26;Brescia Villaggio Sereno;17.0
+2016-08-26;Soresina;18.0
+2016-08-27;Soresina;25.0
+2016-08-28;Soresina;22.0
+2016-08-29;Brescia Villaggio Sereno;19.0
+2016-08-29;Soresina;20.0
+2016-08-30;Brescia Villaggio Sereno;12.0
+2016-08-30;Soresina;19.0
+2016-08-31;Brescia Villaggio Sereno;13.0
+2016-08-31;Soresina;14.0
+2016-09-01;Brescia Villaggio Sereno;17.0
+2016-09-01;Soresina;29.0
+2016-09-02;Brescia Villaggio Sereno;16.0
+2016-09-02;Soresina;28.0
+2016-09-03;Brescia Villaggio Sereno;19.0
+2016-09-03;Soresina;27.0
+2016-09-04;Brescia Villaggio Sereno;24.0
+2016-09-04;Soresina;28.0
+2016-09-05;Brescia Villaggio Sereno;14.0
+2016-09-05;Soresina;32.0
+2016-09-06;Brescia Villaggio Sereno;10.0
+2016-09-06;Soresina;13.0
+2016-09-07;Brescia Villaggio Sereno;15.0
+2016-09-07;Soresina;11.0
+2016-09-08;Brescia Villaggio Sereno;18.0
+2016-09-08;Soresina;26.0
+2016-09-09;Brescia Villaggio Sereno;23.0
+2016-09-09;Soresina;36.0
+2016-09-10;Brescia Villaggio Sereno;16.0
+2016-09-10;Soresina;25.0
+2016-09-11;Brescia Villaggio Sereno;12.0
+2016-09-11;Soresina;19.0
+2016-09-12;Soresina;23.0
+2016-09-13;Soresina;32.0
+2016-09-14;Brescia Villaggio Sereno;29.0
+2016-09-14;Soresina;31.0
+2016-09-15;Brescia Villaggio Sereno;29.0
+2016-09-15;Soresina;39.0
+2016-09-16;Brescia Villaggio Sereno;17.0
+2016-09-16;Soresina;34.0
+2016-09-17;Brescia Villaggio Sereno;18.0
+2016-09-17;Soresina;20.0
+2016-09-18;Brescia Villaggio Sereno;13.0
+2016-09-18;Soresina;17.0
+2016-09-19;Brescia Villaggio Sereno;9.0
+2016-09-19;Soresina;14.0
+2016-09-20;Brescia Villaggio Sereno;10.0
+2016-09-20;Soresina;17.0
+2016-09-21;Brescia Villaggio Sereno;8.0
+2016-09-21;Soresina;16.0
+2016-09-22;Brescia Villaggio Sereno;19.0
+2016-09-22;Soresina;23.0
+2016-09-23;Brescia Villaggio Sereno;25.0
+2016-09-23;Soresina;30.0
+2016-09-24;Brescia Villaggio Sereno;16.0
+2016-09-24;Soresina;22.0
+2016-09-25;Brescia Villaggio Sereno;20.0
+2016-09-25;Soresina;34.0
+2016-09-26;Brescia Villaggio Sereno;28.0
+2016-09-26;Soresina;46.0
+2016-09-27;Brescia Villaggio Sereno;22.0
+2016-09-27;Soresina;32.0
+2016-09-28;Brescia Villaggio Sereno;34.0
+2016-09-28;Soresina;51.0
+2016-09-29;Brescia Villaggio Sereno;51.0
+2016-09-29;Soresina;60.0
+2016-09-30;Brescia Villaggio Sereno;43.0
+2016-09-30;Soresina;36.0
+2016-10-01;Brescia Villaggio Sereno;25.0
+2016-10-01;Soresina;29.0
+2016-10-02;Soresina;34.0
+2016-10-03;Brescia Villaggio Sereno;18.0
+2016-10-03;Soresina;19.0
+2016-10-04;Brescia Villaggio Sereno;13.0
+2016-10-04;Soresina;19.0
+2016-10-05;Brescia Villaggio Sereno;17.0
+2016-10-05;Soresina;22.0
+2016-10-06;Brescia Villaggio Sereno;9.0
+2016-10-06;Soresina;7.0
+2016-10-07;Brescia Villaggio Sereno;28.0
+2016-10-07;Soresina;26.0
+2016-10-08;Brescia Villaggio Sereno;25.0
+2016-10-08;Soresina;23.0
+2016-10-09;Brescia Villaggio Sereno;18.0
+2016-10-09;Soresina;10.0
+2016-10-10;Brescia Villaggio Sereno;11.0
+2016-10-10;Soresina;11.0
+2016-10-11;Brescia Villaggio Sereno;14.0
+2016-10-11;Soresina;9.0
+2016-10-12;Brescia Villaggio Sereno;18.0
+2016-10-12;Soresina;25.0
+2016-10-13;Brescia Villaggio Sereno;20.0
+2016-10-13;Soresina;26.0
+2016-10-14;Brescia Villaggio Sereno;22.0
+2016-10-14;Soresina;16.0
+2016-10-15;Brescia Villaggio Sereno;18.0
+2016-10-15;Soresina;24.0
+2016-10-16;Soresina;25.0
+2016-10-17;Brescia Villaggio Sereno;33.0
+2016-10-17;Soresina;33.0
+2016-10-18;Brescia Villaggio Sereno;32.0
+2016-10-18;Soresina;52.0
+2016-10-19;Soresina;46.0
+2016-10-20;Brescia Villaggio Sereno;18.0
+2016-10-20;Soresina;13.0
+2016-10-21;Soresina;22.0
+2016-10-22;Brescia Villaggio Sereno;36.0
+2016-10-22;Soresina;32.0
+2016-10-23;Brescia Villaggio Sereno;29.0
+2016-10-23;Soresina;35.0
+2016-10-24;Brescia Villaggio Sereno;28.0
+2016-10-24;Soresina;27.0
+2016-10-25;Brescia Villaggio Sereno;28.0
+2016-10-25;Soresina;29.0
+2016-10-26;Soresina;30.0
+2016-10-27;Soresina;22.0
+2016-10-28;Brescia Villaggio Sereno;24.0
+2016-10-28;Soresina;26.0
+2016-10-29;Brescia Villaggio Sereno;34.0
+2016-10-29;Soresina;34.0
+2016-10-30;Brescia Villaggio Sereno;43.0
+2016-10-30;Soresina;37.0
+2016-10-31;Brescia Villaggio Sereno;43.0
+2016-10-31;Soresina;32.0
+2016-11-01;Brescia Villaggio Sereno;54.0
+2016-11-01;Soresina;46.0
+2016-11-02;Brescia Villaggio Sereno;64.0
+2016-11-02;Soresina;58.0
+2016-11-03;Brescia Villaggio Sereno;30.0
+2016-11-03;Soresina;46.0
+2016-11-04;Brescia Villaggio Sereno;19.0
+2016-11-04;Soresina;16.0
+2016-11-05;Brescia Villaggio Sereno;27.0
+2016-11-06;Brescia Villaggio Sereno;20.0
+2016-11-06;Soresina;19.0
+2016-11-07;Brescia Villaggio Sereno;17.0
+2016-11-07;Soresina;16.0
+2016-11-08;Brescia Villaggio Sereno;22.0
+2016-11-08;Soresina;24.0
+2016-11-09;Brescia Villaggio Sereno;31.0
+2016-11-09;Soresina;38.0
+2016-11-10;Brescia Villaggio Sereno;45.0
+2016-11-10;Soresina;44.0
+2016-11-11;Brescia Villaggio Sereno;44.0
+2016-11-11;Soresina;57.0
+2016-11-12;Brescia Villaggio Sereno;26.0
+2016-11-12;Soresina;38.0
+2016-11-13;Brescia Villaggio Sereno;21.0
+2016-11-13;Soresina;30.0
+2016-11-14;Brescia Villaggio Sereno;30.0
+2016-11-14;Soresina;20.0
+2016-11-15;Brescia Villaggio Sereno;32.0
+2016-11-15;Soresina;41.0
+2016-11-16;Brescia Villaggio Sereno;50.0
+2016-11-16;Soresina;63.0
+2016-11-17;Brescia Villaggio Sereno;67.0
+2016-11-17;Soresina;89.0
+2016-11-18;Brescia Villaggio Sereno;77.0
+2016-11-18;Soresina;103.0
+2016-11-19;Brescia Villaggio Sereno;34.0
+2016-11-19;Soresina;70.0
+2016-11-20;Brescia Villaggio Sereno;29.0
+2016-11-20;Soresina;30.0
+2016-11-21;Brescia Villaggio Sereno;29.0
+2016-11-21;Soresina;22.0
+2016-11-22;Brescia Villaggio Sereno;33.0
+2016-11-22;Soresina;24.0
+2016-11-23;Brescia Villaggio Sereno;23.0
+2016-11-23;Soresina;29.0
+2016-11-24;Brescia Villaggio Sereno;15.0
+2016-11-24;Soresina;26.0
+2016-11-25;Brescia Villaggio Sereno;13.0
+2016-11-25;Soresina;18.0
+2016-11-26;Brescia Villaggio Sereno;25.0
+2016-11-26;Soresina;21.0
+2016-11-27;Brescia Villaggio Sereno;29.0
+2016-11-27;Soresina;15.0
+2016-11-28;Brescia Villaggio Sereno;24.0
+2016-11-28;Soresina;6.0
+2016-11-29;Brescia Villaggio Sereno;18.0
+2016-11-29;Soresina;7.0
+2016-11-30;Brescia Villaggio Sereno;40.0
+2016-11-30;Soresina;26.0
+2016-12-01;Brescia Villaggio Sereno;48.0
+2016-12-01;Soresina;42.0
+2016-12-02;Brescia Villaggio Sereno;48.0
+2016-12-03;Brescia Villaggio Sereno;45.0
+2016-12-03;Soresina;43.0
+2016-12-04;Brescia Villaggio Sereno;54.0
+2016-12-05;Brescia Villaggio Sereno;55.0
+2016-12-05;Soresina;44.0
+2016-12-06;Brescia Villaggio Sereno;62.0
+2016-12-06;Soresina;61.0
+2016-12-07;Brescia Villaggio Sereno;78.0
+2016-12-07;Soresina;35.0
+2016-12-08;Soresina;40.0
+2016-12-09;Soresina;33.0
+2016-12-10;Brescia Villaggio Sereno;71.0
+2016-12-10;Soresina;38.0
+2016-12-11;Brescia Villaggio Sereno;48.0
+2016-12-11;Soresina;36.0
+2016-12-12;Brescia Villaggio Sereno;36.0
+2016-12-12;Soresina;26.0
+2016-12-13;Brescia Villaggio Sereno;41.0
+2016-12-13;Soresina;37.0
+2016-12-14;Brescia Villaggio Sereno;49.0
+2016-12-14;Soresina;32.0
+2016-12-15;Brescia Villaggio Sereno;50.0
+2016-12-15;Soresina;22.0
+2016-12-16;Brescia Villaggio Sereno;44.0
+2016-12-16;Soresina;35.0
+2016-12-17;Brescia Villaggio Sereno;44.0
+2016-12-17;Soresina;24.0
+2016-12-18;Brescia Villaggio Sereno;57.0
+2016-12-18;Soresina;23.0
+2016-12-19;Brescia Villaggio Sereno;63.0
+2016-12-19;Soresina;41.0
+2016-12-20;Brescia Villaggio Sereno;67.0
+2016-12-20;Soresina;46.0
+2016-12-21;Brescia Villaggio Sereno;46.0
+2016-12-21;Soresina;33.0
+2016-12-22;Brescia Villaggio Sereno;50.0
+2016-12-22;Soresina;28.0
+2016-12-23;Brescia Villaggio Sereno;50.0
+2016-12-23;Soresina;41.0
+2016-12-24;Brescia Villaggio Sereno;72.0
+2016-12-24;Soresina;47.0
+2016-12-25;Brescia Villaggio Sereno;49.0
+2016-12-25;Soresina;66.0
+2016-12-26;Brescia Villaggio Sereno;60.0
+2016-12-26;Soresina;69.0
+2016-12-27;Brescia Villaggio Sereno;36.0
+2016-12-27;Soresina;41.0
+2016-12-28;Brescia Villaggio Sereno;41.0
+2016-12-28;Soresina;44.0
+2016-12-29;Brescia Villaggio Sereno;20.0
+2016-12-29;Soresina;23.0
+2016-12-30;Brescia Villaggio Sereno;35.0
+2016-12-30;Soresina;56.0
+2016-12-31;Brescia Villaggio Sereno;60.0
+2016-12-31;Soresina;73.0
+2017-01-01;Brescia Villaggio Sereno;84.0
+2017-01-01;Soresina;83.0
+2017-01-02;Brescia Villaggio Sereno;65.0
+2017-01-02;Soresina;76.0
+2017-01-03;Brescia Villaggio Sereno;47.0
+2017-01-03;Soresina;78.0
+2017-01-04;Brescia Villaggio Sereno;44.0
+2017-01-04;Soresina;46.0
+2017-01-05;Brescia Villaggio Sereno;17.0
+2017-01-05;Soresina;18.0
+2017-01-06;Brescia Villaggio Sereno;21.0
+2017-01-06;Soresina;25.0
+2017-01-07;Brescia Villaggio Sereno;29.0
+2017-01-07;Soresina;40.0
+2017-01-08;Brescia Villaggio Sereno;38.0
+2017-01-08;Soresina;43.0
+2017-01-09;Brescia Villaggio Sereno;66.0
+2017-01-09;Soresina;71.0
+2017-01-10;Brescia Villaggio Sereno;41.0
+2017-01-10;Soresina;60.0
+2017-01-11;Brescia Villaggio Sereno;37.0
+2017-01-11;Soresina;35.0
+2017-01-12;Brescia Villaggio Sereno;43.0
+2017-01-12;Soresina;56.0
+2017-01-13;Brescia Villaggio Sereno;44.0
+2017-01-13;Soresina;44.0
+2017-01-14;Brescia Villaggio Sereno;28.0
+2017-01-14;Soresina;10.0
+2017-01-15;Brescia Villaggio Sereno;28.0
+2017-01-15;Soresina;43.0
+2017-01-16;Brescia Villaggio Sereno;19.0
+2017-01-16;Soresina;29.0
+2017-01-17;Brescia Villaggio Sereno;28.0
+2017-01-17;Soresina;33.0
+2017-01-18;Brescia Villaggio Sereno;35.0
+2017-01-18;Soresina;39.0
+2017-01-19;Brescia Villaggio Sereno;44.0
+2017-01-19;Soresina;47.0
+2017-01-20;Brescia Villaggio Sereno;50.0
+2017-01-20;Soresina;63.0
+2017-01-21;Brescia Villaggio Sereno;51.0
+2017-01-21;Soresina;71.0
+2017-01-22;Brescia Villaggio Sereno;31.0
+2017-01-22;Soresina;60.0
+2017-01-23;Brescia Villaggio Sereno;34.0
+2017-01-23;Soresina;52.0
+2017-01-24;Brescia Villaggio Sereno;36.0
+2017-01-24;Soresina;57.0
+2017-01-25;Brescia Villaggio Sereno;40.0
+2017-01-25;Soresina;49.0
+2017-01-26;Brescia Villaggio Sereno;45.0
+2017-01-26;Soresina;55.0
+2017-01-27;Brescia Villaggio Sereno;57.0
+2017-01-27;Soresina;65.0
+2017-01-28;Brescia Villaggio Sereno;81.0
+2017-01-28;Soresina;73.0
+2017-01-29;Brescia Villaggio Sereno;105.0
+2017-01-29;Soresina;120.0
+2017-01-30;Brescia Villaggio Sereno;131.0
+2017-01-31;Brescia Villaggio Sereno;109.0
+2017-02-01;Brescia Villaggio Sereno;103.0
+2017-02-01;Soresina;77.0
+2017-02-02;Brescia Villaggio Sereno;84.0
+2017-02-02;Soresina;66.0
+2017-02-03;Brescia Villaggio Sereno;44.0
+2017-02-03;Soresina;31.0
+2017-02-04;Brescia Villaggio Sereno;31.0
+2017-02-05;Brescia Villaggio Sereno;28.0
+2017-02-05;Soresina;20.0
+2017-02-06;Brescia Villaggio Sereno;40.0
+2017-02-06;Soresina;32.0
+2017-02-07;Brescia Villaggio Sereno;25.0
+2017-02-07;Soresina;26.0
+2017-02-08;Brescia Villaggio Sereno;24.0
+2017-02-08;Soresina;30.0
+2017-02-09;Brescia Villaggio Sereno;37.0
+2017-02-09;Soresina;33.0
+2017-02-10;Brescia Villaggio Sereno;40.0
+2017-02-10;Soresina;37.0
+2017-02-11;Brescia Villaggio Sereno;45.0
+2017-02-11;Soresina;44.0
+2017-02-12;Brescia Villaggio Sereno;55.0
+2017-02-12;Soresina;58.0
+2017-02-13;Brescia Villaggio Sereno;49.0
+2017-02-13;Soresina;43.0
+2017-02-14;Brescia Villaggio Sereno;46.0
+2017-02-14;Soresina;44.0
+2017-02-15;Brescia Villaggio Sereno;50.0
+2017-02-15;Soresina;45.0
+2017-02-16;Brescia Villaggio Sereno;47.0
+2017-02-16;Soresina;52.0
+2017-02-17;Brescia Villaggio Sereno;49.0
+2017-02-17;Soresina;53.0
+2017-02-18;Brescia Villaggio Sereno;41.0
+2017-02-18;Soresina;61.0
+2017-02-19;Brescia Villaggio Sereno;48.0
+2017-02-19;Soresina;49.0
+2017-02-20;Brescia Villaggio Sereno;59.0
+2017-02-20;Soresina;32.0
+2017-02-21;Brescia Villaggio Sereno;62.0
+2017-02-21;Soresina;42.0
+2017-02-22;Brescia Villaggio Sereno;44.0
+2017-02-22;Soresina;42.0
+2017-02-23;Brescia Villaggio Sereno;82.0
+2017-02-23;Soresina;47.0
+2017-02-24;Brescia Villaggio Sereno;44.0
+2017-02-24;Soresina;83.0
+2017-02-25;Brescia Villaggio Sereno;25.0
+2017-02-25;Soresina;16.0
+2017-02-26;Brescia Villaggio Sereno;31.0
+2017-02-26;Soresina;35.0
+2017-02-27;Brescia Villaggio Sereno;40.0
+2017-02-27;Soresina;41.0
+2017-02-28;Brescia Villaggio Sereno;27.0
+2017-02-28;Soresina;44.0
+2017-03-01;Brescia Villaggio Sereno;29.0
+2017-03-02;Brescia Villaggio Sereno;29.0
+2017-03-02;Soresina;28.0
+2017-03-03;Brescia Villaggio Sereno;42.0
+2017-03-03;Soresina;46.0
+2017-03-04;Brescia Villaggio Sereno;30.0
+2017-03-04;Soresina;28.0
+2017-03-05;Brescia Villaggio Sereno;10.0
+2017-03-05;Soresina;10.0
+2017-03-06;Brescia Villaggio Sereno;21.0
+2017-03-06;Soresina;28.0
+2017-03-07;Brescia Villaggio Sereno;16.0
+2017-03-07;Soresina;13.0
+2017-03-08;Brescia Villaggio Sereno;19.0
+2017-03-08;Soresina;18.0
+2017-03-09;Brescia Villaggio Sereno;31.0
+2017-03-09;Soresina;37.0
+2017-03-10;Brescia Villaggio Sereno;27.0
+2017-03-10;Soresina;29.0
+2017-03-11;Brescia Villaggio Sereno;13.0
+2017-03-11;Soresina;15.0
+2017-03-12;Brescia Villaggio Sereno;18.0
+2017-03-12;Soresina;24.0
+2017-03-13;Brescia Villaggio Sereno;24.0
+2017-03-13;Soresina;25.0
+2017-03-14;Brescia Villaggio Sereno;48.0
+2017-03-14;Soresina;51.0
+2017-03-15;Brescia Villaggio Sereno;54.0
+2017-03-15;Soresina;68.0
+2017-03-16;Brescia Villaggio Sereno;80.0
+2017-03-16;Soresina;83.0
+2017-03-17;Brescia Villaggio Sereno;88.0
+2017-03-17;Soresina;72.0
+2017-03-18;Brescia Villaggio Sereno;46.0
+2017-03-18;Soresina;30.0
+2017-03-19;Brescia Villaggio Sereno;59.0
+2017-03-19;Soresina;50.0
+2017-03-20;Brescia Villaggio Sereno;62.0
+2017-03-20;Soresina;68.0
+2017-03-21;Brescia Villaggio Sereno;62.0
+2017-03-21;Soresina;63.0
+2017-03-22;Brescia Villaggio Sereno;52.0
+2017-03-22;Soresina;39.0
+2017-03-23;Brescia Villaggio Sereno;30.0
+2017-03-23;Soresina;41.0
+2017-03-24;Brescia Villaggio Sereno;28.0
+2017-03-24;Soresina;23.0
+2017-03-25;Brescia Villaggio Sereno;32.0
+2017-03-25;Soresina;39.0
+2017-03-26;Brescia Villaggio Sereno;17.0
+2017-03-26;Soresina;10.0
+2017-03-27;Brescia Villaggio Sereno;26.0
+2017-03-27;Soresina;23.0
+2017-03-28;Brescia Villaggio Sereno;30.0
+2017-03-28;Soresina;34.0
+2017-03-29;Brescia Villaggio Sereno;23.0
+2017-03-29;Soresina;35.0
+2017-03-30;Brescia Villaggio Sereno;26.0
+2017-03-30;Soresina;34.0
+2017-03-31;Brescia Villaggio Sereno;35.0
+2017-03-31;Soresina;41.0
+2017-04-01;Brescia Villaggio Sereno;20.0
+2017-04-01;Soresina;27.0
+2017-04-02;Brescia Villaggio Sereno;20.0
+2017-04-02;Soresina;24.0
+2017-04-03;Brescia Villaggio Sereno;20.0
+2017-04-03;Soresina;22.0
+2017-04-04;Brescia Villaggio Sereno;18.0
+2017-04-04;Soresina;23.0
+2017-04-05;Brescia Villaggio Sereno;19.0
+2017-04-05;Soresina;21.0
+2017-04-06;Brescia Villaggio Sereno;39.0
+2017-04-06;Soresina;25.0
+2017-04-07;Brescia Villaggio Sereno;24.0
+2017-04-07;Soresina;20.0
+2017-04-08;Brescia Villaggio Sereno;34.0
+2017-04-08;Soresina;33.0
+2017-04-09;Brescia Villaggio Sereno;33.0
+2017-04-09;Soresina;30.0
+2017-04-10;Brescia Villaggio Sereno;31.0
+2017-04-10;Soresina;37.0
+2017-04-11;Brescia Villaggio Sereno;27.0
+2017-04-11;Soresina;23.0
+2017-04-12;Brescia Villaggio Sereno;16.0
+2017-04-12;Soresina;19.0
+2017-04-13;Brescia Villaggio Sereno;28.0
+2017-04-13;Soresina;32.0
+2017-04-14;Brescia Villaggio Sereno;31.0
+2017-04-14;Soresina;25.0
+2017-04-15;Soresina;20.0
+2017-04-16;Soresina;16.0
+2017-04-17;Brescia Villaggio Sereno;7.0
+2017-04-17;Soresina;7.0
+2017-04-18;Brescia Villaggio Sereno;10.0
+2017-04-18;Soresina;8.0
+2017-04-19;Brescia Villaggio Sereno;12.0
+2017-04-19;Soresina;10.0
+2017-04-20;Brescia Villaggio Sereno;10.0
+2017-04-20;Soresina;14.0
+2017-04-21;Brescia Villaggio Sereno;17.0
+2017-04-21;Soresina;13.0
+2017-04-22;Brescia Villaggio Sereno;27.0
+2017-04-22;Soresina;19.0
+2017-04-23;Brescia Villaggio Sereno;25.0
+2017-04-23;Soresina;16.0
+2017-04-24;Brescia Villaggio Sereno;19.0
+2017-04-24;Soresina;20.0
+2017-04-25;Brescia Villaggio Sereno;23.0
+2017-04-25;Soresina;25.0
+2017-04-26;Brescia Villaggio Sereno;13.0
+2017-04-26;Soresina;18.0
+2017-04-27;Brescia Villaggio Sereno;16.0
+2017-04-27;Soresina;15.0
+2017-04-28;Brescia Villaggio Sereno;10.0
+2017-04-28;Soresina;9.0
+2017-04-29;Brescia Villaggio Sereno;7.0
+2017-04-29;Soresina;18.0
+2017-04-30;Brescia Villaggio Sereno;13.0
+2017-04-30;Soresina;19.0
+2017-05-01;Brescia Villaggio Sereno;18.0
+2017-05-01;Soresina;22.0
+2017-05-02;Brescia Villaggio Sereno;22.0
+2017-05-02;Soresina;15.0
+2017-05-03;Brescia Villaggio Sereno;16.0
+2017-05-03;Soresina;15.0
+2017-05-04;Brescia Villaggio Sereno;13.0
+2017-05-04;Soresina;13.0
+2017-05-05;Brescia Villaggio Sereno;20.0
+2017-05-05;Soresina;20.0
+2017-05-06;Brescia Villaggio Sereno;20.0
+2017-05-06;Soresina;27.0
+2017-05-07;Brescia Villaggio Sereno;21.0
+2017-05-07;Soresina;16.0
+2017-05-08;Brescia Villaggio Sereno;16.0
+2017-05-08;Soresina;12.0
+2017-05-09;Brescia Villaggio Sereno;13.0
+2017-05-09;Soresina;10.0
+2017-05-10;Brescia Villaggio Sereno;13.0
+2017-05-10;Soresina;24.0
+2017-05-11;Brescia Villaggio Sereno;21.0
+2017-05-11;Soresina;20.0
+2017-05-12;Brescia Villaggio Sereno;15.0
+2017-05-12;Soresina;21.0
+2017-05-13;Brescia Villaggio Sereno;12.0
+2017-05-13;Soresina;9.0
+2017-05-14;Brescia Villaggio Sereno;13.0
+2017-05-14;Soresina;13.0
+2017-05-15;Soresina;10.0
+2017-05-16;Soresina;10.0
+2017-05-17;Brescia Villaggio Sereno;21.0
+2017-05-17;Soresina;20.0
+2017-05-18;Brescia Villaggio Sereno;15.0
+2017-05-18;Soresina;14.0
+2017-05-19;Brescia Villaggio Sereno;12.0
+2017-05-19;Soresina;19.0
+2017-05-20;Brescia Villaggio Sereno;13.0
+2017-05-20;Soresina;17.0
+2017-05-21;Brescia Villaggio Sereno;9.0
+2017-05-21;Soresina;14.0
+2017-05-22;Brescia Villaggio Sereno;17.0
+2017-05-22;Soresina;15.0
+2017-05-23;Brescia Villaggio Sereno;22.0
+2017-05-23;Soresina;14.0
+2017-05-24;Brescia Villaggio Sereno;31.0
+2017-05-24;Soresina;23.0
+2017-05-25;Brescia Villaggio Sereno;17.0
+2017-05-25;Soresina;20.0
+2017-05-26;Brescia Villaggio Sereno;13.0
+2017-05-26;Soresina;10.0
+2017-05-27;Brescia Villaggio Sereno;13.0
+2017-05-27;Soresina;15.0
+2017-05-28;Brescia Villaggio Sereno;10.0
+2017-05-28;Soresina;21.0
+2017-05-29;Brescia Villaggio Sereno;19.0
+2017-05-29;Soresina;19.0
+2017-05-30;Brescia Villaggio Sereno;24.0
+2017-05-30;Soresina;19.0
+2017-05-31;Brescia Villaggio Sereno;19.0
+2017-05-31;Soresina;14.0
+2017-06-01;Brescia Villaggio Sereno;19.0
+2017-06-01;Soresina;14.0
+2017-06-02;Brescia Villaggio Sereno;14.0
+2017-06-02;Soresina;15.0
+2017-06-03;Soresina;14.0
+2017-06-04;Soresina;14.0
+2017-06-05;Soresina;21.0
+2017-06-06;Brescia Villaggio Sereno;15.0
+2017-06-06;Soresina;20.0
+2017-06-07;Brescia Villaggio Sereno;17.0
+2017-06-07;Soresina;17.0
+2017-06-08;Brescia Villaggio Sereno;15.0
+2017-06-08;Soresina;14.0
+2017-06-09;Brescia Villaggio Sereno;19.0
+2017-06-09;Soresina;32.0
+2017-06-10;Brescia Villaggio Sereno;26.0
+2017-06-10;Soresina;49.0
+2017-06-11;Brescia Villaggio Sereno;12.0
+2017-06-11;Soresina;19.0
+2017-06-12;Brescia Villaggio Sereno;19.0
+2017-06-12;Soresina;21.0
+2017-06-13;Brescia Villaggio Sereno;22.0
+2017-06-13;Soresina;21.0
+2017-06-14;Brescia Villaggio Sereno;21.0
+2017-06-14;Soresina;26.0
+2017-06-15;Brescia Villaggio Sereno;33.0
+2017-06-15;Soresina;32.0
+2017-06-16;Brescia Villaggio Sereno;27.0
+2017-06-16;Soresina;29.0
+2017-06-17;Brescia Villaggio Sereno;15.0
+2017-06-17;Soresina;26.0
+2017-06-18;Brescia Villaggio Sereno;7.0
+2017-06-18;Soresina;12.0
+2017-06-19;Brescia Villaggio Sereno;8.0
+2017-06-19;Soresina;16.0
+2017-06-20;Brescia Villaggio Sereno;13.0
+2017-06-20;Soresina;26.0
+2017-06-21;Brescia Villaggio Sereno;17.0
+2017-06-21;Soresina;14.0
+2017-06-22;Brescia Villaggio Sereno;24.0
+2017-06-22;Soresina;24.0
+2017-06-23;Brescia Villaggio Sereno;18.0
+2017-06-23;Soresina;17.0
+2017-06-24;Brescia Villaggio Sereno;22.0
+2017-06-24;Soresina;20.0
+2017-06-25;Brescia Villaggio Sereno;16.0
+2017-06-25;Soresina;10.0
+2017-06-26;Brescia Villaggio Sereno;14.0
+2017-06-26;Soresina;19.0
+2017-06-27;Brescia Villaggio Sereno;8.0
+2017-06-27;Soresina;13.0
+2017-06-28;Brescia Villaggio Sereno;11.0
+2017-06-28;Soresina;14.0
+2017-06-29;Brescia Villaggio Sereno;8.0
+2017-06-29;Soresina;12.0
+2017-06-30;Brescia Villaggio Sereno;6.0
+2017-06-30;Soresina;7.0
+2017-07-01;Brescia Villaggio Sereno;4.0
+2017-07-01;Soresina;7.0
+2017-07-02;Brescia Villaggio Sereno;4.0
+2017-07-02;Soresina;8.0
+2017-07-03;Brescia Villaggio Sereno;5.0
+2017-07-03;Soresina;15.0
+2017-07-04;Brescia Villaggio Sereno;6.0
+2017-07-04;Soresina;10.0
+2017-07-05;Brescia Villaggio Sereno;11.0
+2017-07-05;Soresina;13.0
+2017-07-06;Brescia Villaggio Sereno;14.0
+2017-07-06;Soresina;20.0
+2017-07-07;Brescia Villaggio Sereno;18.0
+2017-07-07;Soresina;14.0
+2017-07-08;Brescia Villaggio Sereno;21.0
+2017-07-08;Soresina;20.0
+2017-07-09;Brescia Villaggio Sereno;11.0
+2017-07-09;Soresina;13.0
+2017-07-10;Brescia Villaggio Sereno;14.0
+2017-07-10;Soresina;22.0
+2017-07-11;Brescia Villaggio Sereno;9.0
+2017-07-11;Soresina;16.0
+2017-07-12;Brescia Villaggio Sereno;14.0
+2017-07-12;Soresina;22.0
+2017-07-13;Brescia Villaggio Sereno;17.0
+2017-07-13;Soresina;25.0
+2017-07-14;Brescia Villaggio Sereno;7.0
+2017-07-14;Soresina;10.0
+2017-07-15;Brescia Villaggio Sereno;6.0
+2017-07-15;Soresina;18.0
+2017-07-16;Brescia Villaggio Sereno;4.0
+2017-07-16;Soresina;4.0
+2017-07-17;Brescia Villaggio Sereno;7.0
+2017-07-17;Soresina;10.0
+2017-07-18;Brescia Villaggio Sereno;3.0
+2017-07-18;Soresina;16.0
+2017-07-19;Brescia Villaggio Sereno;17.0
+2017-07-19;Soresina;18.0
+2017-07-20;Brescia Villaggio Sereno;16.0
+2017-07-20;Soresina;14.0
+2017-07-21;Brescia Villaggio Sereno;19.0
+2017-07-21;Soresina;25.0
+2017-07-22;Brescia Villaggio Sereno;14.0
+2017-07-22;Soresina;17.0
+2017-07-23;Brescia Villaggio Sereno;17.0
+2017-07-23;Soresina;18.0
+2017-07-24;Brescia Villaggio Sereno;7.0
+2017-07-24;Soresina;14.0
+2017-07-25;Brescia Villaggio Sereno;7.0
+2017-07-25;Soresina;12.0
+2017-07-26;Brescia Villaggio Sereno;5.0
+2017-07-26;Soresina;5.0
+2017-07-27;Brescia Villaggio Sereno;8.0
+2017-07-27;Soresina;17.0
+2017-07-28;Brescia Villaggio Sereno;11.0
+2017-07-28;Soresina;19.0
+2017-07-29;Brescia Villaggio Sereno;14.0
+2017-07-29;Soresina;23.0
+2017-07-30;Brescia Villaggio Sereno;7.0
+2017-07-30;Soresina;15.0
+2017-07-31;Brescia Villaggio Sereno;16.0
+2017-07-31;Soresina;21.0
+2017-08-01;Brescia Villaggio Sereno;14.0
+2017-08-01;Soresina;31.0
+2017-08-02;Brescia Villaggio Sereno;14.0
+2017-08-02;Soresina;33.0
+2017-08-03;Brescia Villaggio Sereno;22.0
+2017-08-03;Soresina;33.0
+2017-08-04;Brescia Villaggio Sereno;20.0
+2017-08-04;Soresina;23.0
+2017-08-05;Brescia Villaggio Sereno;21.0
+2017-08-05;Soresina;26.0
+2017-08-06;Brescia Villaggio Sereno;14.0
+2017-08-06;Soresina;24.0
+2017-08-07;Brescia Villaggio Sereno;8.0
+2017-08-07;Soresina;8.0
+2017-08-08;Brescia Villaggio Sereno;10.0
+2017-08-08;Soresina;12.0
+2017-08-09;Brescia Villaggio Sereno;14.0
+2017-08-09;Soresina;20.0
+2017-08-10;Brescia Villaggio Sereno;15.0
+2017-08-10;Soresina;16.0
+2017-08-11;Brescia Villaggio Sereno;4.0
+2017-08-11;Soresina;10.0
+2017-08-12;Brescia Villaggio Sereno;5.0
+2017-08-12;Soresina;8.0
+2017-08-13;Brescia Villaggio Sereno;5.0
+2017-08-13;Soresina;8.0
+2017-08-14;Brescia Villaggio Sereno;5.0
+2017-08-14;Soresina;8.0
+2017-08-15;Brescia Villaggio Sereno;6.0
+2017-08-15;Soresina;14.0
+2017-08-16;Brescia Villaggio Sereno;8.0
+2017-08-16;Soresina;22.0
+2017-08-17;Brescia Villaggio Sereno;3.0
+2017-08-17;Soresina;15.0
+2017-08-18;Brescia Villaggio Sereno;6.0
+2017-08-18;Soresina;17.0
+2017-08-19;Brescia Villaggio Sereno;12.0
+2017-08-19;Soresina;14.0
+2017-08-20;Brescia Villaggio Sereno;7.0
+2017-08-20;Soresina;6.0
+2017-08-21;Brescia Villaggio Sereno;8.0
+2017-08-21;Soresina;9.0
+2017-08-22;Brescia Villaggio Sereno;7.0
+2017-08-22;Soresina;9.0
+2017-08-23;Brescia Villaggio Sereno;15.0
+2017-08-23;Soresina;14.0
+2017-08-24;Soresina;22.0
+2017-08-25;Soresina;22.0
+2017-08-26;Soresina;28.0
+2017-08-27;Soresina;21.0
+2017-08-28;Soresina;22.0
+2017-08-29;Soresina;10.0
+2017-08-30;Soresina;11.0
+2017-08-31;Brescia Villaggio Sereno;15.0
+2017-08-31;Soresina;17.0
+2017-09-01;Brescia Villaggio Sereno;15.0
+2017-09-01;Soresina;17.0
+2017-09-02;Brescia Villaggio Sereno;12.0
+2017-09-02;Soresina;9.0
+2017-09-03;Brescia Villaggio Sereno;12.0
+2017-09-03;Soresina;9.0
+2017-09-04;Brescia Villaggio Sereno;9.0
+2017-09-04;Soresina;9.0
+2017-09-05;Brescia Villaggio Sereno;18.0
+2017-09-05;Soresina;31.0
+2017-09-06;Soresina;36.0
+2017-09-07;Brescia Villaggio Sereno;24.0
+2017-09-07;Soresina;31.0
+2017-09-08;Brescia Villaggio Sereno;11.0
+2017-09-08;Soresina;8.0
+2017-09-09;Soresina;18.0
+2017-09-10;Soresina;10.0
+2017-09-12;Brescia Villaggio Sereno;11.0
+2017-09-13;Brescia Villaggio Sereno;10.0
+2017-09-13;Soresina;16.0
+2017-09-14;Brescia Villaggio Sereno;17.0
+2017-09-14;Soresina;25.0
+2017-09-15;Brescia Villaggio Sereno;15.0
+2017-09-15;Soresina;17.0
+2017-09-16;Brescia Villaggio Sereno;12.0
+2017-09-16;Soresina;18.0
+2017-09-17;Brescia Villaggio Sereno;5.0
+2017-09-17;Soresina;4.0
+2017-09-18;Brescia Villaggio Sereno;5.0
+2017-09-18;Soresina;5.0
+2017-09-19;Brescia Villaggio Sereno;18.0
+2017-09-19;Soresina;15.0
+2017-09-20;Brescia Villaggio Sereno;15.0
+2017-09-20;Soresina;12.0
+2017-09-21;Brescia Villaggio Sereno;14.0
+2017-09-21;Soresina;17.0
+2017-09-22;Brescia Villaggio Sereno;20.0
+2017-09-22;Soresina;25.0
+2017-09-23;Brescia Villaggio Sereno;35.0
+2017-09-23;Soresina;30.0
+2017-09-24;Soresina;28.0
+2017-09-25;Soresina;17.0
+2017-09-26;Soresina;26.0
+2017-09-27;Brescia Villaggio Sereno;28.0
+2017-09-27;Soresina;34.0
+2017-09-28;Brescia Villaggio Sereno;35.0
+2017-09-28;Soresina;37.0
+2017-09-29;Brescia Villaggio Sereno;29.0
+2017-09-29;Soresina;31.0
+2017-09-30;Brescia Villaggio Sereno;22.0
+2017-09-30;Soresina;27.0
+2017-10-01;Brescia Villaggio Sereno;23.0
+2017-10-01;Soresina;23.0
+2017-10-02;Brescia Villaggio Sereno;39.0
+2017-10-02;Soresina;39.0
+2017-10-03;Brescia Villaggio Sereno;44.0
+2017-10-03;Soresina;57.0
+2017-10-04;Brescia Villaggio Sereno;54.0
+2017-10-04;Soresina;61.0
+2017-10-05;Brescia Villaggio Sereno;44.0
+2017-10-05;Soresina;44.0
+2017-10-06;Brescia Villaggio Sereno;26.0
+2017-10-06;Soresina;26.0
+2017-10-07;Brescia Villaggio Sereno;13.0
+2017-10-07;Soresina;16.0
+2017-10-08;Brescia Villaggio Sereno;15.0
+2017-10-08;Soresina;18.0
+2017-10-09;Soresina;33.0
+2017-10-10;Soresina;43.0
+2017-10-11;Brescia Villaggio Sereno;58.0
+2017-10-11;Soresina;62.0
+2017-10-12;Brescia Villaggio Sereno;52.0
+2017-10-13;Brescia Villaggio Sereno;62.0
+2017-10-14;Brescia Villaggio Sereno;54.0
+2017-10-14;Soresina;68.0
+2017-10-15;Brescia Villaggio Sereno;51.0
+2017-10-15;Soresina;61.0
+2017-10-16;Brescia Villaggio Sereno;46.0
+2017-10-16;Soresina;67.0
+2017-10-17;Brescia Villaggio Sereno;38.0
+2017-10-17;Soresina;63.0
+2017-10-18;Brescia Villaggio Sereno;45.0
+2017-10-18;Soresina;69.0
+2017-10-19;Soresina;54.0
+2017-10-20;Soresina;78.0
+2017-10-21;Brescia Villaggio Sereno;76.0
+2017-10-21;Soresina;102.0
+2017-10-22;Brescia Villaggio Sereno;36.0
+2017-10-22;Soresina;62.0
+2017-10-23;Brescia Villaggio Sereno;13.0
+2017-10-23;Soresina;12.0
+2017-10-24;Brescia Villaggio Sereno;14.0
+2017-10-24;Soresina;20.0
+2017-10-25;Brescia Villaggio Sereno;19.0
+2017-10-25;Soresina;34.0
+2017-10-26;Brescia Villaggio Sereno;42.0
+2017-10-26;Soresina;54.0
+2017-10-27;Brescia Villaggio Sereno;54.0
+2017-10-27;Soresina;60.0
+2017-10-28;Brescia Villaggio Sereno;40.0
+2017-10-28;Soresina;74.0
+2017-10-29;Brescia Villaggio Sereno;36.0
+2017-10-29;Soresina;39.0
+2017-10-30;Soresina;37.0
+2017-10-31;Soresina;21.0
+2017-11-01;Soresina;41.0
+2017-11-02;Soresina;63.0
+2017-11-03;Brescia Villaggio Sereno;72.0
+2017-11-03;Soresina;75.0
+2017-11-04;Brescia Villaggio Sereno;52.0
+2017-11-04;Soresina;78.0
+2017-11-05;Brescia Villaggio Sereno;17.0
+2017-11-05;Soresina;24.0
+2017-11-06;Brescia Villaggio Sereno;17.0
+2017-11-06;Soresina;11.0
+2017-11-07;Brescia Villaggio Sereno;21.0
+2017-11-07;Soresina;18.0
+2017-11-08;Brescia Villaggio Sereno;25.0
+2017-11-08;Soresina;24.0
+2017-11-09;Brescia Villaggio Sereno;24.0
+2017-11-09;Soresina;30.0
+2017-11-10;Brescia Villaggio Sereno;26.0
+2017-11-10;Soresina;25.0
+2017-11-11;Brescia Villaggio Sereno;39.0
+2017-11-11;Soresina;20.0
+2017-11-12;Soresina;23.0
+2017-11-13;Soresina;8.0
+2017-11-14;Brescia Villaggio Sereno;16.0
+2017-11-14;Soresina;22.0
+2017-11-15;Brescia Villaggio Sereno;26.0
+2017-11-15;Soresina;34.0
+2017-11-16;Brescia Villaggio Sereno;27.0
+2017-11-16;Soresina;43.0
+2017-11-17;Brescia Villaggio Sereno;29.0
+2017-11-17;Soresina;60.0
+2017-11-18;Brescia Villaggio Sereno;31.0
+2017-11-18;Soresina;57.0
+2017-11-19;Brescia Villaggio Sereno;47.0
+2017-11-19;Soresina;53.0
+2017-11-20;Brescia Villaggio Sereno;32.0
+2017-11-20;Soresina;59.0
+2017-11-21;Brescia Villaggio Sereno;46.0
+2017-11-21;Soresina;66.0
+2017-11-22;Brescia Villaggio Sereno;66.0
+2017-11-22;Soresina;80.0
+2017-11-23;Brescia Villaggio Sereno;83.0
+2017-11-24;Brescia Villaggio Sereno;59.0
+2017-11-25;Brescia Villaggio Sereno;45.0
+2017-11-25;Soresina;70.0
+2017-11-26;Brescia Villaggio Sereno;23.0
+2017-11-26;Soresina;14.0
+2017-11-27;Brescia Villaggio Sereno;19.0
+2017-11-27;Soresina;30.0
+2017-11-28;Brescia Villaggio Sereno;34.0
+2017-11-28;Soresina;41.0
+2017-11-29;Brescia Villaggio Sereno;42.0
+2017-11-30;Brescia Villaggio Sereno;49.0
+2017-12-01;Brescia Villaggio Sereno;21.0
+2017-12-01;Soresina;20.0
+2017-12-02;Brescia Villaggio Sereno;21.0
+2017-12-02;Soresina;29.0
+2017-12-03;Brescia Villaggio Sereno;24.0
+2017-12-03;Soresina;40.0
+2017-12-04;Brescia Villaggio Sereno;48.0
+2017-12-04;Soresina;56.0
+2017-12-05;Brescia Villaggio Sereno;65.0
+2017-12-05;Soresina;59.0
+2017-12-06;Brescia Villaggio Sereno;58.0
+2017-12-06;Soresina;70.0
+2017-12-07;Brescia Villaggio Sereno;79.0
+2017-12-07;Soresina;66.0
+2017-12-08;Brescia Villaggio Sereno;76.0
+2017-12-08;Soresina;73.0
+2017-12-09;Brescia Villaggio Sereno;41.0
+2017-12-09;Soresina;29.0
+2017-12-10;Brescia Villaggio Sereno;25.0
+2017-12-10;Soresina;31.0
+2017-12-11;Brescia Villaggio Sereno;38.0
+2017-12-12;Brescia Villaggio Sereno;51.0
+2017-12-12;Soresina;43.0
+2017-12-13;Brescia Villaggio Sereno;55.0
+2017-12-14;Brescia Villaggio Sereno;54.0
+2017-12-15;Brescia Villaggio Sereno;50.0
+2017-12-15;Soresina;46.0
+2017-12-16;Brescia Villaggio Sereno;33.0
+2017-12-16;Soresina;38.0
+2017-12-17;Brescia Villaggio Sereno;38.0
+2017-12-17;Soresina;45.0
+2017-12-18;Brescia Villaggio Sereno;40.0
+2017-12-18;Soresina;45.0
+2017-12-19;Brescia Villaggio Sereno;33.0
+2017-12-19;Soresina;58.0
+2017-12-20;Brescia Villaggio Sereno;57.0
+2017-12-20;Soresina;62.0
+2017-12-21;Brescia Villaggio Sereno;69.0
+2017-12-21;Soresina;78.0
+2017-12-22;Brescia Villaggio Sereno;85.0
+2017-12-23;Brescia Villaggio Sereno;92.0
+2017-12-24;Brescia Villaggio Sereno;47.0
+2017-12-25;Brescia Villaggio Sereno;66.0
+2017-12-26;Brescia Villaggio Sereno;56.0
+2017-12-27;Brescia Villaggio Sereno;17.0
+2017-12-28;Brescia Villaggio Sereno;24.0
+2017-12-28;Soresina;27.0
+2017-12-29;Brescia Villaggio Sereno;26.0
+2017-12-29;Soresina;21.0
+2017-12-30;Brescia Villaggio Sereno;31.0
+2017-12-30;Soresina;30.0
+2017-12-31;Brescia Villaggio Sereno;43.0
+2017-12-31;Soresina;50.0
+2018-01-01;Brescia Villaggio Sereno;49.0
+2018-01-01;Soresina;36.0
+2018-01-02;Brescia Villaggio Sereno;26.0
+2018-01-02;Soresina;33.0
+2018-01-03;Brescia Villaggio Sereno;28.0
+2018-01-03;Soresina;35.0
+2018-01-04;Brescia Villaggio Sereno;39.0
+2018-01-04;Soresina;34.0
+2018-01-05;Brescia Villaggio Sereno;52.0
+2018-01-05;Soresina;48.0
+2018-01-06;Brescia Villaggio Sereno;43.0
+2018-01-06;Soresina;42.0
+2018-01-07;Brescia Villaggio Sereno;41.0
+2018-01-07;Soresina;27.0
+2018-01-08;Brescia Villaggio Sereno;17.0
+2018-01-08;Soresina;15.0
+2018-01-09;Brescia Villaggio Sereno;17.0
+2018-01-09;Soresina;19.0
+2018-01-10;Brescia Villaggio Sereno;21.0
+2018-01-10;Soresina;23.0
+2018-01-11;Brescia Villaggio Sereno;42.0
+2018-01-11;Soresina;31.0
+2018-01-12;Brescia Villaggio Sereno;28.0
+2018-01-12;Soresina;37.0
+2018-01-13;Brescia Villaggio Sereno;34.0
+2018-01-13;Soresina;39.0
+2018-01-14;Brescia Villaggio Sereno;37.0
+2018-01-14;Soresina;37.0
+2018-01-15;Brescia Villaggio Sereno;56.0
+2018-01-15;Soresina;46.0
+2018-01-16;Brescia Villaggio Sereno;55.0
+2018-01-16;Soresina;52.0
+2018-01-17;Brescia Villaggio Sereno;32.0
+2018-01-17;Soresina;28.0
+2018-01-18;Brescia Villaggio Sereno;28.0
+2018-01-18;Soresina;25.0
+2018-01-19;Brescia Villaggio Sereno;33.0
+2018-01-19;Soresina;41.0
+2018-01-20;Brescia Villaggio Sereno;29.0
+2018-01-20;Soresina;60.0
+2018-01-21;Brescia Villaggio Sereno;23.0
+2018-01-21;Soresina;35.0
+2018-01-22;Brescia Villaggio Sereno;27.0
+2018-01-22;Soresina;37.0
+2018-01-23;Brescia Villaggio Sereno;38.0
+2018-01-24;Brescia Villaggio Sereno;51.0
+2018-01-25;Brescia Villaggio Sereno;66.0
+2018-01-26;Brescia Villaggio Sereno;71.0
+2018-01-27;Brescia Villaggio Sereno;46.0
+2018-01-27;Soresina;36.0
+2018-01-28;Brescia Villaggio Sereno;43.0
+2018-01-28;Soresina;29.0
+2018-01-29;Brescia Villaggio Sereno;45.0
+2018-01-29;Soresina;18.0
+2018-01-30;Brescia Villaggio Sereno;38.0
+2018-01-30;Soresina;16.0
+2018-01-31;Brescia Villaggio Sereno;47.0
+2018-01-31;Soresina;26.0
+2018-02-01;Brescia Villaggio Sereno;29.0
+2018-02-01;Soresina;31.0
+2018-02-02;Brescia Villaggio Sereno;19.0
+2018-02-02;Soresina;22.0
+2018-02-03;Brescia Villaggio Sereno;23.0
+2018-02-03;Soresina;20.0
+2018-02-04;Brescia Villaggio Sereno;19.0
+2018-02-04;Soresina;25.0
+2018-02-05;Brescia Villaggio Sereno;15.0
+2018-02-05;Soresina;25.0
+2018-02-06;Brescia Villaggio Sereno;25.0
+2018-02-06;Soresina;26.0
+2018-02-07;Brescia Villaggio Sereno;31.0
+2018-02-07;Soresina;31.0
+2018-02-08;Brescia Villaggio Sereno;47.0
+2018-02-08;Soresina;33.0
+2018-02-09;Brescia Villaggio Sereno;41.0
+2018-02-09;Soresina;48.0
+2018-02-10;Brescia Villaggio Sereno;44.0
+2018-02-10;Soresina;52.0
+2018-02-11;Brescia Villaggio Sereno;40.0
+2018-02-11;Soresina;45.0
+2018-02-12;Brescia Villaggio Sereno;28.0
+2018-02-12;Soresina;28.0
+2018-02-13;Brescia Villaggio Sereno;22.0
+2018-02-13;Soresina;27.0
+2018-02-14;Brescia Villaggio Sereno;28.0
+2018-02-14;Soresina;36.0
+2018-02-15;Brescia Villaggio Sereno;46.0
+2018-02-15;Soresina;48.0
+2018-02-16;Brescia Villaggio Sereno;73.0
+2018-02-16;Soresina;68.0
+2018-02-17;Brescia Villaggio Sereno;57.0
+2018-02-17;Soresina;74.0
+2018-02-18;Brescia Villaggio Sereno;46.0
+2018-02-18;Soresina;37.0
+2018-02-19;Brescia Villaggio Sereno;24.0
+2018-02-19;Soresina;25.0
+2018-02-20;Brescia Villaggio Sereno;34.0
+2018-02-20;Soresina;41.0
+2018-02-21;Brescia Villaggio Sereno;45.0
+2018-02-21;Soresina;40.0
+2018-02-22;Soresina;26.0
+2018-02-23;Soresina;23.0
+2018-02-24;Brescia Villaggio Sereno;35.0
+2018-02-24;Soresina;29.0
+2018-02-25;Brescia Villaggio Sereno;21.0
+2018-02-25;Soresina;19.0
+2018-02-26;Brescia Villaggio Sereno;23.0
+2018-02-26;Soresina;15.0
+2018-02-27;Brescia Villaggio Sereno;28.0
+2018-02-27;Soresina;26.0
+2018-02-28;Brescia Villaggio Sereno;44.0
+2018-02-28;Soresina;41.0
+2018-03-01;Brescia Villaggio Sereno;60.0
+2018-03-01;Soresina;62.0
+2018-03-02;Brescia Villaggio Sereno;80.0
+2018-03-02;Soresina;67.0
+2018-03-03;Brescia Villaggio Sereno;40.0
+2018-03-03;Soresina;48.0
+2018-03-04;Brescia Villaggio Sereno;44.0
+2018-03-04;Soresina;26.0
+2018-03-05;Brescia Villaggio Sereno;57.0
+2018-03-05;Soresina;45.0
+2018-03-06;Brescia Villaggio Sereno;43.0
+2018-03-06;Soresina;32.0
+2018-03-07;Brescia Villaggio Sereno;39.0
+2018-03-08;Brescia Villaggio Sereno;32.0
+2018-03-08;Soresina;38.0
+2018-03-09;Brescia Villaggio Sereno;36.0
+2018-03-09;Soresina;40.0
+2018-03-10;Brescia Villaggio Sereno;28.0
+2018-03-10;Soresina;30.0
+2018-03-11;Brescia Villaggio Sereno;19.0
+2018-03-11;Soresina;29.0
+2018-03-12;Brescia Villaggio Sereno;23.0
+2018-03-12;Soresina;22.0
+2018-03-13;Brescia Villaggio Sereno;37.0
+2018-03-13;Soresina;39.0
+2018-03-14;Brescia Villaggio Sereno;34.0
+2018-03-14;Soresina;29.0
+2018-03-15;Brescia Villaggio Sereno;28.0
+2018-03-15;Soresina;30.0
+2018-03-16;Brescia Villaggio Sereno;25.0
+2018-03-16;Soresina;25.0
+2018-03-17;Brescia Villaggio Sereno;22.0
+2018-03-17;Soresina;20.0
+2018-03-18;Brescia Villaggio Sereno;12.0
+2018-03-18;Soresina;7.0
+2018-03-19;Brescia Villaggio Sereno;9.0
+2018-03-19;Soresina;9.0
+2018-03-20;Soresina;25.0
+2018-03-21;Brescia Villaggio Sereno;27.0
+2018-03-22;Brescia Villaggio Sereno;27.0
+2018-03-23;Brescia Villaggio Sereno;31.0
+2018-03-23;Soresina;31.0
+2018-03-24;Brescia Villaggio Sereno;23.0
+2018-03-24;Soresina;19.0
+2018-03-25;Brescia Villaggio Sereno;26.0
+2018-03-25;Soresina;21.0
+2018-03-26;Brescia Villaggio Sereno;41.0
+2018-03-26;Soresina;49.0
+2018-03-27;Brescia Villaggio Sereno;41.0
+2018-03-27;Soresina;48.0
+2018-03-28;Brescia Villaggio Sereno;33.0
+2018-03-28;Soresina;42.0
+2018-03-29;Brescia Villaggio Sereno;37.0
+2018-03-29;Soresina;47.0
+2018-03-30;Brescia Villaggio Sereno;22.0
+2018-03-30;Soresina;34.0
+2018-03-31;Brescia Villaggio Sereno;12.0
+2018-03-31;Soresina;12.0
+2018-04-01;Brescia Villaggio Sereno;12.0
+2018-04-02;Brescia Villaggio Sereno;11.0
+2018-04-03;Brescia Villaggio Sereno;22.0
+2018-04-04;Brescia Villaggio Sereno;13.0
+2018-04-04;Soresina;20.0
+2018-04-05;Brescia Villaggio Sereno;30.0
+2018-04-05;Soresina;33.0
+2018-04-06;Brescia Villaggio Sereno;38.0
+2018-04-06;Soresina;45.0
+2018-04-07;Soresina;40.0
+2018-04-08;Soresina;24.0
+2018-04-09;Soresina;23.0
+2018-04-10;Brescia Villaggio Sereno;22.0
+2018-04-10;Soresina;23.0
+2018-04-11;Brescia Villaggio Sereno;8.0
+2018-04-11;Soresina;20.0
+2018-04-12;Brescia Villaggio Sereno;16.0
+2018-04-12;Soresina;18.0
+2018-04-13;Brescia Villaggio Sereno;10.0
+2018-04-13;Soresina;19.0
+2018-04-14;Brescia Villaggio Sereno;12.0
+2018-04-14;Soresina;23.0
+2018-04-15;Brescia Villaggio Sereno;12.0
+2018-04-15;Soresina;24.0
+2018-04-16;Brescia Villaggio Sereno;19.0
+2018-04-16;Soresina;21.0
+2018-04-17;Brescia Villaggio Sereno;18.0
+2018-04-17;Soresina;23.0
+2018-04-18;Brescia Villaggio Sereno;17.0
+2018-04-18;Soresina;32.0
+2018-04-19;Brescia Villaggio Sereno;21.0
+2018-04-19;Soresina;31.0
+2018-04-20;Brescia Villaggio Sereno;21.0
+2018-04-20;Soresina;35.0
+2018-04-21;Brescia Villaggio Sereno;24.0
+2018-04-21;Soresina;42.0
+2018-04-22;Brescia Villaggio Sereno;19.0
+2018-04-22;Soresina;20.0
+2018-04-23;Brescia Villaggio Sereno;28.0
+2018-04-23;Soresina;26.0
+2018-04-24;Brescia Villaggio Sereno;34.0
+2018-04-24;Soresina;26.0
+2018-04-25;Brescia Villaggio Sereno;25.0
+2018-04-25;Soresina;25.0
+2018-04-26;Brescia Villaggio Sereno;23.0
+2018-04-26;Soresina;23.0
+2018-04-27;Brescia Villaggio Sereno;16.0
+2018-04-27;Soresina;12.0
+2018-04-28;Brescia Villaggio Sereno;17.0
+2018-04-28;Soresina;27.0
+2018-04-29;Brescia Villaggio Sereno;17.0
+2018-04-29;Soresina;21.0
+2018-04-30;Brescia Villaggio Sereno;13.0
+2018-04-30;Soresina;6.0
+2018-05-01;Brescia Villaggio Sereno;8.0
+2018-05-01;Soresina;13.0
+2018-05-02;Brescia Villaggio Sereno;14.0
+2018-05-02;Soresina;20.0
+2018-05-03;Brescia Villaggio Sereno;25.0
+2018-05-03;Soresina;19.0
+2018-05-04;Brescia Villaggio Sereno;14.0
+2018-05-05;Brescia Villaggio Sereno;10.0
+2018-05-05;Soresina;18.0
+2018-05-06;Brescia Villaggio Sereno;16.0
+2018-05-06;Soresina;20.0
+2018-05-07;Brescia Villaggio Sereno;13.0
+2018-05-08;Brescia Villaggio Sereno;16.0
+2018-05-08;Soresina;24.0
+2018-05-09;Brescia Villaggio Sereno;9.0
+2018-05-09;Soresina;21.0
+2018-05-10;Brescia Villaggio Sereno;13.0
+2018-05-11;Soresina;25.0
+2018-05-12;Soresina;22.0
+2018-05-13;Soresina;19.0
+2018-05-14;Soresina;6.0
+2018-05-15;Brescia Villaggio Sereno;13.0
+2018-05-15;Soresina;5.0
+2018-05-16;Brescia Villaggio Sereno;27.0
+2018-05-16;Soresina;21.0
+2018-05-17;Brescia Villaggio Sereno;18.0
+2018-05-17;Soresina;23.0
+2018-05-18;Brescia Villaggio Sereno;17.0
+2018-05-18;Soresina;25.0
+2018-05-19;Brescia Villaggio Sereno;10.0
+2018-05-19;Soresina;20.0
+2018-05-20;Brescia Villaggio Sereno;8.0
+2018-05-20;Soresina;13.0
+2018-05-21;Brescia Villaggio Sereno;15.0
+2018-05-21;Soresina;18.0
+2018-05-22;Brescia Villaggio Sereno;25.0
+2018-05-22;Soresina;23.0
+2018-05-23;Brescia Villaggio Sereno;12.0
+2018-05-23;Soresina;19.0
+2018-05-24;Brescia Villaggio Sereno;17.0
+2018-05-24;Soresina;22.0
+2018-05-25;Brescia Villaggio Sereno;23.0
+2018-05-25;Soresina;22.0
+2018-05-26;Brescia Villaggio Sereno;31.0
+2018-05-26;Soresina;25.0
+2018-05-27;Brescia Villaggio Sereno;20.0
+2018-05-27;Soresina;25.0
+2018-05-28;Brescia Villaggio Sereno;20.0
+2018-05-28;Soresina;18.0
+2018-05-29;Brescia Villaggio Sereno;21.0
+2018-05-29;Soresina;21.0
+2018-05-30;Brescia Villaggio Sereno;24.0
+2018-05-30;Soresina;27.0
+2018-05-31;Brescia Villaggio Sereno;24.0
+2018-05-31;Soresina;25.0
+2018-06-01;Brescia Villaggio Sereno;14.0
+2018-06-01;Soresina;14.0
+2018-06-02;Brescia Villaggio Sereno;19.0
+2018-06-02;Soresina;14.0
+2018-06-03;Brescia Villaggio Sereno;22.0
+2018-06-03;Soresina;15.0
+2018-06-04;Brescia Villaggio Sereno;17.0
+2018-06-04;Soresina;17.0
+2018-06-05;Brescia Villaggio Sereno;25.0
+2018-06-06;Brescia Villaggio Sereno;12.0
+2018-06-06;Soresina;12.0
+2018-06-07;Brescia Villaggio Sereno;15.0
+2018-06-07;Soresina;11.0
+2018-06-08;Soresina;9.0
+2018-06-09;Brescia Villaggio Sereno;20.0
+2018-06-09;Soresina;15.0
+2018-06-10;Brescia Villaggio Sereno;29.0
+2018-06-10;Soresina;14.0
+2018-06-11;Brescia Villaggio Sereno;18.0
+2018-06-11;Soresina;28.0
+2018-06-12;Brescia Villaggio Sereno;13.0
+2018-06-12;Soresina;19.0
+2018-06-13;Soresina;20.0
+2018-06-14;Brescia Villaggio Sereno;10.0
+2018-06-14;Soresina;12.0
+2018-06-15;Brescia Villaggio Sereno;15.0
+2018-06-15;Soresina;7.0
+2018-06-16;Brescia Villaggio Sereno;13.0
+2018-06-16;Soresina;13.0
+2018-06-17;Brescia Villaggio Sereno;23.0
+2018-06-17;Soresina;21.0
+2018-06-18;Brescia Villaggio Sereno;16.0
+2018-06-18;Soresina;18.0
+2018-06-19;Brescia Villaggio Sereno;12.0
+2018-06-19;Soresina;13.0
+2018-06-20;Brescia Villaggio Sereno;14.0
+2018-06-20;Soresina;16.0
+2018-06-21;Brescia Villaggio Sereno;20.0
+2018-06-21;Soresina;19.0
+2018-06-22;Brescia Villaggio Sereno;13.0
+2018-06-22;Soresina;11.0
+2018-06-23;Brescia Villaggio Sereno;9.0
+2018-06-23;Soresina;3.0
+2018-06-24;Brescia Villaggio Sereno;7.0
+2018-06-24;Soresina;7.0
+2018-06-25;Brescia Villaggio Sereno;10.0
+2018-06-25;Soresina;6.0
+2018-06-26;Brescia Villaggio Sereno;9.0
+2018-06-26;Soresina;6.0
+2018-06-27;Brescia Villaggio Sereno;11.0
+2018-06-27;Soresina;11.0
+2018-06-28;Brescia Villaggio Sereno;9.0
+2018-06-28;Soresina;7.0
+2018-06-29;Brescia Villaggio Sereno;15.0
+2018-06-29;Soresina;12.0
+2018-06-30;Brescia Villaggio Sereno;14.0
+2018-06-30;Soresina;13.0
+2018-07-01;Brescia Villaggio Sereno;18.0
+2018-07-01;Soresina;21.0
+2018-07-02;Brescia Villaggio Sereno;14.0
+2018-07-02;Soresina;16.0
+2018-07-03;Brescia Villaggio Sereno;21.0
+2018-07-03;Soresina;27.0
+2018-07-04;Brescia Villaggio Sereno;25.0
+2018-07-04;Soresina;15.0
+2018-07-05;Brescia Villaggio Sereno;14.0
+2018-07-05;Soresina;11.0
+2018-07-06;Brescia Villaggio Sereno;18.0
+2018-07-06;Soresina;22.0
+2018-07-07;Brescia Villaggio Sereno;8.0
+2018-07-07;Soresina;18.0
+2018-07-08;Brescia Villaggio Sereno;9.0
+2018-07-08;Soresina;15.0
+2018-07-09;Brescia Villaggio Sereno;7.0
+2018-07-09;Soresina;9.0
+2018-07-10;Brescia Villaggio Sereno;12.0
+2018-07-10;Soresina;19.0
+2018-07-11;Brescia Villaggio Sereno;16.0
+2018-07-11;Soresina;13.0
+2018-07-12;Brescia Villaggio Sereno;19.0
+2018-07-12;Soresina;29.0
+2018-07-13;Brescia Villaggio Sereno;25.0
+2018-07-13;Soresina;17.0
+2018-07-14;Brescia Villaggio Sereno;20.0
+2018-07-14;Soresina;30.0
+2018-07-15;Brescia Villaggio Sereno;12.0
+2018-07-15;Soresina;17.0
+2018-07-16;Brescia Villaggio Sereno;9.0
+2018-07-16;Soresina;11.0
+2018-07-17;Brescia Villaggio Sereno;17.0
+2018-07-17;Soresina;26.0
+2018-07-18;Brescia Villaggio Sereno;12.0
+2018-07-18;Soresina;20.0
+2018-07-19;Brescia Villaggio Sereno;21.0
+2018-07-19;Soresina;16.0
+2018-07-20;Brescia Villaggio Sereno;15.0
+2018-07-20;Soresina;25.0
+2018-07-21;Brescia Villaggio Sereno;10.0
+2018-07-21;Soresina;13.0
+2018-07-22;Brescia Villaggio Sereno;6.0
+2018-07-22;Soresina;14.0
+2018-07-23;Brescia Villaggio Sereno;7.0
+2018-07-23;Soresina;17.0
+2018-07-24;Brescia Villaggio Sereno;10.0
+2018-07-24;Soresina;13.0
+2018-07-25;Brescia Villaggio Sereno;10.0
+2018-07-25;Soresina;17.0
+2018-07-26;Brescia Villaggio Sereno;13.0
+2018-07-26;Soresina;21.0
+2018-07-27;Brescia Villaggio Sereno;13.0
+2018-07-27;Soresina;18.0
+2018-07-28;Brescia Villaggio Sereno;18.0
+2018-07-28;Soresina;25.0
+2018-07-29;Brescia Villaggio Sereno;10.0
+2018-07-29;Soresina;19.0
+2018-07-30;Brescia Villaggio Sereno;15.0
+2018-07-30;Soresina;29.0
+2018-07-31;Brescia Villaggio Sereno;19.0
+2018-08-01;Brescia Villaggio Sereno;16.0
+2018-08-01;Soresina;22.0
+2018-08-02;Brescia Villaggio Sereno;13.0
+2018-08-02;Soresina;15.0
+2018-08-03;Brescia Villaggio Sereno;13.0
+2018-08-03;Soresina;13.0
+2018-08-04;Brescia Villaggio Sereno;10.0
+2018-08-04;Soresina;15.0
+2018-08-05;Brescia Villaggio Sereno;11.0
+2018-08-05;Soresina;18.0
+2018-08-06;Brescia Villaggio Sereno;20.0
+2018-08-06;Soresina;24.0
+2018-08-07;Brescia Villaggio Sereno;22.0
+2018-08-07;Soresina;13.0
+2018-08-08;Brescia Villaggio Sereno;26.0
+2018-08-08;Soresina;21.0
+2018-08-09;Brescia Villaggio Sereno;15.0
+2018-08-09;Soresina;23.0
+2018-08-10;Brescia Villaggio Sereno;14.0
+2018-08-10;Soresina;22.0
+2018-08-11;Brescia Villaggio Sereno;18.0
+2018-08-11;Soresina;18.0
+2018-08-12;Brescia Villaggio Sereno;10.0
+2018-08-12;Soresina;14.0
+2018-08-13;Brescia Villaggio Sereno;11.0
+2018-08-13;Soresina;21.0
+2018-08-14;Brescia Villaggio Sereno;15.0
+2018-08-14;Soresina;26.0
+2018-08-15;Brescia Villaggio Sereno;10.0
+2018-08-15;Soresina;8.0
+2018-08-16;Brescia Villaggio Sereno;7.0
+2018-08-16;Soresina;14.0
+2018-08-17;Brescia Villaggio Sereno;10.0
+2018-08-17;Soresina;15.0
+2018-08-18;Brescia Villaggio Sereno;11.0
+2018-08-18;Soresina;20.0
+2018-08-19;Brescia Villaggio Sereno;9.0
+2018-08-20;Brescia Villaggio Sereno;11.0
+2018-08-21;Brescia Villaggio Sereno;15.0
+2018-08-21;Soresina;15.0
+2018-08-22;Brescia Villaggio Sereno;16.0
+2018-08-22;Soresina;19.0
+2018-08-23;Brescia Villaggio Sereno;18.0
+2018-08-23;Soresina;22.0
+2018-08-24;Brescia Villaggio Sereno;13.0
+2018-08-24;Soresina;16.0
+2018-08-25;Brescia Villaggio Sereno;15.0
+2018-08-26;Brescia Villaggio Sereno;2.0
+2018-08-27;Brescia Villaggio Sereno;2.0
+2018-08-28;Brescia Villaggio Sereno;10.0
+2018-08-29;Brescia Villaggio Sereno;11.0
+2018-08-30;Brescia Villaggio Sereno;14.0
+2018-08-31;Brescia Villaggio Sereno;14.0
+2018-08-31;Soresina;18.0
+2018-09-01;Brescia Villaggio Sereno;5.0
+2018-09-01;Soresina;8.0
+2018-09-02;Brescia Villaggio Sereno;6.0
+2018-09-02;Soresina;11.0
+2018-09-03;Brescia Villaggio Sereno;11.0
+2018-09-03;Soresina;14.0
+2018-09-04;Brescia Villaggio Sereno;8.0
+2018-09-04;Soresina;14.0
+2018-09-05;Brescia Villaggio Sereno;11.0
+2018-09-05;Soresina;22.0
+2018-09-06;Brescia Villaggio Sereno;16.0
+2018-09-06;Soresina;26.0
+2018-09-07;Soresina;23.0
+2018-09-08;Brescia Villaggio Sereno;14.0
+2018-09-08;Soresina;23.0
+2018-09-09;Brescia Villaggio Sereno;11.0
+2018-09-09;Soresina;20.0
+2018-09-10;Brescia Villaggio Sereno;22.0
+2018-09-10;Soresina;28.0
+2018-09-11;Brescia Villaggio Sereno;26.0
+2018-09-11;Soresina;45.0
+2018-09-12;Brescia Villaggio Sereno;34.0
+2018-09-12;Soresina;50.0
+2018-09-13;Brescia Villaggio Sereno;29.0
+2018-09-13;Soresina;49.0
+2018-09-14;Brescia Villaggio Sereno;26.0
+2018-09-14;Soresina;24.0
+2018-09-15;Brescia Villaggio Sereno;19.0
+2018-09-15;Soresina;28.0
+2018-09-16;Brescia Villaggio Sereno;19.0
+2018-09-16;Soresina;32.0
+2018-09-17;Brescia Villaggio Sereno;28.0
+2018-09-17;Soresina;26.0
+2018-09-18;Brescia Villaggio Sereno;23.0
+2018-09-18;Soresina;32.0
+2018-09-19;Brescia Villaggio Sereno;24.0
+2018-09-19;Soresina;45.0
+2018-09-20;Brescia Villaggio Sereno;22.0
+2018-09-20;Soresina;38.0
+2018-09-21;Brescia Villaggio Sereno;22.0
+2018-09-21;Soresina;39.0
+2018-09-22;Brescia Villaggio Sereno;22.0
+2018-09-22;Soresina;34.0
+2018-09-23;Brescia Villaggio Sereno;18.0
+2018-09-23;Soresina;18.0
+2018-09-24;Brescia Villaggio Sereno;12.0
+2018-09-24;Soresina;12.0
+2018-09-25;Brescia Villaggio Sereno;6.0
+2018-09-25;Soresina;8.0
+2018-09-26;Brescia Villaggio Sereno;10.0
+2018-09-26;Soresina;10.0
+2018-09-27;Brescia Villaggio Sereno;22.0
+2018-09-27;Soresina;27.0
+2018-09-28;Brescia Villaggio Sereno;31.0
+2018-09-28;Soresina;32.0
+2018-09-29;Brescia Villaggio Sereno;12.0
+2018-09-29;Soresina;22.0
+2018-09-30;Brescia Villaggio Sereno;11.0
+2018-09-30;Soresina;10.0
+2018-10-01;Brescia Villaggio Sereno;17.0
+2018-10-01;Soresina;17.0
+2018-10-02;Brescia Villaggio Sereno;14.0
+2018-10-02;Soresina;22.0
+2018-10-03;Brescia Villaggio Sereno;35.0
+2018-10-03;Soresina;18.0
+2018-10-04;Brescia Villaggio Sereno;21.0
+2018-10-04;Soresina;32.0
+2018-10-05;Brescia Villaggio Sereno;25.0
+2018-10-05;Soresina;24.0
+2018-10-06;Brescia Villaggio Sereno;31.0
+2018-10-06;Soresina;43.0
+2018-10-07;Brescia Villaggio Sereno;36.0
+2018-10-07;Soresina;37.0
+2018-10-08;Brescia Villaggio Sereno;34.0
+2018-10-08;Soresina;40.0
+2018-10-09;Brescia Villaggio Sereno;34.0
+2018-10-09;Soresina;41.0
+2018-10-10;Brescia Villaggio Sereno;31.0
+2018-10-10;Soresina;42.0
+2018-10-11;Brescia Villaggio Sereno;26.0
+2018-10-11;Soresina;32.0
+2018-10-12;Brescia Villaggio Sereno;38.0
+2018-10-12;Soresina;39.0
+2018-10-13;Brescia Villaggio Sereno;39.0
+2018-10-13;Soresina;44.0
+2018-10-14;Brescia Villaggio Sereno;29.0
+2018-10-14;Soresina;43.0
+2018-10-15;Brescia Villaggio Sereno;34.0
+2018-10-15;Soresina;44.0
+2018-10-16;Brescia Villaggio Sereno;27.0
+2018-10-16;Soresina;40.0
+2018-10-17;Brescia Villaggio Sereno;29.0
+2018-10-17;Soresina;39.0
+2018-10-18;Brescia Villaggio Sereno;36.0
+2018-10-18;Soresina;50.0
+2018-10-19;Brescia Villaggio Sereno;35.0
+2018-10-19;Soresina;48.0
+2018-10-20;Brescia Villaggio Sereno;39.0
+2018-10-20;Soresina;54.0
+2018-10-21;Brescia Villaggio Sereno;36.0
+2018-10-21;Soresina;47.0
+2018-10-22;Brescia Villaggio Sereno;14.0
+2018-10-22;Soresina;16.0
+2018-10-23;Brescia Villaggio Sereno;29.0
+2018-10-23;Soresina;26.0
+2018-10-24;Brescia Villaggio Sereno;31.0
+2018-10-24;Soresina;23.0
+2018-10-25;Brescia Villaggio Sereno;30.0
+2018-10-25;Soresina;39.0
+2018-10-26;Brescia Villaggio Sereno;20.0
+2018-10-26;Soresina;27.0
+2018-10-27;Brescia Villaggio Sereno;21.0
+2018-10-27;Soresina;20.0
+2018-10-28;Brescia Villaggio Sereno;5.0
+2018-10-28;Soresina;15.0
+2018-10-29;Brescia Villaggio Sereno;7.0
+2018-10-29;Soresina;14.0
+2018-10-30;Brescia Villaggio Sereno;5.0
+2018-10-30;Soresina;4.0
+2018-10-31;Brescia Villaggio Sereno;6.0
+2018-10-31;Soresina;13.0
+2018-11-01;Brescia Villaggio Sereno;8.0
+2018-11-01;Soresina;13.0
+2018-11-02;Brescia Villaggio Sereno;13.0
+2018-11-02;Soresina;20.0
+2018-11-03;Soresina;20.0
+2018-11-04;Soresina;21.0
+2018-11-05;Brescia Villaggio Sereno;12.0
+2018-11-05;Soresina;21.0
+2018-11-06;Brescia Villaggio Sereno;4.0
+2018-11-06;Soresina;16.0
+2018-11-07;Brescia Villaggio Sereno;10.0
+2018-11-07;Soresina;29.0
+2018-11-08;Brescia Villaggio Sereno;18.0
+2018-11-08;Soresina;20.0
+2018-11-09;Brescia Villaggio Sereno;31.0
+2018-11-09;Soresina;31.0
+2018-11-10;Soresina;26.0
+2018-11-11;Soresina;27.0
+2018-11-12;Soresina;27.0
+2018-11-13;Brescia Villaggio Sereno;36.0
+2018-11-13;Soresina;26.0
+2018-11-14;Brescia Villaggio Sereno;26.0
+2018-11-14;Soresina;27.0
+2018-11-15;Brescia Villaggio Sereno;36.0
+2018-11-15;Soresina;29.0
+2018-11-16;Brescia Villaggio Sereno;26.0
+2018-11-16;Soresina;19.0
+2018-11-17;Brescia Villaggio Sereno;24.0
+2018-11-17;Soresina;25.0
+2018-11-18;Brescia Villaggio Sereno;27.0
+2018-11-18;Soresina;19.0
+2018-11-19;Brescia Villaggio Sereno;21.0
+2018-11-19;Soresina;23.0
+2018-11-20;Brescia Villaggio Sereno;24.0
+2018-11-20;Soresina;17.0
+2018-11-21;Brescia Villaggio Sereno;28.0
+2018-11-21;Soresina;26.0
+2018-11-22;Brescia Villaggio Sereno;48.0
+2018-11-22;Soresina;30.0
+2018-11-23;Brescia Villaggio Sereno;55.0
+2018-11-23;Soresina;35.0
+2018-11-24;Brescia Villaggio Sereno;15.0
+2018-11-24;Soresina;13.0
+2018-11-25;Brescia Villaggio Sereno;26.0
+2018-11-25;Soresina;25.0
+2018-11-26;Brescia Villaggio Sereno;32.0
+2018-11-26;Soresina;28.0
+2018-11-27;Brescia Villaggio Sereno;30.0
+2018-11-27;Soresina;37.0
+2018-11-28;Brescia Villaggio Sereno;25.0
+2018-11-28;Soresina;34.0
+2018-11-29;Brescia Villaggio Sereno;32.0
+2018-11-29;Soresina;28.0
+2018-11-30;Brescia Villaggio Sereno;47.0
+2018-11-30;Soresina;39.0
+2018-12-01;Soresina;36.0
+2018-12-02;Soresina;53.0
+2018-12-03;Brescia Villaggio Sereno;65.0
+2018-12-03;Soresina;59.0
+2018-12-04;Brescia Villaggio Sereno;62.0
+2018-12-04;Soresina;67.0
+2018-12-05;Brescia Villaggio Sereno;42.0
+2018-12-05;Soresina;52.0
+2018-12-06;Brescia Villaggio Sereno;52.0
+2018-12-06;Soresina;46.0
+2018-12-07;Brescia Villaggio Sereno;55.0
+2018-12-07;Soresina;32.0
+2018-12-08;Brescia Villaggio Sereno;33.0
+2018-12-08;Soresina;26.0
+2018-12-09;Brescia Villaggio Sereno;30.0
+2018-12-09;Soresina;24.0
+2018-12-10;Brescia Villaggio Sereno;17.0
+2018-12-10;Soresina;6.0
+2018-12-11;Brescia Villaggio Sereno;18.0
+2018-12-11;Soresina;20.0
+2018-12-12;Brescia Villaggio Sereno;21.0
+2018-12-12;Soresina;32.0
+2018-12-13;Brescia Villaggio Sereno;30.0
+2018-12-13;Soresina;34.0
+2018-12-14;Brescia Villaggio Sereno;32.0
+2018-12-14;Soresina;41.0
+2018-12-15;Brescia Villaggio Sereno;45.0
+2018-12-15;Soresina;55.0
+2018-12-16;Brescia Villaggio Sereno;62.0
+2018-12-16;Soresina;72.0
+2018-12-17;Brescia Villaggio Sereno;65.0
+2018-12-17;Soresina;46.0
+2018-12-18;Brescia Villaggio Sereno;66.0
+2018-12-18;Soresina;26.0
+2018-12-19;Brescia Villaggio Sereno;63.0
+2018-12-19;Soresina;45.0
+2018-12-20;Brescia Villaggio Sereno;40.0
+2018-12-20;Soresina;33.0
+2018-12-21;Brescia Villaggio Sereno;48.0
+2018-12-21;Soresina;26.0
+2018-12-22;Brescia Villaggio Sereno;52.0
+2018-12-22;Soresina;40.0
+2018-12-23;Brescia Villaggio Sereno;41.0
+2018-12-23;Soresina;30.0
+2018-12-24;Brescia Villaggio Sereno;40.0
+2018-12-24;Soresina;17.0
+2018-12-25;Brescia Villaggio Sereno;39.0
+2018-12-25;Soresina;19.0
+2018-12-26;Brescia Villaggio Sereno;34.0
+2018-12-26;Soresina;22.0
+2018-12-27;Brescia Villaggio Sereno;41.0
+2018-12-27;Soresina;27.0
+2018-12-28;Brescia Villaggio Sereno;65.0
+2018-12-28;Soresina;47.0
+2018-12-29;Brescia Villaggio Sereno;51.0
+2018-12-29;Soresina;73.0
+2018-12-30;Brescia Villaggio Sereno;41.0
+2018-12-30;Soresina;63.0
+2018-12-31;Brescia Villaggio Sereno;51.0
+2018-12-31;Soresina;62.0
+2019-01-01;Brescia Villaggio Sereno;62.0
+2019-01-01;Soresina;47.0
+2019-01-02;Brescia Villaggio Sereno;31.0
+2019-01-02;Soresina;27.0
+2019-01-03;Brescia Villaggio Sereno;18.0
+2019-01-03;Soresina;24.0
+2019-01-04;Brescia Villaggio Sereno;33.0
+2019-01-04;Soresina;42.0
+2019-01-05;Brescia Villaggio Sereno;48.0
+2019-01-05;Soresina;53.0
+2019-01-06;Brescia Villaggio Sereno;34.0
+2019-01-06;Soresina;69.0
+2019-01-07;Brescia Villaggio Sereno;55.0
+2019-01-07;Soresina;90.0
+2019-01-08;Brescia Villaggio Sereno;63.0
+2019-01-08;Soresina;40.0
+2019-01-09;Brescia Villaggio Sereno;38.0
+2019-01-09;Soresina;27.0
+2019-01-10;Brescia Villaggio Sereno;25.0
+2019-01-10;Soresina;26.0
+2019-01-11;Brescia Villaggio Sereno;35.0
+2019-01-11;Soresina;32.0
+2019-01-12;Brescia Villaggio Sereno;47.0
+2019-01-12;Soresina;43.0
+2019-01-13;Brescia Villaggio Sereno;59.0
+2019-01-13;Soresina;60.0
+2019-01-14;Brescia Villaggio Sereno;31.0
+2019-01-14;Soresina;21.0
+2019-01-15;Brescia Villaggio Sereno;24.0
+2019-01-15;Soresina;22.0
+2019-01-16;Brescia Villaggio Sereno;36.0
+2019-01-16;Soresina;50.0
+2019-01-17;Brescia Villaggio Sereno;59.0
+2019-01-17;Soresina;50.0
+2019-01-18;Brescia Villaggio Sereno;42.0
+2019-01-18;Soresina;38.0
+2019-01-19;Brescia Villaggio Sereno;20.0
+2019-01-19;Soresina;17.0
+2019-01-20;Brescia Villaggio Sereno;42.0
+2019-01-20;Soresina;46.0
+2019-01-21;Brescia Villaggio Sereno;47.0
+2019-01-21;Soresina;58.0
+2019-01-22;Brescia Villaggio Sereno;38.0
+2019-01-22;Soresina;54.0
+2019-01-23;Brescia Villaggio Sereno;37.0
+2019-01-24;Brescia Villaggio Sereno;50.0
+2019-01-24;Soresina;42.0
+2019-01-25;Brescia Villaggio Sereno;37.0
+2019-01-25;Soresina;44.0
+2019-01-26;Brescia Villaggio Sereno;59.0
+2019-01-26;Soresina;64.0
+2019-01-27;Brescia Villaggio Sereno;58.0
+2019-01-27;Soresina;68.0
+2019-01-28;Brescia Villaggio Sereno;51.0
+2019-01-28;Soresina;49.0
+2019-01-29;Brescia Villaggio Sereno;28.0
+2019-01-29;Soresina;47.0
+2019-01-30;Brescia Villaggio Sereno;21.0
+2019-01-30;Soresina;25.0
+2019-01-31;Brescia Villaggio Sereno;47.0
+2019-01-31;Soresina;29.0
+2019-02-01;Brescia Villaggio Sereno;43.0
+2019-02-01;Soresina;34.0
+2019-02-02;Brescia Villaggio Sereno;33.0
+2019-02-02;Soresina;30.0
+2019-02-03;Brescia Villaggio Sereno;37.0
+2019-02-03;Soresina;26.0
+2019-02-04;Brescia Villaggio Sereno;29.0
+2019-02-04;Soresina;32.0
+2019-02-05;Brescia Villaggio Sereno;29.0
+2019-02-05;Soresina;47.0
+2019-02-06;Brescia Villaggio Sereno;39.0
+2019-02-06;Soresina;55.0
+2019-02-07;Brescia Villaggio Sereno;51.0
+2019-02-07;Soresina;56.0
+2019-02-08;Brescia Villaggio Sereno;46.0
+2019-02-08;Soresina;62.0
+2019-02-09;Brescia Villaggio Sereno;45.0
+2019-02-09;Soresina;67.0
+2019-02-10;Brescia Villaggio Sereno;62.0
+2019-02-10;Soresina;69.0
+2019-02-11;Brescia Villaggio Sereno;19.0
+2019-02-11;Soresina;32.0
+2019-02-12;Brescia Villaggio Sereno;20.0
+2019-02-12;Soresina;15.0
+2019-02-13;Brescia Villaggio Sereno;20.0
+2019-02-13;Soresina;25.0
+2019-02-14;Brescia Villaggio Sereno;41.0
+2019-02-14;Soresina;52.0
+2019-02-15;Brescia Villaggio Sereno;46.0
+2019-02-15;Soresina;63.0
+2019-02-16;Brescia Villaggio Sereno;62.0
+2019-02-16;Soresina;78.0
+2019-02-17;Brescia Villaggio Sereno;64.0
+2019-02-17;Soresina;85.0
+2019-02-18;Brescia Villaggio Sereno;45.0
+2019-02-18;Soresina;56.0
+2019-02-19;Brescia Villaggio Sereno;45.0
+2019-02-19;Soresina;34.0
+2019-02-20;Brescia Villaggio Sereno;82.0
+2019-02-20;Soresina;44.0
+2019-02-21;Brescia Villaggio Sereno;83.0
+2019-02-21;Soresina;50.0
+2019-02-22;Brescia Villaggio Sereno;72.0
+2019-02-22;Soresina;62.0
+2019-02-23;Brescia Villaggio Sereno;29.0
+2019-02-23;Soresina;34.0
+2019-02-24;Brescia Villaggio Sereno;28.0
+2019-02-24;Soresina;25.0
+2019-02-25;Brescia Villaggio Sereno;49.0
+2019-02-25;Soresina;47.0
+2019-02-26;Brescia Villaggio Sereno;52.0
+2019-02-26;Soresina;49.0
+2019-02-27;Brescia Villaggio Sereno;40.0
+2019-02-27;Soresina;56.0
+2019-02-28;Brescia Villaggio Sereno;53.0
+2019-02-28;Soresina;44.0
+2019-03-01;Brescia Villaggio Sereno;65.0
+2019-03-01;Soresina;54.0
+2019-03-02;Brescia Villaggio Sereno;52.0
+2019-03-02;Soresina;68.0
+2019-03-03;Brescia Villaggio Sereno;43.0
+2019-03-03;Soresina;59.0
+2019-03-04;Brescia Villaggio Sereno;46.0
+2019-03-04;Soresina;42.0
+2019-03-05;Brescia Villaggio Sereno;29.0
+2019-03-05;Soresina;24.0
+2019-03-06;Brescia Villaggio Sereno;33.0
+2019-03-06;Soresina;39.0
+2019-03-07;Brescia Villaggio Sereno;32.0
+2019-03-07;Soresina;31.0
+2019-03-08;Brescia Villaggio Sereno;24.0
+2019-03-08;Soresina;30.0
+2019-03-09;Brescia Villaggio Sereno;22.0
+2019-03-09;Soresina;21.0
+2019-03-10;Brescia Villaggio Sereno;24.0
+2019-03-10;Soresina;20.0
+2019-03-11;Brescia Villaggio Sereno;26.0
+2019-03-11;Soresina;8.0
+2019-03-12;Brescia Villaggio Sereno;17.0
+2019-03-12;Soresina;11.0
+2019-03-13;Brescia Villaggio Sereno;31.0
+2019-03-13;Soresina;18.0
+2019-03-14;Brescia Villaggio Sereno;24.0
+2019-03-14;Soresina;25.0
+2019-03-15;Brescia Villaggio Sereno;26.0
+2019-03-15;Soresina;9.0
+2019-03-16;Brescia Villaggio Sereno;46.0
+2019-03-16;Soresina;34.0
+2019-03-17;Brescia Villaggio Sereno;41.0
+2019-03-17;Soresina;54.0
+2019-03-18;Brescia Villaggio Sereno;14.0
+2019-03-18;Soresina;14.0
+2019-03-19;Brescia Villaggio Sereno;13.0
+2019-03-19;Soresina;13.0
+2019-03-20;Brescia Villaggio Sereno;17.0
+2019-03-20;Soresina;15.0
+2019-03-21;Brescia Villaggio Sereno;29.0
+2019-03-21;Soresina;27.0
+2019-03-22;Brescia Villaggio Sereno;36.0
+2019-03-22;Soresina;37.0
+2019-03-23;Brescia Villaggio Sereno;31.0
+2019-03-23;Soresina;42.0
+2019-03-24;Brescia Villaggio Sereno;33.0
+2019-03-24;Soresina;41.0
+2019-03-25;Brescia Villaggio Sereno;28.0
+2019-03-25;Soresina;22.0
+2019-03-26;Brescia Villaggio Sereno;14.0
+2019-03-26;Soresina;7.0
+2019-03-27;Brescia Villaggio Sereno;14.0
+2019-03-27;Soresina;16.0
+2019-03-28;Brescia Villaggio Sereno;24.0
+2019-03-28;Soresina;14.0
+2019-03-29;Brescia Villaggio Sereno;32.0
+2019-03-29;Soresina;35.0
+2019-03-30;Brescia Villaggio Sereno;35.0
+2019-03-30;Soresina;31.0
+2019-03-31;Brescia Villaggio Sereno;33.0
+2019-03-31;Soresina;37.0
+2019-04-01;Brescia Villaggio Sereno;29.0
+2019-04-01;Soresina;38.0
+2019-04-02;Brescia Villaggio Sereno;28.0
+2019-04-02;Soresina;36.0
+2019-04-03;Brescia Villaggio Sereno;22.0
+2019-04-03;Soresina;27.0
+2019-04-04;Brescia Villaggio Sereno;6.0
+2019-04-05;Brescia Villaggio Sereno;17.0
+2019-04-05;Soresina;18.0
+2019-04-06;Brescia Villaggio Sereno;25.0
+2019-04-06;Soresina;32.0
+2019-04-07;Brescia Villaggio Sereno;23.0
+2019-04-07;Soresina;19.0
+2019-04-08;Brescia Villaggio Sereno;31.0
+2019-04-08;Soresina;27.0
+2019-04-09;Brescia Villaggio Sereno;22.0
+2019-04-09;Soresina;20.0
+2019-04-10;Brescia Villaggio Sereno;18.0
+2019-04-10;Soresina;21.0
+2019-04-11;Brescia Villaggio Sereno;16.0
+2019-04-11;Soresina;14.0
+2019-04-12;Brescia Villaggio Sereno;16.0
+2019-04-12;Soresina;15.0
+2019-04-13;Brescia Villaggio Sereno;27.0
+2019-04-13;Soresina;22.0
+2019-04-14;Brescia Villaggio Sereno;22.0
+2019-04-14;Soresina;18.0
+2019-04-15;Brescia Villaggio Sereno;15.0
+2019-04-15;Soresina;23.0
+2019-04-16;Brescia Villaggio Sereno;23.0
+2019-04-16;Soresina;35.0
+2019-04-17;Brescia Villaggio Sereno;25.0
+2019-04-17;Soresina;38.0
+2019-04-18;Brescia Villaggio Sereno;24.0
+2019-04-18;Soresina;32.0
+2019-04-19;Brescia Villaggio Sereno;19.0
+2019-04-19;Soresina;31.0
+2019-04-20;Brescia Villaggio Sereno;22.0
+2019-04-20;Soresina;26.0
+2019-04-21;Brescia Villaggio Sereno;16.0
+2019-04-21;Soresina;14.0
+2019-04-22;Brescia Villaggio Sereno;14.0
+2019-04-22;Soresina;14.0
+2019-04-23;Brescia Villaggio Sereno;9.0
+2019-04-23;Soresina;7.0
+2019-04-24;Brescia Villaggio Sereno;16.0
+2019-04-24;Soresina;23.0
+2019-04-25;Brescia Villaggio Sereno;18.0
+2019-04-25;Soresina;16.0
+2019-04-26;Brescia Villaggio Sereno;12.0
+2019-04-26;Soresina;20.0
+2019-04-27;Brescia Villaggio Sereno;6.0
+2019-04-27;Soresina;12.0
+2019-04-28;Brescia Villaggio Sereno;16.0
+2019-04-28;Soresina;21.0
+2019-04-29;Brescia Villaggio Sereno;13.0
+2019-04-29;Soresina;10.0
+2019-04-30;Brescia Villaggio Sereno;18.0
+2019-04-30;Soresina;15.0
+2019-05-01;Brescia Villaggio Sereno;15.0
+2019-05-01;Soresina;24.0
+2019-05-02;Brescia Villaggio Sereno;12.0
+2019-05-02;Soresina;9.0
+2019-05-03;Brescia Villaggio Sereno;12.0
+2019-05-03;Soresina;14.0
+2019-05-04;Brescia Villaggio Sereno;6.0
+2019-05-04;Soresina;13.0
+2019-05-05;Brescia Villaggio Sereno;6.0
+2019-05-05;Soresina;9.0
+2019-05-06;Brescia Villaggio Sereno;12.0
+2019-05-06;Soresina;8.0
+2019-05-07;Brescia Villaggio Sereno;16.0
+2019-05-07;Soresina;16.0
+2019-05-08;Brescia Villaggio Sereno;19.0
+2019-05-08;Soresina;16.0
+2019-05-09;Brescia Villaggio Sereno;19.0
+2019-05-09;Soresina;13.0
+2019-05-10;Brescia Villaggio Sereno;12.0
+2019-05-10;Soresina;12.0
+2019-05-11;Brescia Villaggio Sereno;15.0
+2019-05-11;Soresina;19.0
+2019-05-12;Brescia Villaggio Sereno;16.0
+2019-05-12;Soresina;5.0
+2019-05-13;Brescia Villaggio Sereno;12.0
+2019-05-13;Soresina;23.0
+2019-05-14;Brescia Villaggio Sereno;17.0
+2019-05-14;Soresina;16.0
+2019-05-15;Brescia Villaggio Sereno;10.0
+2019-05-15;Soresina;6.0
+2019-05-16;Brescia Villaggio Sereno;22.0
+2019-05-16;Soresina;17.0
+2019-05-17;Brescia Villaggio Sereno;8.0
+2019-05-17;Soresina;10.0
+2019-05-18;Brescia Villaggio Sereno;22.0
+2019-05-18;Soresina;16.0
+2019-05-19;Brescia Villaggio Sereno;14.0
+2019-05-19;Soresina;14.0
+2019-05-20;Brescia Villaggio Sereno;27.0
+2019-05-20;Soresina;15.0
+2019-05-21;Brescia Villaggio Sereno;15.0
+2019-05-21;Soresina;13.0
+2019-05-22;Brescia Villaggio Sereno;12.0
+2019-05-22;Soresina;12.0
+2019-05-23;Brescia Villaggio Sereno;11.0
+2019-05-23;Soresina;12.0
+2019-05-24;Soresina;21.0
+2019-05-25;Soresina;14.0
+2019-05-26;Soresina;16.0
+2019-05-27;Soresina;16.0
+2019-05-28;Brescia Villaggio Sereno;22.0
+2019-05-28;Soresina;21.0
+2019-05-29;Brescia Villaggio Sereno;14.0
+2019-05-29;Soresina;11.0
+2019-05-30;Brescia Villaggio Sereno;11.0
+2019-05-30;Soresina;6.0
+2019-05-31;Brescia Villaggio Sereno;8.0
+2019-05-31;Soresina;13.0
+2019-06-01;Brescia Villaggio Sereno;17.0
+2019-06-01;Soresina;16.0
+2019-06-02;Brescia Villaggio Sereno;16.0
+2019-06-02;Soresina;20.0
+2019-06-03;Brescia Villaggio Sereno;21.0
+2019-06-03;Soresina;30.0
+2019-06-04;Brescia Villaggio Sereno;28.0
+2019-06-04;Soresina;17.0
+2019-06-05;Brescia Villaggio Sereno;30.0
+2019-06-05;Soresina;14.0
+2019-06-06;Brescia Villaggio Sereno;27.0
+2019-06-06;Soresina;22.0
+2019-06-07;Brescia Villaggio Sereno;18.0
+2019-06-07;Soresina;15.0
+2019-06-08;Brescia Villaggio Sereno;18.0
+2019-06-08;Soresina;16.0
+2019-06-09;Brescia Villaggio Sereno;24.0
+2019-06-09;Soresina;27.0
+2019-06-10;Brescia Villaggio Sereno;28.0
+2019-06-10;Soresina;16.0
+2019-06-11;Brescia Villaggio Sereno;34.0
+2019-06-11;Soresina;16.0
+2019-06-12;Brescia Villaggio Sereno;23.0
+2019-06-12;Soresina;13.0
+2019-06-13;Brescia Villaggio Sereno;14.0
+2019-06-13;Soresina;6.0
+2019-06-14;Brescia Villaggio Sereno;13.0
+2019-06-14;Soresina;14.0
+2019-06-15;Brescia Villaggio Sereno;20.0
+2019-06-15;Soresina;14.0
+2019-06-16;Brescia Villaggio Sereno;9.0
+2019-06-16;Soresina;7.0
+2019-06-17;Brescia Villaggio Sereno;10.0
+2019-06-17;Soresina;10.0
+2019-06-18;Brescia Villaggio Sereno;24.0
+2019-06-18;Soresina;15.0
+2019-06-19;Brescia Villaggio Sereno;19.0
+2019-06-19;Soresina;13.0
+2019-06-20;Brescia Villaggio Sereno;21.0
+2019-06-20;Soresina;10.0
+2019-06-21;Brescia Villaggio Sereno;17.0
+2019-06-21;Soresina;14.0
+2019-06-22;Brescia Villaggio Sereno;13.0
+2019-06-22;Soresina;10.0
+2019-06-23;Brescia Villaggio Sereno;12.0
+2019-06-23;Soresina;18.0
+2019-06-24;Brescia Villaggio Sereno;19.0
+2019-06-24;Soresina;15.0
+2019-06-25;Soresina;16.0
+2019-06-26;Soresina;28.0
+2019-06-28;Brescia Villaggio Sereno;25.0
+2019-06-29;Brescia Villaggio Sereno;5.0
+2019-06-30;Brescia Villaggio Sereno;15.0
+2019-06-30;Soresina;23.0
+2019-07-01;Brescia Villaggio Sereno;24.0
+2019-07-01;Soresina;22.0
+2019-07-02;Brescia Villaggio Sereno;28.0
+2019-07-02;Soresina;14.0
+2019-07-03;Brescia Villaggio Sereno;19.0
+2019-07-03;Soresina;4.0
+2019-07-04;Brescia Villaggio Sereno;12.0
+2019-07-04;Soresina;11.0
+2019-07-05;Brescia Villaggio Sereno;16.0
+2019-07-05;Soresina;23.0
+2019-07-06;Brescia Villaggio Sereno;28.0
+2019-07-06;Soresina;20.0
+2019-07-07;Brescia Villaggio Sereno;17.0
+2019-07-07;Soresina;14.0
+2019-07-08;Brescia Villaggio Sereno;8.0
+2019-07-08;Soresina;10.0
+2019-07-09;Brescia Villaggio Sereno;13.0
+2019-07-09;Soresina;8.0
+2019-07-10;Brescia Villaggio Sereno;11.0
+2019-07-10;Soresina;8.0
+2019-07-11;Brescia Villaggio Sereno;11.0
+2019-07-11;Soresina;11.0
+2019-07-12;Brescia Villaggio Sereno;22.0
+2019-07-12;Soresina;16.0
+2019-07-13;Brescia Villaggio Sereno;14.0
+2019-07-13;Soresina;11.0
+2019-07-14;Brescia Villaggio Sereno;4.0
+2019-07-14;Soresina;9.0
+2019-07-15;Brescia Villaggio Sereno;10.0
+2019-07-15;Soresina;12.0
+2019-07-16;Brescia Villaggio Sereno;8.0
+2019-07-16;Soresina;15.0
+2019-07-17;Brescia Villaggio Sereno;12.0
+2019-07-17;Soresina;18.0
+2019-07-18;Brescia Villaggio Sereno;15.0
+2019-07-18;Soresina;22.0
+2019-07-19;Brescia Villaggio Sereno;13.0
+2019-07-19;Soresina;21.0
+2019-07-20;Brescia Villaggio Sereno;19.0
+2019-07-20;Soresina;28.0
+2019-07-21;Brescia Villaggio Sereno;18.0
+2019-07-21;Soresina;12.0
+2019-07-22;Brescia Villaggio Sereno;27.0
+2019-07-22;Soresina;28.0
+2019-07-23;Brescia Villaggio Sereno;27.0
+2019-07-23;Soresina;30.0
+2019-07-24;Brescia Villaggio Sereno;26.0
+2019-07-24;Soresina;25.0
+2019-07-25;Brescia Villaggio Sereno;43.0
+2019-07-25;Soresina;22.0
+2019-07-26;Brescia Villaggio Sereno;25.0
+2019-07-26;Soresina;14.0
+2019-07-27;Brescia Villaggio Sereno;23.0
+2019-07-27;Soresina;13.0
+2019-07-28;Brescia Villaggio Sereno;21.0
+2019-07-28;Soresina;14.0
+2019-07-29;Brescia Villaggio Sereno;11.0
+2019-07-29;Soresina;14.0
+2019-07-30;Brescia Villaggio Sereno;14.0
+2019-07-30;Soresina;8.0
+2019-07-31;Brescia Villaggio Sereno;21.0
+2019-07-31;Soresina;13.0
+2019-08-01;Brescia Villaggio Sereno;11.0
+2019-08-01;Soresina;25.0
+2019-08-02;Brescia Villaggio Sereno;17.0
+2019-08-03;Brescia Villaggio Sereno;5.0
+2019-08-04;Brescia Villaggio Sereno;6.0
+2019-08-05;Brescia Villaggio Sereno;11.0
+2019-08-06;Brescia Villaggio Sereno;21.0
+2019-08-07;Brescia Villaggio Sereno;13.0
+2019-08-08;Brescia Villaggio Sereno;16.0
+2019-08-08;Soresina;35.0
+2019-08-09;Brescia Villaggio Sereno;16.0
+2019-08-09;Soresina;29.0
+2019-08-10;Brescia Villaggio Sereno;15.0
+2019-08-10;Soresina;18.0
+2019-08-11;Brescia Villaggio Sereno;15.0
+2019-08-11;Soresina;16.0
+2019-08-12;Brescia Villaggio Sereno;22.0
+2019-08-12;Soresina;26.0
+2019-08-13;Brescia Villaggio Sereno;15.0
+2019-08-13;Soresina;10.0
+2019-08-14;Brescia Villaggio Sereno;4.0
+2019-08-14;Soresina;4.0
+2019-08-15;Brescia Villaggio Sereno;7.0
+2019-08-15;Soresina;10.0
+2019-08-16;Brescia Villaggio Sereno;6.0
+2019-08-16;Soresina;9.0
+2019-08-17;Brescia Villaggio Sereno;4.0
+2019-08-17;Soresina;13.0
+2019-08-18;Brescia Villaggio Sereno;15.0
+2019-08-18;Soresina;19.0
+2019-08-19;Brescia Villaggio Sereno;12.0
+2019-08-19;Soresina;22.0
+2019-08-20;Brescia Villaggio Sereno;11.0
+2019-08-20;Soresina;21.0
+2019-08-21;Brescia Villaggio Sereno;15.0
+2019-08-21;Soresina;13.0
+2019-08-22;Brescia Villaggio Sereno;10.0
+2019-08-22;Soresina;15.0
+2019-08-23;Brescia Villaggio Sereno;17.0
+2019-08-23;Soresina;32.0
+2019-08-24;Brescia Villaggio Sereno;16.0
+2019-08-24;Soresina;18.0
+2019-08-25;Brescia Villaggio Sereno;11.0
+2019-08-25;Soresina;18.0
+2019-08-26;Brescia Villaggio Sereno;14.0
+2019-08-26;Soresina;22.0
+2019-08-27;Brescia Villaggio Sereno;19.0
+2019-08-27;Soresina;23.0
+2019-08-28;Brescia Villaggio Sereno;21.0
+2019-08-28;Soresina;25.0
+2019-08-29;Brescia Villaggio Sereno;21.0
+2019-08-29;Soresina;19.0
+2019-08-30;Brescia Villaggio Sereno;18.0
+2019-08-30;Soresina;32.0
+2019-08-31;Brescia Villaggio Sereno;8.0
+2019-08-31;Soresina;13.0
+2019-09-01;Brescia Villaggio Sereno;10.0
+2019-09-01;Soresina;15.0
+2019-09-02;Brescia Villaggio Sereno;9.0
+2019-09-03;Brescia Villaggio Sereno;3.0
+2019-09-04;Brescia Villaggio Sereno;12.0
+2019-09-04;Soresina;25.0
+2019-09-05;Brescia Villaggio Sereno;23.0
+2019-09-05;Soresina;23.0
+2019-09-06;Brescia Villaggio Sereno;7.0
+2019-09-06;Soresina;8.0
+2019-09-07;Brescia Villaggio Sereno;17.0
+2019-09-07;Soresina;16.0
+2019-09-08;Brescia Villaggio Sereno;35.0
+2019-09-08;Soresina;7.0
+2019-09-09;Brescia Villaggio Sereno;4.0
+2019-09-09;Soresina;6.0
+2019-09-10;Brescia Villaggio Sereno;7.0
+2019-09-10;Soresina;17.0
+2019-09-11;Brescia Villaggio Sereno;10.0
+2019-09-12;Brescia Villaggio Sereno;16.0
+2019-09-13;Brescia Villaggio Sereno;19.0
+2019-09-13;Soresina;31.0
+2019-09-14;Brescia Villaggio Sereno;25.0
+2019-09-14;Soresina;46.0
+2019-09-15;Brescia Villaggio Sereno;21.0
+2019-09-15;Soresina;33.0
+2019-09-16;Brescia Villaggio Sereno;32.0
+2019-09-16;Soresina;50.0
+2019-09-17;Brescia Villaggio Sereno;33.0
+2019-09-17;Soresina;39.0
+2019-09-18;Brescia Villaggio Sereno;30.0
+2019-09-18;Soresina;28.0
+2019-09-19;Brescia Villaggio Sereno;8.0
+2019-09-19;Soresina;19.0
+2019-09-20;Brescia Villaggio Sereno;13.0
+2019-09-20;Soresina;4.0
+2019-09-21;Brescia Villaggio Sereno;25.0
+2019-09-21;Soresina;20.0
+2019-09-22;Brescia Villaggio Sereno;22.0
+2019-09-22;Soresina;35.0
+2019-09-23;Brescia Villaggio Sereno;30.0
+2019-09-23;Soresina;25.0
+2019-09-24;Brescia Villaggio Sereno;3.0
+2019-09-24;Soresina;30.0
+2019-09-25;Brescia Villaggio Sereno;27.0
+2019-09-25;Soresina;38.0
+2019-09-26;Brescia Villaggio Sereno;32.0
+2019-09-27;Brescia Villaggio Sereno;39.0
+2019-09-28;Brescia Villaggio Sereno;28.0
+2019-09-28;Soresina;37.0
+2019-09-29;Brescia Villaggio Sereno;19.0
+2019-09-29;Soresina;18.0
+2019-09-30;Brescia Villaggio Sereno;19.0
+2019-09-30;Soresina;16.0
+2019-10-01;Brescia Villaggio Sereno;28.0
+2019-10-01;Soresina;36.0
+2019-10-02;Brescia Villaggio Sereno;13.0
+2019-10-02;Soresina;21.0
+2019-10-03;Brescia Villaggio Sereno;22.0
+2019-10-03;Soresina;13.0
+2019-10-04;Brescia Villaggio Sereno;16.0
+2019-10-04;Soresina;20.0
+2019-10-05;Brescia Villaggio Sereno;37.0
+2019-10-05;Soresina;42.0
+2019-10-06;Brescia Villaggio Sereno;7.0
+2019-10-06;Soresina;33.0
+2019-10-07;Brescia Villaggio Sereno;20.0
+2019-10-07;Soresina;10.0
+2019-10-08;Soresina;26.0
+2019-10-09;Soresina;30.0
+2019-10-10;Brescia Villaggio Sereno;23.0
+2019-10-10;Soresina;37.0
+2019-10-11;Brescia Villaggio Sereno;36.0
+2019-10-11;Soresina;40.0
+2019-10-12;Brescia Villaggio Sereno;39.0
+2019-10-12;Soresina;48.0
+2019-10-13;Brescia Villaggio Sereno;41.0
+2019-10-13;Soresina;60.0
+2019-10-14;Brescia Villaggio Sereno;60.0
+2019-10-14;Soresina;60.0
+2019-10-15;Soresina;48.0
+2019-10-16;Brescia Villaggio Sereno;7.0
+2019-10-16;Soresina;11.0
+2019-10-17;Brescia Villaggio Sereno;33.0
+2019-10-17;Soresina;25.0
+2019-10-18;Brescia Villaggio Sereno;20.0
+2019-10-18;Soresina;13.0
+2019-10-19;Brescia Villaggio Sereno;10.0
+2019-10-19;Soresina;27.0
+2019-10-20;Soresina;20.0
+2019-10-21;Soresina;20.0
+2019-10-22;Soresina;24.0
+2019-10-24;Brescia Villaggio Sereno;34.0
+2019-10-25;Brescia Villaggio Sereno;9.0
+2019-10-25;Soresina;19.0
+2019-10-26;Brescia Villaggio Sereno;23.0
+2019-10-26;Soresina;22.0
+2019-10-27;Soresina;26.0
+2019-10-28;Soresina;47.0
+2019-10-29;Soresina;51.0
+2019-10-30;Brescia Villaggio Sereno;21.0
+2019-10-30;Soresina;17.0
+2019-10-31;Brescia Villaggio Sereno;19.0
+2019-10-31;Soresina;20.0
+2019-11-01;Brescia Villaggio Sereno;23.0
+2019-11-01;Soresina;22.0
+2019-11-02;Brescia Villaggio Sereno;21.0
+2019-11-02;Soresina;27.0
+2019-11-03;Brescia Villaggio Sereno;6.0
+2019-11-03;Soresina;12.0
+2019-11-04;Soresina;17.0
+2019-11-05;Brescia Villaggio Sereno;18.0
+2019-11-05;Soresina;22.0
+2019-11-06;Brescia Villaggio Sereno;12.0
+2019-11-06;Soresina;20.0
+2019-11-07;Brescia Villaggio Sereno;14.0
+2019-11-07;Soresina;24.0
+2019-11-08;Brescia Villaggio Sereno;8.0
+2019-11-08;Soresina;7.0
+2019-11-09;Brescia Villaggio Sereno;19.0
+2019-11-09;Soresina;20.0
+2019-11-10;Brescia Villaggio Sereno;16.0
+2019-11-10;Soresina;31.0
+2019-11-11;Brescia Villaggio Sereno;14.0
+2019-11-11;Soresina;18.0
+2019-11-12;Brescia Villaggio Sereno;16.0
+2019-11-12;Soresina;16.0
+2019-11-13;Brescia Villaggio Sereno;23.0
+2019-11-13;Soresina;18.0
+2019-11-14;Brescia Villaggio Sereno;10.0
+2019-11-14;Soresina;18.0
+2019-11-15;Brescia Villaggio Sereno;10.0
+2019-11-15;Soresina;13.0
+2019-11-16;Brescia Villaggio Sereno;23.0
+2019-11-16;Soresina;23.0
+2019-11-17;Brescia Villaggio Sereno;13.0
+2019-11-18;Brescia Villaggio Sereno;15.0
+2019-11-19;Brescia Villaggio Sereno;10.0
+2019-11-19;Soresina;10.0
+2019-11-20;Brescia Villaggio Sereno;22.0
+2019-11-20;Soresina;21.0
+2019-11-21;Brescia Villaggio Sereno;27.0
+2019-11-21;Soresina;30.0
+2019-11-22;Brescia Villaggio Sereno;8.0
+2019-11-22;Soresina;26.0
+2019-11-23;Brescia Villaggio Sereno;4.0
+2019-11-23;Soresina;1.0
+2019-11-24;Brescia Villaggio Sereno;3.0
+2019-11-24;Soresina;5.0
+2019-11-25;Brescia Villaggio Sereno;16.0
+2019-11-25;Soresina;14.0
+2019-11-26;Brescia Villaggio Sereno;26.0
+2019-11-26;Soresina;26.0
+2019-11-27;Brescia Villaggio Sereno;17.0
+2019-11-27;Soresina;24.0
+2019-11-28;Brescia Villaggio Sereno;25.0
+2019-11-28;Soresina;24.0
+2019-11-29;Brescia Villaggio Sereno;30.0
+2019-11-29;Soresina;20.0
+2019-11-30;Brescia Villaggio Sereno;37.0
+2019-11-30;Soresina;23.0
+2019-12-01;Brescia Villaggio Sereno;32.0
+2019-12-01;Soresina;28.0
+2019-12-02;Brescia Villaggio Sereno;25.0
+2019-12-02;Soresina;18.0
+2019-12-03;Brescia Villaggio Sereno;14.0
+2019-12-03;Soresina;20.0
+2019-12-04;Brescia Villaggio Sereno;25.0
+2019-12-04;Soresina;31.0
+2019-12-05;Brescia Villaggio Sereno;32.0
+2019-12-05;Soresina;48.0
+2019-12-06;Brescia Villaggio Sereno;40.0
+2019-12-06;Soresina;56.0
+2019-12-07;Brescia Villaggio Sereno;57.0
+2019-12-07;Soresina;55.0
+2019-12-08;Brescia Villaggio Sereno;48.0
+2019-12-08;Soresina;62.0
+2019-12-09;Brescia Villaggio Sereno;50.0
+2019-12-09;Soresina;54.0
+2019-12-10;Brescia Villaggio Sereno;33.0
+2019-12-10;Soresina;32.0
+2019-12-11;Brescia Villaggio Sereno;22.0
+2019-12-11;Soresina;23.0
+2019-12-12;Brescia Villaggio Sereno;29.0
+2019-12-12;Soresina;29.0
+2019-12-13;Brescia Villaggio Sereno;25.0
+2019-12-13;Soresina;26.0
+2019-12-14;Brescia Villaggio Sereno;28.0
+2019-12-14;Soresina;27.0
+2019-12-15;Brescia Villaggio Sereno;37.0
+2019-12-15;Soresina;43.0
+2019-12-16;Brescia Villaggio Sereno;56.0
+2019-12-16;Soresina;47.0
+2019-12-17;Brescia Villaggio Sereno;53.0
+2019-12-17;Soresina;47.0
+2019-12-18;Brescia Villaggio Sereno;50.0
+2019-12-18;Soresina;29.0
+2019-12-19;Soresina;29.0
+2019-12-20;Soresina;14.0
+2019-12-21;Brescia Villaggio Sereno;12.0
+2019-12-21;Soresina;12.0
+2019-12-22;Brescia Villaggio Sereno;14.0
+2019-12-22;Soresina;6.0
+2019-12-23;Brescia Villaggio Sereno;20.0
+2019-12-23;Soresina;5.0
+2019-12-24;Brescia Villaggio Sereno;32.0
+2019-12-24;Soresina;14.0
+2019-12-25;Brescia Villaggio Sereno;30.0
+2019-12-25;Soresina;29.0
+2019-12-26;Brescia Villaggio Sereno;25.0
+2019-12-26;Soresina;38.0
+2019-12-27;Brescia Villaggio Sereno;26.0
+2019-12-27;Soresina;45.0
+2019-12-28;Brescia Villaggio Sereno;28.0
+2019-12-28;Soresina;56.0
+2019-12-29;Brescia Villaggio Sereno;41.0
+2019-12-29;Soresina;54.0
+2019-12-30;Brescia Villaggio Sereno;48.0
+2019-12-30;Soresina;45.0
+2019-12-31;Brescia Villaggio Sereno;64.0
+2019-12-31;Soresina;59.0
+2023-01-01;Brescia Villaggio Sereno;68.0
+2023-01-01;Soresina;30.0
+2023-01-02;Brescia Villaggio Sereno;44.0
+2023-01-02;Soresina;20.0
+2023-01-03;Brescia Villaggio Sereno;24.0
+2023-01-03;Soresina;18.0
+2023-01-04;Brescia Villaggio Sereno;31.0
+2023-01-04;Soresina;22.0
+2023-01-05;Brescia Villaggio Sereno;34.0
+2023-01-05;Soresina;29.0
+2023-01-06;Brescia Villaggio Sereno;37.0
+2023-01-06;Soresina;33.0
+2023-01-07;Brescia Villaggio Sereno;36.0
+2023-01-07;Soresina;36.0
+2023-01-08;Brescia Villaggio Sereno;31.0
+2023-01-08;Soresina;25.0
+2023-01-09;Soresina;21.0
+2023-01-10;Brescia Villaggio Sereno;18.0
+2023-01-10;Soresina;10.0
+2023-01-11;Brescia Villaggio Sereno;31.0
+2023-01-11;Soresina;37.0
+2023-01-12;Brescia Villaggio Sereno;37.0
+2023-01-12;Soresina;45.0
+2023-01-13;Brescia Villaggio Sereno;44.0
+2023-01-13;Soresina;60.0
+2023-01-14;Brescia Villaggio Sereno;30.0
+2023-01-14;Soresina;61.0
+2023-01-15;Brescia Villaggio Sereno;38.0
+2023-01-15;Soresina;56.0
+2023-01-16;Brescia Villaggio Sereno;26.0
+2023-01-16;Soresina;43.0
+2023-01-17;Brescia Villaggio Sereno;27.0
+2023-01-17;Soresina;25.0
+2023-01-18;Brescia Villaggio Sereno;36.0
+2023-01-18;Soresina;29.0
+2023-01-19;Brescia Villaggio Sereno;22.0
+2023-01-19;Soresina;20.0
+2023-01-20;Brescia Villaggio Sereno;23.0
+2023-01-20;Soresina;26.0
+2023-01-21;Brescia Villaggio Sereno;30.0
+2023-01-21;Soresina;27.0
+2023-01-22;Brescia Villaggio Sereno;24.0
+2023-01-22;Soresina;30.0
+2023-01-23;Brescia Villaggio Sereno;30.0
+2023-01-23;Soresina;35.0
+2023-01-24;Brescia Villaggio Sereno;19.0
+2023-01-24;Soresina;18.0
+2023-01-25;Brescia Villaggio Sereno;27.0
+2023-01-25;Soresina;34.0
+2023-01-26;Brescia Villaggio Sereno;25.0
+2023-01-26;Soresina;27.0
+2023-01-27;Brescia Villaggio Sereno;28.0
+2023-01-27;Soresina;32.0
+2023-01-28;Brescia Villaggio Sereno;34.0
+2023-01-28;Soresina;41.0
+2023-01-29;Brescia Villaggio Sereno;31.0
+2023-01-29;Soresina;43.0
+2023-01-30;Brescia Villaggio Sereno;44.0
+2023-01-30;Soresina;53.0
+2023-01-31;Brescia Villaggio Sereno;56.0
+2023-01-31;Soresina;61.0
+2023-02-01;Brescia Villaggio Sereno;44.0
+2023-02-01;Soresina;43.0
+2023-02-02;Brescia Villaggio Sereno;28.0
+2023-02-02;Soresina;20.0
+2023-02-03;Brescia Villaggio Sereno;66.0
+2023-02-03;Soresina;54.0
+2023-02-04;Brescia Villaggio Sereno;45.0
+2023-02-04;Soresina;33.0
+2023-02-05;Brescia Villaggio Sereno;9.0
+2023-02-05;Soresina;8.0
+2023-02-06;Brescia Villaggio Sereno;16.0
+2023-02-06;Soresina;17.0
+2023-02-07;Brescia Villaggio Sereno;26.0
+2023-02-07;Soresina;26.0
+2023-02-08;Brescia Villaggio Sereno;28.0
+2023-02-08;Soresina;36.0
+2023-02-09;Brescia Villaggio Sereno;27.0
+2023-02-09;Soresina;23.0
+2023-02-10;Brescia Villaggio Sereno;41.0
+2023-02-10;Soresina;56.0
+2023-02-11;Brescia Villaggio Sereno;54.0
+2023-02-11;Soresina;55.0
+2023-02-12;Brescia Villaggio Sereno;37.0
+2023-02-12;Soresina;58.0
+2023-02-13;Brescia Villaggio Sereno;33.0
+2023-02-13;Soresina;59.0
+2023-02-14;Brescia Villaggio Sereno;62.0
+2023-02-14;Soresina;75.0
+2023-02-15;Brescia Villaggio Sereno;51.0
+2023-02-15;Soresina;83.0
+2023-02-16;Brescia Villaggio Sereno;53.0
+2023-02-16;Soresina;69.0
+2023-02-17;Brescia Villaggio Sereno;71.0
+2023-02-17;Soresina;42.0
+2023-02-18;Brescia Villaggio Sereno;65.0
+2023-02-18;Soresina;32.0
+2023-02-19;Brescia Villaggio Sereno;63.0
+2023-02-19;Soresina;42.0
+2023-02-20;Brescia Villaggio Sereno;72.0
+2023-02-20;Soresina;65.0
+2023-02-21;Soresina;39.0
+2023-02-22;Soresina;92.0
+2023-02-23;Brescia Villaggio Sereno;88.0
+2023-02-23;Soresina;68.0
+2023-02-24;Brescia Villaggio Sereno;63.0
+2023-02-24;Soresina;62.0
+2023-02-25;Brescia Villaggio Sereno;36.0
+2023-02-25;Soresina;39.0
+2023-02-26;Brescia Villaggio Sereno;16.0
+2023-02-26;Soresina;12.0
+2023-02-27;Brescia Villaggio Sereno;17.0
+2023-02-27;Soresina;9.0
+2023-02-28;Brescia Villaggio Sereno;25.0
+2023-02-28;Soresina;22.0
+2023-03-01;Brescia Villaggio Sereno;31.0
+2023-03-01;Soresina;34.0
+2023-03-02;Brescia Villaggio Sereno;33.0
+2023-03-02;Soresina;39.0
+2023-03-03;Brescia Villaggio Sereno;27.0
+2023-03-03;Soresina;40.0
+2023-03-04;Brescia Villaggio Sereno;40.0
+2023-03-04;Soresina;43.0
+2023-03-05;Brescia Villaggio Sereno;54.0
+2023-03-05;Soresina;57.0
+2023-03-06;Brescia Villaggio Sereno;43.0
+2023-03-07;Brescia Villaggio Sereno;35.0
+2023-03-07;Soresina;36.0
+2023-03-08;Brescia Villaggio Sereno;26.0
+2023-03-08;Soresina;31.0
+2023-03-09;Brescia Villaggio Sereno;27.0
+2023-03-09;Soresina;22.0
+2023-03-10;Brescia Villaggio Sereno;23.0
+2023-03-10;Soresina;27.0
+2023-03-11;Brescia Villaggio Sereno;10.0
+2023-03-11;Soresina;7.0
+2023-03-12;Brescia Villaggio Sereno;11.0
+2023-03-12;Soresina;15.0
+2023-03-13;Brescia Villaggio Sereno;23.0
+2023-03-13;Soresina;16.0
+2023-03-14;Brescia Villaggio Sereno;19.0
+2023-03-14;Soresina;21.0
+2023-03-15;Brescia Villaggio Sereno;11.0
+2023-03-15;Soresina;12.0
+2023-03-16;Brescia Villaggio Sereno;7.0
+2023-03-16;Soresina;11.0
+2023-03-17;Brescia Villaggio Sereno;20.0
+2023-03-17;Soresina;18.0
+2023-03-18;Brescia Villaggio Sereno;29.0
+2023-03-18;Soresina;40.0
+2023-03-19;Brescia Villaggio Sereno;33.0
+2023-03-19;Soresina;37.0
+2023-03-20;Brescia Villaggio Sereno;44.0
+2023-03-20;Soresina;40.0
+2023-03-21;Soresina;52.0
+2023-03-22;Soresina;53.0
+2023-03-23;Brescia Villaggio Sereno;30.0
+2023-03-23;Soresina;29.0
+2023-03-24;Brescia Villaggio Sereno;16.0
+2023-03-24;Soresina;13.0
+2023-03-25;Brescia Villaggio Sereno;14.0
+2023-03-25;Soresina;7.0
+2023-03-26;Brescia Villaggio Sereno;16.0
+2023-03-26;Soresina;16.0
+2023-03-27;Brescia Villaggio Sereno;14.0
+2023-03-27;Soresina;11.0
+2023-03-28;Brescia Villaggio Sereno;12.0
+2023-03-28;Soresina;10.0
+2023-03-29;Brescia Villaggio Sereno;20.0
+2023-03-29;Soresina;11.0
+2023-03-30;Brescia Villaggio Sereno;23.0
+2023-03-30;Soresina;21.0
+2023-03-31;Brescia Villaggio Sereno;27.0
+2023-03-31;Soresina;20.0
+2023-04-01;Brescia Villaggio Sereno;17.0
+2023-04-01;Soresina;14.0
+2023-04-02;Brescia Villaggio Sereno;19.0
+2023-04-02;Soresina;19.0
+2023-04-03;Brescia Villaggio Sereno;8.0
+2023-04-03;Soresina;14.0
+2023-04-04;Brescia Villaggio Sereno;15.0
+2023-04-04;Soresina;10.0
+2023-04-05;Soresina;15.0
+2023-04-06;Brescia Villaggio Sereno;22.0
+2023-04-06;Soresina;19.0
+2023-04-07;Brescia Villaggio Sereno;33.0
+2023-04-07;Soresina;30.0
+2023-04-08;Brescia Villaggio Sereno;31.0
+2023-04-08;Soresina;29.0
+2023-04-09;Soresina;15.0
+2023-04-10;Soresina;10.0
+2023-04-11;Soresina;17.0
+2023-04-12;Soresina;17.0
+2023-04-13;Brescia Villaggio Sereno;10.0
+2023-04-13;Soresina;14.0
+2023-04-14;Soresina;9.0
+2023-04-15;Soresina;12.0
+2023-04-16;Soresina;10.0
+2023-04-17;Soresina;12.0
+2023-04-18;Brescia Villaggio Sereno;14.0
+2023-04-18;Soresina;18.0
+2023-04-19;Brescia Villaggio Sereno;12.0
+2023-04-19;Soresina;15.0
+2023-04-20;Brescia Villaggio Sereno;4.0
+2023-04-20;Soresina;11.0
+2023-04-21;Brescia Villaggio Sereno;6.0
+2023-04-21;Soresina;14.0
+2023-04-22;Brescia Villaggio Sereno;9.0
+2023-04-22;Soresina;19.0
+2023-04-23;Brescia Villaggio Sereno;16.0
+2023-04-23;Soresina;25.0
+2023-04-24;Brescia Villaggio Sereno;10.0
+2023-04-24;Soresina;7.0
+2023-04-25;Brescia Villaggio Sereno;3.0
+2023-04-25;Soresina;4.0
+2023-04-26;Brescia Villaggio Sereno;9.0
+2023-04-26;Soresina;14.0
+2023-04-27;Brescia Villaggio Sereno;13.0
+2023-04-27;Soresina;12.0
+2023-04-28;Brescia Villaggio Sereno;16.0
+2023-04-28;Soresina;13.0
+2023-04-29;Brescia Villaggio Sereno;15.0
+2023-04-29;Soresina;20.0
+2023-04-30;Brescia Villaggio Sereno;14.0
+2023-04-30;Soresina;18.0
+2023-05-01;Brescia Villaggio Sereno;10.0
+2023-05-01;Soresina;10.0
+2023-05-02;Brescia Villaggio Sereno;7.0
+2023-05-02;Soresina;7.0
+2023-05-03;Brescia Villaggio Sereno;8.0
+2023-05-03;Soresina;8.0
+2023-05-04;Brescia Villaggio Sereno;13.0
+2023-05-04;Soresina;16.0
+2023-05-05;Brescia Villaggio Sereno;24.0
+2023-05-05;Soresina;20.0
+2023-05-06;Brescia Villaggio Sereno;28.0
+2023-05-06;Soresina;30.0
+2023-05-07;Brescia Villaggio Sereno;14.0
+2023-05-07;Soresina;10.0
+2023-05-08;Brescia Villaggio Sereno;7.0
+2023-05-08;Soresina;14.0
+2023-05-09;Brescia Villaggio Sereno;12.0
+2023-05-09;Soresina;13.0
+2023-05-10;Brescia Villaggio Sereno;9.0
+2023-05-10;Soresina;10.0
+2023-05-11;Brescia Villaggio Sereno;9.0
+2023-05-11;Soresina;8.0
+2023-05-12;Brescia Villaggio Sereno;6.0
+2023-05-12;Soresina;5.0
+2023-05-13;Brescia Villaggio Sereno;8.0
+2023-05-13;Soresina;7.0
+2023-05-14;Brescia Villaggio Sereno;4.0
+2023-05-14;Soresina;6.0
+2023-05-15;Brescia Villaggio Sereno;8.0
+2023-05-15;Soresina;7.0
+2023-05-16;Brescia Villaggio Sereno;11.0
+2023-05-16;Soresina;8.0
+2023-05-17;Brescia Villaggio Sereno;13.0
+2023-05-17;Soresina;7.0
+2023-05-18;Brescia Villaggio Sereno;10.0
+2023-05-18;Soresina;6.0
+2023-05-19;Brescia Villaggio Sereno;13.0
+2023-05-19;Soresina;7.0
+2023-05-20;Brescia Villaggio Sereno;11.0
+2023-05-20;Soresina;13.0
+2023-05-21;Brescia Villaggio Sereno;15.0
+2023-05-21;Soresina;14.0
+2023-05-22;Brescia Villaggio Sereno;12.0
+2023-05-22;Soresina;14.0
+2023-05-23;Brescia Villaggio Sereno;16.0
+2023-05-23;Soresina;22.0
+2023-05-24;Brescia Villaggio Sereno;18.0
+2023-05-24;Soresina;20.0
+2023-05-25;Brescia Villaggio Sereno;7.0
+2023-05-25;Soresina;11.0
+2023-05-26;Brescia Villaggio Sereno;14.0
+2023-05-26;Soresina;13.0
+2023-05-27;Brescia Villaggio Sereno;11.0
+2023-05-27;Soresina;13.0
+2023-05-28;Brescia Villaggio Sereno;11.0
+2023-05-29;Brescia Villaggio Sereno;12.0
+2023-05-30;Brescia Villaggio Sereno;14.0
+2023-05-30;Soresina;16.0
+2023-05-31;Brescia Villaggio Sereno;11.0
+2023-05-31;Soresina;11.0
+2023-06-01;Brescia Villaggio Sereno;16.0
+2023-06-01;Soresina;21.0
+2023-06-02;Brescia Villaggio Sereno;19.0
+2023-06-02;Soresina;21.0
+2023-06-03;Brescia Villaggio Sereno;7.0
+2023-06-03;Soresina;12.0
+2023-06-04;Soresina;10.0
+2023-06-05;Brescia Villaggio Sereno;6.0
+2023-06-05;Soresina;7.0
+2023-06-06;Brescia Villaggio Sereno;14.0
+2023-06-06;Soresina;13.0
+2023-06-07;Brescia Villaggio Sereno;11.0
+2023-06-07;Soresina;12.0
+2023-06-08;Brescia Villaggio Sereno;19.0
+2023-06-08;Soresina;23.0
+2023-06-09;Brescia Villaggio Sereno;18.0
+2023-06-09;Soresina;17.0
+2023-06-10;Brescia Villaggio Sereno;16.0
+2023-06-10;Soresina;4.0
+2023-06-11;Brescia Villaggio Sereno;8.0
+2023-06-11;Soresina;10.0
+2023-06-12;Brescia Villaggio Sereno;7.0
+2023-06-12;Soresina;9.0
+2023-06-13;Brescia Villaggio Sereno;8.0
+2023-06-13;Soresina;2.0
+2023-06-14;Brescia Villaggio Sereno;8.0
+2023-06-14;Soresina;9.0
+2023-06-15;Brescia Villaggio Sereno;12.0
+2023-06-15;Soresina;11.0
+2023-06-16;Brescia Villaggio Sereno;13.0
+2023-06-16;Soresina;13.0
+2023-06-17;Brescia Villaggio Sereno;9.0
+2023-06-17;Soresina;10.0
+2023-06-18;Brescia Villaggio Sereno;13.0
+2023-06-18;Soresina;16.0
+2023-06-19;Brescia Villaggio Sereno;13.0
+2023-06-20;Brescia Villaggio Sereno;19.0
+2023-06-20;Soresina;11.0
+2023-06-21;Brescia Villaggio Sereno;18.0
+2023-06-21;Soresina;14.0
+2023-06-22;Brescia Villaggio Sereno;24.0
+2023-06-22;Soresina;37.0
+2023-06-23;Brescia Villaggio Sereno;12.0
+2023-06-23;Soresina;22.0
+2023-06-24;Brescia Villaggio Sereno;4.0
+2023-06-24;Soresina;12.0
+2023-06-25;Brescia Villaggio Sereno;6.0
+2023-06-25;Soresina;10.0
+2023-06-26;Brescia Villaggio Sereno;9.0
+2023-06-26;Soresina;22.0
+2023-06-27;Brescia Villaggio Sereno;16.0
+2023-06-27;Soresina;26.0
+2023-06-28;Brescia Villaggio Sereno;11.0
+2023-06-28;Soresina;11.0
+2023-06-29;Brescia Villaggio Sereno;9.0
+2023-06-29;Soresina;13.0
+2023-06-30;Brescia Villaggio Sereno;18.0
+2023-06-30;Soresina;19.0
+2023-07-01;Brescia Villaggio Sereno;19.0
+2023-07-01;Soresina;27.0
+2023-07-02;Brescia Villaggio Sereno;22.0
+2023-07-02;Soresina;25.0
+2023-07-03;Brescia Villaggio Sereno;17.0
+2023-07-03;Soresina;16.0
+2023-07-04;Brescia Villaggio Sereno;14.0
+2023-07-04;Soresina;14.0
+2023-07-05;Soresina;17.0
+2023-07-06;Brescia Villaggio Sereno;8.0
+2023-07-06;Soresina;12.0
+2023-07-07;Brescia Villaggio Sereno;8.0
+2023-07-07;Soresina;10.0
+2023-07-08;Brescia Villaggio Sereno;11.0
+2023-07-08;Soresina;10.0
+2023-07-09;Brescia Villaggio Sereno;15.0
+2023-07-09;Soresina;22.0
+2023-07-10;Brescia Villaggio Sereno;19.0
+2023-07-10;Soresina;25.0
+2023-07-11;Brescia Villaggio Sereno;19.0
+2023-07-11;Soresina;29.0
+2023-07-12;Soresina;18.0
+2023-07-13;Brescia Villaggio Sereno;7.0
+2023-07-13;Soresina;9.0
+2023-07-14;Brescia Villaggio Sereno;4.0
+2023-07-14;Soresina;9.0
+2023-07-15;Brescia Villaggio Sereno;19.0
+2023-07-15;Soresina;13.0
+2023-07-16;Brescia Villaggio Sereno;13.0
+2023-07-16;Soresina;25.0
+2023-07-17;Brescia Villaggio Sereno;15.0
+2023-07-17;Soresina;17.0
+2023-07-18;Brescia Villaggio Sereno;21.0
+2023-07-18;Soresina;21.0
+2023-07-19;Brescia Villaggio Sereno;24.0
+2023-07-19;Soresina;22.0
+2023-07-20;Brescia Villaggio Sereno;15.0
+2023-07-20;Soresina;14.0
+2023-07-21;Brescia Villaggio Sereno;14.0
+2023-07-21;Soresina;5.0
+2023-07-22;Brescia Villaggio Sereno;9.0
+2023-07-23;Brescia Villaggio Sereno;11.0
+2023-07-24;Brescia Villaggio Sereno;16.0
+2023-07-25;Brescia Villaggio Sereno;13.0
+2023-07-25;Soresina;6.0
+2023-07-26;Brescia Villaggio Sereno;3.0
+2023-07-26;Soresina;6.0
+2023-07-27;Brescia Villaggio Sereno;5.0
+2023-07-27;Soresina;6.0
+2023-07-28;Brescia Villaggio Sereno;9.0
+2023-07-28;Soresina;15.0
+2023-07-29;Brescia Villaggio Sereno;12.0
+2023-07-29;Soresina;16.0
+2023-07-30;Brescia Villaggio Sereno;12.0
+2023-07-30;Soresina;11.0
+2023-07-31;Brescia Villaggio Sereno;8.0
+2023-07-31;Soresina;17.0
+2023-08-01;Brescia Villaggio Sereno;11.0
+2023-08-01;Soresina;15.0
+2023-08-02;Brescia Villaggio Sereno;11.0
+2023-08-02;Soresina;8.0
+2023-08-03;Brescia Villaggio Sereno;10.0
+2023-08-03;Soresina;12.0
+2023-08-04;Brescia Villaggio Sereno;4.0
+2023-08-04;Soresina;6.0
+2023-08-05;Brescia Villaggio Sereno;9.0
+2023-08-05;Soresina;4.0
+2023-08-06;Brescia Villaggio Sereno;0.0
+2023-08-06;Soresina;6.0
+2023-08-07;Brescia Villaggio Sereno;2.0
+2023-08-07;Soresina;1.0
+2023-08-08;Brescia Villaggio Sereno;4.0
+2023-08-08;Soresina;5.0
+2023-08-09;Brescia Villaggio Sereno;7.0
+2023-08-09;Soresina;14.0
+2023-08-10;Brescia Villaggio Sereno;10.0
+2023-08-10;Soresina;12.0
+2023-08-11;Brescia Villaggio Sereno;11.0
+2023-08-11;Soresina;14.0
+2023-08-12;Brescia Villaggio Sereno;14.0
+2023-08-12;Soresina;16.0
+2023-08-13;Brescia Villaggio Sereno;12.0
+2023-08-13;Soresina;15.0
+2023-08-14;Brescia Villaggio Sereno;10.0
+2023-08-14;Soresina;17.0
+2023-08-15;Brescia Villaggio Sereno;11.0
+2023-08-15;Soresina;20.0
+2023-08-16;Brescia Villaggio Sereno;17.0
+2023-08-16;Soresina;16.0
+2023-08-17;Brescia Villaggio Sereno;19.0
+2023-08-17;Soresina;17.0
+2023-08-18;Brescia Villaggio Sereno;14.0
+2023-08-18;Soresina;16.0
+2023-08-19;Brescia Villaggio Sereno;15.0
+2023-08-19;Soresina;25.0
+2023-08-20;Brescia Villaggio Sereno;20.0
+2023-08-20;Soresina;20.0
+2023-08-21;Brescia Villaggio Sereno;17.0
+2023-08-21;Soresina;23.0
+2023-08-22;Brescia Villaggio Sereno;17.0
+2023-08-22;Soresina;22.0
+2023-08-23;Brescia Villaggio Sereno;21.0
+2023-08-23;Soresina;29.0
+2023-08-24;Soresina;27.0
+2023-08-25;Soresina;24.0
+2023-08-26;Brescia Villaggio Sereno;17.0
+2023-08-26;Soresina;22.0
+2023-08-27;Brescia Villaggio Sereno;15.0
+2023-08-27;Soresina;19.0
+2023-08-28;Brescia Villaggio Sereno;11.0
+2023-08-28;Soresina;12.0
+2023-08-29;Brescia Villaggio Sereno;9.0
+2023-08-30;Brescia Villaggio Sereno;4.0
+2023-08-30;Soresina;10.0
+2023-08-31;Brescia Villaggio Sereno;8.0
+2023-08-31;Soresina;18.0
+2023-09-01;Brescia Villaggio Sereno;11.0
+2023-09-01;Soresina;18.0
+2023-09-02;Brescia Villaggio Sereno;12.0
+2023-09-02;Soresina;21.0
+2023-09-03;Soresina;22.0
+2023-09-04;Soresina;21.0
+2023-09-05;Brescia Villaggio Sereno;9.0
+2023-09-05;Soresina;11.0
+2023-09-06;Brescia Villaggio Sereno;11.0
+2023-09-06;Soresina;22.0
+2023-09-07;Brescia Villaggio Sereno;12.0
+2023-09-07;Soresina;24.0
+2023-09-08;Brescia Villaggio Sereno;16.0
+2023-09-08;Soresina;22.0
+2023-09-09;Brescia Villaggio Sereno;17.0
+2023-09-09;Soresina;32.0
+2023-09-10;Brescia Villaggio Sereno;20.0
+2023-09-10;Soresina;35.0
+2023-09-11;Brescia Villaggio Sereno;29.0
+2023-09-11;Soresina;43.0
+2023-09-12;Brescia Villaggio Sereno;31.0
+2023-09-12;Soresina;24.0
+2023-09-13;Brescia Villaggio Sereno;28.0
+2023-09-13;Soresina;37.0
+2023-09-14;Brescia Villaggio Sereno;21.0
+2023-09-14;Soresina;23.0
+2023-09-15;Brescia Villaggio Sereno;16.0
+2023-09-15;Soresina;17.0
+2023-09-16;Brescia Villaggio Sereno;14.0
+2023-09-16;Soresina;26.0
+2023-09-17;Brescia Villaggio Sereno;23.0
+2023-09-17;Soresina;23.0
+2023-09-18;Brescia Villaggio Sereno;16.0
+2023-09-18;Soresina;25.0
+2023-09-19;Brescia Villaggio Sereno;14.0
+2023-09-19;Soresina;21.0
+2023-09-20;Brescia Villaggio Sereno;14.0
+2023-09-20;Soresina;18.0
+2023-09-21;Brescia Villaggio Sereno;8.0
+2023-09-21;Soresina;16.0
+2023-09-22;Brescia Villaggio Sereno;10.0
+2023-09-22;Soresina;13.0
+2023-09-23;Brescia Villaggio Sereno;4.0
+2023-09-23;Soresina;6.0
+2023-09-24;Brescia Villaggio Sereno;4.0
+2023-09-24;Soresina;9.0
+2023-09-25;Brescia Villaggio Sereno;9.0
+2023-09-25;Soresina;13.0
+2023-09-26;Brescia Villaggio Sereno;7.0
+2023-09-26;Soresina;23.0
+2023-09-27;Brescia Villaggio Sereno;12.0
+2023-09-27;Soresina;26.0
+2023-09-28;Brescia Villaggio Sereno;17.0
+2023-09-28;Soresina;29.0
+2023-09-29;Brescia Villaggio Sereno;21.0
+2023-09-29;Soresina;38.0
+2023-09-30;Brescia Villaggio Sereno;27.0
+2023-09-30;Soresina;30.0
+2023-10-01;Brescia Villaggio Sereno;22.0
+2023-10-01;Soresina;38.0
+2023-10-02;Brescia Villaggio Sereno;35.0
+2023-10-02;Soresina;52.0
+2023-10-03;Brescia Villaggio Sereno;42.0
+2023-10-03;Soresina;62.0
+2023-10-04;Brescia Villaggio Sereno;35.0
+2023-10-04;Soresina;42.0
+2023-10-05;Brescia Villaggio Sereno;14.0
+2023-10-05;Soresina;22.0
+2023-10-06;Brescia Villaggio Sereno;27.0
+2023-10-06;Soresina;34.0
+2023-10-07;Brescia Villaggio Sereno;33.0
+2023-10-07;Soresina;47.0
+2023-10-08;Brescia Villaggio Sereno;17.0
+2023-10-08;Soresina;31.0
+2023-10-09;Brescia Villaggio Sereno;17.0
+2023-10-09;Soresina;19.0
+2023-10-10;Brescia Villaggio Sereno;27.0
+2023-10-10;Soresina;29.0
+2023-10-11;Brescia Villaggio Sereno;44.0
+2023-10-11;Soresina;54.0
+2023-10-12;Brescia Villaggio Sereno;36.0
+2023-10-12;Soresina;41.0
+2023-10-13;Brescia Villaggio Sereno;31.0
+2023-10-13;Soresina;28.0
+2023-10-14;Brescia Villaggio Sereno;16.0
+2023-10-14;Soresina;24.0
+2023-10-15;Brescia Villaggio Sereno;13.0
+2023-10-15;Soresina;13.0
+2023-10-16;Brescia Villaggio Sereno;4.0
+2023-10-16;Soresina;11.0
+2023-10-17;Brescia Villaggio Sereno;16.0
+2023-10-17;Soresina;13.0
+2023-10-18;Brescia Villaggio Sereno;22.0
+2023-10-18;Soresina;25.0
+2023-10-19;Brescia Villaggio Sereno;29.0
+2023-10-19;Soresina;20.0
+2023-10-20;Brescia Villaggio Sereno;9.0
+2023-10-20;Soresina;16.0
+2023-10-21;Brescia Villaggio Sereno;5.0
+2023-10-21;Soresina;16.0
+2023-10-22;Brescia Villaggio Sereno;10.0
+2023-10-22;Soresina;17.0
+2023-10-23;Brescia Villaggio Sereno;14.0
+2023-10-23;Soresina;18.0
+2023-10-24;Brescia Villaggio Sereno;13.0
+2023-10-24;Soresina;13.0
+2023-10-25;Brescia Villaggio Sereno;17.0
+2023-10-25;Soresina;22.0
+2023-10-26;Brescia Villaggio Sereno;27.0
+2023-10-26;Soresina;27.0
+2023-10-27;Brescia Villaggio Sereno;15.0
+2023-10-27;Soresina;15.0
+2023-10-28;Brescia Villaggio Sereno;10.0
+2023-10-28;Soresina;20.0
+2023-10-29;Brescia Villaggio Sereno;6.0
+2023-10-29;Soresina;10.0
+2023-10-30;Brescia Villaggio Sereno;12.0
+2023-10-30;Soresina;11.0
+2023-10-31;Brescia Villaggio Sereno;8.0
+2023-10-31;Soresina;7.0
+2023-11-01;Brescia Villaggio Sereno;6.0
+2023-11-01;Soresina;12.0
+2023-11-02;Brescia Villaggio Sereno;6.0
+2023-11-02;Soresina;11.0
+2023-11-03;Brescia Villaggio Sereno;3.0
+2023-11-03;Soresina;13.0
+2023-11-04;Brescia Villaggio Sereno;7.0
+2023-11-04;Soresina;11.0
+2023-11-05;Brescia Villaggio Sereno;10.0
+2023-11-05;Soresina;8.0
+2023-11-06;Brescia Villaggio Sereno;10.0
+2023-11-06;Soresina;22.0
+2023-11-07;Brescia Villaggio Sereno;11.0
+2023-11-07;Soresina;30.0
+2023-11-08;Brescia Villaggio Sereno;12.0
+2023-11-08;Soresina;30.0
+2023-11-09;Brescia Villaggio Sereno;12.0
+2023-11-09;Soresina;24.0
+2023-11-10;Soresina;19.0
+2023-11-11;Soresina;22.0
+2023-11-12;Soresina;40.0
+2023-11-13;Soresina;42.0
+2023-11-14;Soresina;48.0
+2023-11-15;Soresina;29.0
+2023-11-16;Brescia Villaggio Sereno;26.0
+2023-11-16;Soresina;33.0
+2023-11-17;Brescia Villaggio Sereno;25.0
+2023-11-17;Soresina;16.0
+2023-11-18;Brescia Villaggio Sereno;14.0
+2023-11-18;Soresina;20.0
+2023-11-19;Brescia Villaggio Sereno;29.0
+2023-11-19;Soresina;41.0
+2023-11-20;Brescia Villaggio Sereno;35.0
+2023-11-20;Soresina;64.0
+2023-11-21;Brescia Villaggio Sereno;39.0
+2023-11-21;Soresina;53.0
+2023-11-22;Brescia Villaggio Sereno;16.0
+2023-11-22;Soresina;34.0
+2023-11-23;Brescia Villaggio Sereno;23.0
+2023-11-23;Soresina;33.0
+2023-11-24;Brescia Villaggio Sereno;36.0
+2023-11-24;Soresina;34.0
+2023-11-25;Brescia Villaggio Sereno;21.0
+2023-11-25;Soresina;8.0
+2023-11-26;Brescia Villaggio Sereno;21.0
+2023-11-26;Soresina;10.0
+2023-11-27;Brescia Villaggio Sereno;17.0
+2023-11-27;Soresina;25.0
+2023-11-28;Brescia Villaggio Sereno;39.0
+2023-11-28;Soresina;23.0
+2023-11-29;Brescia Villaggio Sereno;23.0
+2023-11-29;Soresina;40.0
+2023-11-30;Brescia Villaggio Sereno;20.0
+2023-11-30;Soresina;19.0
+2023-12-01;Brescia Villaggio Sereno;22.0
+2023-12-01;Soresina;38.0
+2023-12-02;Brescia Villaggio Sereno;20.0
+2023-12-02;Soresina;17.0
+2023-12-03;Brescia Villaggio Sereno;14.0
+2023-12-03;Soresina;17.0
+2023-12-04;Brescia Villaggio Sereno;29.0
+2023-12-04;Soresina;27.0
+2023-12-05;Brescia Villaggio Sereno;39.0
+2023-12-05;Soresina;30.0
+2023-12-06;Brescia Villaggio Sereno;39.0
+2023-12-06;Soresina;48.0
+2023-12-07;Brescia Villaggio Sereno;29.0
+2023-12-07;Soresina;50.0
+2023-12-08;Soresina;48.0
+2023-12-09;Soresina;32.0
+2023-12-10;Soresina;30.0
+2023-12-11;Soresina;34.0
+2023-12-12;Brescia Villaggio Sereno;45.0
+2023-12-12;Soresina;39.0
+2023-12-13;Brescia Villaggio Sereno;34.0
+2023-12-13;Soresina;33.0
+2023-12-14;Brescia Villaggio Sereno;31.0
+2023-12-14;Soresina;43.0
+2023-12-15;Brescia Villaggio Sereno;29.0
+2023-12-15;Soresina;39.0
+2023-12-16;Brescia Villaggio Sereno;19.0
+2023-12-16;Soresina;35.0
+2023-12-17;Brescia Villaggio Sereno;42.0
+2023-12-17;Soresina;41.0
+2023-12-18;Brescia Villaggio Sereno;66.0
+2023-12-18;Soresina;58.0
+2023-12-19;Brescia Villaggio Sereno;43.0
+2023-12-19;Soresina;60.0
+2023-12-20;Brescia Villaggio Sereno;39.0
+2023-12-20;Soresina;65.0
+2023-12-21;Brescia Villaggio Sereno;35.0
+2023-12-21;Soresina;48.0
+2023-12-22;Brescia Villaggio Sereno;11.0
+2023-12-22;Soresina;9.0
+2023-12-23;Brescia Villaggio Sereno;14.0
+2023-12-23;Soresina;9.0
+2023-12-24;Brescia Villaggio Sereno;25.0
+2023-12-24;Soresina;20.0
+2023-12-25;Brescia Villaggio Sereno;32.0
+2023-12-25;Soresina;39.0
+2023-12-26;Brescia Villaggio Sereno;52.0
+2023-12-26;Soresina;51.0
+2023-12-27;Brescia Villaggio Sereno;37.0
+2023-12-27;Soresina;57.0
+2023-12-28;Brescia Villaggio Sereno;41.0
+2023-12-28;Soresina;45.0
+2023-12-29;Brescia Villaggio Sereno;48.0
+2023-12-29;Soresina;39.0
+2023-12-30;Brescia Villaggio Sereno;52.0
+2023-12-30;Soresina;45.0
+2023-12-31;Brescia Villaggio Sereno;41.0
+2023-12-31;Soresina;46.0
+2024-01-01;Brescia Villaggio Sereno;44.0
+2024-01-01;Soresina;26.0
+2024-01-02;Brescia Villaggio Sereno;26.0
+2024-01-02;Soresina;21.0
+2024-01-03;Brescia Villaggio Sereno;40.0
+2024-01-03;Soresina;34.0
+2024-01-04;Brescia Villaggio Sereno;32.0
+2024-01-04;Soresina;42.0
+2024-01-05;Brescia Villaggio Sereno;19.0
+2024-01-05;Soresina;30.0
+2024-01-06;Brescia Villaggio Sereno;21.0
+2024-01-06;Soresina;17.0
+2024-01-07;Brescia Villaggio Sereno;27.0
+2024-01-07;Soresina;16.0
+2024-01-08;Brescia Villaggio Sereno;18.0
+2024-01-08;Soresina;15.0
+2024-01-09;Brescia Villaggio Sereno;22.0
+2024-01-09;Soresina;14.0
+2024-01-10;Brescia Villaggio Sereno;25.0
+2024-01-10;Soresina;25.0
+2024-01-11;Brescia Villaggio Sereno;44.0
+2024-01-11;Soresina;44.0
+2024-01-12;Brescia Villaggio Sereno;33.0
+2024-01-12;Soresina;49.0
+2024-01-13;Brescia Villaggio Sereno;40.0
+2024-01-13;Soresina;44.0
+2024-01-14;Brescia Villaggio Sereno;49.0
+2024-01-14;Soresina;43.0
+2024-01-15;Brescia Villaggio Sereno;76.0
+2024-01-15;Soresina;59.0
+2024-01-16;Brescia Villaggio Sereno;53.0
+2024-01-16;Soresina;53.0
+2024-01-17;Brescia Villaggio Sereno;48.0
+2024-01-17;Soresina;48.0
+2024-01-18;Brescia Villaggio Sereno;31.0
+2024-01-18;Soresina;45.0
+2024-01-19;Brescia Villaggio Sereno;25.0
+2024-01-19;Soresina;28.0
+2024-01-20;Brescia Villaggio Sereno;22.0
+2024-01-20;Soresina;23.0
+2024-01-21;Brescia Villaggio Sereno;34.0
+2024-01-21;Soresina;39.0
+2024-01-22;Brescia Villaggio Sereno;39.0
+2024-01-22;Soresina;46.0
+2024-01-23;Brescia Villaggio Sereno;43.0
+2024-01-24;Brescia Villaggio Sereno;53.0
+2024-01-25;Brescia Villaggio Sereno;62.0
+2024-01-26;Brescia Villaggio Sereno;60.0
+2024-01-26;Soresina;44.0
+2024-01-27;Brescia Villaggio Sereno;65.0
+2024-01-27;Soresina;48.0
+2024-01-28;Brescia Villaggio Sereno;42.0
+2024-01-28;Soresina;43.0
+2024-01-29;Brescia Villaggio Sereno;49.0
+2024-01-29;Soresina;27.0
+2024-01-30;Brescia Villaggio Sereno;64.0
+2024-01-30;Soresina;34.0
+2024-01-31;Brescia Villaggio Sereno;58.0
+2024-01-31;Soresina;57.0
+2024-02-01;Brescia Villaggio Sereno;57.0
+2024-02-01;Soresina;71.0
+2024-02-02;Brescia Villaggio Sereno;48.0
+2024-02-02;Soresina;72.0
+2024-02-03;Brescia Villaggio Sereno;66.0
+2024-02-03;Soresina;71.0
+2024-02-04;Brescia Villaggio Sereno;68.0
+2024-02-04;Soresina;57.0
+2024-02-05;Brescia Villaggio Sereno;95.0
+2024-02-05;Soresina;62.0
+2024-02-06;Brescia Villaggio Sereno;101.0
+2024-02-06;Soresina;88.0
+2024-02-07;Brescia Villaggio Sereno;66.0
+2024-02-07;Soresina;60.0
+2024-02-08;Brescia Villaggio Sereno;76.0
+2024-02-08;Soresina;47.0
+2024-02-09;Brescia Villaggio Sereno;26.0
+2024-02-09;Soresina;45.0
+2024-02-10;Brescia Villaggio Sereno;6.0
+2024-02-10;Soresina;11.0
+2024-02-11;Brescia Villaggio Sereno;10.0
+2024-02-11;Soresina;13.0
+2024-02-12;Brescia Villaggio Sereno;18.0
+2024-02-12;Soresina;25.0
+2024-02-13;Brescia Villaggio Sereno;30.0
+2024-02-13;Soresina;40.0
+2024-02-14;Brescia Villaggio Sereno;26.0
+2024-02-14;Soresina;40.0
+2024-02-15;Brescia Villaggio Sereno;54.0
+2024-02-15;Soresina;52.0
+2024-02-16;Brescia Villaggio Sereno;70.0
+2024-02-16;Soresina;78.0
+2024-02-17;Brescia Villaggio Sereno;109.0
+2024-02-17;Soresina;81.0
+2024-02-18;Brescia Villaggio Sereno;77.0
+2024-02-18;Soresina;96.0
+2024-02-19;Brescia Villaggio Sereno;80.0
+2024-02-19;Soresina;89.0
+2024-02-20;Brescia Villaggio Sereno;67.0
+2024-02-20;Soresina;82.0
+2024-02-21;Brescia Villaggio Sereno;46.0
+2024-02-21;Soresina;54.0
+2024-02-22;Brescia Villaggio Sereno;39.0
+2024-02-22;Soresina;47.0
+2024-02-23;Brescia Villaggio Sereno;13.0
+2024-02-23;Soresina;13.0
+2024-02-24;Soresina;15.0
+2024-02-25;Soresina;18.0
+2024-02-26;Soresina;14.0
+2024-02-27;Soresina;6.0
+2024-02-28;Brescia Villaggio Sereno;13.0
+2024-02-28;Soresina;15.0
+2024-02-29;Brescia Villaggio Sereno;17.0
+2024-02-29;Soresina;25.0
+2024-03-01;Brescia Villaggio Sereno;12.0
+2024-03-01;Soresina;17.0
+2024-03-02;Brescia Villaggio Sereno;11.0
+2024-03-02;Soresina;9.0
+2024-03-03;Brescia Villaggio Sereno;3.0
+2024-03-03;Soresina;8.0
+2024-03-04;Brescia Villaggio Sereno;13.0
+2024-03-04;Soresina;10.0
+2024-03-05;Brescia Villaggio Sereno;17.0
+2024-03-05;Soresina;23.0
+2024-03-06;Brescia Villaggio Sereno;16.0
+2024-03-06;Soresina;10.0
+2024-03-07;Brescia Villaggio Sereno;16.0
+2024-03-07;Soresina;29.0
+2024-03-08;Brescia Villaggio Sereno;17.0
+2024-03-08;Soresina;14.0
+2024-03-09;Brescia Villaggio Sereno;10.0
+2024-03-09;Soresina;16.0
+2024-03-10;Brescia Villaggio Sereno;5.0
+2024-03-10;Soresina;12.0
+2024-03-11;Brescia Villaggio Sereno;15.0
+2024-03-11;Soresina;22.0
+2024-03-12;Brescia Villaggio Sereno;19.0
+2024-03-12;Soresina;12.0
+2024-03-13;Brescia Villaggio Sereno;23.0
+2024-03-13;Soresina;37.0
+2024-03-14;Brescia Villaggio Sereno;41.0
+2024-03-14;Soresina;42.0
+2024-03-15;Brescia Villaggio Sereno;26.0
+2024-03-15;Soresina;15.0
+2024-03-16;Brescia Villaggio Sereno;17.0
+2024-03-16;Soresina;21.0
+2024-03-17;Brescia Villaggio Sereno;31.0
+2024-03-17;Soresina;47.0
+2024-03-18;Brescia Villaggio Sereno;36.0
+2024-03-18;Soresina;29.0
+2024-03-19;Brescia Villaggio Sereno;34.0
+2024-03-19;Soresina;37.0
+2024-03-20;Brescia Villaggio Sereno;34.0
+2024-03-20;Soresina;34.0
+2024-03-21;Brescia Villaggio Sereno;51.0
+2024-03-21;Soresina;44.0
+2024-03-22;Brescia Villaggio Sereno;37.0
+2024-03-22;Soresina;44.0
+2024-03-23;Brescia Villaggio Sereno;31.0
+2024-03-23;Soresina;28.0
+2024-03-24;Brescia Villaggio Sereno;13.0
+2024-03-24;Soresina;8.0
+2024-03-25;Brescia Villaggio Sereno;14.0
+2024-03-25;Soresina;17.0
+2024-03-26;Brescia Villaggio Sereno;14.0
+2024-03-26;Soresina;2.0
+2024-03-27;Brescia Villaggio Sereno;14.0
+2024-03-27;Soresina;13.0
+2024-03-28;Brescia Villaggio Sereno;8.0
+2024-03-28;Soresina;9.0
+2024-03-29;Brescia Villaggio Sereno;17.0
+2024-03-29;Soresina;23.0
+2024-03-30;Brescia Villaggio Sereno;37.0
+2024-03-30;Soresina;30.0
+2024-03-31;Brescia Villaggio Sereno;14.0
+2024-03-31;Soresina;19.0
+2024-04-01;Brescia Villaggio Sereno;15.0
+2024-04-01;Soresina;8.0
+2024-04-02;Brescia Villaggio Sereno;6.0
+2024-04-02;Soresina;11.0
+2024-04-03;Brescia Villaggio Sereno;11.0
+2024-04-03;Soresina;14.0
+2024-04-04;Brescia Villaggio Sereno;9.0
+2024-04-04;Soresina;21.0
+2024-04-05;Brescia Villaggio Sereno;11.0
+2024-04-05;Soresina;16.0
+2024-04-06;Brescia Villaggio Sereno;18.0
+2024-04-06;Soresina;13.0
+2024-04-07;Brescia Villaggio Sereno;18.0
+2024-04-07;Soresina;20.0
+2024-04-08;Brescia Villaggio Sereno;23.0
+2024-04-08;Soresina;43.0
+2024-04-09;Brescia Villaggio Sereno;36.0
+2024-04-09;Soresina;42.0
+2024-04-10;Brescia Villaggio Sereno;9.0
+2024-04-10;Soresina;10.0
+2024-04-11;Brescia Villaggio Sereno;20.0
+2024-04-11;Soresina;15.0
+2024-04-12;Brescia Villaggio Sereno;21.0
+2024-04-12;Soresina;22.0
+2024-04-13;Brescia Villaggio Sereno;27.0
+2024-04-13;Soresina;38.0
+2024-04-14;Brescia Villaggio Sereno;20.0
+2024-04-14;Soresina;33.0
+2024-04-15;Brescia Villaggio Sereno;17.0
+2024-04-15;Soresina;15.0
+2024-04-16;Brescia Villaggio Sereno;15.0
+2024-04-16;Soresina;18.0
+2024-04-17;Brescia Villaggio Sereno;9.0
+2024-04-17;Soresina;10.0
+2024-04-18;Brescia Villaggio Sereno;10.0
+2024-04-18;Soresina;12.0
+2024-04-19;Brescia Villaggio Sereno;13.0
+2024-04-19;Soresina;14.0
+2024-04-20;Brescia Villaggio Sereno;10.0
+2024-04-20;Soresina;13.0
+2024-04-21;Brescia Villaggio Sereno;8.0
+2024-04-21;Soresina;13.0
+2024-04-22;Brescia Villaggio Sereno;4.0
+2024-04-22;Soresina;4.0
+2024-04-23;Brescia Villaggio Sereno;14.0
+2024-04-23;Soresina;10.0
+2024-04-24;Brescia Villaggio Sereno;16.0
+2024-04-24;Soresina;13.0
+2024-04-25;Brescia Villaggio Sereno;8.0
+2024-04-25;Soresina;10.0
+2024-04-26;Soresina;14.0
+2024-04-27;Soresina;13.0
+2024-04-28;Soresina;14.0
+2024-04-29;Soresina;13.0
+2024-04-30;Brescia Villaggio Sereno;15.0
+2024-04-30;Soresina;22.0
+2024-05-01;Brescia Villaggio Sereno;16.0
+2024-05-01;Soresina;20.0
+2024-05-02;Brescia Villaggio Sereno;4.0
+2024-05-02;Soresina;9.0
+2024-05-03;Brescia Villaggio Sereno;10.0
+2024-05-03;Soresina;10.0
+2024-05-04;Brescia Villaggio Sereno;5.0
+2024-05-04;Soresina;11.0
+2024-05-05;Brescia Villaggio Sereno;6.0
+2024-05-05;Soresina;9.0
+2024-05-06;Brescia Villaggio Sereno;10.0
+2024-05-06;Soresina;15.0
+2024-05-07;Brescia Villaggio Sereno;15.0
+2024-05-07;Soresina;19.0
+2024-05-08;Brescia Villaggio Sereno;13.0
+2024-05-08;Soresina;7.0
+2024-05-09;Brescia Villaggio Sereno;5.0
+2024-05-09;Soresina;8.0
+2024-05-10;Brescia Villaggio Sereno;12.0
+2024-05-10;Soresina;15.0
+2024-05-11;Brescia Villaggio Sereno;14.0
+2024-05-11;Soresina;18.0
+2024-05-12;Brescia Villaggio Sereno;14.0
+2024-05-12;Soresina;19.0
+2024-05-13;Brescia Villaggio Sereno;15.0
+2024-05-13;Soresina;21.0
+2024-05-14;Soresina;22.0
+2024-05-15;Brescia Villaggio Sereno;6.0
+2024-05-15;Soresina;8.0
+2024-05-16;Brescia Villaggio Sereno;8.0
+2024-05-16;Soresina;8.0
+2024-05-17;Brescia Villaggio Sereno;8.0
+2024-05-17;Soresina;14.0
+2024-05-18;Brescia Villaggio Sereno;8.0
+2024-05-18;Soresina;11.0
+2024-05-19;Brescia Villaggio Sereno;11.0
+2024-05-19;Soresina;14.0
+2024-05-20;Brescia Villaggio Sereno;14.0
+2024-05-20;Soresina;20.0
+2024-05-21;Brescia Villaggio Sereno;6.0
+2024-05-21;Soresina;7.0
+2024-05-22;Brescia Villaggio Sereno;7.0
+2024-05-23;Brescia Villaggio Sereno;7.0
+2024-05-24;Brescia Villaggio Sereno;7.0
+2024-05-24;Soresina;18.0
+2024-05-25;Brescia Villaggio Sereno;6.0
+2024-05-25;Soresina;21.0
+2024-05-26;Brescia Villaggio Sereno;4.0
+2024-05-27;Brescia Villaggio Sereno;9.0
+2024-05-27;Soresina;14.0
+2024-05-28;Brescia Villaggio Sereno;12.0
+2024-05-28;Soresina;14.0
+2024-05-29;Brescia Villaggio Sereno;8.0
+2024-05-29;Soresina;16.0
+2024-05-30;Brescia Villaggio Sereno;11.0
+2024-05-30;Soresina;20.0
+2024-05-31;Brescia Villaggio Sereno;5.0
+2024-05-31;Soresina;7.0
+2024-06-01;Brescia Villaggio Sereno;5.0
+2024-06-01;Soresina;9.0
+2024-06-02;Brescia Villaggio Sereno;12.0
+2024-06-02;Soresina;6.0
+2024-06-03;Brescia Villaggio Sereno;10.0
+2024-06-03;Soresina;15.0
+2024-06-04;Brescia Villaggio Sereno;7.0
+2024-06-04;Soresina;11.0
+2024-06-05;Brescia Villaggio Sereno;11.0
+2024-06-05;Soresina;17.0
+2024-06-06;Brescia Villaggio Sereno;16.0
+2024-06-06;Soresina;11.0
+2024-06-07;Brescia Villaggio Sereno;20.0
+2024-06-07;Soresina;13.0
+2024-06-08;Brescia Villaggio Sereno;26.0
+2024-06-08;Soresina;17.0
+2024-06-09;Brescia Villaggio Sereno;25.0
+2024-06-09;Soresina;21.0
+2024-06-10;Brescia Villaggio Sereno;12.0
+2024-06-10;Soresina;13.0
+2024-06-11;Brescia Villaggio Sereno;5.0
+2024-06-11;Soresina;6.0
+2024-06-12;Brescia Villaggio Sereno;7.0
+2024-06-12;Soresina;4.0
+2024-06-13;Brescia Villaggio Sereno;5.0
+2024-06-13;Soresina;2.0
+2024-06-14;Brescia Villaggio Sereno;8.0
+2024-06-14;Soresina;10.0
+2024-06-15;Brescia Villaggio Sereno;10.0
+2024-06-15;Soresina;16.0
+2024-06-16;Brescia Villaggio Sereno;9.0
+2024-06-16;Soresina;9.0
+2024-06-17;Brescia Villaggio Sereno;14.0
+2024-06-17;Soresina;12.0
+2024-06-18;Brescia Villaggio Sereno;18.0
+2024-06-18;Soresina;23.0
+2024-06-19;Brescia Villaggio Sereno;19.0
+2024-06-19;Soresina;22.0
+2024-06-20;Brescia Villaggio Sereno;28.0
+2024-06-20;Soresina;18.0
+2024-06-21;Brescia Villaggio Sereno;29.0
+2024-06-21;Soresina;27.0
+2024-06-22;Brescia Villaggio Sereno;8.0
+2024-06-22;Soresina;10.0
+2024-06-23;Brescia Villaggio Sereno;3.0
+2024-06-23;Soresina;5.0
+2024-06-24;Brescia Villaggio Sereno;13.0
+2024-06-24;Soresina;11.0
+2024-06-25;Soresina;17.0
+2024-06-26;Soresina;16.0
+2024-06-27;Soresina;18.0
+2024-06-28;Brescia Villaggio Sereno;19.0
+2024-06-28;Soresina;13.0
+2024-06-29;Brescia Villaggio Sereno;19.0
+2024-06-29;Soresina;30.0
+2024-06-30;Brescia Villaggio Sereno;14.0
+2024-06-30;Soresina;14.0
+2024-07-01;Brescia Villaggio Sereno;14.0
+2024-07-01;Soresina;11.0
+2024-07-02;Brescia Villaggio Sereno;9.0
+2024-07-02;Soresina;7.0
+2024-07-03;Brescia Villaggio Sereno;5.0
+2024-07-03;Soresina;3.0
+2024-07-04;Brescia Villaggio Sereno;12.0
+2024-07-04;Soresina;11.0
+2024-07-05;Brescia Villaggio Sereno;7.0
+2024-07-05;Soresina;18.0
+2024-07-06;Brescia Villaggio Sereno;11.0
+2024-07-06;Soresina;8.0
+2024-07-07;Brescia Villaggio Sereno;19.0
+2024-07-07;Soresina;13.0
+2024-07-08;Brescia Villaggio Sereno;11.0
+2024-07-08;Soresina;14.0
+2024-07-09;Brescia Villaggio Sereno;14.0
+2024-07-09;Soresina;17.0
+2024-07-10;Brescia Villaggio Sereno;16.0
+2024-07-10;Soresina;22.0
+2024-07-11;Brescia Villaggio Sereno;17.0
+2024-07-11;Soresina;17.0
+2024-07-12;Brescia Villaggio Sereno;13.0
+2024-07-12;Soresina;10.0
+2024-07-13;Brescia Villaggio Sereno;12.0
+2024-07-13;Soresina;15.0
+2024-07-14;Brescia Villaggio Sereno;6.0
+2024-07-14;Soresina;8.0
+2024-07-15;Brescia Villaggio Sereno;10.0
+2024-07-15;Soresina;17.0
+2024-07-16;Brescia Villaggio Sereno;15.0
+2024-07-16;Soresina;17.0
+2024-07-17;Brescia Villaggio Sereno;15.0
+2024-07-17;Soresina;14.0
+2024-07-18;Brescia Villaggio Sereno;14.0
+2024-07-18;Soresina;21.0
+2024-07-19;Brescia Villaggio Sereno;15.0
+2024-07-19;Soresina;25.0
+2024-07-20;Brescia Villaggio Sereno;11.0
+2024-07-20;Soresina;14.0
+2024-07-21;Brescia Villaggio Sereno;10.0
+2024-07-21;Soresina;11.0
+2024-07-22;Brescia Villaggio Sereno;13.0
+2024-07-22;Soresina;17.0
+2024-07-23;Brescia Villaggio Sereno;8.0
+2024-07-23;Soresina;15.0
+2024-07-24;Brescia Villaggio Sereno;9.0
+2024-07-24;Soresina;19.0
+2024-07-25;Brescia Villaggio Sereno;8.0
+2024-07-25;Soresina;9.0
+2024-07-26;Brescia Villaggio Sereno;6.0
+2024-07-26;Soresina;9.0
+2024-07-27;Brescia Villaggio Sereno;8.0
+2024-07-27;Soresina;12.0
+2024-07-28;Brescia Villaggio Sereno;13.0
+2024-07-28;Soresina;21.0
+2024-07-29;Brescia Villaggio Sereno;13.0
+2024-07-29;Soresina;11.0
+2024-07-30;Brescia Villaggio Sereno;13.0
+2024-07-30;Soresina;13.0
+2024-07-31;Brescia Villaggio Sereno;15.0
+2024-07-31;Soresina;21.0
+2024-08-01;Brescia Villaggio Sereno;18.0
+2024-08-01;Soresina;24.0
+2024-08-02;Brescia Villaggio Sereno;11.0
+2024-08-02;Soresina;14.0
+2024-08-03;Brescia Villaggio Sereno;12.0
+2024-08-03;Soresina;22.0
+2024-08-04;Brescia Villaggio Sereno;5.0
+2024-08-04;Soresina;17.0
+2024-08-05;Brescia Villaggio Sereno;7.0
+2024-08-05;Soresina;12.0
+2024-08-06;Brescia Villaggio Sereno;11.0
+2024-08-06;Soresina;17.0
+2024-08-07;Brescia Villaggio Sereno;9.0
+2024-08-07;Soresina;20.0
+2024-08-08;Brescia Villaggio Sereno;13.0
+2024-08-08;Soresina;21.0
+2024-08-09;Brescia Villaggio Sereno;14.0
+2024-08-09;Soresina;26.0
+2024-08-10;Brescia Villaggio Sereno;15.0
+2024-08-10;Soresina;30.0
+2024-08-11;Brescia Villaggio Sereno;15.0
+2024-08-11;Soresina;40.0
+2024-08-12;Brescia Villaggio Sereno;16.0
+2024-08-12;Soresina;36.0
+2024-08-13;Brescia Villaggio Sereno;12.0
+2024-08-13;Soresina;35.0
+2024-08-14;Brescia Villaggio Sereno;10.0
+2024-08-14;Soresina;18.0
+2024-08-15;Brescia Villaggio Sereno;13.0
+2024-08-15;Soresina;13.0
+2024-08-16;Soresina;18.0
+2024-08-17;Soresina;20.0
+2024-08-18;Soresina;12.0
+2024-08-19;Soresina;13.0
+2024-08-20;Brescia Villaggio Sereno;11.0
+2024-08-20;Soresina;19.0
+2024-08-21;Brescia Villaggio Sereno;9.0
+2024-08-21;Soresina;29.0
+2024-08-22;Soresina;20.0
+2024-08-23;Soresina;24.0
+2024-08-24;Brescia Villaggio Sereno;12.0
+2024-08-24;Soresina;22.0
+2024-08-25;Brescia Villaggio Sereno;16.0
+2024-08-25;Soresina;16.0
+2024-08-26;Brescia Villaggio Sereno;12.0
+2024-08-26;Soresina;17.0
+2024-08-27;Brescia Villaggio Sereno;13.0
+2024-08-27;Soresina;21.0
+2024-08-28;Brescia Villaggio Sereno;12.0
+2024-08-28;Soresina;25.0
+2024-08-29;Brescia Villaggio Sereno;17.0
+2024-08-29;Soresina;33.0
+2024-08-30;Brescia Villaggio Sereno;16.0
+2024-08-30;Soresina;31.0
+2024-08-31;Brescia Villaggio Sereno;18.0
+2024-08-31;Soresina;37.0
+2024-09-01;Brescia Villaggio Sereno;15.0
+2024-09-01;Soresina;28.0
+2024-09-02;Brescia Villaggio Sereno;13.0
+2024-09-02;Soresina;27.0
+2024-09-03;Brescia Villaggio Sereno;16.0
+2024-09-03;Soresina;25.0
+2024-09-04;Brescia Villaggio Sereno;15.0
+2024-09-04;Soresina;23.0
+2024-09-05;Brescia Villaggio Sereno;13.0
+2024-09-05;Soresina;14.0
+2024-09-06;Brescia Villaggio Sereno;8.0
+2024-09-06;Soresina;11.0
+2024-09-07;Brescia Villaggio Sereno;14.0
+2024-09-07;Soresina;16.0
+2024-09-08;Brescia Villaggio Sereno;11.0
+2024-09-08;Soresina;20.0
+2024-09-09;Brescia Villaggio Sereno;6.0
+2024-09-09;Soresina;11.0
+2024-09-10;Brescia Villaggio Sereno;3.0
+2024-09-10;Soresina;8.0
+2024-09-11;Brescia Villaggio Sereno;11.0
+2024-09-11;Soresina;15.0
+2024-09-12;Brescia Villaggio Sereno;2.0
+2024-09-12;Soresina;3.0
+2024-09-13;Brescia Villaggio Sereno;1.0
+2024-09-13;Soresina;7.0
+2024-09-14;Brescia Villaggio Sereno;5.0
+2024-09-14;Soresina;0.0
+2024-09-15;Brescia Villaggio Sereno;4.0
+2024-09-15;Soresina;8.0
+2024-09-16;Brescia Villaggio Sereno;6.0
+2024-09-16;Soresina;5.0
+2024-09-17;Brescia Villaggio Sereno;3.0
+2024-09-17;Soresina;7.0
+2024-09-18;Brescia Villaggio Sereno;10.0
+2024-09-18;Soresina;9.0
+2024-09-19;Brescia Villaggio Sereno;9.0
+2024-09-19;Soresina;18.0
+2024-09-20;Brescia Villaggio Sereno;13.0
+2024-09-20;Soresina;26.0
+2024-09-21;Brescia Villaggio Sereno;14.0
+2024-09-21;Soresina;22.0
+2024-09-22;Brescia Villaggio Sereno;14.0
+2024-09-22;Soresina;27.0
+2024-09-23;Brescia Villaggio Sereno;17.0
+2024-09-23;Soresina;27.0
+2024-09-24;Brescia Villaggio Sereno;13.0
+2024-09-24;Soresina;29.0
+2024-09-25;Brescia Villaggio Sereno;8.0
+2024-09-25;Soresina;18.0
+2024-09-26;Brescia Villaggio Sereno;8.0
+2024-09-26;Soresina;19.0
+2024-09-27;Soresina;22.0
+2024-09-28;Soresina;8.0
+2024-09-29;Brescia Villaggio Sereno;5.0
+2024-09-29;Soresina;3.0
+2024-09-30;Brescia Villaggio Sereno;8.0
+2024-09-30;Soresina;6.0
+2024-10-01;Brescia Villaggio Sereno;12.0
+2024-10-01;Soresina;19.0
+2024-10-02;Brescia Villaggio Sereno;16.0
+2024-10-02;Soresina;22.0
+2024-10-03;Brescia Villaggio Sereno;6.0
+2024-10-04;Brescia Villaggio Sereno;5.0
+2024-10-04;Soresina;8.0
+2024-10-05;Brescia Villaggio Sereno;9.0
+2024-10-05;Soresina;11.0
+2024-10-06;Brescia Villaggio Sereno;10.0
+2024-10-06;Soresina;24.0
+2024-10-07;Brescia Villaggio Sereno;14.0
+2024-10-07;Soresina;28.0
+2024-10-08;Brescia Villaggio Sereno;4.0
+2024-10-08;Soresina;16.0
+2024-10-09;Brescia Villaggio Sereno;9.0
+2024-10-09;Soresina;21.0
+2024-10-10;Brescia Villaggio Sereno;6.0
+2024-10-10;Soresina;12.0
+2024-10-11;Brescia Villaggio Sereno;6.0
+2024-10-11;Soresina;19.0
+2024-10-12;Brescia Villaggio Sereno;7.0
+2024-10-12;Soresina;17.0
+2024-10-13;Brescia Villaggio Sereno;10.0
+2024-10-13;Soresina;19.0
+2024-10-14;Brescia Villaggio Sereno;17.0
+2024-10-14;Soresina;25.0
+2024-10-15;Brescia Villaggio Sereno;22.0
+2024-10-15;Soresina;40.0
+2024-10-16;Brescia Villaggio Sereno;11.0
+2024-10-16;Soresina;21.0
+2024-10-17;Brescia Villaggio Sereno;3.0
+2024-10-17;Soresina;5.0
+2024-10-18;Brescia Villaggio Sereno;5.0
+2024-10-18;Soresina;15.0
+2024-10-19;Brescia Villaggio Sereno;6.0
+2024-10-19;Soresina;18.0
+2024-10-20;Brescia Villaggio Sereno;9.0
+2024-10-20;Soresina;19.0
+2024-10-21;Brescia Villaggio Sereno;14.0
+2024-10-21;Soresina;25.0
+2024-10-22;Brescia Villaggio Sereno;17.0
+2024-10-22;Soresina;32.0
+2024-10-23;Brescia Villaggio Sereno;15.0
+2024-10-23;Soresina;29.0
+2024-10-24;Brescia Villaggio Sereno;17.0
+2024-10-24;Soresina;15.0
+2024-10-25;Brescia Villaggio Sereno;20.0
+2024-10-25;Soresina;22.0
+2024-10-26;Brescia Villaggio Sereno;6.0
+2024-10-26;Soresina;15.0
+2024-10-27;Brescia Villaggio Sereno;13.0
+2024-10-27;Soresina;23.0
+2024-10-28;Brescia Villaggio Sereno;23.0
+2024-10-28;Soresina;22.0
+2024-10-29;Brescia Villaggio Sereno;21.0
+2024-10-29;Soresina;23.0
+2024-10-30;Brescia Villaggio Sereno;17.0
+2024-10-30;Soresina;34.0
+2024-10-31;Brescia Villaggio Sereno;23.0
+2024-10-31;Soresina;34.0
+2024-11-01;Brescia Villaggio Sereno;29.0
+2024-11-01;Soresina;35.0
+2024-11-02;Brescia Villaggio Sereno;29.0
+2024-11-02;Soresina;36.0
+2024-11-03;Brescia Villaggio Sereno;16.0
+2024-11-03;Soresina;38.0
+2024-11-04;Brescia Villaggio Sereno;27.0
+2024-11-04;Soresina;37.0
+2024-11-05;Brescia Villaggio Sereno;29.0
+2024-11-05;Soresina;24.0
+2024-11-06;Brescia Villaggio Sereno;29.0
+2024-11-06;Soresina;24.0
+2024-11-07;Brescia Villaggio Sereno;39.0
+2024-11-07;Soresina;23.0
+2024-11-08;Brescia Villaggio Sereno;39.0
+2024-11-08;Soresina;31.0
+2024-11-09;Brescia Villaggio Sereno;33.0
+2024-11-09;Soresina;27.0
+2024-11-10;Brescia Villaggio Sereno;34.0
+2024-11-10;Soresina;28.0
+2024-11-11;Brescia Villaggio Sereno;28.0
+2024-11-11;Soresina;37.0
+2024-11-12;Brescia Villaggio Sereno;24.0
+2024-11-12;Soresina;36.0
+2024-11-13;Brescia Villaggio Sereno;32.0
+2024-11-13;Soresina;47.0
+2024-11-14;Brescia Villaggio Sereno;43.0
+2024-11-14;Soresina;31.0
+2024-11-15;Brescia Villaggio Sereno;51.0
+2024-11-15;Soresina;50.0
+2024-11-16;Brescia Villaggio Sereno;53.0
+2024-11-16;Soresina;39.0
+2024-11-17;Brescia Villaggio Sereno;48.0
+2024-11-17;Soresina;34.0
+2024-11-18;Brescia Villaggio Sereno;61.0
+2024-11-18;Soresina;39.0
+2024-11-19;Brescia Villaggio Sereno;38.0
+2024-11-19;Soresina;47.0
+2024-11-20;Brescia Villaggio Sereno;32.0
+2024-11-20;Soresina;38.0
+2024-11-21;Brescia Villaggio Sereno;12.0
+2024-11-21;Soresina;16.0
+2024-11-22;Brescia Villaggio Sereno;18.0
+2024-11-22;Soresina;13.0
+2024-11-23;Brescia Villaggio Sereno;26.0
+2024-11-23;Soresina;17.0
+2024-11-24;Brescia Villaggio Sereno;32.0
+2024-11-24;Soresina;22.0
+2024-11-25;Brescia Villaggio Sereno;26.0
+2024-11-25;Soresina;21.0
+2024-11-26;Brescia Villaggio Sereno;31.0
+2024-11-26;Soresina;33.0
+2024-11-27;Brescia Villaggio Sereno;49.0
+2024-11-27;Soresina;41.0
+2024-11-28;Soresina;37.0
+2024-11-29;Brescia Villaggio Sereno;30.0
+2024-11-29;Soresina;32.0
+2024-11-30;Soresina;26.0
+2024-12-01;Soresina;25.0
+2024-12-02;Soresina;43.0
+2024-12-03;Brescia Villaggio Sereno;35.0
+2024-12-03;Soresina;52.0
+2024-12-04;Brescia Villaggio Sereno;38.0
+2024-12-04;Soresina;58.0
+2024-12-05;Brescia Villaggio Sereno;27.0
+2024-12-05;Soresina;48.0
+2024-12-06;Brescia Villaggio Sereno;48.0
+2024-12-06;Soresina;50.0
+2024-12-07;Brescia Villaggio Sereno;47.0
+2024-12-07;Soresina;45.0
+2024-12-08;Brescia Villaggio Sereno;35.0
+2024-12-08;Soresina;34.0
+2024-12-09;Brescia Villaggio Sereno;30.0
+2024-12-09;Soresina;23.0
+2024-12-10;Brescia Villaggio Sereno;21.0
+2024-12-10;Soresina;40.0
+2024-12-11;Brescia Villaggio Sereno;24.0
+2024-12-11;Soresina;41.0
+2024-12-12;Brescia Villaggio Sereno;34.0
+2024-12-12;Soresina;40.0
+2024-12-13;Brescia Villaggio Sereno;52.0
+2024-12-13;Soresina;36.0
+2024-12-14;Brescia Villaggio Sereno;49.0
+2024-12-14;Soresina;41.0
+2024-12-15;Brescia Villaggio Sereno;32.0
+2024-12-15;Soresina;30.0
+2024-12-16;Brescia Villaggio Sereno;46.0
+2024-12-16;Soresina;35.0
+2024-12-17;Brescia Villaggio Sereno;47.0
+2024-12-17;Soresina;40.0
+2024-12-18;Brescia Villaggio Sereno;51.0
+2024-12-18;Soresina;31.0
+2024-12-19;Brescia Villaggio Sereno;35.0
+2024-12-19;Soresina;32.0
+2024-12-20;Brescia Villaggio Sereno;18.0
+2024-12-20;Soresina;20.0
+2024-12-21;Brescia Villaggio Sereno;19.0
+2024-12-21;Soresina;29.0
+2024-12-22;Brescia Villaggio Sereno;34.0
+2024-12-22;Soresina;43.0
+2024-12-23;Brescia Villaggio Sereno;27.0
+2024-12-23;Soresina;26.0
+2024-12-24;Brescia Villaggio Sereno;18.0
+2024-12-24;Soresina;31.0
+2024-12-25;Brescia Villaggio Sereno;20.0
+2024-12-25;Soresina;41.0
+2024-12-26;Brescia Villaggio Sereno;24.0
+2024-12-26;Soresina;55.0
+2024-12-27;Brescia Villaggio Sereno;33.0
+2024-12-27;Soresina;50.0
+2024-12-28;Brescia Villaggio Sereno;41.0
+2024-12-28;Soresina;56.0
+2024-12-29;Brescia Villaggio Sereno;33.0
+2024-12-29;Soresina;57.0
+2024-12-30;Brescia Villaggio Sereno;32.0
+2024-12-30;Soresina;68.0
+2024-12-31;Brescia Villaggio Sereno;36.0
+2024-12-31;Soresina;67.0
+2025-01-01;Brescia Villaggio Sereno;77.0
+2025-01-01;Soresina;105.0
+2025-01-02;Brescia Villaggio Sereno;90.0
+2025-01-02;Soresina;79.0
+2025-01-03;Brescia Villaggio Sereno;72.0
+2025-01-03;Soresina;57.0
+2025-01-04;Brescia Villaggio Sereno;32.0
+2025-01-04;Soresina;52.0
+2025-01-05;Brescia Villaggio Sereno;51.0
+2025-01-05;Soresina;45.0
+2025-01-06;Brescia Villaggio Sereno;46.0
+2025-01-06;Soresina;53.0
+2025-01-07;Brescia Villaggio Sereno;31.0
+2025-01-07;Soresina;33.0
+2025-01-08;Brescia Villaggio Sereno;32.0
+2025-01-08;Soresina;32.0
+2025-01-09;Brescia Villaggio Sereno;18.0
+2025-01-09;Soresina;23.0
+2025-01-10;Brescia Villaggio Sereno;19.0
+2025-01-10;Soresina;23.0
+2025-01-11;Brescia Villaggio Sereno;18.0
+2025-01-11;Soresina;30.0
+2025-01-12;Brescia Villaggio Sereno;17.0
+2025-01-12;Soresina;35.0
+2025-01-13;Brescia Villaggio Sereno;20.0
+2025-01-13;Soresina;37.0
+2025-01-14;Brescia Villaggio Sereno;30.0
+2025-01-14;Soresina;32.0
+2025-01-15;Brescia Villaggio Sereno;42.0
+2025-01-15;Soresina;47.0
+2025-01-16;Brescia Villaggio Sereno;22.0
+2025-01-16;Soresina;53.0
+2025-01-17;Brescia Villaggio Sereno;26.0
+2025-01-17;Soresina;42.0
+2025-01-18;Brescia Villaggio Sereno;41.0
+2025-01-18;Soresina;54.0
+2025-01-19;Brescia Villaggio Sereno;31.0
+2025-01-19;Soresina;47.0
+2025-01-20;Brescia Villaggio Sereno;26.0
+2025-01-20;Soresina;27.0
+2025-01-21;Brescia Villaggio Sereno;25.0
+2025-01-21;Soresina;26.0
+2025-01-22;Brescia Villaggio Sereno;35.0
+2025-01-22;Soresina;26.0
+2025-01-23;Brescia Villaggio Sereno;24.0
+2025-01-23;Soresina;21.0
+2025-01-24;Brescia Villaggio Sereno;26.0
+2025-01-24;Soresina;23.0
+2025-01-25;Brescia Villaggio Sereno;29.0
+2025-01-25;Soresina;27.0
+2025-01-26;Brescia Villaggio Sereno;19.0
+2025-01-26;Soresina;17.0
+2025-01-27;Brescia Villaggio Sereno;16.0
+2025-01-27;Soresina;25.0
+2025-01-28;Brescia Villaggio Sereno;13.0
+2025-01-28;Soresina;21.0
+2025-01-29;Brescia Villaggio Sereno;14.0
+2025-01-29;Soresina;20.0
+2025-01-30;Brescia Villaggio Sereno;26.0
+2025-01-30;Soresina;38.0
+2025-01-31;Brescia Villaggio Sereno;34.0
+2025-01-31;Soresina;33.0
+2025-02-01;Brescia Villaggio Sereno;22.0
+2025-02-01;Soresina;25.0
+2025-02-02;Brescia Villaggio Sereno;16.0
+2025-02-02;Soresina;29.0
+2025-02-03;Brescia Villaggio Sereno;21.0
+2025-02-03;Soresina;40.0
+2025-02-04;Brescia Villaggio Sereno;36.0
+2025-02-04;Soresina;40.0
+2025-02-05;Brescia Villaggio Sereno;51.0
+2025-02-05;Soresina;41.0
+2025-02-06;Brescia Villaggio Sereno;39.0
+2025-02-06;Soresina;35.0
+2025-02-07;Brescia Villaggio Sereno;38.0
+2025-02-07;Soresina;42.0
+2025-02-08;Soresina;44.0
+2025-02-09;Brescia Villaggio Sereno;30.0
+2025-02-09;Soresina;24.0
+2025-02-10;Brescia Villaggio Sereno;30.0
+2025-02-10;Soresina;26.0
+2025-02-11;Brescia Villaggio Sereno;37.0
+2025-02-11;Soresina;40.0
+2025-02-12;Brescia Villaggio Sereno;41.0
+2025-02-12;Soresina;39.0
+2025-02-13;Brescia Villaggio Sereno;43.0
+2025-02-13;Soresina;35.0
+2025-02-14;Brescia Villaggio Sereno;22.0
+2025-02-14;Soresina;23.0
+2025-02-15;Brescia Villaggio Sereno;20.0
+2025-02-15;Soresina;19.0
+2025-02-16;Brescia Villaggio Sereno;25.0
+2025-02-16;Soresina;35.0
+2025-02-17;Brescia Villaggio Sereno;28.0
+2025-02-17;Soresina;27.0
+2025-02-18;Brescia Villaggio Sereno;33.0
+2025-02-18;Soresina;34.0
+2025-02-19;Brescia Villaggio Sereno;31.0
+2025-02-19;Soresina;26.0
+2025-02-20;Brescia Villaggio Sereno;48.0
+2025-02-20;Soresina;41.0
+2025-02-21;Brescia Villaggio Sereno;68.0
+2025-02-21;Soresina;73.0
+2025-02-22;Brescia Villaggio Sereno;91.0
+2025-02-22;Soresina;84.0
+2025-02-23;Brescia Villaggio Sereno;94.0
+2025-02-23;Soresina;76.0
+2025-02-24;Brescia Villaggio Sereno;71.0
+2025-02-24;Soresina;83.0
+2025-02-25;Brescia Villaggio Sereno;68.0
+2025-02-25;Soresina;77.0
+2025-02-26;Brescia Villaggio Sereno;41.0
+2025-02-26;Soresina;41.0
+2025-02-27;Brescia Villaggio Sereno;22.0
+2025-02-27;Soresina;21.0
+2025-02-28;Brescia Villaggio Sereno;23.0
+2025-02-28;Soresina;32.0
+2025-03-01;Brescia Villaggio Sereno;12.0
+2025-03-01;Soresina;17.0
+2025-03-02;Brescia Villaggio Sereno;14.0
+2025-03-02;Soresina;28.0
+2025-03-03;Brescia Villaggio Sereno;27.0
+2025-03-03;Soresina;33.0
+2025-03-04;Brescia Villaggio Sereno;38.0
+2025-03-04;Soresina;52.0
+2025-03-05;Brescia Villaggio Sereno;28.0
+2025-03-05;Soresina;48.0
+2025-03-06;Brescia Villaggio Sereno;26.0
+2025-03-06;Soresina;41.0
+2025-03-07;Brescia Villaggio Sereno;29.0
+2025-03-07;Soresina;42.0
+2025-03-08;Brescia Villaggio Sereno;31.0
+2025-03-08;Soresina;49.0
+2025-03-09;Brescia Villaggio Sereno;33.0
+2025-03-09;Soresina;52.0
+2025-03-10;Brescia Villaggio Sereno;15.0
+2025-03-10;Soresina;22.0
+2025-03-11;Brescia Villaggio Sereno;21.0
+2025-03-11;Soresina;32.0
+2025-03-12;Brescia Villaggio Sereno;10.0
+2025-03-12;Soresina;16.0
+2025-03-13;Brescia Villaggio Sereno;14.0
+2025-03-13;Soresina;16.0
+2025-03-14;Brescia Villaggio Sereno;7.0
+2025-03-15;Brescia Villaggio Sereno;12.0
+2025-03-16;Brescia Villaggio Sereno;8.0
+2025-03-16;Soresina;14.0
+2025-03-17;Brescia Villaggio Sereno;11.0
+2025-03-18;Brescia Villaggio Sereno;12.0
+2025-03-18;Soresina;18.0
+2025-03-19;Brescia Villaggio Sereno;19.0
+2025-03-19;Soresina;33.0
+2025-03-20;Brescia Villaggio Sereno;34.0
+2025-03-20;Soresina;40.0
+2025-03-21;Brescia Villaggio Sereno;40.0
+2025-03-21;Soresina;44.0
+2025-03-22;Brescia Villaggio Sereno;29.0
+2025-03-23;Brescia Villaggio Sereno;10.0
+2025-03-23;Soresina;7.0
+2025-03-24;Brescia Villaggio Sereno;11.0
+2025-03-24;Soresina;28.0
+2025-03-25;Brescia Villaggio Sereno;18.0
+2025-03-26;Brescia Villaggio Sereno;16.0
+2025-03-27;Brescia Villaggio Sereno;12.0
+2025-03-28;Brescia Villaggio Sereno;19.0
+2025-03-29;Brescia Villaggio Sereno;16.0
+2025-03-30;Brescia Villaggio Sereno;10.0
+2025-03-31;Brescia Villaggio Sereno;13.0
+2025-04-01;Brescia Villaggio Sereno;3.0
+2025-04-02;Brescia Villaggio Sereno;12.0
+2025-04-03;Brescia Villaggio Sereno;22.0
+2025-04-04;Brescia Villaggio Sereno;29.0
+2025-04-04;Soresina;39.0
+2025-04-05;Brescia Villaggio Sereno;32.0
+2025-04-05;Soresina;34.0
+2025-04-06;Brescia Villaggio Sereno;25.0
+2025-04-06;Soresina;13.0
+2025-04-07;Brescia Villaggio Sereno;5.0
+2025-04-07;Soresina;11.0
+2025-04-08;Brescia Villaggio Sereno;14.0
+2025-04-08;Soresina;9.0
+2025-04-09;Brescia Villaggio Sereno;23.0
+2025-04-09;Soresina;28.0
+2025-04-10;Brescia Villaggio Sereno;32.0
+2025-04-10;Soresina;30.0
+2025-04-11;Brescia Villaggio Sereno;23.0
+2025-04-11;Soresina;32.0
+2025-04-12;Brescia Villaggio Sereno;28.0
+2025-04-12;Soresina;24.0
+2025-04-13;Brescia Villaggio Sereno;19.0
+2025-04-13;Soresina;13.0
+2025-04-14;Brescia Villaggio Sereno;19.0
+2025-04-14;Soresina;19.0
+2025-04-15;Brescia Villaggio Sereno;11.0
+2025-04-16;Brescia Villaggio Sereno;7.0
+2025-04-17;Brescia Villaggio Sereno;6.0
+2025-04-18;Brescia Villaggio Sereno;7.0
+2025-04-19;Brescia Villaggio Sereno;9.0
+2025-04-20;Brescia Villaggio Sereno;8.0
+2025-04-21;Brescia Villaggio Sereno;9.0
+2025-04-22;Brescia Villaggio Sereno;10.0
+2025-04-23;Brescia Villaggio Sereno;13.0
+2025-04-24;Brescia Villaggio Sereno;7.0
+2025-04-25;Brescia Villaggio Sereno;5.0
+2025-04-26;Brescia Villaggio Sereno;6.0
+2025-04-27;Brescia Villaggio Sereno;7.0
+2025-04-28;Brescia Villaggio Sereno;12.0
+2025-04-29;Brescia Villaggio Sereno;14.0
+2025-04-29;Soresina;23.0
+2025-04-30;Brescia Villaggio Sereno;21.0
+2025-04-30;Soresina;32.0
+2025-05-01;Brescia Villaggio Sereno;19.0
+2025-05-01;Soresina;37.0
+2025-05-02;Brescia Villaggio Sereno;16.0
+2025-05-02;Soresina;25.0
+2025-05-03;Brescia Villaggio Sereno;12.0
+2025-05-03;Soresina;18.0
+2025-05-04;Brescia Villaggio Sereno;12.0
+2025-05-04;Soresina;12.0
+2025-05-05;Brescia Villaggio Sereno;8.0
+2025-05-05;Soresina;15.0
+2025-05-06;Brescia Villaggio Sereno;5.0
+2025-05-06;Soresina;8.0
+2025-05-07;Brescia Villaggio Sereno;5.0
+2025-05-07;Soresina;6.0
+2025-05-08;Brescia Villaggio Sereno;10.0
+2025-05-08;Soresina;18.0
+2025-05-09;Brescia Villaggio Sereno;8.0
+2025-05-09;Soresina;12.0
+2025-05-10;Brescia Villaggio Sereno;13.0
+2025-05-10;Soresina;20.0
+2025-05-11;Brescia Villaggio Sereno;12.0
+2025-05-11;Soresina;23.0
+2025-05-12;Brescia Villaggio Sereno;12.0
+2025-05-12;Soresina;20.0
+2025-05-13;Brescia Villaggio Sereno;12.0
+2025-05-13;Soresina;16.0
+2025-05-14;Brescia Villaggio Sereno;11.0
+2025-05-14;Soresina;19.0
+2025-05-15;Brescia Villaggio Sereno;17.0
+2025-05-15;Soresina;24.0
+2025-05-16;Brescia Villaggio Sereno;9.0
+2025-05-16;Soresina;10.0
+2025-05-17;Brescia Villaggio Sereno;9.0
+2025-05-17;Soresina;14.0
+2025-05-18;Brescia Villaggio Sereno;8.0
+2025-05-18;Soresina;12.0
+2025-05-19;Brescia Villaggio Sereno;12.0
+2025-05-19;Soresina;14.0
+2025-05-20;Brescia Villaggio Sereno;15.0
+2025-05-20;Soresina;22.0
+2025-05-21;Brescia Villaggio Sereno;10.0
+2025-05-21;Soresina;29.0
+2025-05-22;Brescia Villaggio Sereno;6.0
+2025-05-22;Soresina;13.0
+2025-05-23;Brescia Villaggio Sereno;6.0
+2025-05-23;Soresina;15.0
+2025-05-24;Brescia Villaggio Sereno;6.0
+2025-05-24;Soresina;14.0
+2025-05-25;Brescia Villaggio Sereno;14.0
+2025-05-25;Soresina;15.0
+2025-05-26;Brescia Villaggio Sereno;22.0
+2025-05-26;Soresina;24.0
+2025-05-27;Brescia Villaggio Sereno;8.0
+2025-05-27;Soresina;16.0
+2025-05-28;Brescia Villaggio Sereno;20.0
+2025-05-28;Soresina;26.0
+2025-05-29;Brescia Villaggio Sereno;15.0
+2025-05-29;Soresina;17.0
+2025-05-30;Brescia Villaggio Sereno;12.0
+2025-05-30;Soresina;27.0
+2025-05-31;Brescia Villaggio Sereno;10.0
+2025-05-31;Soresina;17.0
+2025-06-01;Brescia Villaggio Sereno;14.0
+2025-06-01;Soresina;20.0
+2025-06-02;Brescia Villaggio Sereno;13.0
+2025-06-02;Soresina;14.0
+2025-06-03;Soresina;14.0
+2025-06-04;Soresina;24.0
+2025-06-05;Soresina;27.0
+2025-06-06;Brescia Villaggio Sereno;10.0
+2025-06-06;Soresina;26.0
+2025-06-07;Brescia Villaggio Sereno;11.0
+2025-06-07;Soresina;16.0
+2025-06-08;Brescia Villaggio Sereno;13.0
+2025-06-08;Soresina;17.0
+2025-06-09;Brescia Villaggio Sereno;21.0
+2025-06-09;Soresina;19.0
+2025-06-10;Brescia Villaggio Sereno;19.0
+2025-06-10;Soresina;26.0
+2025-06-11;Brescia Villaggio Sereno;25.0
+2025-06-11;Soresina;42.0
+2025-06-12;Brescia Villaggio Sereno;25.0
+2025-06-12;Soresina;36.0
+2025-06-13;Brescia Villaggio Sereno;26.0
+2025-06-13;Soresina;38.0
+2025-06-14;Brescia Villaggio Sereno;22.0
+2025-06-14;Soresina;33.0
+2025-06-15;Brescia Villaggio Sereno;15.0
+2025-06-15;Soresina;23.0
+2025-06-16;Brescia Villaggio Sereno;12.0
+2025-06-16;Soresina;20.0
+2025-06-17;Soresina;16.0
+2025-06-18;Brescia Villaggio Sereno;16.0
+2025-06-18;Soresina;20.0
+2025-06-19;Soresina;31.0
+2025-06-20;Soresina;29.0
+2025-06-21;Brescia Villaggio Sereno;12.0
+2025-06-21;Soresina;17.0
+2025-06-22;Brescia Villaggio Sereno;6.0
+2025-06-22;Soresina;16.0
+2025-06-23;Brescia Villaggio Sereno;13.0
+2025-06-23;Soresina;26.0
+2025-06-24;Brescia Villaggio Sereno;14.0
+2025-06-24;Soresina;18.0
+2025-06-25;Brescia Villaggio Sereno;16.0
+2025-06-25;Soresina;22.0
+2025-06-26;Brescia Villaggio Sereno;20.0
+2025-06-26;Soresina;17.0
+2025-06-27;Brescia Villaggio Sereno;5.0
+2025-06-28;Brescia Villaggio Sereno;12.0
+2025-06-28;Soresina;22.0
+2025-06-29;Brescia Villaggio Sereno;7.0
+2025-06-29;Soresina;18.0
+2025-06-30;Brescia Villaggio Sereno;8.0
+2025-06-30;Soresina;14.0
+2025-07-01;Brescia Villaggio Sereno;9.0
+2025-07-01;Soresina;12.0
+2025-07-02;Brescia Villaggio Sereno;9.0
+2025-07-02;Soresina;11.0
+2025-07-03;Brescia Villaggio Sereno;7.0
+2025-07-03;Soresina;11.0
+2025-07-04;Brescia Villaggio Sereno;7.0
+2025-07-04;Soresina;14.0
+2025-07-05;Brescia Villaggio Sereno;7.0
+2025-07-05;Soresina;10.0
+2025-07-06;Brescia Villaggio Sereno;10.0
+2025-07-06;Soresina;17.0
+2025-07-07;Brescia Villaggio Sereno;7.0
+2025-07-07;Soresina;11.0
+2025-07-08;Brescia Villaggio Sereno;8.0
+2025-07-08;Soresina;7.0
+2025-07-09;Brescia Villaggio Sereno;4.0
+2025-07-09;Soresina;6.0
+2025-07-10;Brescia Villaggio Sereno;5.0
+2025-07-10;Soresina;11.0
+2025-07-11;Brescia Villaggio Sereno;7.0
+2025-07-11;Soresina;15.0
+2025-07-12;Brescia Villaggio Sereno;4.0
+2025-07-12;Soresina;10.0
+2025-07-13;Brescia Villaggio Sereno;5.0
+2025-07-13;Soresina;18.0
+2025-07-14;Brescia Villaggio Sereno;9.0
+2025-07-14;Soresina;13.0
+2025-07-15;Brescia Villaggio Sereno;9.0
+2025-07-15;Soresina;17.0
+2025-07-16;Brescia Villaggio Sereno;9.0
+2025-07-16;Soresina;17.0
+2025-07-17;Brescia Villaggio Sereno;6.0
+2025-07-17;Soresina;12.0
+2025-07-18;Brescia Villaggio Sereno;3.0
+2025-07-18;Soresina;8.0
+2025-07-19;Brescia Villaggio Sereno;8.0
+2025-07-19;Soresina;13.0
+2025-07-20;Brescia Villaggio Sereno;10.0
+2025-07-20;Soresina;25.0
+2025-07-21;Brescia Villaggio Sereno;7.0
+2025-07-21;Soresina;18.0
+2025-07-22;Brescia Villaggio Sereno;6.0
+2025-07-22;Soresina;12.0
+2025-07-23;Brescia Villaggio Sereno;11.0
+2025-07-23;Soresina;19.0
+2025-07-24;Brescia Villaggio Sereno;6.0
+2025-07-24;Soresina;12.0
+2025-07-25;Brescia Villaggio Sereno;4.0
+2025-07-25;Soresina;12.0
+2025-07-26;Brescia Villaggio Sereno;6.0
+2025-07-26;Soresina;17.0
+2025-07-27;Brescia Villaggio Sereno;1.0
+2025-07-27;Soresina;10.0
+2025-07-28;Brescia Villaggio Sereno;9.0
+2025-07-28;Soresina;12.0
+2025-07-29;Brescia Villaggio Sereno;6.0
+2025-07-29;Soresina;12.0
+2025-07-30;Brescia Villaggio Sereno;3.0
+2025-07-30;Soresina;11.0
+2025-07-31;Brescia Villaggio Sereno;7.0
+2025-07-31;Soresina;16.0
+2025-08-01;Brescia Villaggio Sereno;10.0
+2025-08-01;Soresina;20.0
+2025-08-02;Brescia Villaggio Sereno;6.0
+2025-08-02;Soresina;11.0
+2025-08-03;Brescia Villaggio Sereno;1.0
+2025-08-03;Soresina;7.0
+2025-08-04;Brescia Villaggio Sereno;5.0
+2025-08-04;Soresina;14.0
+2025-08-05;Brescia Villaggio Sereno;4.0
+2025-08-05;Soresina;16.0
+2025-08-06;Brescia Villaggio Sereno;6.0
+2025-08-06;Soresina;16.0
+2025-08-07;Brescia Villaggio Sereno;6.0
+2025-08-07;Soresina;12.0
+2025-08-08;Brescia Villaggio Sereno;9.0
+2025-08-08;Soresina;25.0
+2025-08-09;Brescia Villaggio Sereno;12.0
+2025-08-09;Soresina;27.0
+2025-08-10;Brescia Villaggio Sereno;14.0
+2025-08-10;Soresina;29.0
+2025-08-11;Brescia Villaggio Sereno;12.0
+2025-08-11;Soresina;27.0
+2025-08-12;Brescia Villaggio Sereno;16.0
+2025-08-12;Soresina;30.0
+2025-08-13;Brescia Villaggio Sereno;18.0
+2025-08-13;Soresina;32.0
+2025-08-14;Brescia Villaggio Sereno;15.0
+2025-08-14;Soresina;32.0
+2025-08-15;Brescia Villaggio Sereno;11.0
+2025-08-15;Soresina;22.0
+2025-08-16;Brescia Villaggio Sereno;7.0
+2025-08-16;Soresina;16.0
+2025-08-17;Brescia Villaggio Sereno;6.0
+2025-08-17;Soresina;17.0
+2025-08-18;Brescia Villaggio Sereno;8.0
+2025-08-18;Soresina;18.0
+2025-08-19;Brescia Villaggio Sereno;11.0
+2025-08-19;Soresina;16.0
+2025-08-20;Brescia Villaggio Sereno;7.0
+2025-08-20;Soresina;14.0
+2025-08-21;Brescia Villaggio Sereno;5.0
+2025-08-21;Soresina;12.0
+2025-08-22;Brescia Villaggio Sereno;6.0
+2025-08-22;Soresina;11.0
+2025-08-23;Brescia Villaggio Sereno;3.0
+2025-08-23;Soresina;14.0
+2025-08-24;Brescia Villaggio Sereno;5.0
+2025-08-24;Soresina;12.0
+2025-08-25;Brescia Villaggio Sereno;9.0
+2025-08-25;Soresina;17.0
+2025-08-26;Brescia Villaggio Sereno;12.0
+2025-08-26;Soresina;29.0
+2025-08-27;Brescia Villaggio Sereno;12.0
+2025-08-27;Soresina;23.0
+2025-08-28;Brescia Villaggio Sereno;8.0
+2025-08-28;Soresina;16.0
+2025-08-29;Soresina;11.0
+2025-08-30;Brescia Villaggio Sereno;2.0
+2025-08-30;Soresina;6.0
+2025-08-31;Brescia Villaggio Sereno;4.0
+2025-08-31;Soresina;11.0
+2025-09-01;Brescia Villaggio Sereno;5.0
+2025-09-01;Soresina;19.0
+2025-09-02;Brescia Villaggio Sereno;3.0
+2025-09-02;Soresina;11.0
+2025-09-03;Brescia Villaggio Sereno;7.0
+2025-09-03;Soresina;16.0
+2025-09-04;Brescia Villaggio Sereno;9.0
+2025-09-04;Soresina;27.0
+2025-09-05;Brescia Villaggio Sereno;6.0
+2025-09-05;Soresina;14.0
+2025-09-06;Brescia Villaggio Sereno;8.0
+2025-09-07;Brescia Villaggio Sereno;7.0
+2025-09-08;Brescia Villaggio Sereno;18.0
+2025-09-09;Brescia Villaggio Sereno;11.0
+2025-09-10;Brescia Villaggio Sereno;8.0
+2025-09-11;Brescia Villaggio Sereno;8.0
+2025-09-12;Brescia Villaggio Sereno;6.0
+2025-09-12;Soresina;18.0
+2025-09-13;Brescia Villaggio Sereno;13.0
+2025-09-13;Soresina;26.0
+2025-09-14;Brescia Villaggio Sereno;9.0
+2025-09-14;Soresina;24.0
+2025-09-15;Brescia Villaggio Sereno;11.0
+2025-09-15;Soresina;18.0
+2025-09-16;Brescia Villaggio Sereno;9.0
+2025-09-16;Soresina;18.0
+2025-09-17;Brescia Villaggio Sereno;7.0
+2025-09-17;Soresina;11.0
+2025-09-18;Brescia Villaggio Sereno;11.0
+2025-09-18;Soresina;20.0
+2025-09-19;Brescia Villaggio Sereno;16.0
+2025-09-19;Soresina;40.0
+2025-09-20;Brescia Villaggio Sereno;19.0
+2025-09-20;Soresina;47.0
+2025-09-21;Brescia Villaggio Sereno;19.0
+2025-09-21;Soresina;24.0
+2025-09-22;Brescia Villaggio Sereno;8.0
+2025-09-22;Soresina;19.0
+2025-09-23;Brescia Villaggio Sereno;5.0
+2025-09-23;Soresina;17.0
+2025-09-24;Brescia Villaggio Sereno;11.0
+2025-09-24;Soresina;11.0
+2025-09-25;Brescia Villaggio Sereno;5.0
+2025-09-25;Soresina;10.0
+2025-09-26;Brescia Villaggio Sereno;5.0
+2025-09-26;Soresina;12.0
+2025-09-27;Brescia Villaggio Sereno;7.0
+2025-09-27;Soresina;15.0
+2025-09-28;Brescia Villaggio Sereno;5.0
+2025-09-28;Soresina;13.0
+2025-09-29;Brescia Villaggio Sereno;10.0
+2025-09-29;Soresina;23.0
+2025-09-30;Brescia Villaggio Sereno;14.0
+2025-09-30;Soresina;24.0
+2025-10-01;Brescia Villaggio Sereno;8.0
+2025-10-01;Soresina;13.0
+2025-10-02;Brescia Villaggio Sereno;8.0
+2025-10-02;Soresina;15.0
+2025-10-03;Brescia Villaggio Sereno;9.0
+2025-10-03;Soresina;24.0
+2025-10-04;Brescia Villaggio Sereno;27.0
+2025-10-04;Soresina;38.0
+2025-10-05;Brescia Villaggio Sereno;17.0
+2025-10-05;Soresina;20.0
+2025-10-06;Brescia Villaggio Sereno;7.0
+2025-10-06;Soresina;16.0
+2025-10-07;Brescia Villaggio Sereno;18.0
+2025-10-07;Soresina;26.0
+2025-10-08;Brescia Villaggio Sereno;27.0
+2025-10-08;Soresina;41.0
+2025-10-09;Brescia Villaggio Sereno;38.0
+2025-10-09;Soresina;45.0
+2025-10-10;Brescia Villaggio Sereno;45.0
+2025-10-10;Soresina;57.0
+2025-10-11;Brescia Villaggio Sereno;39.0
+2025-10-12;Brescia Villaggio Sereno;36.0
+2025-10-13;Brescia Villaggio Sereno;32.0
+2025-10-14;Brescia Villaggio Sereno;20.0
+2025-10-15;Brescia Villaggio Sereno;16.0
+2025-10-15;Soresina;29.0
+2025-10-16;Brescia Villaggio Sereno;14.0
+2025-10-16;Soresina;21.0
+2025-10-17;Brescia Villaggio Sereno;13.0
+2025-10-17;Soresina;22.0
+2025-10-18;Brescia Villaggio Sereno;25.0
+2025-10-18;Soresina;27.0
+2025-10-19;Brescia Villaggio Sereno;26.0
+2025-10-19;Soresina;33.0
+2025-10-20;Brescia Villaggio Sereno;23.0
+2025-10-20;Soresina;32.0
+2025-10-21;Brescia Villaggio Sereno;12.0
+2025-10-21;Soresina;23.0
+2025-10-22;Brescia Villaggio Sereno;27.0
+2025-10-22;Soresina;37.0
+2025-10-23;Brescia Villaggio Sereno;19.0
+2025-10-23;Soresina;21.0
+2025-10-24;Brescia Villaggio Sereno;9.0
+2025-10-24;Soresina;8.0
+2025-10-25;Brescia Villaggio Sereno;12.0
+2025-10-25;Soresina;23.0
+2025-10-26;Brescia Villaggio Sereno;12.0
+2025-10-26;Soresina;20.0
+2025-10-27;Brescia Villaggio Sereno;10.0
+2025-10-27;Soresina;16.0
+2025-10-28;Brescia Villaggio Sereno;18.0
+2025-10-28;Soresina;35.0
+2025-10-29;Brescia Villaggio Sereno;33.0
+2025-10-29;Soresina;41.0
+2025-10-30;Brescia Villaggio Sereno;11.0
+2025-10-30;Soresina;31.0
+2025-10-31;Brescia Villaggio Sereno;13.0
+2025-10-31;Soresina;21.0
+2025-11-01;Brescia Villaggio Sereno;13.0
+2025-11-01;Soresina;28.0
+2025-11-02;Brescia Villaggio Sereno;10.0
+2025-11-02;Soresina;28.0
+2025-11-03;Brescia Villaggio Sereno;5.0
+2025-11-03;Soresina;16.0
+2025-11-04;Brescia Villaggio Sereno;11.0
+2025-11-04;Soresina;29.0
+2025-11-05;Brescia Villaggio Sereno;28.0
+2025-11-05;Soresina;40.0
+2025-11-06;Brescia Villaggio Sereno;24.0
+2025-11-06;Soresina;46.0
+2025-11-07;Brescia Villaggio Sereno;18.0
+2025-11-07;Soresina;45.0
+2025-11-08;Brescia Villaggio Sereno;28.0
+2025-11-08;Soresina;44.0
+2025-11-09;Brescia Villaggio Sereno;28.0
+2025-11-09;Soresina;46.0
+2025-11-10;Brescia Villaggio Sereno;37.0
+2025-11-10;Soresina;54.0
+2025-11-11;Brescia Villaggio Sereno;30.0
+2025-11-11;Soresina;56.0
+2025-11-12;Brescia Villaggio Sereno;34.0
+2025-11-12;Soresina;47.0
+2025-11-13;Brescia Villaggio Sereno;36.0
+2025-11-13;Soresina;41.0
+2025-11-14;Brescia Villaggio Sereno;48.0
+2025-11-14;Soresina;71.0
+2025-11-15;Brescia Villaggio Sereno;43.0
+2025-11-15;Soresina;65.0
+2025-11-16;Brescia Villaggio Sereno;24.0
+2025-11-16;Soresina;39.0
+2025-11-17;Brescia Villaggio Sereno;13.0
+2025-11-17;Soresina;19.0
+2025-11-18;Brescia Villaggio Sereno;7.0
+2025-11-19;Brescia Villaggio Sereno;16.0
+2025-11-20;Brescia Villaggio Sereno;24.0
+2025-11-21;Brescia Villaggio Sereno;14.0
+2025-11-21;Soresina;6.0
+2025-11-22;Brescia Villaggio Sereno;10.0
+2025-11-22;Soresina;23.0
+2025-11-23;Brescia Villaggio Sereno;18.0
+2025-11-23;Soresina;33.0
+2025-11-24;Brescia Villaggio Sereno;23.0
+2025-11-24;Soresina;20.0
+2025-11-25;Brescia Villaggio Sereno;23.0
+2025-11-25;Soresina;27.0
+2025-11-26;Brescia Villaggio Sereno;15.0
+2025-11-26;Soresina;38.0
+2025-11-27;Brescia Villaggio Sereno;14.0
+2025-11-27;Soresina;36.0
+2025-11-28;Soresina;37.0
+2025-11-29;Soresina;50.0
+2025-11-30;Soresina;53.0
+2025-12-01;Soresina;32.0
+2025-12-02;Brescia Villaggio Sereno;45.0
+2025-12-02;Soresina;35.0
+2025-12-03;Brescia Villaggio Sereno;40.0
+2025-12-03;Soresina;50.0
+2025-12-04;Brescia Villaggio Sereno;23.0
+2025-12-04;Soresina;37.0
+2025-12-05;Brescia Villaggio Sereno;23.0
+2025-12-05;Soresina;27.0
+2025-12-06;Brescia Villaggio Sereno;28.0
+2025-12-06;Soresina;26.0
+2025-12-07;Brescia Villaggio Sereno;33.0
+2025-12-07;Soresina;39.0
+2025-12-08;Brescia Villaggio Sereno;36.0
+2025-12-08;Soresina;49.0
+2025-12-09;Brescia Villaggio Sereno;34.0
+2025-12-09;Soresina;47.0
+2025-12-10;Brescia Villaggio Sereno;44.0
+2025-12-10;Soresina;46.0
+2025-12-11;Brescia Villaggio Sereno;44.0
+2025-12-11;Soresina;49.0
+2025-12-12;Brescia Villaggio Sereno;45.0
+2025-12-12;Soresina;48.0
+2025-12-13;Brescia Villaggio Sereno;26.0
+2025-12-13;Soresina;39.0
+2025-12-14;Brescia Villaggio Sereno;23.0
+2025-12-14;Soresina;47.0
+2025-12-15;Brescia Villaggio Sereno;29.0
+2025-12-15;Soresina;51.0
+2025-12-16;Brescia Villaggio Sereno;43.0
+2025-12-16;Soresina;48.0
+2025-12-17;Brescia Villaggio Sereno;23.0
+2025-12-17;Soresina;19.0
+2025-12-18;Brescia Villaggio Sereno;27.0
+2025-12-18;Soresina;27.0
+2025-12-19;Brescia Villaggio Sereno;33.0
+2025-12-19;Soresina;33.0
+2025-12-20;Brescia Villaggio Sereno;34.0
+2025-12-20;Soresina;39.0
+2025-12-21;Brescia Villaggio Sereno;24.0
+2025-12-21;Soresina;32.0
+2025-12-22;Brescia Villaggio Sereno;23.0
+2025-12-22;Soresina;33.0
+2025-12-23;Brescia Villaggio Sereno;31.0
+2025-12-23;Soresina;29.0
+2025-12-24;Brescia Villaggio Sereno;16.0
+2025-12-24;Soresina;11.0
+2025-12-25;Brescia Villaggio Sereno;17.0
+2025-12-25;Soresina;11.0
+2025-12-26;Brescia Villaggio Sereno;23.0
+2025-12-26;Soresina;16.0
+2025-12-27;Brescia Villaggio Sereno;25.0
+2025-12-27;Soresina;26.0
+2025-12-28;Brescia Villaggio Sereno;24.0
+2025-12-28;Soresina;34.0
+2025-12-29;Brescia Villaggio Sereno;37.0
+2025-12-29;Soresina;41.0
+2025-12-30;Brescia Villaggio Sereno;36.0
+2025-12-30;Soresina;40.0
+2025-12-31;Brescia Villaggio Sereno;22.0
+2025-12-31;Soresina;27.0
