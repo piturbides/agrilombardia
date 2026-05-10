@@ -1,4 +1,4 @@
-# Human Health and Environment Data Science Laboratory
+Human Health and Environment Data Science Laboratory
 
 Statistical analysis of air pollution data for the Human Health and Environment Data Science Laboratory project.
 
@@ -6,23 +6,18 @@ The project investigates differences in air pollution patterns between areas wit
 
 The first part of the project focuses on environmental exposure data from ARPA Lombardia monitoring stations. The aim is to characterize and compare pollutant concentration patterns before moving to the integration of health outcome data.
 
----
-
-## Project framework
+Project framework
 
 The project is based on the general idea that different emission contexts may contribute differently to air pollution levels and, potentially, to health-related outcomes.
 
 The current environmental analysis focuses on:
 
-- NO2, mainly interpreted as a combustion-related pollutant associated with traffic, heating and industrial activities;
-- PM2.5, interpreted as a health-relevant fine particulate pollutant with both primary and secondary components.
+NO2, mainly interpreted as a combustion-related pollutant associated with traffic, heating and industrial activities;
+PM2.5, interpreted as a health-relevant fine particulate pollutant with both primary and secondary components.
 
 For all definitive analyses, the COVID-related years 2020, 2021 and 2022 were excluded to avoid potential bias due to abnormal changes in mobility, traffic, industrial activities and emission patterns.
 
-The retained years are:
-
-```text
-2016, 2017, 2018, 2019, 2023, 2024, 2025
+The retained years are: 2016, 2017, 2018, 2019, 2023, 2024 and 2025.
 
 Part 1 — Statistical tests on air pollution data
 
@@ -52,6 +47,7 @@ Mann-Whitney U test.
 Output folder:
 
 Dati/output/1-Statistical tests/1.1-Preliminary
+
 1.2 Monthly and seasonal NO2 analysis
 
 The second analysis extended the NO2 comparison between Soresina and Rezzato by considering monthly and seasonal aggregation.
@@ -74,6 +70,7 @@ month-specific and season-specific paired comparisons.
 Output folder:
 
 Dati/output/1-Statistical tests/1.2-Monthly seasonal
+
 1.3 Definitive non-COVID NO2 analysis
 
 The definitive NO2 analysis repeated the daily, monthly and seasonal comparison after excluding the COVID-related years 2020, 2021 and 2022.
@@ -106,6 +103,7 @@ Dati/output/1-Statistical tests/1.3-NO2_definitivo
 Main script:
 
 src/statistical_tests/no2_definitivo_non_covid.py
+
 1.4 Definitive non-COVID PM2.5 analysis
 
 The definitive PM2.5 analysis compared PM2.5 concentrations between:
@@ -139,30 +137,25 @@ Dati/output/1-Statistical tests/1.4-PM25_definitivo
 Main script:
 
 src/statistical_tests/pm25_definitivo_non_covid.py
+
 Repository structure
-Dati/
-├── raw/
-│   └── Raw ARPA monitoring station data
-│
-└── output/
-    └── 1-Statistical tests/
-        ├── 1.1-Preliminary/
-        ├── 1.2-Monthly seasonal/
-        ├── 1.3-NO2_definitivo/
-        └── 1.4-PM25_definitivo/
 
-src/
-├── data_loader.py
-│
-└── statistical_tests/
-    ├── preliminary_no2.py
-    ├── monthly_seasonal_no2.py
-    ├── no2_definitivo_non_covid.py
-    └── pm25_definitivo_non_covid.py
+Main folders:
 
+Dati/raw/: raw ARPA monitoring station data;
+Dati/output/: generated tables and figures;
+Dati/output/1-Statistical tests/: outputs of the first analytical phase;
+src/: Python source code;
+src/statistical_tests/: scripts for pollutant statistical analyses.
+
+Main scripts:
+
+src/data_loader.py
+src/statistical_tests/preliminary_no2.py
+src/statistical_tests/monthly_seasonal_no2.py
+src/statistical_tests/no2_definitivo_non_covid.py
+src/statistical_tests/pm25_definitivo_non_covid.py
 main.py
-requirements.txt
-README.md
 How to run
 
 Install the required libraries:
@@ -175,21 +168,20 @@ python main.py
 
 The script executed by main.py can be changed depending on the analysis to run.
 
-For example, to run the definitive PM2.5 analysis:
+To run the definitive PM2.5 analysis, use in main.py:
 
 from src.statistical_tests.pm25_definitivo_non_covid import run_pm25_definitivo_non_covid_analysis
 
+if name == "main":
+run_pm25_definitivo_non_covid_analysis()
 
-if __name__ == "__main__":
-    run_pm25_definitivo_non_covid_analysis()
-
-To run the definitive NO2 analysis:
+To run the definitive NO2 analysis, use in main.py:
 
 from src.statistical_tests.no2_definitivo_non_covid import run_no2_definitivo_non_covid_analysis
 
+if name == "main":
+run_no2_definitivo_non_covid_analysis()
 
-if __name__ == "__main__":
-    run_no2_definitivo_non_covid_analysis()
 GitHub workflow
 
 Before starting new work:
@@ -206,9 +198,10 @@ git push
 
 Useful commit message examples:
 
-git commit -m "Add definitive non-covid NO2 analysis"
-git commit -m "Add definitive non-covid PM25 analysis"
-git commit -m "Update README after statistical tests"
+Add definitive non-covid NO2 analysis
+Add definitive non-covid PM25 analysis
+Update README after statistical tests
+Fix README formatting
 Notes and limitations
 
 The current analyses are exploratory and descriptive. Statistical significance is interpreted together with the magnitude of the observed differences and with the methodological limitations of using monitoring stations as proxies for broader territorial contexts.
