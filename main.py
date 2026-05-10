@@ -2,10 +2,13 @@ from src.statistical_tests.preliminary_no2 import run_preliminary_no2_analysis
 from src.statistical_tests.monthly_seasonal_no2 import run_monthly_seasonal_no2_analysis
 from src.statistical_tests.no2_definitivo_non_covid import run_no2_definitivo_non_covid_analysis
 from src.statistical_tests.pm25_definitivo_non_covid import run_pm25_definitivo_non_covid_analysis
+from src.health_analysis.health_data_exploration import run_health_data_exploration
+
 
 
 if __name__ == "__main__":
     #run_preliminary_no2_analysis()
     #run_monthly_seasonal_no2_analysis()
     #run_no2_definitivo_non_covid_analysis()
-    run_pm25_definitivo_non_covid_analysis()
+    #run_pm25_definitivo_non_covid_analysis()
+    run_health_data_exploration()

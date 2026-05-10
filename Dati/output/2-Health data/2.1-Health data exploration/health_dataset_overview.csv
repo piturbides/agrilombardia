@@ -1,0 +1,10 @@
+Indicator;Value
+Total raw records;202411
+Valid parsed dates;202411
+Minimum date;2015-01-01 00:00:00
+Maximum date;2023-12-31 00:00:00
+Available years;2015, 2016, 2017, 2018, 2019, 2023
+Available provinces;6
+Available municipalities;71
+Records with missing age;4389
+Records with age > 100;265
