@@ -1,0 +1,5 @@
+Area;Outcome;N_events;Mean_age;Median_age;Min_age;Max_age
+Agricultural;Cardiocirculatory;5325;68.99530516431925;75.0;1.0;100.0
+Agricultural;Respiratory;2391;72.11375993308239;80.0;1.0;100.0
+Industrial;Cardiocirculatory;33333;65.70128701287013;73.0;0.0;100.0
+Industrial;Respiratory;13352;69.50366986219294;79.0;0.0;100.0

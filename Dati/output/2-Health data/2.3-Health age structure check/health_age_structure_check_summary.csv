@@ -1,0 +1,9 @@
+Indicator;Value
+Common years used;2016, 2017, 2018, 2019, 2023
+Selected health events;54401
+Age groups used - main;<65, 65+
+Age groups used - detailed;0-44, 45-64, 65-74, 75-84, 85+
+Binary age-specific rates computed;True
+Detailed age-specific rates computed;True
+Main interpretation;The Agricultural area showed an older event-age profile than the Industrial area for both respiratory and cardiocirculatory outcomes.
+Main limitation;Age-specific rates are computed using available ISTAT age-specific municipal population denominators. Results remain ecological and should not be interpreted as individual-level causal effects.

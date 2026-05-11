@@ -1,0 +1,9 @@
+Area;Outcome;Age_group;N_events;Total_events;Percentage
+Agricultural;Cardiocirculatory;65+;3541;5325;66.49765258215963
+Agricultural;Cardiocirculatory;<65;1784;5325;33.502347417840376
+Agricultural;Respiratory;65+;1827;2391;76.41154328732748
+Agricultural;Respiratory;<65;564;2391;23.588456712672524
+Industrial;Cardiocirculatory;65+;19889;33333;59.66759667596676
+Industrial;Cardiocirculatory;<65;13444;33333;40.33240332403324
+Industrial;Respiratory;65+;9362;13352;70.11683642899939
+Industrial;Respiratory;<65;3990;13352;29.883163571000598
