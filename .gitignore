@@ -4,3 +4,4 @@ __pycache__/
 *.pyc
 .DS_Store
 Dati/raw/Health_events_2015_2023.csv
+Dati/output/2-Health data/2.2-Health event aggregation/health_events_selected_areas_outcomes.csv

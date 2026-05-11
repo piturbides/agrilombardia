@@ -1,0 +1,11 @@
+Indicator;Value
+Common years used;2016, 2017, 2018, 2019, 2023
+Agricultural municipalities;21
+Industrial municipalities;16
+Population municipality-year combinations expected;185
+Population municipality-year combinations found;185
+Selected health records after area assignment;54401
+Selected acute respiratory/cardiocirculatory events;54401
+Annual rows;20
+Monthly rows;240
+Seasonal rows;72

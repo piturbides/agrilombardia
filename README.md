@@ -4,7 +4,7 @@ Statistical analysis of air pollution and health event data for the Human Health
 
 The project investigates differences in air pollution patterns between areas with different territorial and emission profiles in Lombardy, with a focus on the comparison between agricultural/rural and industrial/urban contexts.
 
-The first part of the project focuses on environmental exposure data from ARPA Lombardia monitoring stations. The second part starts the exploration of health event data, with the aim of evaluating whether environmental differences can later be compared with respiratory and cardiovascular health indicators.
+The first part of the project focuses on environmental exposure data from ARPA Lombardia monitoring stations. The second part explores health event data and prepares population-normalized health indicators that can later be compared with respiratory and cardiovascular health outcomes.
 
 ---
 
@@ -32,6 +32,12 @@ The health dataset currently contains the following available years:
 ```
 
 Years 2020, 2021 and 2022 are not present in the health dataset.
+
+For the first health-environment integration steps, the retained common years are:
+
+```text
+2016, 2017, 2018, 2019, 2023
+```
 
 ---
 
@@ -180,9 +186,9 @@ src/statistical_tests/pm25_definitivo_non_covid.py
 
 ---
 
-## Part 2 — Health data exploration
+## Part 2 — Health data exploration and aggregation
 
-The second part of the project focuses on the exploration of health event data, with the aim of evaluating whether the available health outcomes can later be compared with the environmental pollutant patterns identified in Part 1.
+The second part of the project focuses on the exploration and aggregation of health event data, with the aim of preparing respiratory and cardiocirculatory health indicators that can later be compared with the environmental pollutant patterns identified in Part 1.
 
 The raw health dataset contains event-level records with information on:
 
@@ -243,6 +249,65 @@ src/health_analysis/health_data_exploration.py
 
 ---
 
+## 2.2 Health event aggregation and population-normalized rates
+
+The second health analysis moves from raw health event counts to population-normalized health event rates for the two selected study areas.
+
+The study areas were defined from the QGIS shapefiles used in the project:
+
+- **Agricultural area**: 21 selected municipalities;
+- **Industrial area**: 16 selected municipalities.
+
+Population data were collected for the years:
+
+```text
+2016, 2017, 2018, 2019, 2023
+```
+
+The analysis checked that all selected municipalities were correctly matched with population data for all selected years.
+
+The analysis included:
+
+- loading population files for Brescia and Cremona provinces;
+- filtering population data to retain only selected study-area municipalities;
+- construction of annual population denominators by study area;
+- assignment of each health event to the agricultural or industrial area;
+- extraction of respiratory acute events;
+- extraction of cardiocirculatory acute events;
+- annual aggregation of health events by area and outcome;
+- monthly aggregation of health events by area and outcome;
+- seasonal aggregation of health events by area and outcome;
+- computation of event rates per 10,000 inhabitants;
+- generation of CSV outputs and graphical summaries.
+
+The rate was computed as:
+
+```text
+Rate per 10,000 inhabitants = (Number of events / Population) × 10,000
+```
+
+**Main interpretation:**
+
+Population normalization is essential because the industrial area has a much larger population than the agricultural area.
+
+Respiratory acute event rates are broadly comparable between the two areas and do not show a stable area-specific separation. In contrast, cardiocirculatory acute event rates are consistently higher in the industrial area than in the agricultural area.
+
+These results are descriptive and exploratory. They do not demonstrate a causal relationship with air pollution, but they provide the normalized health indicators needed for future environmental-health integration.
+
+**Output folder:**
+
+```text
+Dati/output/2-Health data/2.2-Health event aggregation
+```
+
+**Main script:**
+
+```text
+src/health_analysis/health_event_aggregation.py
+```
+
+---
+
 ## Repository structure
 
 ### Main folders
@@ -251,7 +316,18 @@ src/health_analysis/health_data_exploration.py
 Dati/
 ├── raw/
 │   ├── Raw ARPA monitoring station data
-│   └── Health_events_2015_2023.csv   # local only, ignored by Git
+│   ├── Health_events_2015_2023.csv   # local only, ignored by Git
+│   └── population/
+│       ├── Brescia_2016.csv
+│       ├── Brescia_2017.csv
+│       ├── Brescia_2018.csv
+│       ├── Brescia_2019.csv
+│       ├── Brescia_2023.csv
+│       ├── Cremona_2016.csv
+│       ├── Cremona_2017.csv
+│       ├── Cremona_2018.csv
+│       ├── Cremona_2019.csv
+│       └── Cremona_2023.csv
 │
 └── output/
     ├── 1-Statistical tests/
@@ -261,7 +337,8 @@ Dati/
     │   └── 1.4-PM25_definitivo/
     │
     └── 2-Health data/
-        └── 2.1-Health data exploration/
+        ├── 2.1-Health data exploration/
+        └── 2.2-Health event aggregation/
 
 src/
 ├── data_loader.py
@@ -273,7 +350,8 @@ src/
 │   └── pm25_definitivo_non_covid.py
 │
 └── health_analysis/
-    └── health_data_exploration.py
+    ├── health_data_exploration.py
+    └── health_event_aggregation.py
 ```
 
 ### Main files
@@ -339,6 +417,18 @@ if __name__ == "__main__":
     run_health_data_exploration()
 ```
 
+### Run the health event aggregation
+
+Use this in `main.py`:
+
+```python
+from src.health_analysis.health_event_aggregation import run_health_event_aggregation
+
+
+if __name__ == "__main__":
+    run_health_event_aggregation()
+```
+
 ---
 
 ## GitHub workflow
@@ -365,7 +455,8 @@ Useful commit message examples:
 git commit -m "Add definitive non-covid NO2 analysis"
 git commit -m "Add definitive non-covid PM25 analysis"
 git commit -m "Add health data exploration"
-git commit -m "Update README after health exploration"
+git commit -m "Add health event aggregation and rates"
+git commit -m "Update README after health aggregation"
 git commit -m "Fix README formatting"
 ```
 
@@ -383,7 +474,9 @@ The raw health event dataset is not uploaded to GitHub because it may contain se
 
 The health dataset does not contain a patient identifier. Therefore, records should be interpreted as health events, not unique individuals. The same person may appear more than once.
 
-Raw health event counts cannot be directly interpreted as health risk because they are strongly affected by population size. Future analyses should compute population-normalized rates, for example events per 10,000 inhabitants.
+Raw health event counts cannot be directly interpreted as health risk because they are strongly affected by population size. For this reason, Part 2.2 computes population-normalized rates per 10,000 inhabitants.
+
+The current health event rates are not age-standardized. Since respiratory and cardiocirculatory events are strongly age-dependent, future analyses should consider age classes or age-standardized rates if suitable population-by-age data are available.
 
 Any future comparison between pollutant concentrations and health events should be interpreted as an exploratory ecological analysis, not as evidence of individual-level causality.
 
@@ -393,6 +486,6 @@ Any future comparison between pollutant concentrations and health events should 
 
 Part 1 of the project, focused on statistical tests of environmental pollutant data, is completed.
 
-Part 2 has started with the first exploratory analysis of health event data.
+Part 2 has started with health data exploration and population-normalized health event aggregation.
 
-The next analytical step is to decide whether to proceed at province level or municipality level, retrieve population data, compute health event rates, and then evaluate whether respiratory and cardiocirculatory event patterns can be compared with NO2 and PM2.5 concentration patterns.
+The next analytical step is to integrate environmental indicators and health event rates into a common dataset, starting from seasonal or monthly aggregation. This will allow exploratory visual comparison, scatter plots, Spearman correlation analysis and possible lag analysis between NO2, PM2.5, respiratory event rates and cardiocirculatory event rates.
