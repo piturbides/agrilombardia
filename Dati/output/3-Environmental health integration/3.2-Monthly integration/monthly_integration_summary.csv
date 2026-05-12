@@ -1,0 +1,10 @@
+Indicator;Value
+Common years used;2016, 2017, 2018, 2019, 2023
+Temporal scale;Monthly
+Number of rows;120
+Number of areas;2
+Areas;Industrial, Agricultural
+Pollutants;NO2, PM2.5
+Health outcomes;Respiratory and cardiocirculatory event rates
+Main exposure limitation;Pollutant concentrations are represented by monitoring-station proxies and not by exact area-level exposure estimates.
+Main interpretation rule;Results must be interpreted as exploratory ecological patterns, not as individual-level causal evidence.
