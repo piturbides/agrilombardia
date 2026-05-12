@@ -4,7 +4,7 @@ Statistical analysis of air pollution and health event data for the Human Health
 
 The project investigates differences in air pollution patterns between areas with different territorial and emission profiles in Lombardy, with a focus on the comparison between agricultural/rural and industrial/urban contexts.
 
-The first part of the project focuses on environmental exposure data from ARPA Lombardia monitoring stations. The second part explores health event data and prepares population-normalized and age-specific health indicators that can later be compared with respiratory and cardiocirculatory health outcomes.
+The first part of the project focuses on environmental exposure data from ARPA Lombardia monitoring stations. The second part explores health event data and prepares population-normalized and age-specific health indicators. The third part integrates environmental indicators and health event rates into a common exploratory ecological framework.
 
 ---
 
@@ -420,6 +420,156 @@ src/health_analysis/health_age_structure_check.py
 
 ---
 
+## Part 3 — Environmental-health integration
+
+The third part of the project integrates environmental pollutant indicators and health event rates into common datasets.
+
+The aim is to move from separate environmental and health analyses to exploratory ecological comparisons between:
+
+- seasonal or monthly pollutant concentrations;
+- respiratory acute event rates;
+- cardiocirculatory acute event rates;
+- agricultural and industrial study areas.
+
+This part does not aim to demonstrate individual-level causality. Instead, it investigates whether coherent temporal and territorial patterns are present in the available aggregated data.
+
+The main output folder is:
+
+```text
+Dati/output/3-Environmental health integration/
+```
+
+The main code folder is:
+
+```text
+src/integration/
+```
+
+---
+
+## 3.1 Seasonal environmental-health integration
+
+The first environmental-health integration step combines seasonal pollutant indicators and seasonal health event rates.
+
+Each row of the integrated dataset represents one combination of:
+
+```text
+SeasonYear × Season × Area
+```
+
+The integrated dataset contains:
+
+- season year;
+- meteorological season;
+- study area;
+- population denominator;
+- seasonal respiratory acute event rate per 10,000 inhabitants;
+- seasonal cardiocirculatory acute event rate per 10,000 inhabitants;
+- seasonal mean NO2 concentration;
+- seasonal mean PM2.5 concentration;
+- readable time label for plots.
+
+The health input is the seasonal rate table produced in Part 2.2:
+
+```text
+Dati/output/2-Health data/2.2-Health event aggregation/seasonal_health_events_rates_by_area.csv
+```
+
+The environmental inputs are the seasonal pollutant datasets produced in Part 1.3 and Part 1.4:
+
+```text
+Dati/output/1-Statistical tests/1.3-NO2_definitivo/seasonal_NO2_non_covid_dataset.csv
+Dati/output/1-Statistical tests/1.4-PM25_definitivo/seasonal_PM25_non_covid_dataset.csv
+```
+
+The station-to-area mapping was defined as follows.
+
+For NO2:
+
+```text
+Soresina → Agricultural
+Rezzato  → Industrial
+```
+
+For PM2.5:
+
+```text
+Soresina                  → Agricultural
+Brescia Villaggio Sereno  → Industrial
+```
+
+The final integrated seasonal dataset contains:
+
+```text
+36 rows
+18 seasonal observations per study area
+0 missing values after integration
+```
+
+The analysis included:
+
+- loading seasonal health rates from Part 2.2;
+- loading seasonal NO2 indicators from Part 1.3;
+- loading seasonal PM2.5 indicators from Part 1.4;
+- mapping monitoring stations to study areas;
+- merging health and environmental indicators by season, season year and area;
+- checking missing values after integration;
+- producing combined-area scatter plots;
+- producing area-specific scatter plots;
+- producing standardized seasonal trend plots;
+- computing Spearman correlations overall and separately by study area;
+- exporting CSV summary tables and figures.
+
+Spearman correlation was used because the analysis is exploratory, the number of observations is limited, and a linear relationship between pollutants and health event rates should not be assumed.
+
+The main Spearman results were:
+
+```text
+Overall:
+NO2 vs Respiratory rate: rho = 0.502, p = 0.0018
+NO2 vs Cardiocirculatory rate: rho = 0.204, p = 0.2330
+PM2.5 vs Respiratory rate: rho = 0.446, p = 0.0064
+PM2.5 vs Cardiocirculatory rate: rho = 0.164, p = 0.3393
+
+Industrial area:
+NO2 vs Respiratory rate: rho = 0.364, p = 0.1372
+NO2 vs Cardiocirculatory rate: rho = 0.383, p = 0.1168
+PM2.5 vs Respiratory rate: rho = 0.280, p = 0.2610
+PM2.5 vs Cardiocirculatory rate: rho = 0.428, p = 0.0762
+
+Agricultural area:
+NO2 vs Respiratory rate: rho = 0.583, p = 0.0111
+NO2 vs Cardiocirculatory rate: rho = 0.119, p = 0.6390
+PM2.5 vs Respiratory rate: rho = 0.569, p = 0.0138
+PM2.5 vs Cardiocirculatory rate: rho = 0.148, p = 0.5590
+```
+
+**Main interpretation:**
+
+Respiratory acute event rates showed the clearest association with seasonal pollutant indicators.
+
+Overall, both NO2 and PM2.5 showed moderate positive and statistically significant associations with respiratory acute event rates. This suggests that seasons with higher pollutant concentrations tended to correspond to seasons with higher respiratory event rates.
+
+The association was particularly evident in the agricultural area, where both NO2 and PM2.5 showed moderate positive and statistically significant correlations with respiratory rates.
+
+Cardiocirculatory acute event rates did not show clear same-season associations with either NO2 or PM2.5. This does not mean that cardiocirculatory outcomes are irrelevant, because previous analyses showed that cardiocirculatory rates are consistently higher in the industrial area and that this pattern is not simply explained by age structure. However, the seasonal integration suggests that cardiocirculatory outcomes may depend more on structural, demographic, long-term or lagged factors than on same-season pollutant variation alone.
+
+The results remain exploratory and ecological. The analysis does not adjust for meteorology, socioeconomic factors, comorbidities, smoking, occupational exposure or individual-level exposure history.
+
+**Output folder:**
+
+```text
+Dati/output/3-Environmental health integration/3.1-Seasonal integration
+```
+
+**Main script:**
+
+```text
+src/integration/environment_health_integration.py
+```
+
+---
+
 ## Repository structure
 
 ### Main folders
@@ -427,8 +577,11 @@ src/health_analysis/health_age_structure_check.py
 ```text
 Dati/
 ├── raw/
-│   ├── Raw ARPA monitoring station data
+│   ├── Brescia_VillagioSereno_PM25_2016_2025.csv
 │   ├── Health_events_2015_2023.csv   # local only, ignored by Git
+│   ├── Rezzato_NO2_2016_2025.csv
+│   ├── Soresina_2016_2025_PM25.csv
+│   ├── Soresina_NO2_2016_2025.csv
 │   └── population/
 │       ├── Brescia_2016.csv
 │       ├── Brescia_2017.csv
@@ -448,10 +601,13 @@ Dati/
     │   ├── 1.3-NO2_definitivo/
     │   └── 1.4-PM25_definitivo/
     │
-    └── 2-Health data/
-        ├── 2.1-Health data exploration/
-        ├── 2.2-Health event aggregation/
-        └── 2.3-Health age structure check/
+    ├── 2-Health data/
+    │   ├── 2.1-Health data exploration/
+    │   ├── 2.2-Health event aggregation/
+    │   └── 2.3-Health age structure check/
+    │
+    └── 3-Environmental health integration/
+        └── 3.1-Seasonal integration/
 
 src/
 ├── data_loader.py
@@ -462,10 +618,14 @@ src/
 │   ├── no2_definitivo_non_covid.py
 │   └── pm25_definitivo_non_covid.py
 │
-└── health_analysis/
-    ├── health_data_exploration.py
-    ├── health_event_aggregation.py
-    └── health_age_structure_check.py
+├── health_analysis/
+│   ├── health_data_exploration.py
+│   ├── health_event_aggregation.py
+│   └── health_age_structure_check.py
+│
+└── integration/
+    ├── __init__.py
+    └── environment_health_integration.py
 ```
 
 ### Main files
@@ -555,6 +715,18 @@ if __name__ == "__main__":
     run_health_age_structure_check()
 ```
 
+### Run the seasonal environmental-health integration
+
+Use this in `main.py`:
+
+```python
+from src.integration.environment_health_integration import run_environment_health_integration
+
+
+if __name__ == "__main__":
+    run_environment_health_integration()
+```
+
 ---
 
 ## GitHub workflow
@@ -583,7 +755,8 @@ git commit -m "Add definitive non-covid PM25 analysis"
 git commit -m "Add health data exploration"
 git commit -m "Add health event aggregation and rates"
 git commit -m "Add health age structure check"
-git commit -m "Update README after age-specific health analysis"
+git commit -m "Add seasonal environmental health integration"
+git commit -m "Update README after seasonal integration"
 git commit -m "Fix README formatting"
 ```
 
@@ -607,13 +780,19 @@ Part 2.3 introduces age-specific rates using age-specific municipal population d
 
 The age-specific analysis suggests that the higher cardiocirculatory burden in the industrial area is not simply explained by age structure alone, especially because the excess is visible in the `<65` group. However, this result remains ecological and descriptive.
 
-Formal statistical testing was not added to Part 2.3 because the age-specific rates are annual and only five paired years are available. Differences were therefore interpreted through descriptive rates, mean differences, ratios and visual patterns. More formal non-parametric correlation analysis may be more meaningful in the environmental-health integration phase, especially at monthly or seasonal scale.
+Formal statistical testing was not added to Part 2.3 because the age-specific rates are annual and only five paired years are available. Differences were therefore interpreted through descriptive rates, mean differences, ratios and visual patterns. More formal non-parametric correlation analysis is more meaningful in the environmental-health integration phase, especially at monthly or seasonal scale.
 
-Any future comparison between pollutant concentrations and health events should be interpreted as an exploratory ecological analysis, not as evidence of individual-level causality.
+Part 3.1 integrates pollutant indicators and health event rates at seasonal scale and uses Spearman correlation. These correlations are exploratory and ecological. They should not be interpreted as individual-level causal evidence.
 
-Important unmeasured confounders include age beyond the applied stratification, sex, socioeconomic status, smoking, occupational exposure, comorbidities, healthcare access, event coding practices and individual exposure history.
+The seasonal environmental-health integration uses same-season pollutant indicators and same-season health rates. Possible delayed effects are not assessed in Part 3.1 and should be explored in future lag analyses.
+
+Important unmeasured confounders include age beyond the applied stratification, sex, socioeconomic status, smoking, occupational exposure, comorbidities, healthcare access, event coding practices, meteorology and individual exposure history.
 
 The geographical meaning of the municipality variable should also be interpreted carefully. If the municipality refers to event location rather than patient residence, area-level health rates may not perfectly represent the resident population.
+
+The environmental exposure side is based on monitoring station proxies, while the health outcome side is aggregated over selected municipalities. This spatial mismatch is one of the main limitations of the project.
+
+Any future comparison between pollutant concentrations and health events should be interpreted as an exploratory ecological analysis, not as evidence of individual-level causality.
 
 ---
 
@@ -621,36 +800,27 @@ The geographical meaning of the municipality variable should also be interpreted
 
 Part 1 of the project, focused on statistical tests of environmental pollutant data, is completed.
 
-Part 2 has now produced:
+Part 2 has produced:
 
 - a general health data exploration;
 - population-normalized respiratory and cardiocirculatory rates;
 - age-specific health event rates for the selected study areas.
 
-The next analytical step is to integrate environmental indicators and health event rates into a common dataset, starting from seasonal or monthly aggregation.
+Part 3 has started with the seasonal environmental-health integration.
 
-The most promising starting point is seasonal integration because it provides a compromise between annual aggregation, which gives too few observations, and monthly aggregation, which may be noisier.
+The main result of Part 3.1 is that respiratory acute event rates show the clearest seasonal association with pollutant indicators. Both NO2 and PM2.5 show moderate positive associations with respiratory event rates, especially in the agricultural area. Cardiocirculatory event rates do not show clear same-season associations with the pollutant indicators.
 
-The future integrated dataset may include:
+The next analytical step is to extend the environmental-health integration beyond same-season seasonal analysis.
 
-```text
-SeasonYear
-Season
-Area
-NO2_mean
-PM25_mean
-Respiratory_rate_per_10000
-Cardiocirculatory_rate_per_10000
-Population
-```
+Possible next steps include:
 
-Possible analyses include:
+- monthly environmental-health integration;
+- lagged monthly analysis, for example pollutant concentration in one month vs health event rate in the following month;
+- lagged seasonal analysis, for example pollutant concentration in one season vs health event rate in the following season;
+- separate focus on respiratory outcomes, because they show the clearest same-season associations;
+- secondary focus on cardiocirculatory outcomes, especially considering lagged exposure or age-specific rates;
+- possible integration of age-specific outcomes, such as respiratory `65+` rates and cardiocirculatory `<65` rates.
 
-- visual comparison of pollutant trends and health event rates;
-- scatter plots between pollutant concentrations and health event rates;
-- Spearman correlation analysis;
-- separate analyses for PM2.5 and NO2;
-- separate analyses for respiratory and cardiocirculatory outcomes;
-- possible exploration of lagged associations.
+The most reasonable next step is Part 3.2, focused on monthly environmental-health integration or lagged seasonal/monthly associations. This would increase the number of observations and help assess whether the associations observed in Part 3.1 are stable at a finer temporal scale.
 
 The environmental-health integration should remain clearly described as exploratory and ecological.

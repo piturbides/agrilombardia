@@ -5,6 +5,7 @@ from src.statistical_tests.pm25_definitivo_non_covid import run_pm25_definitivo_
 from src.health_analysis.health_data_exploration import run_health_data_exploration
 from src.health_analysis.health_event_aggregation import run_health_event_aggregation
 from src.health_analysis.health_age_structure_check import run_health_age_structure_check
+from src.integration.environment_health_integration import run_environment_health_integration
 
 
 
@@ -15,4 +16,5 @@ if __name__ == "__main__":
     #run_pm25_definitivo_non_covid_analysis()
     #run_health_data_exploration()
     #run_health_event_aggregation()
-    run_health_age_structure_check()
+    #run_health_age_structure_check()
+    run_environment_health_integration()

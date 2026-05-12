@@ -1,0 +1,13 @@
+Group;Pollutant;Pollutant_label;Outcome;Outcome_label;N;Spearman_rho;p_value;Interpretation
+Overall;NO2_mean;Seasonal mean NO2;Respiratory_rate_per_10000;Respiratory acute event rate;36;0.5024453024453025;0.0017916415964096435;"moderate positive association; statistically significant at p < 0.05"
+Overall;NO2_mean;Seasonal mean NO2;Cardiocirculatory_rate_per_10000;Cardiocirculatory acute event rate;36;0.20386100386100386;0.23303706834794147;"weak positive association; not statistically significant"
+Overall;PM25_mean;Seasonal mean PM2.5;Respiratory_rate_per_10000;Respiratory acute event rate;36;0.44581724581724586;0.00642880155487267;"moderate positive association; statistically significant at p < 0.05"
+Overall;PM25_mean;Seasonal mean PM2.5;Cardiocirculatory_rate_per_10000;Cardiocirculatory acute event rate;36;0.16396396396396398;0.3392984400820844;"very weak positive association; not statistically significant"
+Industrial;NO2_mean;Seasonal mean NO2;Respiratory_rate_per_10000;Respiratory acute event rate;18;0.36429308565531476;0.1372167161243322;"weak positive association; not statistically significant"
+Industrial;NO2_mean;Seasonal mean NO2;Cardiocirculatory_rate_per_10000;Cardiocirculatory acute event rate;18;0.3828689370485036;0.11683232301276773;"weak positive association; not statistically significant"
+Industrial;PM25_mean;Seasonal mean PM2.5;Respiratory_rate_per_10000;Respiratory acute event rate;18;0.27966976264189886;0.2610264770684415;"weak positive association; not statistically significant"
+Industrial;PM25_mean;Seasonal mean PM2.5;Cardiocirculatory_rate_per_10000;Cardiocirculatory acute event rate;18;0.4282765737874097;0.07620095935240212;"moderate positive association; not statistically significant"
+Agricultural;NO2_mean;Seasonal mean NO2;Respiratory_rate_per_10000;Respiratory acute event rate;18;0.5830753353973168;0.011092443619541687;"moderate positive association; statistically significant at p < 0.05"
+Agricultural;NO2_mean;Seasonal mean NO2;Cardiocirculatory_rate_per_10000;Cardiocirculatory acute event rate;18;0.11867905056759545;0.6390493358496443;"very weak positive association; not statistically significant"
+Agricultural;PM25_mean;Seasonal mean PM2.5;Respiratory_rate_per_10000;Respiratory acute event rate;18;0.5686274509803922;0.013800437611725492;"moderate positive association; statistically significant at p < 0.05"
+Agricultural;PM25_mean;Seasonal mean PM2.5;Cardiocirculatory_rate_per_10000;Cardiocirculatory acute event rate;18;0.1475748194014448;0.5589695952802587;"very weak positive association; not statistically significant"
