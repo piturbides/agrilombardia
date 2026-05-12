@@ -1,0 +1,15 @@
+Indicator;Value
+Input dataset;Dati/output/3-Environmental health integration/3.2-Monthly integration/monthly_environment_health_integrated_dataset.csv
+Temporal scale;Monthly
+Lag values tested;0, 1, 2, 3
+Number of rows in lagged dataset;120
+Number of areas;2
+Areas;Industrial, Agricultural
+Pollutants;NO2, PM2.5
+Health outcomes;Respiratory and cardiocirculatory event rates
+Maximum N at lag 0;120
+Maximum N at lag 1;116
+Maximum N at lag 2;112
+Maximum N at lag 3;108
+Main methodological safeguard;Lagged pollutant values are kept only when the lagged month is exactly the expected number of months before the current health month. This prevents linking December 2019 to January 2023.
+Main interpretation rule;Lagged correlations are exploratory ecological associations. They should not be interpreted as causal delayed effects.

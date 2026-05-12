@@ -716,6 +716,197 @@ src/integration/monthly_environment_health_integration.py
 
 ---
 
+## 3.3 Monthly lag analysis
+
+The third environmental-health integration step explores lagged associations between monthly pollutant indicators and current-month health event rates.
+
+This analysis uses the monthly integrated dataset produced in Part 3.2 and tests whether pollutant concentrations in previous months are more strongly associated with current-month health event rates than same-month pollutant concentrations.
+
+Each row of the input dataset represents one combination of:
+
+```text
+MonthPeriod × Area
+```
+
+The health input is the monthly integrated dataset produced in Part 3.2:
+
+```text
+Dati/output/3-Environmental health integration/3.2-Monthly integration/monthly_environment_health_integrated_dataset.csv
+```
+
+The lagged analysis used the following exposure lags:
+
+```text
+Lag 0 = pollutant concentration in the same month as the health event rate
+Lag 1 = pollutant concentration one month before the health event rate
+Lag 2 = pollutant concentration two months before the health event rate
+Lag 3 = pollutant concentration three months before the health event rate
+```
+
+The maximum lag was limited to 3 months to keep the analysis interpretable and to avoid excessive loss of observations.
+
+A key methodological safeguard was introduced to avoid incorrect temporal links across the 2019–2023 gap. Lagged pollutant values were retained only if the lagged month was exactly the expected number of months before the current health month.
+
+For example, January 2023 was not allowed to use December 2019 as lag-1 exposure. Since the actual month difference between December 2019 and January 2023 is 37 months, the lagged value was rejected and set to missing.
+
+The lag availability check confirmed that the temporal gap was handled correctly:
+
+```text
+Overall:
+Lag 0 = 120 available values
+Lag 1 = 116 available values
+Lag 2 = 112 available values
+Lag 3 = 108 available values
+
+Industrial area:
+Lag 0 = 60 available values
+Lag 1 = 58 available values
+Lag 2 = 56 available values
+Lag 3 = 54 available values
+
+Agricultural area:
+Lag 0 = 60 available values
+Lag 1 = 58 available values
+Lag 2 = 56 available values
+Lag 3 = 54 available values
+```
+
+The final lagged dataset contains:
+
+```text
+120 rows
+27 columns
+```
+
+The analysis included:
+
+- loading the monthly integrated dataset from Part 3.2;
+- creating lagged NO2 variables for lag 0, lag 1, lag 2 and lag 3;
+- creating lagged PM2.5 variables for lag 0, lag 1, lag 2 and lag 3;
+- validating lagged values to avoid crossing the 2019–2023 temporal gap;
+- checking lag availability for each pollutant, lag and study area;
+- computing Spearman correlations between lagged pollutant indicators and current-month health event rates;
+- computing correlations overall and separately by study area;
+- identifying the descriptively strongest lag for each pollutant-outcome-area combination;
+- producing rho-versus-lag plots;
+- producing best-lag scatter plots;
+- exporting CSV summary tables and figures.
+
+Spearman correlation was used because the analysis is exploratory and ecological, the variables may not follow a normal distribution, and a strictly linear exposure-response relationship should not be assumed.
+
+The main overall lagged Spearman results were:
+
+```text
+Overall NO2 vs Respiratory rate:
+Lag 0: rho = 0.485, p = 2.01e-08
+Lag 1: rho = 0.445, p = 5.64e-07
+Lag 2: rho = 0.320, p = 0.00057
+Lag 3: rho = 0.109, p = 0.261
+
+Overall PM2.5 vs Respiratory rate:
+Lag 0: rho = 0.458, p = 1.47e-07
+Lag 1: rho = 0.427, p = 1.78e-06
+Lag 2: rho = 0.304, p = 0.0011
+Lag 3: rho = 0.065, p = 0.502
+
+Overall NO2 vs Cardiocirculatory rate:
+Lag 0: rho = 0.281, p = 0.0019
+Lag 1: rho = 0.190, p = 0.0409
+Lag 2: rho = 0.101, p = 0.291
+Lag 3: rho = 0.022, p = 0.822
+
+Overall PM2.5 vs Cardiocirculatory rate:
+Lag 0: rho = 0.259, p = 0.0043
+Lag 1: rho = 0.163, p = 0.0806
+Lag 2: rho = 0.124, p = 0.191
+Lag 3: rho = 0.016, p = 0.871
+```
+
+The main area-specific results were:
+
+```text
+Industrial area, NO2 vs Respiratory rate:
+Lag 0: rho = 0.510, p = 3.15e-05
+Lag 1: rho = 0.458, p = 0.00030
+Lag 2: rho = 0.305, p = 0.0221
+Lag 3: rho = 0.091, p = 0.513
+
+Industrial area, PM2.5 vs Respiratory rate:
+Lag 0: rho = 0.496, p = 5.50e-05
+Lag 1: rho = 0.447, p = 0.00043
+Lag 2: rho = 0.323, p = 0.0152
+Lag 3: rho = 0.115, p = 0.407
+
+Industrial area, NO2 vs Cardiocirculatory rate:
+Lag 0: rho = 0.378, p = 0.0029
+Lag 1: rho = 0.294, p = 0.0251
+Lag 2: rho = 0.204, p = 0.1310
+Lag 3: rho = 0.074, p = 0.5966
+
+Industrial area, PM2.5 vs Cardiocirculatory rate:
+Lag 0: rho = 0.432, p = 0.00057
+Lag 1: rho = 0.394, p = 0.0022
+Lag 2: rho = 0.250, p = 0.0626
+Lag 3: rho = 0.085, p = 0.5396
+
+Agricultural area, NO2 vs Respiratory rate:
+Lag 0: rho = 0.457, p = 0.00024
+Lag 1: rho = 0.424, p = 0.00091
+Lag 2: rho = 0.315, p = 0.0179
+Lag 3: rho = 0.114, p = 0.413
+
+Agricultural area, PM2.5 vs Respiratory rate:
+Lag 0: rho = 0.411, p = 0.0011
+Lag 1: rho = 0.420, p = 0.0010
+Lag 2: rho = 0.295, p = 0.0271
+Lag 3: rho = 0.043, p = 0.760
+
+Agricultural area, NO2 vs Cardiocirculatory rate:
+Lag 0: rho = 0.255, p = 0.0497
+Lag 1: rho = 0.146, p = 0.276
+Lag 2: rho = 0.047, p = 0.733
+Lag 3: rho = 0.021, p = 0.881
+
+Agricultural area, PM2.5 vs Cardiocirculatory rate:
+Lag 0: rho = 0.211, p = 0.106
+Lag 1: rho = 0.085, p = 0.524
+Lag 2: rho = 0.093, p = 0.497
+Lag 3: rho = 0.046, p = 0.740
+```
+
+**Main interpretation:**
+
+The monthly lag analysis did not identify stronger delayed associations at lag 1, lag 2 or lag 3 months. Most pollutant-health associations were strongest at lag 0 and progressively weakened with increasing lag.
+
+Respiratory outcomes remained the most coherent endpoint. Both NO2 and PM2.5 showed moderate positive associations with respiratory rates at lag 0, with some persistence at lag 1 and weaker associations at longer lags.
+
+The only small exception was PM2.5 versus respiratory rates in the agricultural area, where lag 1 had a slightly higher rho than lag 0:
+
+```text
+Lag 0: rho = 0.411
+Lag 1: rho = 0.420
+```
+
+However, the difference was minimal and should not be interpreted as strong evidence of a delayed effect.
+
+Cardiocirculatory associations were weaker. They were more visible in the industrial area, especially for PM2.5, but they were still strongest at lag 0 and did not show evidence of stronger delayed associations at lag 1–3 months.
+
+Overall, Part 3.3 suggests that the observed monthly environmental-health associations are mainly synchronous and seasonally structured rather than clearly delayed. The results remain exploratory and ecological. They do not demonstrate individual-level causal effects, but they clarify the temporal structure of the monthly pollutant-health associations.
+
+**Output folder:**
+
+```text
+Dati/output/3-Environmental health integration/3.3-Monthly lag analysis
+```
+
+**Main script:**
+
+```text
+src/integration/monthly_lag_analysis.py
+```
+
+---
+
 ## Repository structure
 
 ### Main folders
@@ -754,7 +945,8 @@ Dati/
     │
     └── 3-Environmental health integration/
         ├── 3.1-Seasonal integration/
-        └── 3.2-Monthly integration/
+        ├── 3.2-Monthly integration/
+        └── 3.3-Monthly lag analysis/
 
 src/
 ├── data_loader.py
@@ -773,7 +965,8 @@ src/
 └── integration/
     ├── __init__.py
     ├── environment_health_integration.py
-    └── monthly_environment_health_integration.py
+    ├── monthly_environment_health_integration.py
+    └── monthly_lag_analysis.py
 ```
 
 ### Main files
@@ -887,6 +1080,18 @@ if __name__ == "__main__":
     run_monthly_environment_health_integration()
 ```
 
+### Run the monthly lag analysis
+
+Use this in `main.py`:
+
+```python
+from src.integration.monthly_lag_analysis import run_monthly_lag_analysis
+
+
+if __name__ == "__main__":
+    run_monthly_lag_analysis()
+```
+
 ---
 
 ## GitHub workflow
@@ -917,8 +1122,10 @@ git commit -m "Add health event aggregation and rates"
 git commit -m "Add health age structure check"
 git commit -m "Add seasonal environmental health integration"
 git commit -m "Add monthly environmental health integration"
+git commit -m "Add monthly lag analysis"
 git commit -m "Update README after seasonal integration"
 git commit -m "Update README after monthly integration"
+git commit -m "Update README after monthly lag analysis"
 git commit -m "Fix README formatting"
 ```
 
@@ -954,9 +1161,11 @@ The monthly integration shows positive associations between pollutant indicators
 
 Therefore, Part 3.2 should be interpreted as evidence of coherent temporal ecological patterns, not as evidence of independent within-season or individual-level exposure-response effects.
 
-The season-stratified correlations are based on fewer observations, especially in area-specific analyses. Any season-specific significant result, such as the autumn industrial cardiocirculatory associations, should therefore be interpreted cautiously.
+Part 3.3 explores monthly lagged associations using lag 0, lag 1, lag 2 and lag 3 months. Lagged pollutant values are validated so that they are retained only when the lagged month is exactly the expected number of months before the current health month. This prevents incorrect temporal links across the 2019–2023 gap.
 
-Future lag analyses based on the monthly dataset should explicitly acknowledge that lagged correlations may also be influenced by seasonality, temporal autocorrelation and unmeasured confounding.
+The monthly lag analysis shows that most pollutant-health associations are strongest at lag 0 and progressively weaken at longer lags. Therefore, the observed monthly associations appear mainly synchronous and seasonally structured rather than clearly delayed.
+
+The lag analysis should not be interpreted as evidence of causal delayed effects. Lagged correlations may still be influenced by seasonality, temporal autocorrelation, meteorology and unmeasured confounding.
 
 Important unmeasured confounders include age beyond the applied stratification, sex, socioeconomic status, smoking, occupational exposure, comorbidities, healthcare access, event coding practices, meteorology and individual exposure history.
 
@@ -968,7 +1177,7 @@ Any future comparison between pollutant concentrations and health events should 
 
 ---
 
-## Next step
+## Current project status and possible next steps
 
 Part 1 of the project, focused on statistical tests of environmental pollutant data, is completed.
 
@@ -981,7 +1190,8 @@ Part 2 has produced:
 Part 3 has produced:
 
 - a seasonal environmental-health integration;
-- a monthly environmental-health integration.
+- a monthly environmental-health integration;
+- a monthly lag analysis.
 
 The main result of Part 3.1 is that respiratory acute event rates show the clearest seasonal association with pollutant indicators. Both NO2 and PM2.5 show moderate positive associations with respiratory event rates, especially in the agricultural area. Cardiocirculatory event rates do not show clear same-season seasonal associations with the pollutant indicators.
 
@@ -989,18 +1199,20 @@ Part 3.2 confirms the relevance of respiratory outcomes at monthly scale. Both N
 
 However, the season-stratified sensitivity analysis in Part 3.2 shows that most within-season correlations are weak or not statistically significant. This suggests that the overall monthly associations are largely influenced by the shared seasonal structure of pollutant concentrations and acute health event rates.
 
-The next analytical step is to explore lagged monthly associations.
+Part 3.3 shows that lagged pollutant indicators at 1–3 months do not generally improve the strength of the associations compared with same-month pollutant indicators. Most associations are strongest at lag 0 and progressively weaken with increasing lag. This suggests that the observed monthly environmental-health associations are mainly synchronous and seasonally structured rather than clearly delayed.
 
-Possible next steps include:
+At the current stage, the project provides a coherent exploratory ecological framework linking pollutant indicators and health event rates at different temporal scales. The strongest and most defensible message is that respiratory acute event rates show the most consistent temporal coherence with NO2 and PM2.5 indicators, while cardiocirculatory outcomes show weaker and more area-dependent associations.
 
-- monthly lag analysis with lag 0, lag 1, lag 2 and lag 3 months;
-- comparison between same-month and previous-month pollutant indicators;
-- separate lag analysis for respiratory and cardiocirculatory outcomes;
-- separate lag analysis for the agricultural and industrial study areas;
-- graphical summary of Spearman rho values across different lags;
-- cautious interpretation of lagged associations in relation to seasonality and temporal autocorrelation;
-- possible comparison between total health rates and age-specific outcomes, especially respiratory `65+` rates and cardiocirculatory `<65` rates.
+This represents a reasonable stopping point for the current phase of the project. Future developments can be decided based on course requirements and feedback from the instructor.
 
-The most reasonable next step is Part 3.3, focused on monthly lag analysis. This analysis should use the monthly integrated dataset produced in Part 3.2 and test whether pollutant concentrations in previous months are more strongly associated with health event rates than same-month concentrations.
+Possible future extensions include:
 
-The environmental-health integration should remain clearly described as exploratory and ecological. Even if lagged associations are observed, they should not be interpreted as causal evidence because the current framework does not adjust for meteorology, autocorrelation, socioeconomic factors, individual exposure, comorbidities or other confounders.
+- adding meteorological variables such as temperature, humidity, precipitation, wind speed or atmospheric stability;
+- exploring emission inventory data or additional pollutants such as NH3;
+- testing more formal statistical models with adjustment for seasonality and temporal autocorrelation;
+- considering moving-average exposure indicators rather than simple monthly lags;
+- exploring age-specific environmental-health integration as a secondary sensitivity analysis;
+- focusing more specifically on respiratory outcomes, which currently show the clearest environmental-health temporal pattern;
+- refining exposure assessment by adding more monitoring stations or spatially averaged pollutant indicators.
+
+Any future extension should remain clearly framed as ecological unless individual-level exposure and health data become available.

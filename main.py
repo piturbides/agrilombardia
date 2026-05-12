@@ -7,6 +7,7 @@ from src.health_analysis.health_event_aggregation import run_health_event_aggreg
 from src.health_analysis.health_age_structure_check import run_health_age_structure_check
 from src.integration.environment_health_integration import run_environment_health_integration
 from src.integration.monthly_environment_health_integration import run_monthly_environment_health_integration
+from src.integration.monthly_lag_analysis import run_monthly_lag_analysis
 
 
 
@@ -19,4 +20,5 @@ if __name__ == "__main__":
     #run_health_event_aggregation()
     #run_health_age_structure_check()
     #run_environment_health_integration()
-    run_monthly_environment_health_integration()
+    #run_monthly_environment_health_integration()
+    run_monthly_lag_analysis()
