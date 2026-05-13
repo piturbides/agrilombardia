@@ -1,0 +1,16 @@
+Indicator;Value
+Temporal scale;Weekly
+Lag values tested;0, 1, 2, 3, 4
+Number of rows in weekly integrated dataset;522
+Number of rows in weekly lagged dataset;522
+Number of areas;2
+Areas;Industrial, Agricultural
+Pollutants;NO2, PM2.5
+Health outcomes;Respiratory and cardiocirculatory event rates
+Maximum N at lag 0;522
+Maximum N at lag 1;518
+Maximum N at lag 2;514
+Maximum N at lag 3;510
+Maximum N at lag 4;506
+Main methodological safeguard;Lagged pollutant values are kept only when the lagged week is exactly the expected number of weeks before the current health week. This prevents linking the end of 2019 to the beginning of 2023.
+Main interpretation rule;Weekly lagged correlations are exploratory ecological associations. They should not be interpreted as causal delayed effects.

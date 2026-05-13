@@ -426,7 +426,7 @@ The third part of the project integrates environmental pollutant indicators and 
 
 The aim is to move from separate environmental and health analyses to exploratory ecological comparisons between:
 
-- seasonal or monthly pollutant concentrations;
+- seasonal, monthly or weekly pollutant concentrations;
 - respiratory acute event rates;
 - cardiocirculatory acute event rates;
 - agricultural and industrial study areas.
@@ -907,6 +907,333 @@ src/integration/monthly_lag_analysis.py
 
 ---
 
+## 3.4 Weekly lag analysis
+
+The fourth environmental-health integration step refines the monthly lag analysis by exploring lagged associations at weekly scale.
+
+This analysis was introduced because the monthly lag analysis showed that most pollutant-health associations were strongest at lag 0 months. However, a same-month association may still include shorter delayed effects occurring within the same month. Weekly aggregation allows the project to investigate whether pollutant concentrations in the previous 1–4 weeks are more strongly associated with current-week health event rates than same-week pollutant concentrations.
+
+Each row of the weekly integrated dataset represents one combination of:
+
+```text
+WeekStart × Area
+```
+
+The weekly integrated dataset contains:
+
+- week start date;
+- calendar year;
+- ISO week number;
+- study area;
+- population denominator;
+- weekly respiratory acute event rate per 10,000 inhabitants;
+- weekly cardiocirculatory acute event rate per 10,000 inhabitants;
+- weekly mean NO2 concentration;
+- weekly mean PM2.5 concentration;
+- readable time label for plots.
+
+The environmental inputs are the raw pollutant datasets used in Part 1.3 and Part 1.4:
+
+```text
+Dati/raw/Soresina_NO2_2016_2025.csv
+Dati/raw/Rezzato_NO2_2016_2025.csv
+Dati/raw/Soresina_2016_2025_PM25.csv
+Dati/raw/Brescia_VillagioSereno_PM25_2016_2025.csv
+```
+
+The health input is the selected health event table produced in Part 2.2:
+
+```text
+Dati/output/2-Health data/2.2-Health event aggregation/health_events_selected_areas_outcomes.csv
+```
+
+The annual population denominators were derived from:
+
+```text
+Dati/output/2-Health data/2.2-Health event aggregation/annual_health_events_rates_by_area.csv
+```
+
+The same station-to-area mapping used in the previous integration steps was retained.
+
+For NO2:
+
+```text
+Soresina → Agricultural
+Rezzato  → Industrial
+```
+
+For PM2.5:
+
+```text
+Soresina                  → Agricultural
+Brescia Villaggio Sereno  → Industrial
+```
+
+The final weekly integrated dataset contains:
+
+```text
+522 rows
+261 weekly observations per study area
+```
+
+The included years are:
+
+```text
+2016, 2017, 2018, 2019, 2023
+```
+
+The missing value check showed:
+
+```text
+WeekStart: 0 missing values
+Year: 0 missing values
+Week: 0 missing values
+Area: 0 missing values
+Population: 0 missing values
+Cardiocirculatory_rate_per_10000: 0 missing values
+Respiratory_rate_per_10000: 0 missing values
+TimeLabel: 0 missing values
+NO2_mean: 0 missing values
+PM25_mean: 2 missing values
+```
+
+The weekly lagged analysis used the following exposure lags:
+
+```text
+Lag 0 = pollutant concentration in the same week as the health event rate
+Lag 1 = pollutant concentration one week before the health event rate
+Lag 2 = pollutant concentration two weeks before the health event rate
+Lag 3 = pollutant concentration three weeks before the health event rate
+Lag 4 = pollutant concentration four weeks before the health event rate
+```
+
+The maximum lag was limited to 4 weeks because four weeks approximately correspond to one month. This makes the weekly analysis directly comparable with the monthly lag analysis while preserving a finer temporal resolution.
+
+As in Part 3.3, a key methodological safeguard was introduced to avoid incorrect temporal links across the 2019–2023 gap. Lagged pollutant values were retained only if the lagged week was exactly the expected number of weeks before the current health week.
+
+For example, the first weeks of 2023 were not allowed to use the last weeks of 2019 as lagged exposure values. Since the actual temporal difference is much larger than the expected weekly lag, those lagged values were rejected and set to missing.
+
+The lag availability check confirmed that the temporal gap was handled correctly.
+
+For NO2:
+
+```text
+Overall:
+Lag 0 = 522 available values
+Lag 1 = 518 available values
+Lag 2 = 514 available values
+Lag 3 = 510 available values
+Lag 4 = 506 available values
+
+Industrial area:
+Lag 0 = 261 available values
+Lag 1 = 259 available values
+Lag 2 = 257 available values
+Lag 3 = 255 available values
+Lag 4 = 253 available values
+
+Agricultural area:
+Lag 0 = 261 available values
+Lag 1 = 259 available values
+Lag 2 = 257 available values
+Lag 3 = 255 available values
+Lag 4 = 253 available values
+```
+
+For PM2.5:
+
+```text
+Overall:
+Lag 0 = 520 available values
+Lag 1 = 516 available values
+Lag 2 = 512 available values
+Lag 3 = 508 available values
+Lag 4 = 504 available values
+
+Industrial area:
+Lag 0 = 260 available values
+Lag 1 = 258 available values
+Lag 2 = 256 available values
+Lag 3 = 254 available values
+Lag 4 = 252 available values
+
+Agricultural area:
+Lag 0 = 260 available values
+Lag 1 = 258 available values
+Lag 2 = 256 available values
+Lag 3 = 254 available values
+Lag 4 = 252 available values
+```
+
+The final weekly lagged dataset contains:
+
+```text
+522 rows
+30 columns
+```
+
+The analysis included:
+
+- loading raw NO2 and PM2.5 pollutant datasets;
+- aggregating pollutant data to weekly mean concentrations;
+- loading selected health event records from Part 2.2;
+- aggregating health events to weekly counts by area and outcome;
+- computing weekly event rates per 10,000 inhabitants using annual area-level population denominators;
+- mapping monitoring stations to study areas;
+- merging weekly health and environmental indicators by week and area;
+- creating lagged NO2 variables for lag 0, lag 1, lag 2, lag 3 and lag 4 weeks;
+- creating lagged PM2.5 variables for lag 0, lag 1, lag 2, lag 3 and lag 4 weeks;
+- validating lagged values to avoid crossing the 2019–2023 temporal gap;
+- checking lag availability for each pollutant, lag and study area;
+- computing Spearman correlations between lagged pollutant indicators and current-week health event rates;
+- computing correlations overall and separately by study area;
+- identifying the descriptively strongest weekly lag for each pollutant-outcome-area combination;
+- producing rho-versus-lag plots;
+- producing best-lag scatter plots;
+- exporting CSV summary tables and figures.
+
+Spearman correlation was used because the analysis is exploratory and ecological, the variables may not follow a normal distribution, and a strictly linear exposure-response relationship should not be assumed.
+
+The weekly lag analysis produced 60 Spearman correlation results:
+
+```text
+3 groups × 2 pollutants × 2 outcomes × 5 weekly lags = 60 correlations
+```
+
+The main overall weekly lagged results were:
+
+```text
+Overall NO2 vs Respiratory rate:
+Lag 0: rho ≈ 0.336
+Lag 1: rho ≈ 0.356
+Lag 2: rho ≈ 0.351
+Lag 3: rho ≈ 0.327
+Lag 4: rho ≈ 0.318
+
+Overall PM2.5 vs Respiratory rate:
+Lag 0: rho ≈ 0.306
+Lag 1: rho ≈ 0.342
+Lag 2: rho ≈ 0.297
+Lag 3: rho ≈ 0.284
+Lag 4: rho ≈ 0.279
+
+Overall NO2 vs Cardiocirculatory rate:
+Lag 0: rho ≈ 0.203
+Lag 1: rho ≈ 0.209
+Lag 2: rho ≈ 0.209
+Lag 3: rho ≈ 0.178
+Lag 4: rho ≈ 0.168
+
+Overall PM2.5 vs Cardiocirculatory rate:
+Lag 0: rho ≈ 0.199
+Lag 1: rho ≈ 0.212
+Lag 2: rho ≈ 0.164
+Lag 3: rho ≈ 0.147
+Lag 4: rho ≈ 0.151
+```
+
+The main area-specific results were:
+
+```text
+Industrial area, NO2 vs Respiratory rate:
+Lag 0: rho ≈ 0.383
+Lag 1: rho ≈ 0.441
+Lag 2: rho ≈ 0.444
+Lag 3: rho ≈ 0.387
+Lag 4: rho ≈ 0.365
+
+Industrial area, PM2.5 vs Respiratory rate:
+Lag 0: rho ≈ 0.350
+Lag 1: rho ≈ 0.412
+Lag 2: rho ≈ 0.364
+Lag 3: rho ≈ 0.346
+Lag 4: rho ≈ 0.337
+
+Industrial area, NO2 vs Cardiocirculatory rate:
+Lag 0: rho ≈ 0.325
+Lag 1: rho ≈ 0.324
+Lag 2: rho ≈ 0.346
+Lag 3: rho ≈ 0.326
+Lag 4: rho ≈ 0.270
+
+Industrial area, PM2.5 vs Cardiocirculatory rate:
+Lag 0: rho ≈ 0.360
+Lag 1: rho ≈ 0.368
+Lag 2: rho ≈ 0.354
+Lag 3: rho ≈ 0.320
+Lag 4: rho ≈ 0.278
+
+Agricultural area, NO2 vs Respiratory rate:
+Lag 0: rho ≈ 0.300
+Lag 1: rho ≈ 0.298
+Lag 2: rho ≈ 0.288
+Lag 3: rho ≈ 0.283
+Lag 4: rho ≈ 0.282
+
+Agricultural area, PM2.5 vs Respiratory rate:
+Lag 0: rho ≈ 0.259
+Lag 1: rho ≈ 0.284
+Lag 2: rho ≈ 0.238
+Lag 3: rho ≈ 0.228
+Lag 4: rho ≈ 0.223
+
+Agricultural area, NO2 vs Cardiocirculatory rate:
+Lag 0: rho ≈ 0.139
+Lag 1: rho ≈ 0.149
+Lag 2: rho ≈ 0.134
+Lag 3: rho ≈ 0.100
+Lag 4: rho ≈ 0.129
+
+Agricultural area, PM2.5 vs Cardiocirculatory rate:
+Lag 0: rho ≈ 0.118
+Lag 1: rho ≈ 0.150
+Lag 2: rho ≈ 0.057
+Lag 3: rho ≈ 0.059
+Lag 4: rho ≈ 0.109
+```
+
+**Main interpretation:**
+
+The weekly lag analysis provides additional temporal detail compared with the monthly lag analysis.
+
+In Part 3.3, most pollutant-health associations were strongest at lag 0 months. Part 3.4 shows that this does not necessarily mean that there is no delay. At weekly scale, several associations, especially respiratory associations, reached their maximum at lag 1 or lag 2 weeks.
+
+The clearest pattern was observed for respiratory acute event rates.
+
+Overall, both NO2 and PM2.5 showed positive associations with respiratory rates across all weekly lags, with the highest correlations generally observed at lag 1 week.
+
+In the industrial area, the respiratory signal was particularly coherent:
+
+```text
+Industrial NO2 vs Respiratory rate:
+highest rho at lag 2 weeks
+
+Industrial PM2.5 vs Respiratory rate:
+highest rho at lag 1 week
+```
+
+This suggests that the same-month associations observed in Part 3.3 may partly contain shorter delayed associations occurring within the same month, especially in the industrial area.
+
+Cardiocirculatory outcomes showed weaker and more area-dependent patterns. The industrial area showed positive short-lag associations, especially for PM2.5, but the curves were relatively flat across lag 0 to lag 2. Therefore, it would be inappropriate to identify a precise cardiovascular lag. In the agricultural area, cardiocirculatory associations were weak or very weak across all weekly lags.
+
+Overall, Part 3.4 confirms respiratory acute event rates as the most consistent health endpoint in the project. It refines the temporal interpretation of the environmental-health association: the signal is not clearly delayed at monthly scale, but weekly analysis suggests possible short delays of approximately one to two weeks.
+
+The results remain exploratory and ecological. They do not demonstrate individual-level causal effects. Weekly rates can be noisier than monthly or seasonal rates, and the analysis does not adjust for meteorology, respiratory infections, temporal autocorrelation, socioeconomic factors or individual exposure history.
+
+**Output folder:**
+
+```text
+Dati/output/3-Environmental health integration/3.4-Weekly lag analysis
+```
+
+**Main script:**
+
+```text
+src/integration/weekly_lag_analysis.py
+```
+
+---
+
 ## Repository structure
 
 ### Main folders
@@ -946,7 +1273,8 @@ Dati/
     └── 3-Environmental health integration/
         ├── 3.1-Seasonal integration/
         ├── 3.2-Monthly integration/
-        └── 3.3-Monthly lag analysis/
+        ├── 3.3-Monthly lag analysis/
+        └── 3.4-Weekly lag analysis/
 
 src/
 ├── data_loader.py
@@ -966,7 +1294,8 @@ src/
     ├── __init__.py
     ├── environment_health_integration.py
     ├── monthly_environment_health_integration.py
-    └── monthly_lag_analysis.py
+    ├── monthly_lag_analysis.py
+    └── weekly_lag_analysis.py
 ```
 
 ### Main files
@@ -1092,6 +1421,18 @@ if __name__ == "__main__":
     run_monthly_lag_analysis()
 ```
 
+### Run the weekly lag analysis
+
+Use this in `main.py`:
+
+```python
+from src.integration.weekly_lag_analysis import run_weekly_lag_analysis
+
+
+if __name__ == "__main__":
+    run_weekly_lag_analysis()
+```
+
 ---
 
 ## GitHub workflow
@@ -1123,9 +1464,11 @@ git commit -m "Add health age structure check"
 git commit -m "Add seasonal environmental health integration"
 git commit -m "Add monthly environmental health integration"
 git commit -m "Add monthly lag analysis"
+git commit -m "Add weekly lag analysis"
 git commit -m "Update README after seasonal integration"
 git commit -m "Update README after monthly integration"
 git commit -m "Update README after monthly lag analysis"
+git commit -m "Update README after weekly lag analysis"
 git commit -m "Fix README formatting"
 ```
 
@@ -1149,13 +1492,13 @@ Part 2.3 introduces age-specific rates using age-specific municipal population d
 
 The age-specific analysis suggests that the higher cardiocirculatory burden in the industrial area is not simply explained by age structure alone, especially because the excess is visible in the `<65` group. However, this result remains ecological and descriptive.
 
-Formal statistical testing was not added to Part 2.3 because the age-specific rates are annual and only five paired years are available. Differences were therefore interpreted through descriptive rates, mean differences, ratios and visual patterns. More formal non-parametric correlation analysis is more meaningful in the environmental-health integration phase, especially at monthly or seasonal scale.
+Formal statistical testing was not added to Part 2.3 because the age-specific rates are annual and only five paired years are available. Differences were therefore interpreted through descriptive rates, mean differences, ratios and visual patterns. More formal non-parametric correlation analysis is more meaningful in the environmental-health integration phase, especially at monthly, seasonal or weekly scale.
 
 Part 3.1 integrates pollutant indicators and health event rates at seasonal scale and uses Spearman correlation. These correlations are exploratory and ecological. They should not be interpreted as individual-level causal evidence.
 
-The seasonal environmental-health integration uses same-season pollutant indicators and same-season health rates. Possible delayed effects are not assessed in Part 3.1 and should be explored in future lag analyses.
+The seasonal environmental-health integration uses same-season pollutant indicators and same-season health rates. Possible delayed effects are not assessed in Part 3.1 and are explored in later lag analyses.
 
-Part 3.2 extends the environmental-health integration to monthly scale and increases the number of observations from 36 seasonal rows to 120 monthly rows. This improves temporal detail and prepares the dataset for possible lag analysis.
+Part 3.2 extends the environmental-health integration to monthly scale and increases the number of observations from 36 seasonal rows to 120 monthly rows. This improves temporal detail and prepares the dataset for lag analysis.
 
 The monthly integration shows positive associations between pollutant indicators and health event rates, especially for respiratory outcomes. However, the season-stratified sensitivity analysis suggests that most of the significant monthly correlations are largely driven by the shared annual seasonal cycle of air pollution and health events.
 
@@ -1163,11 +1506,17 @@ Therefore, Part 3.2 should be interpreted as evidence of coherent temporal ecolo
 
 Part 3.3 explores monthly lagged associations using lag 0, lag 1, lag 2 and lag 3 months. Lagged pollutant values are validated so that they are retained only when the lagged month is exactly the expected number of months before the current health month. This prevents incorrect temporal links across the 2019–2023 gap.
 
-The monthly lag analysis shows that most pollutant-health associations are strongest at lag 0 and progressively weaken at longer lags. Therefore, the observed monthly associations appear mainly synchronous and seasonally structured rather than clearly delayed.
+The monthly lag analysis shows that most pollutant-health associations are strongest at lag 0 and progressively weaken at longer monthly lags. Therefore, the observed monthly associations appear mainly synchronous and seasonally structured rather than clearly delayed at the monthly scale.
 
-The lag analysis should not be interpreted as evidence of causal delayed effects. Lagged correlations may still be influenced by seasonality, temporal autocorrelation, meteorology and unmeasured confounding.
+Part 3.4 refines the lag analysis at weekly scale using lag 0, lag 1, lag 2, lag 3 and lag 4 weeks. Lagged pollutant values are validated so that they are retained only when the lagged week is exactly the expected number of weeks before the current health week. This prevents incorrect temporal links across the 2019–2023 gap.
 
-Important unmeasured confounders include age beyond the applied stratification, sex, socioeconomic status, smoking, occupational exposure, comorbidities, healthcare access, event coding practices, meteorology and individual exposure history.
+The weekly lag analysis suggests that some same-month associations observed in Part 3.3 may include shorter delayed patterns of approximately 1–2 weeks, especially for respiratory outcomes in the industrial area. However, these associations remain exploratory and ecological.
+
+Weekly health event rates can be noisier than monthly or seasonal rates because weekly event counts are smaller. For this reason, the weekly lag analysis should be interpreted together with the broader seasonal and monthly results rather than as a standalone causal model.
+
+Lag analyses should not be interpreted as evidence of causal delayed effects. Lagged correlations may still be influenced by seasonality, temporal autocorrelation, meteorology and unmeasured confounding.
+
+Important unmeasured confounders include age beyond the applied stratification, sex, socioeconomic status, smoking, occupational exposure, comorbidities, healthcare access, event coding practices, meteorology, respiratory infections, influenza circulation and individual exposure history.
 
 The geographical meaning of the municipality variable should also be interpreted carefully. If the municipality refers to event location rather than patient residence, area-level health rates may not perfectly represent the resident population.
 
@@ -1191,7 +1540,8 @@ Part 3 has produced:
 
 - a seasonal environmental-health integration;
 - a monthly environmental-health integration;
-- a monthly lag analysis.
+- a monthly lag analysis;
+- a weekly lag analysis.
 
 The main result of Part 3.1 is that respiratory acute event rates show the clearest seasonal association with pollutant indicators. Both NO2 and PM2.5 show moderate positive associations with respiratory event rates, especially in the agricultural area. Cardiocirculatory event rates do not show clear same-season seasonal associations with the pollutant indicators.
 
@@ -1199,9 +1549,11 @@ Part 3.2 confirms the relevance of respiratory outcomes at monthly scale. Both N
 
 However, the season-stratified sensitivity analysis in Part 3.2 shows that most within-season correlations are weak or not statistically significant. This suggests that the overall monthly associations are largely influenced by the shared seasonal structure of pollutant concentrations and acute health event rates.
 
-Part 3.3 shows that lagged pollutant indicators at 1–3 months do not generally improve the strength of the associations compared with same-month pollutant indicators. Most associations are strongest at lag 0 and progressively weaken with increasing lag. This suggests that the observed monthly environmental-health associations are mainly synchronous and seasonally structured rather than clearly delayed.
+Part 3.3 shows that lagged pollutant indicators at 1–3 months do not generally improve the strength of the associations compared with same-month pollutant indicators. Most associations are strongest at lag 0 and progressively weaken with increasing monthly lag. This suggests that the observed monthly environmental-health associations are mainly synchronous and seasonally structured rather than clearly delayed at the monthly scale.
 
-At the current stage, the project provides a coherent exploratory ecological framework linking pollutant indicators and health event rates at different temporal scales. The strongest and most defensible message is that respiratory acute event rates show the most consistent temporal coherence with NO2 and PM2.5 indicators, while cardiocirculatory outcomes show weaker and more area-dependent associations.
+Part 3.4 refines this conclusion. At weekly scale, some associations, especially respiratory associations in the industrial area, are strongest at lag 1 or lag 2 weeks. This suggests that the same-month associations observed in Part 3.3 may partly contain shorter delayed patterns within the month. The most coherent weekly lag signal concerns respiratory acute event rates, while cardiocirculatory outcomes remain weaker and more area-dependent.
+
+At the current stage, the project provides a coherent exploratory ecological framework linking pollutant indicators and health event rates at different temporal scales. The strongest and most defensible message is that respiratory acute event rates show the most consistent temporal coherence with NO2 and PM2.5 indicators across seasonal, monthly and weekly scales. Cardiocirculatory outcomes show weaker associations, but they remain relevant because previous health analyses showed a stable higher burden in the industrial area, especially in the `<65` age group.
 
 This represents a reasonable stopping point for the current phase of the project. Future developments can be decided based on course requirements and feedback from the instructor.
 
@@ -1210,9 +1562,11 @@ Possible future extensions include:
 - adding meteorological variables such as temperature, humidity, precipitation, wind speed or atmospheric stability;
 - exploring emission inventory data or additional pollutants such as NH3;
 - testing more formal statistical models with adjustment for seasonality and temporal autocorrelation;
-- considering moving-average exposure indicators rather than simple monthly lags;
+- considering moving-average exposure indicators rather than simple single-lag indicators;
+- exploring cumulative weekly exposure indicators;
 - exploring age-specific environmental-health integration as a secondary sensitivity analysis;
 - focusing more specifically on respiratory outcomes, which currently show the clearest environmental-health temporal pattern;
-- refining exposure assessment by adding more monitoring stations or spatially averaged pollutant indicators.
+- refining exposure assessment by adding more monitoring stations or spatially averaged pollutant indicators;
+- considering more advanced distributed lag approaches only if additional data and modelling time are available.
 
 Any future extension should remain clearly framed as ecological unless individual-level exposure and health data become available.
