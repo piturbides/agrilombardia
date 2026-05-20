@@ -1,0 +1,75 @@
+Area;Municipality;Municipality_key;Pollutant;Filename;Path
+Agricultural;Acquanegra Cremonese;acquanegracremonese;NO2;AcquanegraCremonese_NO2.csv;Dati/raw/ModariaDataset\Agricultural\AcquanegraCremonese_NO2.csv
+Agricultural;Acquanegra Cremonese;acquanegracremonese;PM25;AcquanegraCremonese_PM25.csv;Dati/raw/ModariaDataset\Agricultural\AcquanegraCremonese_PM25.csv
+Agricultural;Alfianello;alfianello;NO2;Alfianello_NO2.csv;Dati/raw/ModariaDataset\Agricultural\Alfianello_NO2.csv
+Agricultural;Alfianello;alfianello;PM25;Alfianello_PM25.csv;Dati/raw/ModariaDataset\Agricultural\Alfianello_PM25.csv
+Agricultural;Annicco;annicco;NO2;Annicco_NO2.csv;Dati/raw/ModariaDataset\Agricultural\Annicco_NO2.csv
+Agricultural;Annicco;annicco;PM25;Annicco_PM25.csv;Dati/raw/ModariaDataset\Agricultural\Annicco_PM25.csv
+Agricultural;Azzanello;azzanello;NO2;Azzanello_NO2.csv;Dati/raw/ModariaDataset\Agricultural\Azzanello_NO2.csv
+Agricultural;Azzanello;azzanello;PM25;Azzanello_PM25.csv;Dati/raw/ModariaDataset\Agricultural\Azzanello_PM25.csv
+Agricultural;Barbariga;barbariga;NO2;Barbariga_NO2.csv;Dati/raw/ModariaDataset\Agricultural\Barbariga_NO2.csv
+Agricultural;Barbariga;barbariga;PM25;Barbariga_PM25.csv;Dati/raw/ModariaDataset\Agricultural\Barbariga_PM25.csv
+Agricultural;Bassano Bresciano;bassanobresciano;NO2;BassanoBresciano_NO2.csv;Dati/raw/ModariaDataset\Agricultural\BassanoBresciano_NO2.csv
+Agricultural;Bassano Bresciano;bassanobresciano;PM25;BassanoBresciano_PM25.csv;Dati/raw/ModariaDataset\Agricultural\BassanoBresciano_PM25.csv
+Agricultural;Bordolano;bordolano;NO2;Bordolano_NO2.csv;Dati/raw/ModariaDataset\Agricultural\Bordolano_NO2.csv
+Agricultural;Bordolano;bordolano;PM25;Bordolano_PM25.csv;Dati/raw/ModariaDataset\Agricultural\Bordolano_PM25.csv
+Agricultural;Cappella Cantone;cappellacantone;NO2;CappellaCantone_NO2.csv;Dati/raw/ModariaDataset\Agricultural\CappellaCantone_NO2.csv
+Agricultural;Cappella Cantone;cappellacantone;PM25;CappellaCantone_PM25.csv;Dati/raw/ModariaDataset\Agricultural\CappellaCantone_PM25.csv
+Agricultural;Casalbuttano ed Uniti;casalbuttanoeduniti;NO2;CasalbuttanoedUniti_NO2.csv;Dati/raw/ModariaDataset\Agricultural\CasalbuttanoedUniti_NO2.csv
+Agricultural;Casalbuttano ed Uniti;casalbuttanoeduniti;PM25;CasalbuttanoedUniti_PM25.csv;Dati/raw/ModariaDataset\Agricultural\CasalbuttanoedUniti_PM25.csv
+Agricultural;Castelvisconti;castelvisconti;NO2;Castelvisconti_NO2.csv;Dati/raw/ModariaDataset\Agricultural\Castelvisconti_NO2.csv
+Agricultural;Castelvisconti;castelvisconti;PM25;Castelvisconti_PM25.csv;Dati/raw/ModariaDataset\Agricultural\Castelvisconti_PM25.csv
+Agricultural;Corte de' Cortesi con Cignone;cortedecortesiconcignone;NO2;CortedeCortesiconCignone_NO2.csv;Dati/raw/ModariaDataset\Agricultural\CortedeCortesiconCignone_NO2.csv
+Agricultural;Corte de' Cortesi con Cignone;cortedecortesiconcignone;PM25;CortedeCortesiconCignone_PM25.csv;Dati/raw/ModariaDataset\Agricultural\CortedeCortesiconCignone_PM25.csv
+Agricultural;Corzano;corzano;NO2;Corzano_NO2.csv;Dati/raw/ModariaDataset\Agricultural\Corzano_NO2.csv
+Agricultural;Corzano;corzano;PM25;Corzano_PM25.csv;Dati/raw/ModariaDataset\Agricultural\Corzano_PM25.csv
+Agricultural;Dello;dello;NO2;Dello_NO2.csv;Dati/raw/ModariaDataset\Agricultural\Dello_NO2.csv
+Agricultural;Dello;dello;PM25;Dello_PM25.csv;Dati/raw/ModariaDataset\Agricultural\Dello_PM25.csv
+Agricultural;Genivolta;genivolta;NO2;Genivolta_NO2.csv;Dati/raw/ModariaDataset\Agricultural\Genivolta_NO2.csv
+Agricultural;Genivolta;genivolta;PM25;Genivolta_PM25.csv;Dati/raw/ModariaDataset\Agricultural\Genivolta_PM25.csv
+Agricultural;Longhena;longhena;NO2;Longhena_NO2.csv;Dati/raw/ModariaDataset\Agricultural\Longhena_NO2.csv
+Agricultural;Longhena;longhena;PM25;Longhena_PM25.csv;Dati/raw/ModariaDataset\Agricultural\Longhena_PM25.csv
+Agricultural;Orzinuovi;orzinuovi;NO2;Orzinuovi_NO2.csv;Dati/raw/ModariaDataset\Agricultural\Orzinuovi_NO2.csv
+Agricultural;Orzinuovi;orzinuovi;PM25;Orzinuovi_PM25.csv;Dati/raw/ModariaDataset\Agricultural\Orzinuovi_PM25.csv
+Agricultural;Pontevico;pontevico;NO2;Pontevico_NO2.csv;Dati/raw/ModariaDataset\Agricultural\Pontevico_NO2.csv
+Agricultural;Pontevico;pontevico;PM25;Pontevico_PM25.csv;Dati/raw/ModariaDataset\Agricultural\Pontevico_PM25.csv
+Agricultural;Pralboino;pralboino;NO2;Pralboino_NO2.csv;Dati/raw/ModariaDataset\Agricultural\Pralboino_NO2.csv
+Agricultural;Pralboino;pralboino;PM25;Pralboino_PM25.csv;Dati/raw/ModariaDataset\Agricultural\Pralboino_PM25.csv
+Agricultural;Quinzano d'Oglio;quinzanodoglio;NO2;QuinzanodOglio_NO2.csv;Dati/raw/ModariaDataset\Agricultural\QuinzanodOglio_NO2.csv
+Agricultural;Quinzano d'Oglio;quinzanodoglio;PM25;QuinzanodOglio_PM25.csv;Dati/raw/ModariaDataset\Agricultural\QuinzanodOglio_PM25.csv
+Agricultural;San Paolo;sanpaolo;NO2;SanPaolo_NO2.csv;Dati/raw/ModariaDataset\Agricultural\SanPaolo_NO2.csv
+Agricultural;San Paolo;sanpaolo;PM25;SanPaolo_PM25.csv;Dati/raw/ModariaDataset\Agricultural\SanPaolo_PM25.csv
+Agricultural;Soresina;soresina;NO2;Soresina_NO2.csv;Dati/raw/ModariaDataset\Agricultural\Soresina_NO2.csv
+Agricultural;Soresina;soresina;PM25;Soresina_PM25.csv;Dati/raw/ModariaDataset\Agricultural\Soresina_PM25.csv
+Industrial;Borgosatollo;borgosatollo;NO2;Borgosatollo_NO2.csv;Dati/raw/ModariaDataset\Industrial\Borgosatollo_NO2.csv
+Industrial;Borgosatollo;borgosatollo;PM25;Borgosatollo_PM25.csv;Dati/raw/ModariaDataset\Industrial\Borgosatollo_PM25.csv
+Industrial;Botticino;botticino;NO2;Botticino_NO2.csv;Dati/raw/ModariaDataset\Industrial\Botticino_NO2.csv
+Industrial;Botticino;botticino;PM25;Botticino_PM25.csv;Dati/raw/ModariaDataset\Industrial\Botticino_PM25.csv
+Industrial;Brescia;brescia;NO2;Brescia_NO2.csv;Dati/raw/ModariaDataset\Industrial\Brescia_NO2.csv
+Industrial;Brescia;brescia;PM25;Brescia_PM25.csv;Dati/raw/ModariaDataset\Industrial\Brescia_PM25.csv
+Industrial;Castenedolo;castenedolo;NO2;Castenedolo_NO2.csv;Dati/raw/ModariaDataset\Industrial\Castenedolo_NO2.csv
+Industrial;Castenedolo;castenedolo;PM25;Castenedolo_PM25.csv;Dati/raw/ModariaDataset\Industrial\Castenedolo_PM25.csv
+Industrial;Collebeato;collebeato;NO2;Collebeato_NO2.csv;Dati/raw/ModariaDataset\Industrial\Collebeato_NO2.csv
+Industrial;Collebeato;collebeato;PM25;Collebeato_PM25.csv;Dati/raw/ModariaDataset\Industrial\Collebeato_PM25.csv
+Industrial;Flero;flero;NO2;Flero_NO2.csv;Dati/raw/ModariaDataset\Industrial\Flero_NO2.csv
+Industrial;Flero;flero;PM25;Flero_PM25.csv;Dati/raw/ModariaDataset\Industrial\Flero_PM25.csv
+Industrial;Gussago;gussago;NO2;Gussago_NO2.csv;Dati/raw/ModariaDataset\Industrial\Gussago_NO2.csv
+Industrial;Gussago;gussago;PM25;Gussago_PM25.csv;Dati/raw/ModariaDataset\Industrial\Gussago_PM25.csv
+Industrial;Mazzano;mazzano;NO2;Mazzano_NO2.csv;Dati/raw/ModariaDataset\Industrial\Mazzano_NO2.csv
+Industrial;Mazzano;mazzano;PM25;Mazzano_PM25.csv;Dati/raw/ModariaDataset\Industrial\Mazzano_PM25.csv
+Industrial;Montirone;montirone;NO2;Montirone_NO2.csv;Dati/raw/ModariaDataset\Industrial\Montirone_NO2.csv
+Industrial;Montirone;montirone;PM25;Montirone_PM25.csv;Dati/raw/ModariaDataset\Industrial\Montirone_PM25.csv
+Industrial;Nave;nave;NO2;Nave_NO2.csv;Dati/raw/ModariaDataset\Industrial\Nave_NO2.csv
+Industrial;Nave;nave;PM25;Nave_PM25.csv;Dati/raw/ModariaDataset\Industrial\Nave_PM25.csv
+Industrial;Nuvolento;nuvolento;NO2;Nuvolento_NO2.csv;Dati/raw/ModariaDataset\Industrial\Nuvolento_NO2.csv
+Industrial;Nuvolento;nuvolento;PM25;Nuvolento_PM25.csv;Dati/raw/ModariaDataset\Industrial\Nuvolento_PM25.csv
+Industrial;Nuvolera;nuvolera;NO2;Nuvolera_NO2.csv;Dati/raw/ModariaDataset\Industrial\Nuvolera_NO2.csv
+Industrial;Nuvolera;nuvolera;PM25;Nuvolera_PM25.csv;Dati/raw/ModariaDataset\Industrial\Nuvolera_PM25.csv
+Industrial;Rezzato;rezzato;NO2;Rezzato_NO2.csv;Dati/raw/ModariaDataset\Industrial\Rezzato_NO2.csv
+Industrial;Rezzato;rezzato;PM25;Rezzato_PM25.csv;Dati/raw/ModariaDataset\Industrial\Rezzato_PM25.csv
+Industrial;Roncadelle;roncadelle;NO2;Roncadelle_NO2.csv;Dati/raw/ModariaDataset\Industrial\Roncadelle_NO2.csv
+Industrial;Roncadelle;roncadelle;PM25;Roncadelle_PM25.csv;Dati/raw/ModariaDataset\Industrial\Roncadelle_PM25.csv
+Industrial;San Zeno Naviglio;sanzenonaviglio;NO2;San Zeno Naviglio_NO2.csv;Dati/raw/ModariaDataset\Industrial\San Zeno Naviglio_NO2.csv
+Industrial;San Zeno Naviglio;sanzenonaviglio;PM25;San Zeno Naviglio_PM25.csv;Dati/raw/ModariaDataset\Industrial\San Zeno Naviglio_PM25.csv
+Industrial;Villa Carcina;villacarcina;NO2;Villa Carcina_NO2.csv;Dati/raw/ModariaDataset\Industrial\Villa Carcina_NO2.csv
+Industrial;Villa Carcina;villacarcina;PM25;Villa Carcina_PM25.csv;Dati/raw/ModariaDataset\Industrial\Villa Carcina_PM25.csv

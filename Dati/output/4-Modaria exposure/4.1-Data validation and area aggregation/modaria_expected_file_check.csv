@@ -1,0 +1,75 @@
+Area;Municipality;Municipality_key;Pollutant;Filename;File_found
+Industrial;Borgosatollo;borgosatollo;NO2;Borgosatollo_NO2.csv;True
+Industrial;Borgosatollo;borgosatollo;PM25;Borgosatollo_PM25.csv;True
+Industrial;Botticino;botticino;NO2;Botticino_NO2.csv;True
+Industrial;Botticino;botticino;PM25;Botticino_PM25.csv;True
+Industrial;Brescia;brescia;NO2;Brescia_NO2.csv;True
+Industrial;Brescia;brescia;PM25;Brescia_PM25.csv;True
+Industrial;Castenedolo;castenedolo;NO2;Castenedolo_NO2.csv;True
+Industrial;Castenedolo;castenedolo;PM25;Castenedolo_PM25.csv;True
+Industrial;Collebeato;collebeato;NO2;Collebeato_NO2.csv;True
+Industrial;Collebeato;collebeato;PM25;Collebeato_PM25.csv;True
+Industrial;Flero;flero;NO2;Flero_NO2.csv;True
+Industrial;Flero;flero;PM25;Flero_PM25.csv;True
+Industrial;Gussago;gussago;NO2;Gussago_NO2.csv;True
+Industrial;Gussago;gussago;PM25;Gussago_PM25.csv;True
+Industrial;Mazzano;mazzano;NO2;Mazzano_NO2.csv;True
+Industrial;Mazzano;mazzano;PM25;Mazzano_PM25.csv;True
+Industrial;Montirone;montirone;NO2;Montirone_NO2.csv;True
+Industrial;Montirone;montirone;PM25;Montirone_PM25.csv;True
+Industrial;Nave;nave;NO2;Nave_NO2.csv;True
+Industrial;Nave;nave;PM25;Nave_PM25.csv;True
+Industrial;Nuvolento;nuvolento;NO2;Nuvolento_NO2.csv;True
+Industrial;Nuvolento;nuvolento;PM25;Nuvolento_PM25.csv;True
+Industrial;Nuvolera;nuvolera;NO2;Nuvolera_NO2.csv;True
+Industrial;Nuvolera;nuvolera;PM25;Nuvolera_PM25.csv;True
+Industrial;Rezzato;rezzato;NO2;Rezzato_NO2.csv;True
+Industrial;Rezzato;rezzato;PM25;Rezzato_PM25.csv;True
+Industrial;Roncadelle;roncadelle;NO2;Roncadelle_NO2.csv;True
+Industrial;Roncadelle;roncadelle;PM25;Roncadelle_PM25.csv;True
+Industrial;San Zeno Naviglio;sanzenonaviglio;NO2;San Zeno Naviglio_NO2.csv;True
+Industrial;San Zeno Naviglio;sanzenonaviglio;PM25;San Zeno Naviglio_PM25.csv;True
+Industrial;Villa Carcina;villacarcina;NO2;Villa Carcina_NO2.csv;True
+Industrial;Villa Carcina;villacarcina;PM25;Villa Carcina_PM25.csv;True
+Agricultural;Acquanegra Cremonese;acquanegracremonese;NO2;AcquanegraCremonese_NO2.csv;True
+Agricultural;Acquanegra Cremonese;acquanegracremonese;PM25;AcquanegraCremonese_PM25.csv;True
+Agricultural;Alfianello;alfianello;NO2;Alfianello_NO2.csv;True
+Agricultural;Alfianello;alfianello;PM25;Alfianello_PM25.csv;True
+Agricultural;Annicco;annicco;NO2;Annicco_NO2.csv;True
+Agricultural;Annicco;annicco;PM25;Annicco_PM25.csv;True
+Agricultural;Azzanello;azzanello;NO2;Azzanello_NO2.csv;True
+Agricultural;Azzanello;azzanello;PM25;Azzanello_PM25.csv;True
+Agricultural;Barbariga;barbariga;NO2;Barbariga_NO2.csv;True
+Agricultural;Barbariga;barbariga;PM25;Barbariga_PM25.csv;True
+Agricultural;Bassano Bresciano;bassanobresciano;NO2;BassanoBresciano_NO2.csv;True
+Agricultural;Bassano Bresciano;bassanobresciano;PM25;BassanoBresciano_PM25.csv;True
+Agricultural;Bordolano;bordolano;NO2;Bordolano_NO2.csv;True
+Agricultural;Bordolano;bordolano;PM25;Bordolano_PM25.csv;True
+Agricultural;Cappella Cantone;cappellacantone;NO2;CappellaCantone_NO2.csv;True
+Agricultural;Cappella Cantone;cappellacantone;PM25;CappellaCantone_PM25.csv;True
+Agricultural;Casalbuttano ed Uniti;casalbuttanoeduniti;NO2;CasalbuttanoedUniti_NO2.csv;True
+Agricultural;Casalbuttano ed Uniti;casalbuttanoeduniti;PM25;CasalbuttanoedUniti_PM25.csv;True
+Agricultural;Castelvisconti;castelvisconti;NO2;Castelvisconti_NO2.csv;True
+Agricultural;Castelvisconti;castelvisconti;PM25;Castelvisconti_PM25.csv;True
+Agricultural;Corte de' Cortesi con Cignone;cortedecortesiconcignone;NO2;CortedeCortesiconCignone_NO2.csv;True
+Agricultural;Corte de' Cortesi con Cignone;cortedecortesiconcignone;PM25;CortedeCortesiconCignone_PM25.csv;True
+Agricultural;Corzano;corzano;NO2;Corzano_NO2.csv;True
+Agricultural;Corzano;corzano;PM25;Corzano_PM25.csv;True
+Agricultural;Dello;dello;NO2;Dello_NO2.csv;True
+Agricultural;Dello;dello;PM25;Dello_PM25.csv;True
+Agricultural;Genivolta;genivolta;NO2;Genivolta_NO2.csv;True
+Agricultural;Genivolta;genivolta;PM25;Genivolta_PM25.csv;True
+Agricultural;Longhena;longhena;NO2;Longhena_NO2.csv;True
+Agricultural;Longhena;longhena;PM25;Longhena_PM25.csv;True
+Agricultural;Orzinuovi;orzinuovi;NO2;Orzinuovi_NO2.csv;True
+Agricultural;Orzinuovi;orzinuovi;PM25;Orzinuovi_PM25.csv;True
+Agricultural;Pontevico;pontevico;NO2;Pontevico_NO2.csv;True
+Agricultural;Pontevico;pontevico;PM25;Pontevico_PM25.csv;True
+Agricultural;Pralboino;pralboino;NO2;Pralboino_NO2.csv;True
+Agricultural;Pralboino;pralboino;PM25;Pralboino_PM25.csv;True
+Agricultural;Quinzano d'Oglio;quinzanodoglio;NO2;QuinzanodOglio_NO2.csv;True
+Agricultural;Quinzano d'Oglio;quinzanodoglio;PM25;QuinzanodOglio_PM25.csv;True
+Agricultural;San Paolo;sanpaolo;NO2;SanPaolo_NO2.csv;True
+Agricultural;San Paolo;sanpaolo;PM25;SanPaolo_PM25.csv;True
+Agricultural;Soresina;soresina;NO2;Soresina_NO2.csv;True
+Agricultural;Soresina;soresina;PM25;Soresina_PM25.csv;True

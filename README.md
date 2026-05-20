@@ -4,7 +4,7 @@ Statistical analysis of air pollution and health event data for the Human Health
 
 The project investigates differences in air pollution patterns between areas with different territorial and emission profiles in Lombardy, with a focus on the comparison between agricultural/rural and industrial/urban contexts.
 
-The first part of the project focuses on environmental exposure data from ARPA Lombardia monitoring stations. The second part explores health event data and prepares population-normalized and age-specific health indicators. The third part integrates environmental indicators and health event rates into a common exploratory ecological framework.
+The first part of the project focuses on environmental exposure data from ARPA Lombardia monitoring stations. The second part explores health event data and prepares population-normalized and age-specific health indicators. The third part integrates station-based environmental indicators and health event rates into a common exploratory ecological framework. The fourth part starts a more robust exposure reconstruction using ARPA Lombardia ModAria municipal pollutant estimates for all selected municipalities in the two study areas.
 
 ---
 
@@ -19,7 +19,7 @@ The current environmental analysis focuses on:
 
 For the definitive environmental analyses, the COVID-related years **2020, 2021 and 2022** were excluded to avoid potential bias due to abnormal changes in mobility, traffic, industrial activities and emission patterns.
 
-The retained years for the definitive environmental analyses are:
+The retained years for the definitive station-based environmental analyses are:
 
 ```text
 2016, 2017, 2018, 2019, 2023, 2024, 2025
@@ -33,13 +33,29 @@ The health dataset currently contains the following available years:
 
 Years 2020, 2021 and 2022 are not present in the health dataset.
 
-For the first health-environment integration steps, the retained common years are:
+For the health-environment integration steps, the retained common years are:
 
 ```text
 2016, 2017, 2018, 2019, 2023
 ```
 
-The project should be interpreted as an exploratory ecological analysis. Pollutant concentrations are represented by monitoring station proxies, while health outcomes are aggregated over selected municipalities. Therefore, the analysis can identify coherent territorial and temporal patterns, but it cannot demonstrate individual-level causal effects.
+The first environmental-health pipeline used monitoring station proxies:
+
+```text
+NO2:
+Soresina → Agricultural
+Rezzato  → Industrial
+
+PM2.5:
+Soresina                  → Agricultural
+Brescia Villaggio Sereno  → Industrial
+```
+
+This station-based approach was useful for developing and validating the full analytical workflow. However, it has an important limitation: health outcomes are aggregated over 37 selected municipalities, while pollutant exposure was represented by one monitoring station per pollutant and area.
+
+For this reason, Part 4 introduces ARPA Lombardia **ModAria municipal pollutant estimates**, downloaded for all selected municipalities and for both pollutants. These data allow the project to move from single-station exposure proxies to municipality-based area exposure indicators.
+
+The project should always be interpreted as an exploratory ecological analysis. Pollutant concentrations are represented by monitoring stations or municipality-level estimates, while health outcomes are aggregated over selected municipalities. Therefore, the analysis can identify coherent territorial and temporal patterns, but it cannot demonstrate individual-level causal effects.
 
 ---
 
@@ -420,9 +436,9 @@ src/health_analysis/health_age_structure_check.py
 
 ---
 
-## Part 3 — Environmental-health integration
+## Part 3 — Station-based environmental-health integration
 
-The third part of the project integrates environmental pollutant indicators and health event rates into common datasets.
+The third part of the project integrates station-based environmental pollutant indicators and health event rates into common datasets.
 
 The aim is to move from separate environmental and health analyses to exploratory ecological comparisons between:
 
@@ -580,49 +596,6 @@ Each row of the integrated dataset represents one combination of:
 MonthPeriod × Area
 ```
 
-The integrated dataset contains:
-
-- month period;
-- calendar year;
-- month;
-- meteorological season;
-- study area;
-- population denominator;
-- monthly respiratory acute event rate per 10,000 inhabitants;
-- monthly cardiocirculatory acute event rate per 10,000 inhabitants;
-- monthly mean NO2 concentration;
-- monthly mean PM2.5 concentration;
-- readable time label for plots.
-
-The health input is the monthly rate table produced in Part 2.2:
-
-```text
-Dati/output/2-Health data/2.2-Health event aggregation/monthly_health_events_rates_by_area.csv
-```
-
-The environmental inputs are the monthly pollutant datasets produced in Part 1.3 and Part 1.4:
-
-```text
-Dati/output/1-Statistical tests/1.3-NO2_definitivo/monthly_NO2_non_covid_dataset.csv
-Dati/output/1-Statistical tests/1.4-PM25_definitivo/monthly_PM25_non_covid_dataset.csv
-```
-
-The same station-to-area mapping used in Part 3.1 was retained.
-
-For NO2:
-
-```text
-Soresina → Agricultural
-Rezzato  → Industrial
-```
-
-For PM2.5:
-
-```text
-Soresina                  → Agricultural
-Brescia Villaggio Sereno  → Industrial
-```
-
 The final integrated monthly dataset contains:
 
 ```text
@@ -651,8 +624,6 @@ The analysis included:
 - computing Spearman correlations overall and separately by study area;
 - computing season-stratified Spearman correlations as a sensitivity check;
 - exporting CSV summary tables and figures.
-
-Spearman correlation was used because the analysis is exploratory and ecological, the variables may not follow a normal distribution, and a strictly linear relationship between pollutant concentrations and health event rates should not be assumed.
 
 The main overall Spearman results were:
 
@@ -684,11 +655,11 @@ PM2.5 vs Cardiocirculatory rate: rho = 0.211, p = 0.1056
 
 At monthly scale, both NO2 and PM2.5 show positive associations with acute health event rates.
 
-The clearest and most consistent result concerns respiratory acute event rates. Both NO2 and PM2.5 show moderate positive and statistically significant associations with respiratory rates overall and within both study areas. This confirms respiratory outcomes as the most coherent endpoint for the environmental-health integration.
+The clearest and most consistent result concerns respiratory acute event rates. Both NO2 and PM2.5 show moderate positive and statistically significant associations with respiratory rates overall and within both study areas.
 
 Cardiocirculatory acute event rates also show positive associations with pollutant indicators, but the relationships are weaker. The associations are clearer in the industrial area, especially for PM2.5, while they are weaker or not statistically significant in the agricultural area.
 
-A season-stratified sensitivity analysis was also performed. This analysis showed that most within-season correlations are weak or very weak and not statistically significant. Therefore, the significant monthly correlations observed in the full dataset are likely influenced by the shared seasonal structure of air pollution and health events.
+A season-stratified sensitivity analysis showed that most within-season correlations are weak or very weak and not statistically significant. Therefore, the significant monthly correlations observed in the full dataset are likely influenced by the shared seasonal structure of air pollution and health events.
 
 The most relevant season-stratified results were observed in the industrial area during autumn:
 
@@ -699,8 +670,6 @@ PM2.5 vs Cardiocirculatory rate: rho = 0.536, p = 0.040
 ```
 
 These autumn industrial associations are potentially interesting, but they are based on only 15 observations and should therefore be interpreted cautiously.
-
-Overall, Part 3.2 confirms that pollutant and health patterns are temporally coherent at monthly scale, especially for respiratory outcomes. However, the season-stratified analysis suggests that these associations are largely driven by seasonality. The results remain exploratory and ecological, and they cannot be interpreted as individual-level causal evidence.
 
 **Output folder:**
 
@@ -720,20 +689,6 @@ src/integration/monthly_environment_health_integration.py
 
 The third environmental-health integration step explores lagged associations between monthly pollutant indicators and current-month health event rates.
 
-This analysis uses the monthly integrated dataset produced in Part 3.2 and tests whether pollutant concentrations in previous months are more strongly associated with current-month health event rates than same-month pollutant concentrations.
-
-Each row of the input dataset represents one combination of:
-
-```text
-MonthPeriod × Area
-```
-
-The health input is the monthly integrated dataset produced in Part 3.2:
-
-```text
-Dati/output/3-Environmental health integration/3.2-Monthly integration/monthly_environment_health_integrated_dataset.csv
-```
-
 The lagged analysis used the following exposure lags:
 
 ```text
@@ -743,11 +698,7 @@ Lag 2 = pollutant concentration two months before the health event rate
 Lag 3 = pollutant concentration three months before the health event rate
 ```
 
-The maximum lag was limited to 3 months to keep the analysis interpretable and to avoid excessive loss of observations.
-
 A key methodological safeguard was introduced to avoid incorrect temporal links across the 2019–2023 gap. Lagged pollutant values were retained only if the lagged month was exactly the expected number of months before the current health month.
-
-For example, January 2023 was not allowed to use December 2019 as lag-1 exposure. Since the actual month difference between December 2019 and January 2023 is 37 months, the lagged value was rejected and set to missing.
 
 The lag availability check confirmed that the temporal gap was handled correctly:
 
@@ -770,29 +721,6 @@ Lag 1 = 58 available values
 Lag 2 = 56 available values
 Lag 3 = 54 available values
 ```
-
-The final lagged dataset contains:
-
-```text
-120 rows
-27 columns
-```
-
-The analysis included:
-
-- loading the monthly integrated dataset from Part 3.2;
-- creating lagged NO2 variables for lag 0, lag 1, lag 2 and lag 3;
-- creating lagged PM2.5 variables for lag 0, lag 1, lag 2 and lag 3;
-- validating lagged values to avoid crossing the 2019–2023 temporal gap;
-- checking lag availability for each pollutant, lag and study area;
-- computing Spearman correlations between lagged pollutant indicators and current-month health event rates;
-- computing correlations overall and separately by study area;
-- identifying the descriptively strongest lag for each pollutant-outcome-area combination;
-- producing rho-versus-lag plots;
-- producing best-lag scatter plots;
-- exporting CSV summary tables and figures.
-
-Spearman correlation was used because the analysis is exploratory and ecological, the variables may not follow a normal distribution, and a strictly linear exposure-response relationship should not be assumed.
 
 The main overall lagged Spearman results were:
 
@@ -822,58 +750,6 @@ Lag 2: rho = 0.124, p = 0.191
 Lag 3: rho = 0.016, p = 0.871
 ```
 
-The main area-specific results were:
-
-```text
-Industrial area, NO2 vs Respiratory rate:
-Lag 0: rho = 0.510, p = 3.15e-05
-Lag 1: rho = 0.458, p = 0.00030
-Lag 2: rho = 0.305, p = 0.0221
-Lag 3: rho = 0.091, p = 0.513
-
-Industrial area, PM2.5 vs Respiratory rate:
-Lag 0: rho = 0.496, p = 5.50e-05
-Lag 1: rho = 0.447, p = 0.00043
-Lag 2: rho = 0.323, p = 0.0152
-Lag 3: rho = 0.115, p = 0.407
-
-Industrial area, NO2 vs Cardiocirculatory rate:
-Lag 0: rho = 0.378, p = 0.0029
-Lag 1: rho = 0.294, p = 0.0251
-Lag 2: rho = 0.204, p = 0.1310
-Lag 3: rho = 0.074, p = 0.5966
-
-Industrial area, PM2.5 vs Cardiocirculatory rate:
-Lag 0: rho = 0.432, p = 0.00057
-Lag 1: rho = 0.394, p = 0.0022
-Lag 2: rho = 0.250, p = 0.0626
-Lag 3: rho = 0.085, p = 0.5396
-
-Agricultural area, NO2 vs Respiratory rate:
-Lag 0: rho = 0.457, p = 0.00024
-Lag 1: rho = 0.424, p = 0.00091
-Lag 2: rho = 0.315, p = 0.0179
-Lag 3: rho = 0.114, p = 0.413
-
-Agricultural area, PM2.5 vs Respiratory rate:
-Lag 0: rho = 0.411, p = 0.0011
-Lag 1: rho = 0.420, p = 0.0010
-Lag 2: rho = 0.295, p = 0.0271
-Lag 3: rho = 0.043, p = 0.760
-
-Agricultural area, NO2 vs Cardiocirculatory rate:
-Lag 0: rho = 0.255, p = 0.0497
-Lag 1: rho = 0.146, p = 0.276
-Lag 2: rho = 0.047, p = 0.733
-Lag 3: rho = 0.021, p = 0.881
-
-Agricultural area, PM2.5 vs Cardiocirculatory rate:
-Lag 0: rho = 0.211, p = 0.106
-Lag 1: rho = 0.085, p = 0.524
-Lag 2: rho = 0.093, p = 0.497
-Lag 3: rho = 0.046, p = 0.740
-```
-
 **Main interpretation:**
 
 The monthly lag analysis did not identify stronger delayed associations at lag 1, lag 2 or lag 3 months. Most pollutant-health associations were strongest at lag 0 and progressively weakened with increasing lag.
@@ -889,9 +765,7 @@ Lag 1: rho = 0.420
 
 However, the difference was minimal and should not be interpreted as strong evidence of a delayed effect.
 
-Cardiocirculatory associations were weaker. They were more visible in the industrial area, especially for PM2.5, but they were still strongest at lag 0 and did not show evidence of stronger delayed associations at lag 1–3 months.
-
-Overall, Part 3.3 suggests that the observed monthly environmental-health associations are mainly synchronous and seasonally structured rather than clearly delayed. The results remain exploratory and ecological. They do not demonstrate individual-level causal effects, but they clarify the temporal structure of the monthly pollutant-health associations.
+Overall, Part 3.3 suggests that the observed monthly environmental-health associations are mainly synchronous and seasonally structured rather than clearly delayed at the monthly scale.
 
 **Output folder:**
 
@@ -919,19 +793,6 @@ Each row of the weekly integrated dataset represents one combination of:
 WeekStart × Area
 ```
 
-The weekly integrated dataset contains:
-
-- week start date;
-- calendar year;
-- ISO week number;
-- study area;
-- population denominator;
-- weekly respiratory acute event rate per 10,000 inhabitants;
-- weekly cardiocirculatory acute event rate per 10,000 inhabitants;
-- weekly mean NO2 concentration;
-- weekly mean PM2.5 concentration;
-- readable time label for plots.
-
 The environmental inputs are the raw pollutant datasets used in Part 1.3 and Part 1.4:
 
 ```text
@@ -947,28 +808,6 @@ The health input is the selected health event table produced in Part 2.2:
 Dati/output/2-Health data/2.2-Health event aggregation/health_events_selected_areas_outcomes.csv
 ```
 
-The annual population denominators were derived from:
-
-```text
-Dati/output/2-Health data/2.2-Health event aggregation/annual_health_events_rates_by_area.csv
-```
-
-The same station-to-area mapping used in the previous integration steps was retained.
-
-For NO2:
-
-```text
-Soresina → Agricultural
-Rezzato  → Industrial
-```
-
-For PM2.5:
-
-```text
-Soresina                  → Agricultural
-Brescia Villaggio Sereno  → Industrial
-```
-
 The final weekly integrated dataset contains:
 
 ```text
@@ -982,21 +821,6 @@ The included years are:
 2016, 2017, 2018, 2019, 2023
 ```
 
-The missing value check showed:
-
-```text
-WeekStart: 0 missing values
-Year: 0 missing values
-Week: 0 missing values
-Area: 0 missing values
-Population: 0 missing values
-Cardiocirculatory_rate_per_10000: 0 missing values
-Respiratory_rate_per_10000: 0 missing values
-TimeLabel: 0 missing values
-NO2_mean: 0 missing values
-PM25_mean: 2 missing values
-```
-
 The weekly lagged analysis used the following exposure lags:
 
 ```text
@@ -1007,11 +831,7 @@ Lag 3 = pollutant concentration three weeks before the health event rate
 Lag 4 = pollutant concentration four weeks before the health event rate
 ```
 
-The maximum lag was limited to 4 weeks because four weeks approximately correspond to one month. This makes the weekly analysis directly comparable with the monthly lag analysis while preserving a finer temporal resolution.
-
-As in Part 3.3, a key methodological safeguard was introduced to avoid incorrect temporal links across the 2019–2023 gap. Lagged pollutant values were retained only if the lagged week was exactly the expected number of weeks before the current health week.
-
-For example, the first weeks of 2023 were not allowed to use the last weeks of 2019 as lagged exposure values. Since the actual temporal difference is much larger than the expected weekly lag, those lagged values were rejected and set to missing.
+As in Part 3.3, lagged pollutant values were validated to avoid incorrect temporal links across the 2019–2023 gap.
 
 The lag availability check confirmed that the temporal gap was handled correctly.
 
@@ -1072,29 +892,7 @@ The final weekly lagged dataset contains:
 30 columns
 ```
 
-The analysis included:
-
-- loading raw NO2 and PM2.5 pollutant datasets;
-- aggregating pollutant data to weekly mean concentrations;
-- loading selected health event records from Part 2.2;
-- aggregating health events to weekly counts by area and outcome;
-- computing weekly event rates per 10,000 inhabitants using annual area-level population denominators;
-- mapping monitoring stations to study areas;
-- merging weekly health and environmental indicators by week and area;
-- creating lagged NO2 variables for lag 0, lag 1, lag 2, lag 3 and lag 4 weeks;
-- creating lagged PM2.5 variables for lag 0, lag 1, lag 2, lag 3 and lag 4 weeks;
-- validating lagged values to avoid crossing the 2019–2023 temporal gap;
-- checking lag availability for each pollutant, lag and study area;
-- computing Spearman correlations between lagged pollutant indicators and current-week health event rates;
-- computing correlations overall and separately by study area;
-- identifying the descriptively strongest weekly lag for each pollutant-outcome-area combination;
-- producing rho-versus-lag plots;
-- producing best-lag scatter plots;
-- exporting CSV summary tables and figures.
-
-Spearman correlation was used because the analysis is exploratory and ecological, the variables may not follow a normal distribution, and a strictly linear exposure-response relationship should not be assumed.
-
-The weekly lag analysis produced 60 Spearman correlation results:
+The weekly lag analysis produced:
 
 ```text
 3 groups × 2 pollutants × 2 outcomes × 5 weekly lags = 60 correlations
@@ -1116,23 +914,9 @@ Lag 1: rho ≈ 0.342
 Lag 2: rho ≈ 0.297
 Lag 3: rho ≈ 0.284
 Lag 4: rho ≈ 0.279
-
-Overall NO2 vs Cardiocirculatory rate:
-Lag 0: rho ≈ 0.203
-Lag 1: rho ≈ 0.209
-Lag 2: rho ≈ 0.209
-Lag 3: rho ≈ 0.178
-Lag 4: rho ≈ 0.168
-
-Overall PM2.5 vs Cardiocirculatory rate:
-Lag 0: rho ≈ 0.199
-Lag 1: rho ≈ 0.212
-Lag 2: rho ≈ 0.164
-Lag 3: rho ≈ 0.147
-Lag 4: rho ≈ 0.151
 ```
 
-The main area-specific results were:
+The main area-specific respiratory results were:
 
 ```text
 Industrial area, NO2 vs Respiratory rate:
@@ -1149,20 +933,6 @@ Lag 2: rho ≈ 0.364
 Lag 3: rho ≈ 0.346
 Lag 4: rho ≈ 0.337
 
-Industrial area, NO2 vs Cardiocirculatory rate:
-Lag 0: rho ≈ 0.325
-Lag 1: rho ≈ 0.324
-Lag 2: rho ≈ 0.346
-Lag 3: rho ≈ 0.326
-Lag 4: rho ≈ 0.270
-
-Industrial area, PM2.5 vs Cardiocirculatory rate:
-Lag 0: rho ≈ 0.360
-Lag 1: rho ≈ 0.368
-Lag 2: rho ≈ 0.354
-Lag 3: rho ≈ 0.320
-Lag 4: rho ≈ 0.278
-
 Agricultural area, NO2 vs Respiratory rate:
 Lag 0: rho ≈ 0.300
 Lag 1: rho ≈ 0.298
@@ -1176,20 +946,6 @@ Lag 1: rho ≈ 0.284
 Lag 2: rho ≈ 0.238
 Lag 3: rho ≈ 0.228
 Lag 4: rho ≈ 0.223
-
-Agricultural area, NO2 vs Cardiocirculatory rate:
-Lag 0: rho ≈ 0.139
-Lag 1: rho ≈ 0.149
-Lag 2: rho ≈ 0.134
-Lag 3: rho ≈ 0.100
-Lag 4: rho ≈ 0.129
-
-Agricultural area, PM2.5 vs Cardiocirculatory rate:
-Lag 0: rho ≈ 0.118
-Lag 1: rho ≈ 0.150
-Lag 2: rho ≈ 0.057
-Lag 3: rho ≈ 0.059
-Lag 4: rho ≈ 0.109
 ```
 
 **Main interpretation:**
@@ -1218,8 +974,6 @@ Cardiocirculatory outcomes showed weaker and more area-dependent patterns. The i
 
 Overall, Part 3.4 confirms respiratory acute event rates as the most consistent health endpoint in the project. It refines the temporal interpretation of the environmental-health association: the signal is not clearly delayed at monthly scale, but weekly analysis suggests possible short delays of approximately one to two weeks.
 
-The results remain exploratory and ecological. They do not demonstrate individual-level causal effects. Weekly rates can be noisier than monthly or seasonal rates, and the analysis does not adjust for meteorology, respiratory infections, temporal autocorrelation, socioeconomic factors or individual exposure history.
-
 **Output folder:**
 
 ```text
@@ -1230,6 +984,213 @@ Dati/output/3-Environmental health integration/3.4-Weekly lag analysis
 
 ```text
 src/integration/weekly_lag_analysis.py
+```
+
+---
+
+## Part 4 — ModAria municipal exposure reconstruction
+
+Part 4 starts a new environmental exposure phase based on ARPA Lombardia ModAria municipal pollutant estimates.
+
+The reason for introducing Part 4 is that the previous environmental-health pipeline was based on one monitoring station per pollutant and study area. This was useful for building the analytical framework, but it created a spatial mismatch: pollutant exposure was measured at single stations, while health outcomes were aggregated over 37 selected municipalities.
+
+The ModAria municipal datasets allow a more robust exposure reconstruction because they provide pollutant estimates for each municipality included in the agricultural and industrial study areas. These values are likely based on ARPA Lombardia modelling or interpolation procedures and are therefore more appropriate than performing a custom interpolation from a limited number of monitoring stations.
+
+The goal of Part 4 is to replicate and improve the previous exposure and environmental-health pipeline using municipality-based area exposure indicators instead of single-station proxies.
+
+The main output folder is:
+
+```text
+Dati/output/4-Modaria exposure/
+```
+
+The main code folder is:
+
+```text
+src/modaria_exposure/
+```
+
+---
+
+## 4.1 ModAria data validation and area exposure construction
+
+The first ModAria step validates the newly downloaded municipal pollutant files and constructs daily area-level exposure indicators for the agricultural and industrial study areas.
+
+The input ModAria files are organized locally as:
+
+```text
+Dati/raw/ModariaDataset/Agricultural/
+Dati/raw/ModariaDataset/Industrial/
+```
+
+Each selected municipality is expected to have one file for NO2 and one file for PM2.5.
+
+The complete expected dataset is:
+
+```text
+37 selected municipalities × 2 pollutants = 74 files
+```
+
+The study areas are the same as those used in the health analysis.
+
+Industrial area:
+
+```text
+Borgosatollo
+Botticino
+Brescia
+Castenedolo
+Collebeato
+Flero
+Gussago
+Mazzano
+Montirone
+Nave
+Nuvolento
+Nuvolera
+Rezzato
+Roncadelle
+San Zeno Naviglio
+Villa Carcina
+```
+
+Agricultural area:
+
+```text
+Acquanegra Cremonese
+Alfianello
+Annicco
+Azzanello
+Barbariga
+Bassano Bresciano
+Bordolano
+Cappella Cantone
+Casalbuttano ed Uniti
+Castelvisconti
+Corte de' Cortesi con Cignone
+Corzano
+Dello
+Genivolta
+Longhena
+Orzinuovi
+Pontevico
+Pralboino
+Quinzano d'Oglio
+San Paolo
+Soresina
+```
+
+The retained years for the ModAria-health integration framework are:
+
+```text
+2016, 2017, 2018, 2019, 2023
+```
+
+These are the common years available for health outcomes and environmental integration. Years 2020, 2021 and 2022 are not used because they are not present in the health dataset and may be affected by COVID-related disruption.
+
+The analysis included:
+
+- automatic reading of all files in the ModAria agricultural and industrial folders;
+- recognition of municipality and pollutant from the filename;
+- construction of a complete file inventory;
+- check that all expected municipality-pollutant files were present;
+- removal of metadata rows;
+- conversion of date fields into proper datetime format;
+- conversion of pollutant concentration values into numeric format;
+- check of missing values, duplicated dates and available years;
+- filtering to the common years 2016, 2017, 2018, 2019 and 2023;
+- construction of a complete long-format dataset;
+- construction of wide-format datasets with municipalities as columns;
+- loading and harmonization of ISTAT municipal population files;
+- matching municipal population denominators to ModAria municipalities;
+- construction of daily arithmetic area means;
+- construction of daily population-weighted area exposure indicators;
+- export of quality-control tables and reusable CSV datasets.
+
+The file inventory confirmed that all expected files were found:
+
+```text
+Total files found = 74
+Industrial municipalities = 16
+Agricultural municipalities = 21
+Pollutants = NO2, PM2.5
+All expected municipality-pollutant files were found
+```
+
+This means that all selected municipalities have both NO2 and PM2.5 ModAria files.
+
+The analysis produced two main types of municipality-level datasets.
+
+The first is a **long-format dataset**, where each row represents one observation for a specific:
+
+```text
+Date × Area × Municipality × Pollutant
+```
+
+This format preserves all municipality-level information and is useful for reproducible analysis, checks and future aggregation.
+
+The second is a set of **wide-format datasets**, where municipalities are stored as columns. These outputs are useful for visual inspection and quality control, because they make it easier to compare municipality-level time series within each study area.
+
+The most important output of Part 4.1 is the construction of area-level exposure indicators.
+
+Two exposure indicators were computed.
+
+The first indicator is the arithmetic area mean:
+
+```text
+Arithmetic area mean =
+mean of all available municipal pollutant values in the area
+```
+
+This indicator treats each municipality equally. It is useful as a general territorial indicator because it describes the average environmental condition across the selected municipalities.
+
+The second indicator is the population-weighted area exposure:
+
+```text
+Population-weighted area exposure =
+sum(municipal pollutant value × municipal population) / total area population
+```
+
+This indicator gives greater weight to municipalities where more people live. It is more coherent with the health-event framework because health outcomes are normalized using population denominators and represent events occurring in populations of different sizes.
+
+For future environmental-health integration, the recommended exposure indicators are:
+
+```text
+Main indicator:
+Population-weighted area exposure
+
+Sensitivity indicator:
+Arithmetic area mean
+```
+
+This choice is important because a simple arithmetic mean gives the same importance to a very small municipality and to a large municipality such as Brescia. The population-weighted mean instead better represents the exposure experienced by the population included in each study area.
+
+At the same time, the arithmetic mean remains useful as a sensitivity indicator because it describes the territorial average without allowing the most populated municipalities to dominate the exposure estimate.
+
+**Main interpretation:**
+
+Part 4.1 does not yet perform statistical testing between agricultural and industrial areas. It is a validation and dataset-construction step.
+
+The main result is that the ModAria municipal pollutant dataset is complete, coherent and usable for the next phase of the project.
+
+All 74 expected files were found and successfully processed. The data were cleaned, dates were converted, pollutant values were converted into numeric format, and the analysis was restricted to the common years 2016, 2017, 2018, 2019 and 2023. The year 2023 was correctly retained, which is essential because it is part of the health-environment integration period.
+
+The script produced municipality-level long and wide datasets and daily area-level exposure indicators for both pollutants and both study areas.
+
+This represents a major methodological improvement compared with the previous station-based exposure approach. The exposure side of the project is now spatially more coherent with the health side because both are based on the same selected municipalities.
+
+The next step should be Part 4.2, where the ModAria area-level pollutant indicators will be statistically compared between the agricultural and industrial areas.
+
+**Output folder:**
+
+```text
+Dati/output/4-Modaria exposure/4.1-Data validation and area aggregation
+```
+
+**Main script:**
+
+```text
+src/modaria_exposure/modaria_data_validation.py
 ```
 
 ---
@@ -1246,6 +1207,15 @@ Dati/
 │   ├── Rezzato_NO2_2016_2025.csv
 │   ├── Soresina_2016_2025_PM25.csv
 │   ├── Soresina_NO2_2016_2025.csv
+│   ├── ModariaDataset/
+│   │   ├── Agricultural/
+│   │   │   ├── AcquanegraCremonese_NO2.csv
+│   │   │   ├── AcquanegraCremonese_PM25.csv
+│   │   │   └── ...
+│   │   └── Industrial/
+│   │       ├── Borgosatollo_NO2.csv
+│   │       ├── Borgosatollo_PM25.csv
+│   │       └── ...
 │   └── population/
 │       ├── Brescia_2016.csv
 │       ├── Brescia_2017.csv
@@ -1270,11 +1240,14 @@ Dati/
     │   ├── 2.2-Health event aggregation/
     │   └── 2.3-Health age structure check/
     │
-    └── 3-Environmental health integration/
-        ├── 3.1-Seasonal integration/
-        ├── 3.2-Monthly integration/
-        ├── 3.3-Monthly lag analysis/
-        └── 3.4-Weekly lag analysis/
+    ├── 3-Environmental health integration/
+    │   ├── 3.1-Seasonal integration/
+    │   ├── 3.2-Monthly integration/
+    │   ├── 3.3-Monthly lag analysis/
+    │   └── 3.4-Weekly lag analysis/
+    │
+    └── 4-Modaria exposure/
+        └── 4.1-Data validation and area aggregation/
 
 src/
 ├── data_loader.py
@@ -1290,12 +1263,16 @@ src/
 │   ├── health_event_aggregation.py
 │   └── health_age_structure_check.py
 │
-└── integration/
+├── integration/
+│   ├── __init__.py
+│   ├── environment_health_integration.py
+│   ├── monthly_environment_health_integration.py
+│   ├── monthly_lag_analysis.py
+│   └── weekly_lag_analysis.py
+│
+└── modaria_exposure/
     ├── __init__.py
-    ├── environment_health_integration.py
-    ├── monthly_environment_health_integration.py
-    ├── monthly_lag_analysis.py
-    └── weekly_lag_analysis.py
+    └── modaria_data_validation.py
 ```
 
 ### Main files
@@ -1433,6 +1410,18 @@ if __name__ == "__main__":
     run_weekly_lag_analysis()
 ```
 
+### Run the ModAria data validation and area exposure construction
+
+Use this in `main.py`:
+
+```python
+from src.modaria_exposure.modaria_data_validation import run_modaria_data_validation
+
+
+if __name__ == "__main__":
+    run_modaria_data_validation()
+```
+
 ---
 
 ## GitHub workflow
@@ -1465,10 +1454,12 @@ git commit -m "Add seasonal environmental health integration"
 git commit -m "Add monthly environmental health integration"
 git commit -m "Add monthly lag analysis"
 git commit -m "Add weekly lag analysis"
+git commit -m "Add ModAria data validation and area exposure construction"
 git commit -m "Update README after seasonal integration"
 git commit -m "Update README after monthly integration"
 git commit -m "Update README after monthly lag analysis"
 git commit -m "Update README after weekly lag analysis"
+git commit -m "Update README after ModAria data validation"
 git commit -m "Fix README formatting"
 ```
 
@@ -1476,9 +1467,9 @@ git commit -m "Fix README formatting"
 
 ## Notes and limitations
 
-The current analyses are exploratory and descriptive. Statistical significance is interpreted together with the magnitude of the observed differences and with the methodological limitations of using monitoring stations as proxies for broader territorial contexts.
+The current analyses are exploratory and descriptive. Statistical significance is interpreted together with the magnitude of the observed differences and with the methodological limitations of using monitoring stations or municipality-level estimates as proxies for broader territorial exposure.
 
-Due to pollutant-specific monitoring availability, the industrial/urban proxy station differs between the NO2 and PM2.5 analyses. Therefore, results should be interpreted pollutant by pollutant and not as a perfectly matched multi-pollutant comparison on the same station pair.
+Due to pollutant-specific monitoring availability, the industrial/urban proxy station differs between the NO2 and PM2.5 station-based analyses. Therefore, Part 1 and Part 3 station-based results should be interpreted pollutant by pollutant and not as a perfectly matched multi-pollutant comparison on the same station pair.
 
 The statistical tests on pollutant data do not explicitly model temporal autocorrelation or meteorological confounding. Future analyses may include meteorological variables, health outcome data and additional pollutants such as NH3, if available.
 
@@ -1494,11 +1485,11 @@ The age-specific analysis suggests that the higher cardiocirculatory burden in t
 
 Formal statistical testing was not added to Part 2.3 because the age-specific rates are annual and only five paired years are available. Differences were therefore interpreted through descriptive rates, mean differences, ratios and visual patterns. More formal non-parametric correlation analysis is more meaningful in the environmental-health integration phase, especially at monthly, seasonal or weekly scale.
 
-Part 3.1 integrates pollutant indicators and health event rates at seasonal scale and uses Spearman correlation. These correlations are exploratory and ecological. They should not be interpreted as individual-level causal evidence.
+Part 3.1 integrates station-based pollutant indicators and health event rates at seasonal scale and uses Spearman correlation. These correlations are exploratory and ecological. They should not be interpreted as individual-level causal evidence.
 
 The seasonal environmental-health integration uses same-season pollutant indicators and same-season health rates. Possible delayed effects are not assessed in Part 3.1 and are explored in later lag analyses.
 
-Part 3.2 extends the environmental-health integration to monthly scale and increases the number of observations from 36 seasonal rows to 120 monthly rows. This improves temporal detail and prepares the dataset for lag analysis.
+Part 3.2 extends the station-based environmental-health integration to monthly scale and increases the number of observations from 36 seasonal rows to 120 monthly rows. This improves temporal detail and prepares the dataset for lag analysis.
 
 The monthly integration shows positive associations between pollutant indicators and health event rates, especially for respiratory outcomes. However, the season-stratified sensitivity analysis suggests that most of the significant monthly correlations are largely driven by the shared annual seasonal cycle of air pollution and health events.
 
@@ -1514,13 +1505,19 @@ The weekly lag analysis suggests that some same-month associations observed in P
 
 Weekly health event rates can be noisier than monthly or seasonal rates because weekly event counts are smaller. For this reason, the weekly lag analysis should be interpreted together with the broader seasonal and monthly results rather than as a standalone causal model.
 
+Part 4 introduces ModAria municipal pollutant estimates. This improves the environmental exposure side of the project because exposure indicators are now reconstructed from all selected municipalities rather than from one monitoring station per pollutant and area.
+
+The ModAria-based exposure indicators are still ecological exposure estimates. They do not represent individual exposure and they do not account for within-municipality variability.
+
+The population-weighted ModAria exposure indicator should be considered the main exposure indicator for future health integration, because it weights municipal pollutant values by the number of inhabitants. The arithmetic area mean should be retained as a secondary sensitivity indicator.
+
+The ModAria values are treated as official ARPA-derived municipal estimates. However, the internal modelling or interpolation uncertainty of the ModAria system is not quantified within this project.
+
 Lag analyses should not be interpreted as evidence of causal delayed effects. Lagged correlations may still be influenced by seasonality, temporal autocorrelation, meteorology and unmeasured confounding.
 
 Important unmeasured confounders include age beyond the applied stratification, sex, socioeconomic status, smoking, occupational exposure, comorbidities, healthcare access, event coding practices, meteorology, respiratory infections, influenza circulation and individual exposure history.
 
 The geographical meaning of the municipality variable should also be interpreted carefully. If the municipality refers to event location rather than patient residence, area-level health rates may not perfectly represent the resident population.
-
-The environmental exposure side is based on monitoring station proxies, while the health outcome side is aggregated over selected municipalities. This spatial mismatch is one of the main limitations of the project.
 
 Any future comparison between pollutant concentrations and health events should be interpreted as an exploratory ecological analysis, not as evidence of individual-level causality.
 
@@ -1528,7 +1525,7 @@ Any future comparison between pollutant concentrations and health events should 
 
 ## Current project status and possible next steps
 
-Part 1 of the project, focused on statistical tests of environmental pollutant data, is completed.
+Part 1 of the project, focused on statistical tests of station-based environmental pollutant data, is completed.
 
 Part 2 has produced:
 
@@ -1538,12 +1535,22 @@ Part 2 has produced:
 
 Part 3 has produced:
 
-- a seasonal environmental-health integration;
-- a monthly environmental-health integration;
+- a seasonal station-based environmental-health integration;
+- a monthly station-based environmental-health integration;
 - a monthly lag analysis;
 - a weekly lag analysis.
 
-The main result of Part 3.1 is that respiratory acute event rates show the clearest seasonal association with pollutant indicators. Both NO2 and PM2.5 show moderate positive associations with respiratory event rates, especially in the agricultural area. Cardiocirculatory event rates do not show clear same-season seasonal associations with the pollutant indicators.
+Part 4 has started the ModAria-based exposure reconstruction and has produced:
+
+- a complete ModAria file inventory;
+- validation of all 74 expected municipality-pollutant files;
+- cleaned long-format ModAria dataset;
+- wide-format municipality-level datasets;
+- municipal population matching;
+- daily arithmetic area exposure indicators;
+- daily population-weighted area exposure indicators.
+
+The main result of Part 3.1 is that respiratory acute event rates show the clearest seasonal association with station-based pollutant indicators. Both NO2 and PM2.5 show moderate positive associations with respiratory event rates, especially in the agricultural area. Cardiocirculatory event rates do not show clear same-season seasonal associations with the pollutant indicators.
 
 Part 3.2 confirms the relevance of respiratory outcomes at monthly scale. Both NO2 and PM2.5 show moderate positive and statistically significant associations with respiratory acute event rates overall and within both study areas. Cardiocirculatory associations are weaker, but they are more visible in the industrial area, especially for PM2.5.
 
@@ -1553,12 +1560,43 @@ Part 3.3 shows that lagged pollutant indicators at 1–3 months do not generally
 
 Part 3.4 refines this conclusion. At weekly scale, some associations, especially respiratory associations in the industrial area, are strongest at lag 1 or lag 2 weeks. This suggests that the same-month associations observed in Part 3.3 may partly contain shorter delayed patterns within the month. The most coherent weekly lag signal concerns respiratory acute event rates, while cardiocirculatory outcomes remain weaker and more area-dependent.
 
-At the current stage, the project provides a coherent exploratory ecological framework linking pollutant indicators and health event rates at different temporal scales. The strongest and most defensible message is that respiratory acute event rates show the most consistent temporal coherence with NO2 and PM2.5 indicators across seasonal, monthly and weekly scales. Cardiocirculatory outcomes show weaker associations, but they remain relevant because previous health analyses showed a stable higher burden in the industrial area, especially in the `<65` age group.
+Part 4.1 addresses the main limitation of the first station-based pipeline. Instead of representing each area with one station per pollutant, the new ModAria dataset provides pollutant estimates for all 37 municipalities included in the study areas. This makes the exposure side of the project more spatially coherent with the health side.
 
-This represents a reasonable stopping point for the current phase of the project. Future developments can be decided based on course requirements and feedback from the instructor.
+At the current stage, the project provides a coherent exploratory ecological framework linking pollutant indicators and health event rates at different temporal scales. The strongest and most defensible message from the station-based pipeline is that respiratory acute event rates show the most consistent temporal coherence with NO2 and PM2.5 indicators across seasonal, monthly and weekly scales. Cardiocirculatory outcomes show weaker associations, but they remain relevant because previous health analyses showed a stable higher burden in the industrial area, especially in the `<65` age group.
+
+The next step should be Part 4.2, focused on the statistical comparison of ModAria area-level exposure indicators between the agricultural and industrial areas.
+
+Part 4.2 should use:
+
+```text
+Main exposure indicator:
+Population-weighted area exposure
+
+Sensitivity exposure indicator:
+Arithmetic area mean
+```
+
+The recommended analyses for Part 4.2 are:
+
+- daily descriptive statistics for NO2 and PM2.5 by area;
+- monthly aggregation of ModAria area exposure indicators;
+- seasonal aggregation of ModAria area exposure indicators;
+- time-series plots;
+- histograms and boxplots;
+- normality checks;
+- Mann-Whitney U tests for unpaired distribution comparison;
+- paired Wilcoxon signed-rank tests for matched temporal periods;
+- monthly and seasonal climatology;
+- comparison between arithmetic and population-weighted exposure indicators.
+
+After Part 4.2, the project can repeat the environmental-health integration using ModAria exposure indicators instead of station-based indicators.
 
 Possible future extensions include:
 
+- repeating seasonal environmental-health integration using ModAria exposure indicators;
+- repeating monthly environmental-health integration using ModAria exposure indicators;
+- repeating monthly and weekly lag analyses using ModAria exposure indicators;
+- comparing station-based results with ModAria-based results;
 - adding meteorological variables such as temperature, humidity, precipitation, wind speed or atmospheric stability;
 - exploring emission inventory data or additional pollutants such as NH3;
 - testing more formal statistical models with adjustment for seasonality and temporal autocorrelation;
@@ -1566,7 +1604,6 @@ Possible future extensions include:
 - exploring cumulative weekly exposure indicators;
 - exploring age-specific environmental-health integration as a secondary sensitivity analysis;
 - focusing more specifically on respiratory outcomes, which currently show the clearest environmental-health temporal pattern;
-- refining exposure assessment by adding more monitoring stations or spatially averaged pollutant indicators;
 - considering more advanced distributed lag approaches only if additional data and modelling time are available.
 
 Any future extension should remain clearly framed as ecological unless individual-level exposure and health data become available.
