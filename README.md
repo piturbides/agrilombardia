@@ -55,6 +55,8 @@ This station-based approach was useful for developing and validating the full an
 
 For this reason, Part 4 introduces ARPA Lombardia **ModAria municipal pollutant estimates**, downloaded for all selected municipalities and for both pollutants. These data allow the project to move from single-station exposure proxies to municipality-based area exposure indicators.
 
+The main ModAria exposure indicator for future health integration is the **population-weighted area exposure**, because it weights municipal pollutant values by the population living in each municipality. The **arithmetic area mean** is retained as a secondary sensitivity and descriptive territorial indicator.
+
 The project should always be interpreted as an exploratory ecological analysis. Pollutant concentrations are represented by monitoring stations or municipality-level estimates, while health outcomes are aggregated over selected municipalities. Therefore, the analysis can identify coherent territorial and temporal patterns, but it cannot demonstrate individual-level causal effects.
 
 ---
@@ -1179,7 +1181,7 @@ The script produced municipality-level long and wide datasets and daily area-lev
 
 This represents a major methodological improvement compared with the previous station-based exposure approach. The exposure side of the project is now spatially more coherent with the health side because both are based on the same selected municipalities.
 
-The next step should be Part 4.2, where the ModAria area-level pollutant indicators will be statistically compared between the agricultural and industrial areas.
+The next step is Part 4.2, where the ModAria area-level pollutant indicators are statistically compared between the agricultural and industrial areas.
 
 **Output folder:**
 
@@ -1191,6 +1193,232 @@ Dati/output/4-Modaria exposure/4.1-Data validation and area aggregation
 
 ```text
 src/modaria_exposure/modaria_data_validation.py
+```
+
+---
+
+## 4.2 ModAria area pollutant comparison
+
+The second ModAria step performs the first environmental comparison using the area-level exposure indicators constructed in Part 4.1.
+
+The aim of Part 4.2 is to answer a purely environmental question:
+
+```text
+Do the agricultural and industrial study areas show different NO2 and PM2.5 exposure patterns when exposure is reconstructed from all selected municipalities rather than from single monitoring stations?
+```
+
+This step does not include health data. Health integration with ModAria exposure indicators will be performed in later steps.
+
+The input file is the daily area exposure summary produced in Part 4.1:
+
+```text
+Dati/output/4-Modaria exposure/4.1-Data validation and area aggregation/modaria_daily_area_exposure_summary_long.csv
+```
+
+Each row of the input dataset represents one daily exposure observation for a specific combination of:
+
+```text
+Date × Area × Pollutant
+```
+
+The analysis uses the two exposure indicators produced in Part 4.1:
+
+```text
+Population_weighted_mean
+Arithmetic_mean
+```
+
+The main exposure indicator is:
+
+```text
+Population_weighted_mean
+```
+
+The secondary sensitivity indicator is:
+
+```text
+Arithmetic_mean
+```
+
+The retained years are:
+
+```text
+2016, 2017, 2018, 2019, 2023
+```
+
+The analysis included:
+
+- loading the daily ModAria area exposure dataset produced in Part 4.1;
+- standardizing the dataset structure;
+- filtering to the common years used in the environmental-health framework;
+- checking rows by area and pollutant;
+- checking missing values;
+- building monthly area exposure indicators;
+- building seasonal area exposure indicators;
+- removing incomplete seasons;
+- comparing agricultural and industrial exposure values at daily, monthly and seasonal scale;
+- using a paired statistical comparison between areas;
+- selecting the statistical test according to the paired-samples decision tree;
+- producing population-weighted time-series plots;
+- producing population-weighted boxplots;
+- producing arithmetic versus population-weighted method-comparison plots;
+- exporting CSV outputs and figures.
+
+The final standardized daily dataset contains:
+
+```text
+7304 rows
+9 columns
+```
+
+This is coherent with the expected structure:
+
+```text
+1826 days × 2 areas × 2 pollutants = 7304 rows
+```
+
+Rows by area and pollutant were perfectly balanced:
+
+```text
+Agricultural NO2  = 1826 rows
+Agricultural PM25 = 1826 rows
+Industrial NO2    = 1826 rows
+Industrial PM25   = 1826 rows
+```
+
+The missing-value check showed:
+
+```text
+Date                        0 missing values
+Year                        0 missing values
+Month                       0 missing values
+Season                      0 missing values
+SeasonYear                  0 missing values
+Area                        0 missing values
+Pollutant                   0 missing values
+Arithmetic_mean             0 missing values
+Population_weighted_mean    0 missing values
+```
+
+This confirms that the daily ModAria exposure dataset was read correctly and that no exposure values were missing after standardization.
+
+The monthly dataset contains:
+
+```text
+240 rows
+```
+
+This corresponds to:
+
+```text
+5 years × 12 months × 2 areas × 2 pollutants = 240 rows
+```
+
+The seasonal dataset contains:
+
+```text
+72 rows
+```
+
+This corresponds to:
+
+```text
+18 complete seasons × 2 areas × 2 pollutants = 72 rows
+```
+
+Incomplete seasons were removed, consistently with the previous seasonal analyses.
+
+A specific plotting correction was introduced to avoid visually connecting the end of 2019 with the beginning of 2023. Since the years 2020, 2021 and 2022 are excluded, time-series plots are drawn year by year so that the line does not artificially connect the two separate temporal blocks.
+
+Plot axes were also updated to explicitly report pollutant units:
+
+```text
+NO2 concentration (µg/m³)
+PM2.5 concentration (µg/m³)
+```
+
+The statistical comparison follows the paired-sample branch of the statistical-test decision framework. The two samples are:
+
+```text
+Agricultural area
+Industrial area
+```
+
+The comparison is treated as paired because the two areas are compared on the same temporal units:
+
+```text
+same dates for daily comparisons
+same months for monthly comparisons
+same seasons for seasonal comparisons
+```
+
+The paired difference is defined as:
+
+```text
+Agricultural exposure - Industrial exposure
+```
+
+Normality is tested on the paired differences. The decision rule is:
+
+```text
+If paired differences are compatible with normality:
+    use paired t-test
+
+If paired differences are not normally distributed:
+    use Wilcoxon matched-pairs signed-rank test
+```
+
+This logic was applied separately by temporal scale, pollutant and exposure indicator.
+
+**Main interpretation:**
+
+The ModAria-based comparison shows a clearer and more robust environmental picture than the previous station-based analysis.
+
+The most important result is that **NO2 is higher in the industrial area than in the agricultural area** when exposure is reconstructed from all selected municipalities. This pattern is visible in the time-series plots, boxplots and paired statistical comparison summary.
+
+This result is coherent with the interpretation of NO2 as a combustion-related pollutant associated with traffic, heating, industrial combustion and urban activity. The industrial area includes Brescia and surrounding urbanized or industrialized municipalities, so higher NO2 exposure is consistent with the territorial and emission profile of the study area.
+
+This result also improves the previous station-based NO2 interpretation. In the station-based analysis, Soresina and Rezzato showed broadly similar NO2 dynamics and NO2 did not clearly separate the agricultural and industrial contexts. With the ModAria municipality-based exposure indicators, the area-level NO2 contrast becomes more coherent with the expected emission framework.
+
+For **PM2.5**, the pattern is different. The agricultural and industrial areas show strongly overlapping distributions and similar temporal behavior. PM2.5 peaks often occur in both areas at the same time, suggesting that PM2.5 is strongly influenced by regional-scale dynamics, seasonal meteorology and secondary aerosol formation.
+
+Therefore, PM2.5 should not be interpreted as a pollutant that clearly separates the two areas in the same way as NO2. Instead, it appears to behave as a regional pollutant with contributions from both agricultural and urban-industrial processes.
+
+The main environmental interpretation of Part 4.2 is:
+
+```text
+NO2:
+clearer industrial excess after ModAria area-level reconstruction
+
+PM2.5:
+more regional and seasonally shared pattern, with weaker area separation
+```
+
+The comparison between arithmetic mean and population-weighted mean showed very strong agreement. The method-comparison scatter plots were close to a diagonal pattern for both pollutants and both areas. This indicates that population weighting adjusts the exposure indicator according to population distribution but does not distort the overall temporal behavior.
+
+This supports the decision to use population-weighted exposure as the main indicator for future health integration, while retaining the arithmetic mean as a sensitivity indicator.
+
+**Output folder:**
+
+```text
+Dati/output/4-Modaria exposure/4.2-Area pollutant comparison
+```
+
+**Main script:**
+
+```text
+src/modaria_exposure/modaria_area_pollutant_comparison.py
+```
+
+**Main CSV outputs:**
+
+```text
+modaria_daily_area_exposure_standardized.csv
+modaria_monthly_area_exposure_dataset.csv
+modaria_seasonal_area_exposure_dataset.csv
+modaria_area_pollutant_paired_test_summary.csv
+modaria_method_comparison_summary.csv
+modaria_area_pollutant_comparison_summary.csv
 ```
 
 ---
@@ -1247,7 +1475,8 @@ Dati/
     │   └── 3.4-Weekly lag analysis/
     │
     └── 4-Modaria exposure/
-        └── 4.1-Data validation and area aggregation/
+        ├── 4.1-Data validation and area aggregation/
+        └── 4.2-Area pollutant comparison/
 
 src/
 ├── data_loader.py
@@ -1272,7 +1501,8 @@ src/
 │
 └── modaria_exposure/
     ├── __init__.py
-    └── modaria_data_validation.py
+    ├── modaria_data_validation.py
+    └── modaria_area_pollutant_comparison.py
 ```
 
 ### Main files
@@ -1422,6 +1652,18 @@ if __name__ == "__main__":
     run_modaria_data_validation()
 ```
 
+### Run the ModAria area pollutant comparison
+
+Use this in `main.py`:
+
+```python
+from src.modaria_exposure.modaria_area_pollutant_comparison import run_modaria_area_pollutant_comparison
+
+
+if __name__ == "__main__":
+    run_modaria_area_pollutant_comparison()
+```
+
 ---
 
 ## GitHub workflow
@@ -1455,11 +1697,13 @@ git commit -m "Add monthly environmental health integration"
 git commit -m "Add monthly lag analysis"
 git commit -m "Add weekly lag analysis"
 git commit -m "Add ModAria data validation and area exposure construction"
+git commit -m "Add ModAria area pollutant comparison"
 git commit -m "Update README after seasonal integration"
 git commit -m "Update README after monthly integration"
 git commit -m "Update README after monthly lag analysis"
 git commit -m "Update README after weekly lag analysis"
 git commit -m "Update README after ModAria data validation"
+git commit -m "Update README after ModAria area pollutant comparison"
 git commit -m "Fix README formatting"
 ```
 
@@ -1513,6 +1757,14 @@ The population-weighted ModAria exposure indicator should be considered the main
 
 The ModAria values are treated as official ARPA-derived municipal estimates. However, the internal modelling or interpolation uncertainty of the ModAria system is not quantified within this project.
 
+Part 4.2 shows that NO2 is higher in the industrial area when exposure is reconstructed from all selected municipalities. This is coherent with the interpretation of NO2 as a combustion-related pollutant related to traffic, heating, industrial activity and urban emissions.
+
+Part 4.2 also shows that PM2.5 has a more regional and seasonally shared pattern, with stronger overlap between agricultural and industrial areas. Therefore, PM2.5 should not be interpreted as a simple industrial-versus-agricultural discriminator.
+
+Daily statistical tests can become statistically significant even when differences are small, because the number of paired daily observations is large. For this reason, interpretation should consider effect magnitude, temporal consistency and graphical evidence, not p-values alone.
+
+The ModAria comparison is purely environmental. It does not yet show whether pollutant differences are associated with respiratory or cardiocirculatory event rates. This will be assessed in the next ModAria environmental-health integration steps.
+
 Lag analyses should not be interpreted as evidence of causal delayed effects. Lagged correlations may still be influenced by seasonality, temporal autocorrelation, meteorology and unmeasured confounding.
 
 Important unmeasured confounders include age beyond the applied stratification, sex, socioeconomic status, smoking, occupational exposure, comorbidities, healthcare access, event coding practices, meteorology, respiratory infections, influenza circulation and individual exposure history.
@@ -1548,7 +1800,10 @@ Part 4 has started the ModAria-based exposure reconstruction and has produced:
 - wide-format municipality-level datasets;
 - municipal population matching;
 - daily arithmetic area exposure indicators;
-- daily population-weighted area exposure indicators.
+- daily population-weighted area exposure indicators;
+- daily, monthly and seasonal ModAria area exposure datasets;
+- statistical comparison of ModAria area-level NO2 and PM2.5 exposure between agricultural and industrial areas;
+- method comparison between arithmetic and population-weighted exposure indicators.
 
 The main result of Part 3.1 is that respiratory acute event rates show the clearest seasonal association with station-based pollutant indicators. Both NO2 and PM2.5 show moderate positive associations with respiratory event rates, especially in the agricultural area. Cardiocirculatory event rates do not show clear same-season seasonal associations with the pollutant indicators.
 
@@ -1562,11 +1817,23 @@ Part 3.4 refines this conclusion. At weekly scale, some associations, especially
 
 Part 4.1 addresses the main limitation of the first station-based pipeline. Instead of representing each area with one station per pollutant, the new ModAria dataset provides pollutant estimates for all 37 municipalities included in the study areas. This makes the exposure side of the project more spatially coherent with the health side.
 
-At the current stage, the project provides a coherent exploratory ecological framework linking pollutant indicators and health event rates at different temporal scales. The strongest and most defensible message from the station-based pipeline is that respiratory acute event rates show the most consistent temporal coherence with NO2 and PM2.5 indicators across seasonal, monthly and weekly scales. Cardiocirculatory outcomes show weaker associations, but they remain relevant because previous health analyses showed a stable higher burden in the industrial area, especially in the `<65` age group.
+Part 4.2 confirms that the ModAria exposure framework is usable and informative. NO2 is higher in the industrial area when reconstructed from all selected municipalities, which is coherent with its combustion-related interpretation. PM2.5 shows stronger overlap between agricultural and industrial areas and appears more regionally and seasonally structured.
 
-The next step should be Part 4.2, focused on the statistical comparison of ModAria area-level exposure indicators between the agricultural and industrial areas.
+At the current stage, the project provides two complementary environmental frameworks:
 
-Part 4.2 should use:
+```text
+Station-based framework:
+useful for the first complete environmental-health pipeline.
+
+ModAria municipality-based framework:
+more spatially coherent with the selected study areas and better suited for final environmental-health integration.
+```
+
+The strongest and most defensible message from the station-based pipeline is that respiratory acute event rates show the most consistent temporal coherence with NO2 and PM2.5 indicators across seasonal, monthly and weekly scales. Cardiocirculatory outcomes show weaker associations, but they remain relevant because previous health analyses showed a stable higher burden in the industrial area, especially in the `<65` age group.
+
+The next step should be Part 4.3, focused on environmental-health integration using ModAria exposure indicators instead of station-based indicators.
+
+Part 4.3 should use:
 
 ```text
 Main exposure indicator:
@@ -1576,26 +1843,21 @@ Sensitivity exposure indicator:
 Arithmetic area mean
 ```
 
-The recommended analyses for Part 4.2 are:
+The recommended analyses for Part 4.3 are:
 
-- daily descriptive statistics for NO2 and PM2.5 by area;
-- monthly aggregation of ModAria area exposure indicators;
-- seasonal aggregation of ModAria area exposure indicators;
-- time-series plots;
-- histograms and boxplots;
-- normality checks;
-- Mann-Whitney U tests for unpaired distribution comparison;
-- paired Wilcoxon signed-rank tests for matched temporal periods;
-- monthly and seasonal climatology;
-- comparison between arithmetic and population-weighted exposure indicators.
+- seasonal environmental-health integration using ModAria exposure indicators;
+- monthly environmental-health integration using ModAria exposure indicators;
+- Spearman correlations between ModAria pollutant exposure and health event rates;
+- overall and area-specific analyses;
+- comparison with the previous station-based environmental-health results;
+- interpretation of whether ModAria exposure strengthens, weakens or changes the associations found in Part 3.
 
-After Part 4.2, the project can repeat the environmental-health integration using ModAria exposure indicators instead of station-based indicators.
+After Part 4.3, the project can repeat the lag analyses using ModAria exposure indicators.
 
 Possible future extensions include:
 
-- repeating seasonal environmental-health integration using ModAria exposure indicators;
-- repeating monthly environmental-health integration using ModAria exposure indicators;
-- repeating monthly and weekly lag analyses using ModAria exposure indicators;
+- repeating monthly lag analysis using ModAria exposure indicators;
+- repeating weekly lag analysis using ModAria exposure indicators;
 - comparing station-based results with ModAria-based results;
 - adding meteorological variables such as temperature, humidity, precipitation, wind speed or atmospheric stability;
 - exploring emission inventory data or additional pollutants such as NH3;

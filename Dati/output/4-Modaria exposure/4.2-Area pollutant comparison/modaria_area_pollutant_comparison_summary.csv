@@ -1,0 +1,15 @@
+Indicator;Value
+Input folder;Dati/output/4-Modaria exposure/4.1-Data validation and area aggregation
+Output folder;Dati/output/4-Modaria exposure/4.2-Area pollutant comparison
+Temporal scales;Daily, monthly, seasonal
+Pollutants;NO2, PM25
+Areas;Industrial, Agricultural
+Main exposure indicator;Population-weighted area exposure
+Sensitivity exposure indicator;Arithmetic area mean
+Daily rows;7304
+Monthly rows;240
+Seasonal rows after incomplete-season removal;72
+Common years;2016, 2017, 2018, 2019, 2023
+Main statistical comparison;Agricultural vs Industrial paired comparison
+Test selection rule;"Normality is tested on paired differences. If differences are compatible with normality, paired t-test is used; otherwise Wilcoxon matched-pairs signed-rank test is used."
+Interpretation rule;Results are environmental area-level comparisons. They do not include health data and should not be interpreted as health-effect evidence.

@@ -10,6 +10,11 @@ from src.integration.monthly_environment_health_integration import run_monthly_e
 from src.integration.monthly_lag_analysis import run_monthly_lag_analysis
 from src.integration.weekly_lag_analysis import run_weekly_lag_analysis
 from src.modaria_exposure.modaria_data_validation import run_modaria_data_validation
+from src.modaria_exposure.modaria_area_pollutant_comparison import run_modaria_area_pollutant_comparison
+
+
+
+
 
 
 
@@ -27,4 +32,5 @@ if __name__ == "__main__":
     #run_monthly_environment_health_integration()
     #run_monthly_lag_analysis()
     #run_weekly_lag_analysis()
-    run_modaria_data_validation()
+    #run_modaria_data_validation()
+    run_modaria_area_pollutant_comparison()
