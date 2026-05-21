@@ -1,0 +1,17 @@
+Indicator;Value
+Input dataset/source;Dati/output/4-Modaria exposure/4.3-Modaria environmental health integration/modaria_monthly_environment_health_integrated_dataset.csv
+Temporal scale;Monthly
+Exposure source;ModAria municipality-level area exposure
+Exposure indicator;Population-weighted mean
+Lag values tested;0, 1, 2, 3
+Number of rows in lagged dataset;120
+Number of areas;2
+Areas;Industrial, Agricultural
+Pollutants;NO2, PM2.5
+Health outcomes;Respiratory and cardiocirculatory event rates
+Correlation method;Spearman correlation
+Maximum N by lag;"Lag 0: 120; Lag 1: 116; Lag 2: 112; Lag 3: 108"
+Combinations where lag 0 is strongest positive rho;12
+Percentage where lag 0 is strongest positive rho;100.0
+Main methodological safeguard;Lagged pollutant values are kept only when the lagged month is exactly the expected number of months before the current health month. This prevents incorrect links across the 2019-2023 gap.
+Main interpretation rule;Lagged correlations are exploratory ecological associations. They should not be interpreted as causal delayed effects.

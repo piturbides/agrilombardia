@@ -4,7 +4,7 @@ Statistical analysis of air pollution and health event data for the Human Health
 
 The project investigates differences in air pollution patterns between areas with different territorial and emission profiles in Lombardy, with a focus on the comparison between agricultural/rural and industrial/urban contexts.
 
-The first part of the project focuses on environmental exposure data from ARPA Lombardia monitoring stations. The second part explores health event data and prepares population-normalized and age-specific health indicators. The third part integrates station-based environmental indicators and health event rates into a common exploratory ecological framework. The fourth part introduces a more robust exposure reconstruction using ARPA Lombardia ModAria municipal pollutant estimates for all selected municipalities in the two study areas and integrates these area-level exposure indicators with the health outcomes.
+The first part of the project focuses on environmental exposure data from ARPA Lombardia monitoring stations. The second part explores health event data and prepares population-normalized and age-specific health indicators. The third part integrates station-based environmental indicators and health event rates into a common exploratory ecological framework. The fourth part introduces a more robust exposure reconstruction using ARPA Lombardia ModAria municipal pollutant estimates for all selected municipalities in the two study areas, integrates these area-level exposure indicators with the health outcomes, and completes the analytical coding pipeline with ModAria monthly and weekly lag analyses.
 
 ---
 
@@ -796,6 +796,8 @@ The ModAria municipal datasets allow a more robust exposure reconstruction becau
 
 The goal of Part 4 is to replicate and improve the previous exposure and environmental-health pipeline using municipality-based area exposure indicators instead of single-station proxies.
 
+Part 4 completes the main analytical coding pipeline of the project. A possible future Part 5 may focus on final synthesis, comparison between the station-based and ModAria-based pipelines, and preparation of final presentation/report materials.
+
 The main output folder is:
 
 ```text
@@ -1534,6 +1536,579 @@ Seasonal Spearman vs Pearson correlation summary plot
 
 ---
 
+## 4.4 ModAria monthly and weekly lag analysis
+
+The fourth ModAria step investigates whether the ModAria environmental-health associations observed in Part 4.3 are mainly same-period associations or whether they persist at previous temporal lags.
+
+Part 4.3 showed positive associations between ModAria population-weighted exposure indicators and population-normalized health event rates. However, those associations were same-period correlations. Part 4.4 adds a temporal lag dimension.
+
+The aim of Part 4.4 is to answer the following questions:
+
+```text
+Are monthly health event rates more strongly associated with pollutant exposure in the same month or in previous months?
+
+If the strongest monthly association is observed at lag 0 months, does this same-month signal contain shorter delays at weekly scale?
+
+Are lag patterns different between respiratory and cardiocirculatory outcomes?
+
+Are lag patterns different between the industrial and agricultural areas?
+
+Does the ModAria-based lag analysis confirm or modify the previous station-based lag interpretation?
+```
+
+This analysis remains exploratory and ecological. It does not demonstrate causal delayed effects.
+
+### Meaning of lag analysis in this project
+
+Lag analysis does not mean selecting isolated pollution peaks and then checking what happens in the following periods.
+
+Instead, lagged exposure variables are created by shifting the complete pollutant time series relative to the health event time series.
+
+For each health period, the health outcome always refers to the current period, while pollutant exposure is taken from the same period or from previous periods.
+
+For the monthly lag analysis:
+
+```text
+Lag 0 = pollutant concentration in the same month as the health event rate
+Lag 1 = pollutant concentration one month before the health event rate
+Lag 2 = pollutant concentration two months before the health event rate
+Lag 3 = pollutant concentration three months before the health event rate
+```
+
+For example, the respiratory rate in March 2017 is compared with:
+
+```text
+Lag 0: pollutant mean in March 2017
+Lag 1: pollutant mean in February 2017
+Lag 2: pollutant mean in January 2017
+Lag 3: pollutant mean in December 2016
+```
+
+For the weekly lag analysis:
+
+```text
+Lag 0 = pollutant concentration in the same week as the health event rate
+Lag 1 = pollutant concentration one week before the health event rate
+Lag 2 = pollutant concentration two weeks before the health event rate
+Lag 3 = pollutant concentration three weeks before the health event rate
+Lag 4 = pollutant concentration four weeks before the health event rate
+```
+
+This means that all available periods contribute to the analysis. The lag analysis is not a peak-based analysis.
+
+### Methodological choices
+
+The exposure variables used in Part 4.4 were:
+
+```text
+NO2_population_weighted_mean
+PM25_population_weighted_mean
+```
+
+Only the population-weighted exposure indicator was used, because Part 4.3 had already shown that arithmetic and population-weighted exposure produced very similar correlation patterns.
+
+The main association metric was:
+
+```text
+Spearman correlation
+```
+
+Spearman correlation was used because the analysis is exploratory, ecological and does not assume a linear exposure-response relationship.
+
+Pearson correlation was not included in Part 4.4. Pearson had already been used as a sensitivity check in Part 4.3, but adding it to the lag analysis would have doubled the number of outputs and made interpretation less clear.
+
+### Temporal safeguard
+
+A key methodological safeguard was applied in both the monthly and weekly lag analyses.
+
+Lagged pollutant values were retained only when the lagged period was exactly the expected distance from the current health period.
+
+This was necessary because the project excludes 2020, 2021 and 2022. Without this control, the script could incorrectly connect December 2019 to January 2023 as if they were consecutive periods.
+
+For example:
+
+```text
+Current month = January 2023
+Previous available month = December 2019
+```
+
+This is not a valid lag 1 month. Therefore, the lagged value is set to missing.
+
+The same logic was applied at weekly scale. A lag 1 week value was retained only if the lagged week was exactly 7 days before the current week.
+
+### Monthly lag analysis
+
+The monthly analysis used the monthly ModAria environmental-health integrated dataset produced in Part 4.3:
+
+```text
+Dati/output/4-Modaria exposure/4.3-Modaria environmental health integration/modaria_monthly_environment_health_integrated_dataset.csv
+```
+
+Each row represents:
+
+```text
+MonthPeriod × Area
+```
+
+The monthly input dataset contained:
+
+```text
+120 rows
+60 monthly observations for the industrial area
+60 monthly observations for the agricultural area
+0 missing values in the input dataset
+```
+
+This corresponds to:
+
+```text
+5 years × 12 months × 2 areas = 120 observations
+```
+
+After lag construction, the monthly lagged dataset still contained:
+
+```text
+120 rows
+```
+
+The expected number of available values by lag was:
+
+```text
+Overall:
+Lag 0 = 120
+Lag 1 = 116
+Lag 2 = 112
+Lag 3 = 108
+
+By area:
+Lag 0 = 60
+Lag 1 = 58
+Lag 2 = 56
+Lag 3 = 54
+```
+
+This confirms that lagged values were handled correctly and that the 2019–2023 gap was not incorrectly bridged.
+
+### Main monthly lag results
+
+The main overall monthly Spearman results were:
+
+```text
+Overall NO2 vs Respiratory rate:
+Lag 0 = 0.373
+Lag 1 = 0.333
+Lag 2 = 0.175
+Lag 3 = 0.024
+
+Overall NO2 vs Cardiocirculatory rate:
+Lag 0 = 0.431
+Lag 1 = 0.333
+Lag 2 = 0.208
+Lag 3 = 0.136
+
+Overall PM2.5 vs Respiratory rate:
+Lag 0 = 0.450
+Lag 1 = 0.413
+Lag 2 = 0.300
+Lag 3 = 0.056
+
+Overall PM2.5 vs Cardiocirculatory rate:
+Lag 0 = 0.218
+Lag 1 = 0.120
+Lag 2 = 0.065
+Lag 3 = -0.008
+```
+
+The monthly best-lag summary showed:
+
+```text
+Number of pollutant-outcome-group combinations = 12
+Combinations where lag 0 is strongest positive rho = 12
+Percentage = 100%
+```
+
+Therefore, at monthly scale, lag 0 dominated all pollutant-outcome-group combinations.
+
+This means that the ModAria monthly lag analysis did not identify a clear delayed association at lag 1, lag 2 or lag 3 months.
+
+The main monthly interpretation is:
+
+```text
+At monthly scale, ModAria pollutant-health associations are mainly same-month and seasonally structured.
+The associations are strongest at lag 0 months and generally weaken at longer monthly lags.
+No clear 1–3 month delayed pattern emerges.
+```
+
+### Area-specific monthly lag interpretation
+
+In the industrial area, all four pollutant-outcome combinations showed their highest monthly correlation at lag 0.
+
+The strongest industrial monthly associations were:
+
+```text
+Industrial PM2.5 vs Respiratory:
+Lag 0 = 0.430
+
+Industrial PM2.5 vs Cardiocirculatory:
+Lag 0 = 0.385
+
+Industrial NO2 vs Cardiocirculatory:
+Lag 0 = 0.380
+```
+
+This suggests positive same-month ModAria-health associations in the industrial area, but without evidence of stronger delayed monthly associations.
+
+In the agricultural area, respiratory outcomes again showed the clearest monthly pattern:
+
+```text
+Agricultural NO2 vs Respiratory:
+Lag 0 = 0.465
+
+Agricultural PM2.5 vs Respiratory:
+Lag 0 = 0.432
+Lag 1 = 0.424
+```
+
+The PM2.5-respiratory association remained very similar between lag 0 and lag 1, suggesting some persistence, but lag 0 remained the maximum.
+
+Cardiocirculatory associations in the agricultural area were much weaker, especially for PM2.5.
+
+### Weekly lag analysis
+
+The weekly lag analysis was introduced because monthly lag 0 dominated all combinations. A lag 0 monthly association does not necessarily mean that there is no delay. It may contain shorter delays occurring within the same month.
+
+The weekly analysis used ModAria daily area-level exposure data and selected health events.
+
+The environmental input was:
+
+```text
+Dati/output/4-Modaria exposure/4.2-Area pollutant comparison/modaria_daily_area_exposure_standardized.csv
+```
+
+The health event input was:
+
+```text
+Dati/output/2-Health data/2.2-Health event aggregation/health_events_selected_areas_outcomes.csv
+```
+
+The annual population denominator input was:
+
+```text
+Dati/output/2-Health data/2.2-Health event aggregation/annual_health_events_rates_by_area.csv
+```
+
+Weekly aggregation was performed using Monday-to-Sunday weeks, consistently with the previous station-based weekly lag analysis in Part 3.4.
+
+Each row of the weekly integrated dataset represents:
+
+```text
+WeekStart × Area
+```
+
+The weekly integrated dataset contained:
+
+```text
+522 rows
+261 weekly observations for the industrial area
+261 weekly observations for the agricultural area
+0 missing values in the integrated weekly dataset
+```
+
+The expected number of available values by weekly lag was:
+
+```text
+Overall:
+Lag 0 = 522
+Lag 1 = 518
+Lag 2 = 514
+Lag 3 = 510
+Lag 4 = 506
+
+By area:
+Lag 0 = 261
+Lag 1 = 259
+Lag 2 = 257
+Lag 3 = 255
+Lag 4 = 253
+```
+
+This confirms that weekly lags were validated correctly and that the 2019–2023 gap was not incorrectly bridged.
+
+### Main weekly lag results
+
+The main overall weekly Spearman results were:
+
+```text
+Overall NO2 vs Respiratory rate:
+Lag 0 = 0.249
+Lag 1 = 0.268
+Lag 2 = 0.259
+Lag 3 = 0.239
+Lag 4 = 0.230
+
+Overall NO2 vs Cardiocirculatory rate:
+Lag 0 = 0.288
+Lag 1 = 0.296
+Lag 2 = 0.296
+Lag 3 = 0.258
+Lag 4 = 0.253
+
+Overall PM2.5 vs Respiratory rate:
+Lag 0 = 0.297
+Lag 1 = 0.331
+Lag 2 = 0.277
+Lag 3 = 0.250
+Lag 4 = 0.266
+
+Overall PM2.5 vs Cardiocirculatory rate:
+Lag 0 = 0.179
+Lag 1 = 0.185
+Lag 2 = 0.135
+Lag 3 = 0.117
+Lag 4 = 0.128
+```
+
+The best overall weekly lags were:
+
+```text
+NO2 vs Respiratory:
+best lag = 1 week
+rho = 0.268
+
+NO2 vs Cardiocirculatory:
+best lag = 2 weeks
+rho = 0.296
+
+PM2.5 vs Respiratory:
+best lag = 1 week
+rho = 0.331
+
+PM2.5 vs Cardiocirculatory:
+best lag = 1 week
+rho = 0.185
+```
+
+The weekly best-lag summary showed:
+
+```text
+Number of pollutant-outcome-group combinations = 12
+Combinations where lag 0 is strongest positive rho = 1
+Percentage = 8.33%
+```
+
+This result is very different from the monthly analysis. At weekly scale, lag 0 was rarely the strongest association. Most best lags occurred at lag 1 or lag 2 weeks.
+
+The main weekly interpretation is:
+
+```text
+The monthly lag 0 signal appears to contain shorter temporal delays that become visible only at weekly scale.
+Many same-month associations are compatible with short delays of approximately 1–2 weeks.
+```
+
+### Area-specific weekly lag interpretation
+
+The industrial area showed the clearest weekly lag structure.
+
+The best industrial weekly lags were:
+
+```text
+Industrial NO2 vs Respiratory:
+best lag = 2 weeks
+rho = 0.249
+
+Industrial NO2 vs Cardiocirculatory:
+best lag = 2 weeks
+rho = 0.336
+
+Industrial PM2.5 vs Respiratory:
+best lag = 1 week
+rho = 0.364
+
+Industrial PM2.5 vs Cardiocirculatory:
+best lag = 2 weeks
+rho = 0.354
+```
+
+This suggests that, in the industrial area, ModAria weekly associations tend to peak around lag 1–2 weeks, especially for PM2.5 respiratory and for cardiocirculatory outcomes.
+
+The agricultural area also showed positive respiratory associations, especially at lag 1 week:
+
+```text
+Agricultural NO2 vs Respiratory:
+best lag = 1 week
+rho = 0.304
+
+Agricultural PM2.5 vs Respiratory:
+best lag = 1 week
+rho = 0.295
+```
+
+However, the agricultural respiratory pattern was less sharply defined because lag 0 and lag 1 values were very similar.
+
+Agricultural cardiocirculatory associations remained weak:
+
+```text
+Agricultural NO2 vs Cardiocirculatory:
+best lag = 1 week
+rho = 0.136
+
+Agricultural PM2.5 vs Cardiocirculatory:
+best lag = 0 weeks
+rho = 0.118
+```
+
+This confirms that cardiocirculatory outcomes are more informative in the industrial area than in the agricultural area.
+
+### Monthly versus weekly synthesis
+
+The key result of Part 4.4 is the contrast between monthly and weekly lag patterns.
+
+At monthly scale:
+
+```text
+Lag 0 months was the strongest positive association in 12 out of 12 combinations.
+```
+
+At weekly scale:
+
+```text
+Lag 0 weeks was the strongest positive association in only 1 out of 12 combinations.
+```
+
+Therefore, the same-month signal should not be interpreted as evidence that exposure and health outcomes occur with no delay. Rather, the monthly time resolution is too coarse to detect shorter delays.
+
+The combined interpretation is:
+
+```text
+Monthly analysis:
+associations are mainly same-month and do not show clear 1–3 month delays.
+
+Weekly analysis:
+same-month associations may contain short delays, mostly around 1–2 weeks.
+```
+
+This result is coherent with the previous station-based lag analyses. The ModAria framework confirms the same general temporal pattern, but with a more spatially representative exposure assessment.
+
+### Interpretation in relation to the industrial-versus-agricultural comparison
+
+Part 4.4 adds an important temporal component to the industrial-versus-agricultural comparison.
+
+The industrial area shows the clearest weekly short-lag structure. Several industrial associations reach their maximum at lag 1 or lag 2 weeks, including:
+
+```text
+Industrial PM2.5 vs Respiratory:
+best lag = 1 week
+
+Industrial NO2 vs Cardiocirculatory:
+best lag = 2 weeks
+
+Industrial PM2.5 vs Cardiocirculatory:
+best lag = 2 weeks
+```
+
+This suggests that the industrial area is the context where short-lag temporal coherence between ModAria exposure and health outcomes is most visible.
+
+The agricultural area also shows positive respiratory associations, especially at lag 1 week, but the pattern is less sharply defined. Cardiocirculatory outcomes remain weak in the agricultural area.
+
+Therefore, the industrial-versus-agricultural interpretation after Part 4.4 is:
+
+```text
+Industrial area:
+clearer short-lag structure, especially at lag 1–2 weeks.
+
+Agricultural area:
+positive respiratory associations, but weaker or less sharply lagged structure.
+
+Respiratory outcomes:
+most coherent temporal endpoint in both areas.
+
+Cardiocirculatory outcomes:
+more visible in the industrial area, weak in the agricultural area.
+```
+
+### Final interpretation of Part 4.4
+
+Part 4.4 completes the ModAria-based environmental-health temporal analysis.
+
+The final interpretation is:
+
+```text
+At monthly scale:
+ModAria pollutant-health associations are mainly same-month and seasonally structured.
+
+At weekly scale:
+the same-month signal may contain short delays, mostly around 1–2 weeks.
+
+Respiratory outcomes:
+remain the most temporally coherent health endpoint.
+
+Cardiocirculatory outcomes:
+remain more area-dependent and are more visible in the industrial area.
+
+Industrial area:
+shows the clearest weekly short-lag structure.
+
+Agricultural area:
+shows coherent respiratory associations but weaker cardiocirculatory patterns.
+```
+
+Overall, Part 4.4 strengthens the main project narrative. The ModAria framework confirms that the environmental-health patterns are not random, but temporally coherent. At the same time, the results remain exploratory and ecological. They should be interpreted as evidence of temporal consistency between area-level pollutant exposure and area-level health event rates, not as proof of causal delayed effects.
+
+With Part 4.4 completed, the main analytical coding pipeline of the project is essentially complete.
+
+**Output folder:**
+
+```text
+Dati/output/4-Modaria exposure/4.4-Modaria monthly and weekly lag analysis
+```
+
+**Main script:**
+
+```text
+src/modaria_exposure/modaria_monthly_weekly_lag_analysis.py
+```
+
+**Main monthly CSV outputs:**
+
+```text
+modaria_monthly_dataset_prepared_for_lag_analysis.csv
+modaria_monthly_lag_integrated_dataset.csv
+modaria_monthly_lag_availability_check.csv
+modaria_monthly_lag_spearman_summary.csv
+modaria_monthly_lag_best_lag_summary.csv
+modaria_monthly_lag0_dominance_check.csv
+modaria_monthly_lag_analysis_summary.csv
+```
+
+**Main weekly CSV outputs:**
+
+```text
+modaria_weekly_environment_health_integrated_dataset.csv
+modaria_weekly_lag_integrated_dataset.csv
+modaria_weekly_lag_availability_check.csv
+modaria_weekly_lag_spearman_summary.csv
+modaria_weekly_lag_best_lag_summary.csv
+modaria_weekly_lag0_dominance_check.csv
+modaria_weekly_lag_analysis_summary.csv
+```
+
+**Combined CSV output:**
+
+```text
+modaria_monthly_weekly_lag_spearman_summary.csv
+```
+
+**Main graphical outputs:**
+
+```text
+modaria_monthly_lag_summary_overall.png
+modaria_monthly_best_positive_lag_summary.png
+modaria_weekly_lag_summary_overall.png
+modaria_weekly_best_positive_lag_summary.png
+```
+
+---
+
 ## Repository structure
 
 ### Main folders
@@ -1588,7 +2163,8 @@ Dati/
     └── 4-Modaria exposure/
         ├── 4.1-Data validation and area aggregation/
         ├── 4.2-Area pollutant comparison/
-        └── 4.3-Modaria environmental health integration/
+        ├── 4.3-Modaria environmental health integration/
+        └── 4.4-Modaria monthly and weekly lag analysis/
 
 src/
 ├── data_loader.py
@@ -1615,7 +2191,8 @@ src/
     ├── __init__.py
     ├── modaria_data_validation.py
     ├── modaria_area_pollutant_comparison.py
-    └── modaria_environment_health_integration.py
+    ├── modaria_environment_health_integration.py
+    └── modaria_monthly_weekly_lag_analysis.py
 ```
 
 ### Main files
@@ -1789,6 +2366,18 @@ if __name__ == "__main__":
     run_modaria_environment_health_integration()
 ```
 
+### Run the ModAria monthly and weekly lag analysis
+
+Use this in `main.py`:
+
+```python
+from src.modaria_exposure.modaria_monthly_weekly_lag_analysis import main as run_modaria_lag_analysis
+
+
+if __name__ == "__main__":
+    run_modaria_lag_analysis()
+```
+
 ---
 
 ## GitHub workflow
@@ -1824,6 +2413,7 @@ git commit -m "Add weekly lag analysis"
 git commit -m "Add ModAria data validation and area exposure construction"
 git commit -m "Add ModAria area pollutant comparison"
 git commit -m "Add ModAria environmental health integration"
+git commit -m "Add ModAria monthly and weekly lag analysis"
 git commit -m "Update README after seasonal integration"
 git commit -m "Update README after monthly integration"
 git commit -m "Update README after monthly lag analysis"
@@ -1831,6 +2421,7 @@ git commit -m "Update README after weekly lag analysis"
 git commit -m "Update README after ModAria data validation"
 git commit -m "Update README after ModAria area pollutant comparison"
 git commit -m "Update README after ModAria environmental health integration"
+git commit -m "Update README after ModAria monthly and weekly lag analysis"
 git commit -m "Fix README formatting"
 ```
 
@@ -1838,7 +2429,7 @@ Recommended commit for the current project status:
 
 ```bash
 git add -A
-git commit -m "Add ModAria environmental health integration"
+git commit -m "Add ModAria monthly and weekly lag analysis"
 git push
 ```
 
@@ -1886,7 +2477,7 @@ Part 4 introduces ModAria municipal pollutant estimates. This improves the envir
 
 The ModAria-based exposure indicators are still ecological exposure estimates. They do not represent individual exposure and they do not account for within-municipality variability.
 
-The population-weighted ModAria exposure indicator should be considered the main exposure indicator for future health integration, because it weights municipal pollutant values by the number of inhabitants. The arithmetic area mean should be retained as a secondary sensitivity indicator.
+The population-weighted ModAria exposure indicator should be considered the main exposure indicator for health integration, because it weights municipal pollutant values by the number of inhabitants. The arithmetic area mean should be retained as a secondary sensitivity indicator where needed.
 
 The ModAria values are treated as official ARPA-derived municipal estimates. However, the internal modelling or interpolation uncertainty of the ModAria system is not quantified within this project.
 
@@ -1908,9 +2499,17 @@ The season-stratified monthly sensitivity analysis in Part 4.3 shows that most w
 
 The arithmetic exposure sensitivity in Part 4.3 shows that population-weighted and arithmetic exposure indicators produce very similar correlation patterns. Therefore, the results are not strongly driven by the population-weighting method.
 
-Daily statistical tests can become statistically significant even when differences are small, because the number of paired daily observations is large. For this reason, interpretation should consider effect magnitude, temporal consistency and graphical evidence, not p-values alone.
+Part 4.4 uses only population-weighted ModAria exposure because Part 4.3 showed that arithmetic and population-weighted exposure produced very similar correlation patterns.
 
-Lag analyses should not be interpreted as evidence of causal delayed effects. Lagged correlations may still be influenced by seasonality, temporal autocorrelation, meteorology and unmeasured confounding.
+Part 4.4 shows that ModAria monthly lag associations are strongest at lag 0 months in all pollutant-outcome-area combinations. Therefore, no clear 1–3 month delayed pattern emerges from the monthly ModAria lag analysis.
+
+Part 4.4 also shows that, at weekly scale, most strongest associations occur at lag 1 or lag 2 weeks. This suggests that the same-month signal observed at monthly scale may contain shorter delayed associations within the same month.
+
+Part 4.4 should not be interpreted as evidence of causal delayed effects. Lagged correlations may still be influenced by seasonality, temporal autocorrelation, meteorology and unmeasured confounding.
+
+The strongest weekly short-lag structure is observed in the industrial area, especially for PM2.5 versus respiratory rates and for NO2/PM2.5 versus cardiocirculatory rates. However, adjacent weekly lags often have similar correlation values, so the result should be interpreted as a short-lag window rather than as a precise biological delay.
+
+Daily statistical tests can become statistically significant even when differences are small, because the number of paired daily observations is large. For this reason, interpretation should consider effect magnitude, temporal consistency and graphical evidence, not p-values alone.
 
 Important unmeasured confounders include age beyond the applied stratification, sex, socioeconomic status, smoking, occupational exposure, comorbidities, healthcare access, event coding practices, meteorology, respiratory infections, influenza circulation and individual exposure history.
 
@@ -1955,7 +2554,11 @@ Part 4 has produced:
 - Pearson correlation summaries as linear sensitivity checks;
 - arithmetic exposure sensitivity correlation summaries;
 - season-stratified monthly sensitivity analysis;
-- ModAria environmental-health scatter plots and standardized trend plots.
+- ModAria environmental-health scatter plots and standardized trend plots;
+- ModAria monthly lag analysis;
+- ModAria weekly lag analysis;
+- monthly and weekly lag summary plots;
+- monthly and weekly best-lag summary tables.
 
 The main result of Part 3.1 is that respiratory acute event rates show the clearest seasonal association with station-based pollutant indicators. Both NO2 and PM2.5 show moderate positive associations with respiratory event rates, especially in the agricultural area. Cardiocirculatory event rates do not show clear same-season seasonal associations with the pollutant indicators.
 
@@ -1979,7 +2582,11 @@ At seasonal scale, the agricultural area shows strong positive associations betw
 
 Cardiocirculatory outcomes remain more complex. The industrial area has a higher structural cardiocirculatory burden, and ModAria NO2 integration makes the NO2-cardiocirculatory pattern more visible. However, these results remain ecological and may reflect both exposure differences and other structural area-level factors.
 
-The main interpretation after Part 4.3 is:
+Part 4.4 completes the ModAria temporal analysis. The monthly lag analysis shows that all pollutant-outcome-area combinations have their strongest positive association at lag 0 months. Therefore, no clear delayed pattern emerges at 1–3 months.
+
+The weekly lag analysis refines this conclusion. At weekly scale, lag 0 is the strongest association in only 1 out of 12 combinations, while most strongest associations occur at lag 1 or lag 2 weeks. This suggests that the same-month signal observed in monthly analysis may contain shorter delayed associations within the same month.
+
+The main interpretation after Part 4.4 is:
 
 ```text
 NO2:
@@ -1993,6 +2600,18 @@ most consistent temporal association with pollutant variation.
 
 Cardiocirculatory outcomes:
 more structurally elevated in the industrial area and more visible in the ModAria NO2 framework.
+
+Monthly lag:
+no clear 1–3 month delayed pattern; strongest associations occur at lag 0 months.
+
+Weekly lag:
+the monthly lag 0 signal may contain short delays of approximately 1–2 weeks.
+
+Industrial area:
+clearest weekly short-lag structure.
+
+Agricultural area:
+coherent respiratory associations but weaker cardiocirculatory lag patterns.
 ```
 
 At the current stage, the project provides two complementary environmental frameworks:
@@ -2005,42 +2624,46 @@ ModAria municipality-based framework:
 more spatially coherent with the selected study areas and better suited for final environmental-health integration.
 ```
 
-The strongest and most defensible message from the project is that industrial and agricultural areas differ in their environmental-health profiles, but the difference is pollutant-specific and outcome-specific.
+The strongest and most defensible message from the project is that industrial and agricultural areas differ in their environmental-health profiles, but the difference is pollutant-specific, outcome-specific and scale-dependent.
 
 The ModAria framework improves the environmental interpretation. NO2 becomes more clearly associated with the industrial/urban context, while PM2.5 appears more regional and shared. Respiratory outcomes show the most consistent temporal coherence with pollutant variation, while cardiocirculatory outcomes remain relevant because they are structurally higher in the industrial area and become more visible when ModAria NO2 exposure is used.
 
-The next step should be Part 4.4, focused on ModAria monthly lag analysis.
+The analytical coding phase of the project is now essentially complete.
 
-Part 4.4 should use the monthly integrated dataset produced in Part 4.3:
+A possible future Part 5 may be dedicated to final synthesis rather than to a new analytical pipeline. It could include:
+
+- a concise comparison between the station-based pipeline and the ModAria-based pipeline;
+- summary tables comparing Part 3 and Part 4 results;
+- summary plots comparing station-based and ModAria-based correlations;
+- final interpretation of which conclusions are robust to the change in exposure assessment;
+- preparation of final presentation figures and report text.
+
+The likely final synthesis should emphasize that:
 
 ```text
-Dati/output/4-Modaria exposure/4.3-Modaria environmental health integration/modaria_monthly_environment_health_integrated_dataset.csv
+The station-based pipeline was useful to develop and validate the complete environmental-health workflow.
+
+The ModAria pipeline improves spatial coherence because exposure is reconstructed from all selected municipalities.
+
+NO2 becomes a clearer industrial/urban marker in the ModAria framework.
+
+PM2.5 remains a more regional and shared pollutant.
+
+Respiratory outcomes are the most temporally coherent health endpoint.
+
+Cardiocirculatory outcomes are more area-dependent and more visible in the industrial area.
+
+Monthly lag analyses do not show clear 1–3 month delays.
+
+Weekly lag analyses suggest possible short delays of approximately 1–2 weeks, especially in the industrial area.
 ```
 
-Recommended Part 4.4 design:
+Possible future non-code or external extensions include:
 
-```text
-Main exposure indicator:
-Population-weighted area exposure
-
-Correlation method:
-Spearman correlation
-
-Lags:
-Lag 0, lag 1, lag 2, lag 3 months
-
-Main safeguard:
-Do not connect December 2019 to January 2023.
-Lagged values must be retained only when the lagged month is exactly the expected number of months before the current health month.
-```
-
-After Part 4.4, the project can repeat the weekly lag analysis using ModAria exposure indicators.
-
-Possible future extensions include:
-
-- repeating monthly lag analysis using ModAria exposure indicators;
-- repeating weekly lag analysis using ModAria exposure indicators;
-- comparing station-based results with ModAria-based results;
+- comparing station-based results with ModAria-based results in a final synthesis section;
+- preparing final presentation-ready tables and plots;
+- adding QGIS-based spatial visualizations or heatmaps;
+- exploring spatial modelling or map-based analysis if needed by the group;
 - adding meteorological variables such as temperature, humidity, precipitation, wind speed or atmospheric stability;
 - exploring emission inventory data or additional pollutants such as NH3;
 - testing more formal statistical models with adjustment for seasonality and temporal autocorrelation;

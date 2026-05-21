@@ -1,0 +1,9 @@
+Indicator;Value
+Section;Part 4.4 - ModAria monthly and weekly lag analysis
+Monthly analysis executed;True
+Weekly analysis executed;True
+Exposure source;ModAria municipality-level area exposure
+Exposure indicator;Population-weighted mean
+Correlation method;Spearman correlation
+Main methodological safeguard;Lagged exposure values are validated to avoid incorrect links across the 2019-2023 temporal gap.
+Main interpretation rule;Lagged associations are exploratory ecological correlations and should not be interpreted as causal delays.

@@ -1,0 +1,8 @@
+Indicator;Value
+Temporal scale;Monthly
+Number of pollutant-outcome-group combinations;12
+Combinations where lag 0 is strongest positive rho;12
+Percentage where lag 0 is strongest positive rho;100.0
+Combinations where lag 0 is strongest absolute rho;12
+Percentage where lag 0 is strongest absolute rho;100.0
+Suggested decision rule;If most relevant positive associations peak at lag 0 months, a weekly refinement can be useful to check whether the same-month signal hides shorter delays of 1-2 weeks.
