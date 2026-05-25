@@ -1,75 +1,75 @@
-Area;Municipality;Municipality_key;Pollutant;Filename;File_found
-Industrial;Borgosatollo;borgosatollo;NO2;Borgosatollo_NO2.csv;True
-Industrial;Borgosatollo;borgosatollo;PM25;Borgosatollo_PM25.csv;True
-Industrial;Botticino;botticino;NO2;Botticino_NO2.csv;True
-Industrial;Botticino;botticino;PM25;Botticino_PM25.csv;True
-Industrial;Brescia;brescia;NO2;Brescia_NO2.csv;True
-Industrial;Brescia;brescia;PM25;Brescia_PM25.csv;True
-Industrial;Castenedolo;castenedolo;NO2;Castenedolo_NO2.csv;True
-Industrial;Castenedolo;castenedolo;PM25;Castenedolo_PM25.csv;True
-Industrial;Collebeato;collebeato;NO2;Collebeato_NO2.csv;True
-Industrial;Collebeato;collebeato;PM25;Collebeato_PM25.csv;True
-Industrial;Flero;flero;NO2;Flero_NO2.csv;True
-Industrial;Flero;flero;PM25;Flero_PM25.csv;True
-Industrial;Gussago;gussago;NO2;Gussago_NO2.csv;True
-Industrial;Gussago;gussago;PM25;Gussago_PM25.csv;True
-Industrial;Mazzano;mazzano;NO2;Mazzano_NO2.csv;True
-Industrial;Mazzano;mazzano;PM25;Mazzano_PM25.csv;True
-Industrial;Montirone;montirone;NO2;Montirone_NO2.csv;True
-Industrial;Montirone;montirone;PM25;Montirone_PM25.csv;True
-Industrial;Nave;nave;NO2;Nave_NO2.csv;True
-Industrial;Nave;nave;PM25;Nave_PM25.csv;True
-Industrial;Nuvolento;nuvolento;NO2;Nuvolento_NO2.csv;True
-Industrial;Nuvolento;nuvolento;PM25;Nuvolento_PM25.csv;True
-Industrial;Nuvolera;nuvolera;NO2;Nuvolera_NO2.csv;True
-Industrial;Nuvolera;nuvolera;PM25;Nuvolera_PM25.csv;True
-Industrial;Rezzato;rezzato;NO2;Rezzato_NO2.csv;True
-Industrial;Rezzato;rezzato;PM25;Rezzato_PM25.csv;True
-Industrial;Roncadelle;roncadelle;NO2;Roncadelle_NO2.csv;True
-Industrial;Roncadelle;roncadelle;PM25;Roncadelle_PM25.csv;True
-Industrial;San Zeno Naviglio;sanzenonaviglio;NO2;San Zeno Naviglio_NO2.csv;True
-Industrial;San Zeno Naviglio;sanzenonaviglio;PM25;San Zeno Naviglio_PM25.csv;True
-Industrial;Villa Carcina;villacarcina;NO2;Villa Carcina_NO2.csv;True
-Industrial;Villa Carcina;villacarcina;PM25;Villa Carcina_PM25.csv;True
-Agricultural;Acquanegra Cremonese;acquanegracremonese;NO2;AcquanegraCremonese_NO2.csv;True
-Agricultural;Acquanegra Cremonese;acquanegracremonese;PM25;AcquanegraCremonese_PM25.csv;True
-Agricultural;Alfianello;alfianello;NO2;Alfianello_NO2.csv;True
-Agricultural;Alfianello;alfianello;PM25;Alfianello_PM25.csv;True
-Agricultural;Annicco;annicco;NO2;Annicco_NO2.csv;True
-Agricultural;Annicco;annicco;PM25;Annicco_PM25.csv;True
-Agricultural;Azzanello;azzanello;NO2;Azzanello_NO2.csv;True
-Agricultural;Azzanello;azzanello;PM25;Azzanello_PM25.csv;True
-Agricultural;Barbariga;barbariga;NO2;Barbariga_NO2.csv;True
-Agricultural;Barbariga;barbariga;PM25;Barbariga_PM25.csv;True
-Agricultural;Bassano Bresciano;bassanobresciano;NO2;BassanoBresciano_NO2.csv;True
-Agricultural;Bassano Bresciano;bassanobresciano;PM25;BassanoBresciano_PM25.csv;True
-Agricultural;Bordolano;bordolano;NO2;Bordolano_NO2.csv;True
-Agricultural;Bordolano;bordolano;PM25;Bordolano_PM25.csv;True
-Agricultural;Cappella Cantone;cappellacantone;NO2;CappellaCantone_NO2.csv;True
-Agricultural;Cappella Cantone;cappellacantone;PM25;CappellaCantone_PM25.csv;True
-Agricultural;Casalbuttano ed Uniti;casalbuttanoeduniti;NO2;CasalbuttanoedUniti_NO2.csv;True
-Agricultural;Casalbuttano ed Uniti;casalbuttanoeduniti;PM25;CasalbuttanoedUniti_PM25.csv;True
-Agricultural;Castelvisconti;castelvisconti;NO2;Castelvisconti_NO2.csv;True
-Agricultural;Castelvisconti;castelvisconti;PM25;Castelvisconti_PM25.csv;True
-Agricultural;Corte de' Cortesi con Cignone;cortedecortesiconcignone;NO2;CortedeCortesiconCignone_NO2.csv;True
-Agricultural;Corte de' Cortesi con Cignone;cortedecortesiconcignone;PM25;CortedeCortesiconCignone_PM25.csv;True
-Agricultural;Corzano;corzano;NO2;Corzano_NO2.csv;True
-Agricultural;Corzano;corzano;PM25;Corzano_PM25.csv;True
-Agricultural;Dello;dello;NO2;Dello_NO2.csv;True
-Agricultural;Dello;dello;PM25;Dello_PM25.csv;True
-Agricultural;Genivolta;genivolta;NO2;Genivolta_NO2.csv;True
-Agricultural;Genivolta;genivolta;PM25;Genivolta_PM25.csv;True
-Agricultural;Longhena;longhena;NO2;Longhena_NO2.csv;True
-Agricultural;Longhena;longhena;PM25;Longhena_PM25.csv;True
-Agricultural;Orzinuovi;orzinuovi;NO2;Orzinuovi_NO2.csv;True
-Agricultural;Orzinuovi;orzinuovi;PM25;Orzinuovi_PM25.csv;True
-Agricultural;Pontevico;pontevico;NO2;Pontevico_NO2.csv;True
-Agricultural;Pontevico;pontevico;PM25;Pontevico_PM25.csv;True
-Agricultural;Pralboino;pralboino;NO2;Pralboino_NO2.csv;True
-Agricultural;Pralboino;pralboino;PM25;Pralboino_PM25.csv;True
-Agricultural;Quinzano d'Oglio;quinzanodoglio;NO2;QuinzanodOglio_NO2.csv;True
-Agricultural;Quinzano d'Oglio;quinzanodoglio;PM25;QuinzanodOglio_PM25.csv;True
-Agricultural;San Paolo;sanpaolo;NO2;SanPaolo_NO2.csv;True
-Agricultural;San Paolo;sanpaolo;PM25;SanPaolo_PM25.csv;True
-Agricultural;Soresina;soresina;NO2;Soresina_NO2.csv;True
-Agricultural;Soresina;soresina;PM25;Soresina_PM25.csv;True
+Area;Municipality;Municipality_key;Pollutant;File_count;Filename;Path;File_found;Duplicated_file_pair
+Agricultural;Annicco;annicco;NO2;1;Annicco_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\Annicco_NO2.csv;True;False
+Agricultural;Annicco;annicco;PM25;1;Annicco_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\Annicco_PM25.csv;True;False
+Agricultural;Azzanello;azzanello;NO2;1;Azzanello_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\Azzanello_NO2.csv;True;False
+Agricultural;Azzanello;azzanello;PM25;1;Azzanello_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\Azzanello_PM25.csv;True;False
+Agricultural;Bordolano;bordolano;NO2;1;Bordolano_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\Bordolano_NO2.csv;True;False
+Agricultural;Bordolano;bordolano;PM25;1;Bordolano_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\Bordolano_PM25.csv;True;False
+Agricultural;Borgo San Giacomo;borgosangiacomo;NO2;1;BorgoSanGiacomo_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\BorgoSanGiacomo_NO2.csv;True;False
+Agricultural;Borgo San Giacomo;borgosangiacomo;PM25;1;BorgoSanGiacomo_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\BorgoSanGiacomo_PM25.csv;True;False
+Agricultural;Casalbuttano ed Uniti;casalbuttanoeduniti;NO2;1;CasalbuttanoedUniti_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\CasalbuttanoedUniti_NO2.csv;True;False
+Agricultural;Casalbuttano ed Uniti;casalbuttanoeduniti;PM25;1;CasalbuttanoedUniti_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\CasalbuttanoedUniti_PM25.csv;True;False
+Agricultural;Casalmorano;casalmorano;NO2;1;Casalmorano_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\Casalmorano_NO2.csv;True;False
+Agricultural;Casalmorano;casalmorano;PM25;1;Casalmorano_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\Casalmorano_PM25.csv;True;False
+Agricultural;Castelverde;castelverde;NO2;1;Castelverde_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\Castelverde_NO2.csv;True;False
+Agricultural;Castelverde;castelverde;PM25;1;Castelverde_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\Castelverde_PM25.csv;True;False
+Agricultural;Castelvisconti;castelvisconti;NO2;1;Castelvisconti_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\Castelvisconti_NO2.csv;True;False
+Agricultural;Castelvisconti;castelvisconti;PM25;1;Castelvisconti_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\Castelvisconti_PM25.csv;True;False
+Agricultural;Corte de' Cortesi con Cignone;cortedecortesiconcignone;NO2;1;CortedeCortesiconCignone_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\CortedeCortesiconCignone_NO2.csv;True;False
+Agricultural;Corte de' Cortesi con Cignone;cortedecortesiconcignone;PM25;1;CortedeCortesiconCignone_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\CortedeCortesiconCignone_PM25.csv;True;False
+Agricultural;Corte de' Frati;cortedefrati;NO2;1;CorteDeFrati_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\CorteDeFrati_NO2.csv;True;False
+Agricultural;Corte de' Frati;cortedefrati;PM25;1;CorteDeFrati_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\CorteDeFrati_PM25.csv;True;False
+Agricultural;Genivolta;genivolta;NO2;1;Genivolta_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\Genivolta_NO2.csv;True;False
+Agricultural;Genivolta;genivolta;PM25;1;Genivolta_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\Genivolta_PM25.csv;True;False
+Agricultural;Olmeneta;olmeneta;NO2;1;Olmeneta_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\Olmeneta_NO2.csv;True;False
+Agricultural;Olmeneta;olmeneta;PM25;1;Olmeneta_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\Olmeneta_PM25.csv;True;False
+Agricultural;Paderno Ponchielli;padernoponchielli;NO2;1;PadernoPonchielli_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\PadernoPonchielli_NO2.csv;True;False
+Agricultural;Paderno Ponchielli;padernoponchielli;PM25;1;PadernoPonchielli_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\PadernoPonchielli_PM25.csv;True;False
+Agricultural;Persico Dosimo;persicodosimo;NO2;1;PersicoDosimo_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\PersicoDosimo_NO2.csv;True;False
+Agricultural;Persico Dosimo;persicodosimo;PM25;1;PersicoDosimo_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\PersicoDosimo_PM25.csv;True;False
+Agricultural;Pontevico;pontevico;NO2;1;Pontevico_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\Pontevico_NO2.csv;True;False
+Agricultural;Pontevico;pontevico;PM25;1;Pontevico_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\Pontevico_PM25.csv;True;False
+Agricultural;Pozzaglio ed Uniti;pozzaglioeduniti;NO2;1;PozzaglioEdUniti_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\PozzaglioEdUniti_NO2.csv;True;False
+Agricultural;Pozzaglio ed Uniti;pozzaglioeduniti;PM25;1;PozzaglioEdUniti_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\PozzaglioEdUniti_PM25.csv;True;False
+Agricultural;Quinzano d'Oglio;quinzanodoglio;NO2;1;QuinzanodOglio_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\QuinzanodOglio_NO2.csv;True;False
+Agricultural;Quinzano d'Oglio;quinzanodoglio;PM25;1;QuinzanodOglio_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\QuinzanodOglio_PM25.csv;True;False
+Agricultural;Robecco d'Oglio;robeccodoglio;NO2;1;RobeccoDOglio_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\RobeccoDOglio_NO2.csv;True;False
+Agricultural;Robecco d'Oglio;robeccodoglio;PM25;1;RobeccoDOglio_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\RobeccoDOglio_PM25.csv;True;False
+Agricultural;Soresina;soresina;NO2;1;Soresina_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\Soresina_NO2.csv;True;False
+Agricultural;Soresina;soresina;PM25;1;Soresina_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\Soresina_PM25.csv;True;False
+Agricultural;Verolavecchia;verolavecchia;NO2;1;Verolavecchia_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\Verolavecchia_NO2.csv;True;False
+Agricultural;Verolavecchia;verolavecchia;PM25;1;Verolavecchia_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\Verolavecchia_PM25.csv;True;False
+Agricultural;Villachiara;villachiara;NO2;1;Villachiara_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\Villachiara_NO2.csv;True;False
+Agricultural;Villachiara;villachiara;PM25;1;Villachiara_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Agricultural\Villachiara_PM25.csv;True;False
+Industrial;Borgosatollo;borgosatollo;NO2;1;Borgosatollo_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\Borgosatollo_NO2.csv;True;False
+Industrial;Borgosatollo;borgosatollo;PM25;1;Borgosatollo_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\Borgosatollo_PM25.csv;True;False
+Industrial;Botticino;botticino;NO2;1;Botticino_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\Botticino_NO2.csv;True;False
+Industrial;Botticino;botticino;PM25;1;Botticino_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\Botticino_PM25.csv;True;False
+Industrial;Bovezzo;bovezzo;NO2;1;Bovezzo_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\Bovezzo_NO2.csv;True;False
+Industrial;Bovezzo;bovezzo;PM25;1;Bovezzo_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\Bovezzo_PM25.csv;True;False
+Industrial;Brescia;brescia;NO2;1;Brescia_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\Brescia_NO2.csv;True;False
+Industrial;Brescia;brescia;PM25;1;Brescia_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\Brescia_PM25.csv;True;False
+Industrial;Castel Mella;castelmella;NO2;1;CastelMella_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\CastelMella_NO2.csv;True;False
+Industrial;Castel Mella;castelmella;PM25;1;CastelMella_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\CastelMella_PM25.csv;True;False
+Industrial;Castenedolo;castenedolo;NO2;1;Castenedolo_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\Castenedolo_NO2.csv;True;False
+Industrial;Castenedolo;castenedolo;PM25;1;Castenedolo_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\Castenedolo_PM25.csv;True;False
+Industrial;Cellatica;cellatica;NO2;1;Cellatica_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\Cellatica_NO2.csv;True;False
+Industrial;Cellatica;cellatica;PM25;1;Cellatica_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\Cellatica_PM25.csv;True;False
+Industrial;Collebeato;collebeato;NO2;1;Collebeato_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\Collebeato_NO2.csv;True;False
+Industrial;Collebeato;collebeato;PM25;1;Collebeato_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\Collebeato_PM25.csv;True;False
+Industrial;Concesio;concesio;NO2;1;Concesio_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\Concesio_NO2.csv;True;False
+Industrial;Concesio;concesio;PM25;1;Concesio_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\Concesio_PM25.csv;True;False
+Industrial;Flero;flero;NO2;1;Flero_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\Flero_NO2.csv;True;False
+Industrial;Flero;flero;PM25;1;Flero_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\Flero_PM25.csv;True;False
+Industrial;Gussago;gussago;NO2;1;Gussago_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\Gussago_NO2.csv;True;False
+Industrial;Gussago;gussago;PM25;1;Gussago_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\Gussago_PM25.csv;True;False
+Industrial;Nave;nave;NO2;1;Nave_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\Nave_NO2.csv;True;False
+Industrial;Nave;nave;PM25;1;Nave_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\Nave_PM25.csv;True;False
+Industrial;Rezzato;rezzato;NO2;1;Rezzato_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\Rezzato_NO2.csv;True;False
+Industrial;Rezzato;rezzato;PM25;1;Rezzato_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\Rezzato_PM25.csv;True;False
+Industrial;Roncadelle;roncadelle;NO2;1;Roncadelle_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\Roncadelle_NO2.csv;True;False
+Industrial;Roncadelle;roncadelle;PM25;1;Roncadelle_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\Roncadelle_PM25.csv;True;False
+Industrial;San Zeno Naviglio;sanzenonaviglio;NO2;1;San Zeno Naviglio_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\San Zeno Naviglio_NO2.csv;True;False
+Industrial;San Zeno Naviglio;sanzenonaviglio;PM25;1;San Zeno Naviglio_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\San Zeno Naviglio_PM25.csv;True;False
+Industrial;Torbole Casaglia;torbolecasaglia;NO2;1;TorboleCasaglia_NO2.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\TorboleCasaglia_NO2.csv;True;False
+Industrial;Torbole Casaglia;torbolecasaglia;PM25;1;TorboleCasaglia_PM25.csv;Dati/raw/ModariaDataset_health_aligned\Industrial\TorboleCasaglia_PM25.csv;True;False

@@ -1,10 +1,9 @@
 import os
 import unicodedata
+import warnings
 
 import numpy as np
 import pandas as pd
-
-import warnings
 
 
 # ============================================================
@@ -17,7 +16,10 @@ POLLUTANTS = ["NO2", "PM25"]
 
 AREA_ORDER = ["Industrial", "Agricultural"]
 
-MODARIA_INPUT_DIR = "Dati/raw/ModariaDataset"
+# IMPORTANT:
+# From this aligned version onward, ModAria must be read from the
+# health-aligned folder, not from the old ModariaDataset folder.
+MODARIA_INPUT_DIR = "Dati/raw/ModariaDataset_health_aligned"
 
 POPULATION_INPUT_DIR = "Dati/raw/population"
 
@@ -26,51 +28,59 @@ OUTPUT_DIR = (
     "4.1-Data validation and area aggregation"
 )
 
-# Expected municipalities based on the two project areas.
-# These names are used only for consistency checks and population matching.
+# Final health-aligned municipality list.
+# This is the definitive list because it matches the 37 municipalities
+# covered by the health/QGIS dataset used in Part 2.2.
 EXPECTED_MUNICIPALITIES = {
+    "Agricultural": [
+        "Verolavecchia",
+        "Corte de' Cortesi con Cignone",
+        "Castelvisconti",
+        "Paderno Ponchielli",
+        "Pontevico",
+        "Pozzaglio ed Uniti",
+        "Genivolta",
+        "Casalmorano",
+        "Persico Dosimo",
+        "Casalbuttano ed Uniti",
+        "Borgo San Giacomo",
+        "Quinzano d'Oglio",
+        "Villachiara",
+        "Azzanello",
+        "Annicco",
+        "Robecco d'Oglio",
+        "Olmeneta",
+        "Castelverde",
+        "Soresina",
+        "Corte de' Frati",
+        "Bordolano",
+    ],
     "Industrial": [
-        "Borgosatollo",
-        "Botticino",
         "Brescia",
-        "Castenedolo",
+        "Rezzato",
+        "Castel Mella",
+        "San Zeno Naviglio",
+        "Gussago",
+        "Roncadelle",
         "Collebeato",
         "Flero",
-        "Gussago",
-        "Mazzano",
-        "Montirone",
+        "Botticino",
+        "Castenedolo",
+        "Borgosatollo",
+        "Cellatica",
+        "Torbole Casaglia",
+        "Concesio",
         "Nave",
-        "Nuvolento",
-        "Nuvolera",
-        "Rezzato",
-        "Roncadelle",
-        "San Zeno Naviglio",
-        "Villa Carcina",
-    ],
-    "Agricultural": [
-        "Acquanegra Cremonese",
-        "Alfianello",
-        "Annicco",
-        "Azzanello",
-        "Barbariga",
-        "Bassano Bresciano",
-        "Bordolano",
-        "Cappella Cantone",
-        "Casalbuttano ed Uniti",
-        "Castelvisconti",
-        "Corte de' Cortesi con Cignone",
-        "Corzano",
-        "Dello",
-        "Genivolta",
-        "Longhena",
-        "Orzinuovi",
-        "Pontevico",
-        "Pralboino",
-        "Quinzano d'Oglio",
-        "San Paolo",
-        "Soresina",
+        "Bovezzo",
     ],
 }
+
+EXPECTED_FILE_COUNTS = {
+    "Agricultural": 21 * 2,
+    "Industrial": 16 * 2,
+}
+
+EXPECTED_TOTAL_FILES = sum(EXPECTED_FILE_COUNTS.values())
 
 
 # ============================================================
@@ -105,20 +115,43 @@ def normalize_text(value):
     return text
 
 
-def build_expected_municipality_lookup():
+def build_expected_municipalities_table():
     """
-    Build a lookup table from normalized municipality names to official names.
+    Build the reference municipality table used throughout Part 4.1.
     """
 
     rows = []
 
-    for area, municipalities in EXPECTED_MUNICIPALITIES.items():
-        for municipality in municipalities:
+    for area in AREA_ORDER:
+        for municipality in EXPECTED_MUNICIPALITIES[area]:
             rows.append({
                 "Area": area,
                 "Municipality": municipality,
                 "Municipality_key": normalize_text(municipality),
             })
+
+    return pd.DataFrame(rows)
+
+
+def build_expected_file_table():
+    """
+    Build the complete expected Area × Municipality × Pollutant table.
+
+    Expected total:
+    37 municipalities × 2 pollutants = 74 files.
+    """
+
+    rows = []
+
+    for area in AREA_ORDER:
+        for municipality in EXPECTED_MUNICIPALITIES[area]:
+            for pollutant in POLLUTANTS:
+                rows.append({
+                    "Area": area,
+                    "Municipality": municipality,
+                    "Municipality_key": normalize_text(municipality),
+                    "Pollutant": pollutant,
+                })
 
     return pd.DataFrame(rows)
 
@@ -147,14 +180,6 @@ def selected_date_index():
 def parse_date_series(series):
     """
     Parse date values in a robust and controlled way.
-
-    This version avoids the pandas warning:
-    'Could not infer format, so each element will be parsed individually...'
-
-    It first tries several explicit formats. If some dates remain unparsed,
-    it uses format='mixed' when available. If the installed pandas version
-    does not support format='mixed', the fallback is executed with the warning
-    suppressed because it is intentional and controlled.
     """
 
     series_as_string = (
@@ -220,8 +245,6 @@ def parse_date_series(series):
             )
 
         except TypeError:
-            # Compatibility fallback for older pandas versions.
-            # The warning is suppressed because this fallback is intentional.
             with warnings.catch_warnings():
                 warnings.filterwarnings(
                     "ignore",
@@ -280,7 +303,7 @@ def parse_modaria_filename(filename):
     Expected examples:
     - Brescia_NO2.csv
     - Brescia_PM25.csv
-    - AcquanegraCremonese_NO2.csv
+    - BorgoSanGiacomo_NO2.csv
     - San Zeno Naviglio_PM25.csv
     """
 
@@ -288,10 +311,10 @@ def parse_modaria_filename(filename):
 
     if stem.endswith("_NO2"):
         pollutant = "NO2"
-        municipality_raw = stem.replace("_NO2", "")
+        municipality_raw = stem[:-len("_NO2")]
     elif stem.endswith("_PM25"):
         pollutant = "PM25"
-        municipality_raw = stem.replace("_PM25", "")
+        municipality_raw = stem[:-len("_PM25")]
     else:
         pollutant = None
         municipality_raw = stem
@@ -303,10 +326,15 @@ def parse_modaria_filename(filename):
 
 def scan_modaria_files():
     """
-    Scan ModAria input folders and create a file inventory.
+    Scan ModAria health-aligned input folders and create a file inventory.
     """
 
-    expected_lookup = build_expected_municipality_lookup()
+    if not os.path.exists(MODARIA_INPUT_DIR):
+        raise FileNotFoundError(
+            f"Missing ModAria input folder: {MODARIA_INPUT_DIR}"
+        )
+
+    expected_lookup = build_expected_municipalities_table()
 
     rows = []
 
@@ -320,31 +348,43 @@ def scan_modaria_files():
             if not filename.lower().endswith(".csv"):
                 continue
 
-            municipality_raw, municipality_key, pollutant = parse_modaria_filename(filename)
+            municipality_raw, municipality_key_raw, pollutant = parse_modaria_filename(filename)
 
             matched = expected_lookup[
                 (expected_lookup["Area"] == area)
-                & (expected_lookup["Municipality_key"] == municipality_key)
+                & (expected_lookup["Municipality_key"] == municipality_key_raw)
             ]
 
             if len(matched) == 1:
                 municipality = matched.iloc[0]["Municipality"]
+                municipality_key = matched.iloc[0]["Municipality_key"]
+                matched_expected = True
             else:
                 municipality = municipality_raw
+                municipality_key = municipality_key_raw
+                matched_expected = False
 
             rows.append({
                 "Area": area,
                 "Municipality": municipality,
                 "Municipality_key": municipality_key,
+                "Raw_municipality_from_filename": municipality_raw,
+                "Raw_municipality_key_from_filename": municipality_key_raw,
                 "Pollutant": pollutant,
                 "Filename": filename,
                 "Path": os.path.join(area_dir, filename),
+                "Matched_expected_municipality": matched_expected,
             })
 
     inventory = pd.DataFrame(rows)
 
+    if inventory.empty:
+        raise ValueError(
+            f"No CSV files were found in {MODARIA_INPUT_DIR}."
+        )
+
     inventory = inventory.sort_values(
-        ["Area", "Municipality", "Pollutant"]
+        ["Area", "Municipality", "Pollutant", "Filename"]
     ).reset_index(drop=True)
 
     return inventory
@@ -352,36 +392,194 @@ def scan_modaria_files():
 
 def check_file_inventory(inventory):
     """
-    Check whether all expected municipality-pollutant files are present.
+    Check whether all expected Area × Municipality × Pollutant files are present.
     """
 
-    expected_rows = []
-
-    for area, municipalities in EXPECTED_MUNICIPALITIES.items():
-        for municipality in municipalities:
-            for pollutant in POLLUTANTS:
-                expected_rows.append({
-                    "Area": area,
-                    "Municipality": municipality,
-                    "Municipality_key": normalize_text(municipality),
-                    "Pollutant": pollutant,
-                })
-
-    expected = pd.DataFrame(expected_rows)
+    expected = build_expected_file_table()
 
     observed = inventory[
-        ["Area", "Municipality_key", "Pollutant", "Filename"]
+        inventory["Pollutant"].isin(POLLUTANTS)
     ].copy()
 
+    observed_summary = (
+        observed
+        .groupby(["Area", "Municipality_key", "Pollutant"], as_index=False)
+        .agg(
+            File_count=("Filename", "count"),
+            Filename=("Filename", lambda x: " | ".join(sorted(x))),
+            Path=("Path", lambda x: " | ".join(sorted(x))),
+        )
+    )
+
     check = expected.merge(
-        observed,
+        observed_summary,
         on=["Area", "Municipality_key", "Pollutant"],
         how="left"
     )
 
-    check["File_found"] = check["Filename"].notna()
+    check["File_count"] = check["File_count"].fillna(0).astype(int)
+    check["File_found"] = check["File_count"] > 0
+    check["Duplicated_file_pair"] = check["File_count"] > 1
+
+    check = check.sort_values(
+        ["Area", "Municipality", "Pollutant"]
+    ).reset_index(drop=True)
 
     return check
+
+
+def validate_file_inventory(inventory, inventory_check):
+    """
+    Strictly validate the ModAria health-aligned file inventory.
+
+    The script must stop if:
+    - the number of CSV files is not 74;
+    - one area has the wrong number of files;
+    - at least one expected municipality-pollutant file is missing;
+    - at least one extra municipality is present;
+    - at least one file has an invalid pollutant suffix;
+    - duplicates exist for the same Area × Municipality × Pollutant.
+    """
+
+    errors = []
+
+    # ------------------------------------------------------------
+    # 1. Total number of files
+    # ------------------------------------------------------------
+
+    if len(inventory) != EXPECTED_TOTAL_FILES:
+        errors.append(
+            f"Expected {EXPECTED_TOTAL_FILES} CSV files, but found {len(inventory)}."
+        )
+
+    # ------------------------------------------------------------
+    # 2. Files per area
+    # ------------------------------------------------------------
+
+    area_counts = (
+        inventory
+        .groupby("Area")
+        .size()
+        .to_dict()
+    )
+
+    for area, expected_count in EXPECTED_FILE_COUNTS.items():
+        observed_count = area_counts.get(area, 0)
+
+        if observed_count != expected_count:
+            errors.append(
+                f"{area}: expected {expected_count} files, found {observed_count}."
+            )
+
+    # ------------------------------------------------------------
+    # 3. Invalid pollutant suffix
+    # ------------------------------------------------------------
+
+    invalid_pollutant = inventory[
+        ~inventory["Pollutant"].isin(POLLUTANTS)
+    ].copy()
+
+    if len(invalid_pollutant) > 0:
+        errors.append(
+            "Some files do not end with a valid pollutant suffix "
+            "(_NO2.csv or _PM25.csv):\n"
+            f"{invalid_pollutant[['Area', 'Filename']].to_string(index=False)}"
+        )
+
+    # ------------------------------------------------------------
+    # 4. Extra/unmatched municipalities
+    # ------------------------------------------------------------
+
+    unmatched = inventory[
+        inventory["Matched_expected_municipality"] == False
+    ].copy()
+
+    if len(unmatched) > 0:
+        errors.append(
+            "Some files refer to municipalities that are not in the "
+            "health-aligned list:\n"
+            f"{unmatched[['Area', 'Filename', 'Raw_municipality_from_filename']].to_string(index=False)}"
+        )
+
+    # ------------------------------------------------------------
+    # 5. Missing expected files
+    # ------------------------------------------------------------
+
+    missing_files = inventory_check[
+        inventory_check["File_found"] == False
+    ].copy()
+
+    if len(missing_files) > 0:
+        errors.append(
+            "Some expected Area × Municipality × Pollutant files are missing:\n"
+            f"{missing_files[['Area', 'Municipality', 'Pollutant']].to_string(index=False)}"
+        )
+
+    # ------------------------------------------------------------
+    # 6. Duplicated expected pairs
+    # ------------------------------------------------------------
+
+    duplicated_pairs = inventory_check[
+        inventory_check["Duplicated_file_pair"] == True
+    ].copy()
+
+    if len(duplicated_pairs) > 0:
+        errors.append(
+            "Some Area × Municipality × Pollutant pairs have duplicated files:\n"
+            f"{duplicated_pairs[['Area', 'Municipality', 'Pollutant', 'Filename']].to_string(index=False)}"
+        )
+
+    # ------------------------------------------------------------
+    # 7. Unique municipality counts
+    # ------------------------------------------------------------
+
+    valid_inventory = inventory[
+        inventory["Pollutant"].isin(POLLUTANTS)
+        & (inventory["Matched_expected_municipality"] == True)
+    ].copy()
+
+    municipality_counts = (
+        valid_inventory
+        .drop_duplicates(["Area", "Municipality_key"])
+        .groupby("Area")
+        .size()
+        .to_dict()
+    )
+
+    expected_municipality_counts = {
+        area: len(municipalities)
+        for area, municipalities in EXPECTED_MUNICIPALITIES.items()
+    }
+
+    for area, expected_count in expected_municipality_counts.items():
+        observed_count = municipality_counts.get(area, 0)
+
+        if observed_count != expected_count:
+            errors.append(
+                f"{area}: expected {expected_count} unique municipalities, "
+                f"found {observed_count}."
+            )
+
+    if errors:
+        message = (
+            "\nMODARIA HEALTH-ALIGNED FILE VALIDATION FAILED\n"
+            "Fix the input folder before running Part 4.1.\n\n"
+            + "\n\n".join(errors)
+        )
+
+        raise ValueError(message)
+
+    print("\nFile inventory validation passed.")
+    print(f"Total CSV files found: {len(inventory)}")
+    print("Files by area:")
+    print(inventory.groupby("Area").size())
+    print("Unique municipalities by area:")
+    print(
+        valid_inventory
+        .drop_duplicates(["Area", "Municipality_key"])
+        .groupby("Area")
+        .size()
+    )
 
 
 # ============================================================
@@ -407,7 +605,7 @@ def read_modaria_csv(path, area, municipality, municipality_key, pollutant):
     """
     Read one ModAria CSV file.
 
-    The function is intentionally robust because ARPA files may contain
+    The function is intentionally robust because ARPA/ModAria files may contain
     metadata rows before the actual table.
 
     Output columns:
@@ -441,7 +639,6 @@ def read_modaria_csv(path, area, municipality, municipality_key, pollutant):
                     )
 
                     if date_col is None:
-                        # Fallback: try the first column as date column.
                         candidate = df.columns[0]
                         parsed_dates = parse_date_series(df[candidate])
 
@@ -453,7 +650,13 @@ def read_modaria_csv(path, area, municipality, municipality_key, pollutant):
 
                     value_col = find_column_by_name(
                         df.columns,
-                        patterns=["valore", pollutant.lower(), "media", "concentrazione"]
+                        patterns=[
+                            "valore",
+                            pollutant.lower(),
+                            "media",
+                            "concentrazione",
+                            "value",
+                        ]
                     )
 
                     if value_col is None or value_col == date_col:
@@ -502,6 +705,9 @@ def read_modaria_csv(path, area, municipality, municipality_key, pollutant):
 
                     parsed = parsed.dropna(subset=["Value"])
 
+                    if parsed.empty:
+                        continue
+
                     parsed["Area"] = area
                     parsed["Municipality"] = municipality
                     parsed["Municipality_key"] = municipality_key
@@ -541,10 +747,12 @@ def load_all_modaria_data(inventory):
 
     parts = []
 
-    for _, row in inventory.iterrows():
-        if row["Pollutant"] not in POLLUTANTS:
-            continue
+    valid_inventory = inventory[
+        inventory["Pollutant"].isin(POLLUTANTS)
+        & (inventory["Matched_expected_municipality"] == True)
+    ].copy()
 
+    for _, row in valid_inventory.iterrows():
         data = read_modaria_csv(
             path=row["Path"],
             area=row["Area"],
@@ -572,13 +780,76 @@ def load_all_modaria_data(inventory):
     return data
 
 
+def validate_loaded_modaria_data(data):
+    """
+    Validate loaded ModAria data after filtering to COMMON_YEARS.
+    """
+
+    errors = []
+
+    if data.empty:
+        errors.append("Loaded ModAria dataset is empty after filtering to COMMON_YEARS.")
+
+    observed_years = sorted(data["Year"].dropna().unique().tolist())
+
+    if observed_years != COMMON_YEARS:
+        errors.append(
+            f"Expected years {COMMON_YEARS}, but loaded years are {observed_years}."
+        )
+
+    expected = build_expected_file_table()
+
+    observed = (
+        data
+        .groupby(["Area", "Municipality_key", "Pollutant"], as_index=False)
+        .agg(
+            Loaded_rows=("Value", "count"),
+            First_date=("Date", "min"),
+            Last_date=("Date", "max"),
+        )
+    )
+
+    loaded_check = expected.merge(
+        observed,
+        on=["Area", "Municipality_key", "Pollutant"],
+        how="left"
+    )
+
+    loaded_check["Loaded_rows"] = loaded_check["Loaded_rows"].fillna(0).astype(int)
+
+    missing_loaded_groups = loaded_check[
+        loaded_check["Loaded_rows"] == 0
+    ].copy()
+
+    if len(missing_loaded_groups) > 0:
+        errors.append(
+            "Some expected Area × Municipality × Pollutant groups have no loaded data "
+            "after filtering to COMMON_YEARS:\n"
+            f"{missing_loaded_groups[['Area', 'Municipality', 'Pollutant']].to_string(index=False)}"
+        )
+
+    if errors:
+        message = (
+            "\nMODARIA LOADED DATA VALIDATION FAILED\n\n"
+            + "\n\n".join(errors)
+        )
+
+        raise ValueError(message)
+
+    print("\nLoaded ModAria data validation passed.")
+    print("Rows by area and pollutant:")
+    print(data.groupby(["Area", "Pollutant"]).size())
+
+    return loaded_check
+
+
 # ============================================================
 # QUALITY CHECKS
 # ============================================================
 
-def summarize_modaria_quality(data, inventory_check):
+def summarize_modaria_quality(data):
     """
-    Build quality-control tables for ModAria data.
+    Build quality-control table for ModAria data.
     """
 
     full_date_index = selected_date_index()
@@ -630,8 +901,6 @@ def summarize_modaria_quality(data, inventory_check):
 def build_missing_dates_table(data):
     """
     Build a table with missing dates for each municipality and pollutant.
-
-    This can be useful for debugging if some files have incomplete coverage.
     """
 
     full_date_index = selected_date_index()
@@ -658,7 +927,15 @@ def build_missing_dates_table(data):
                 "Missing_date": date,
             })
 
-    return pd.DataFrame(rows)
+    columns = [
+        "Area",
+        "Municipality",
+        "Municipality_key",
+        "Pollutant",
+        "Missing_date",
+    ]
+
+    return pd.DataFrame(rows, columns=columns)
 
 
 # ============================================================
@@ -723,11 +1000,6 @@ def build_wide_datasets(data):
 def clean_population_numeric(series):
     """
     Convert ISTAT population values to numeric.
-
-    Handles:
-    - thousands separators;
-    - decimal comma;
-    - empty strings.
     """
 
     cleaned = (
@@ -751,11 +1023,6 @@ def clean_population_numeric(series):
 def find_total_sex_mask(series):
     """
     Identify rows corresponding to total sex.
-
-    Depending on the ISTAT file, total sex may be coded as:
-    - Totale
-    - T
-    - Total
     """
 
     normalized = series.apply(normalize_text)
@@ -771,12 +1038,6 @@ def find_total_sex_mask(series):
 def find_total_age_mask(series):
     """
     Identify rows corresponding to total age.
-
-    Depending on the ISTAT file, total age may be coded as:
-    - 999
-    - Totale
-    - Total
-    - TOTALE
     """
 
     text = series.astype(str).str.strip()
@@ -833,8 +1094,6 @@ def get_column_by_possible_names(columns, possible_names):
 def read_population_file(path, year, province):
     """
     Read one ISTAT population file.
-
-    This function handles the different formats used in the project.
 
     Key safeguard:
     If a total-age row exists, it is used directly.
@@ -906,34 +1165,17 @@ def read_population_file(path, year, province):
 
             temp = temp.dropna(subset=["Comune", "Population"]).copy()
 
-            # --------------------------------------------------------
-            # 1. If a sex column exists, keep only total-sex rows.
-            #    This avoids summing male + female + total together.
-            # --------------------------------------------------------
-
             if sex_col is not None and sex_col in temp.columns:
                 total_sex_mask = find_total_sex_mask(temp[sex_col])
 
                 if total_sex_mask.any():
                     temp = temp[total_sex_mask].copy()
 
-            # --------------------------------------------------------
-            # 2. If a total-age row exists, keep only that row.
-            #    This is the key correction for 2023 double counting.
-            # --------------------------------------------------------
-
             if age_col is not None and age_col in temp.columns:
                 total_age_mask = find_total_age_mask(temp[age_col])
 
                 if total_age_mask.any():
                     temp = temp[total_age_mask].copy()
-
-            # --------------------------------------------------------
-            # 3. Aggregate by municipality.
-            #    If total-age row was available, this simply keeps the
-            #    municipal total.
-            #    If not, it sums age classes after total-sex filtering.
-            # --------------------------------------------------------
 
             population = (
                 temp
@@ -1014,9 +1256,9 @@ def load_population_data():
     return population_data
 
 
-def build_population_weights(inventory):
+def build_population_weights():
     """
-    Build population denominators for each study municipality and year.
+    Build population denominators for each health-aligned study municipality and year.
 
     Output:
     one row for each Area × Municipality × Year.
@@ -1024,9 +1266,7 @@ def build_population_weights(inventory):
 
     population_data = load_population_data()
 
-    municipalities = inventory[
-        ["Area", "Municipality", "Municipality_key"]
-    ].drop_duplicates().copy()
+    municipalities = build_expected_municipalities_table()
 
     year_table = pd.DataFrame({"Year": COMMON_YEARS})
 
@@ -1039,6 +1279,30 @@ def build_population_weights(inventory):
         how="outer"
     ).drop(columns="merge_key")
 
+    selected_keys = expected_population["Municipality_key"].drop_duplicates()
+
+    selected_population_data = population_data[
+        population_data["Municipality_key"].isin(selected_keys)
+    ].copy()
+
+    duplicated_population_keys = (
+        selected_population_data
+        .groupby(["Year", "Municipality_key"])
+        .size()
+        .reset_index(name="N_matches")
+    )
+
+    duplicated_population_keys = duplicated_population_keys[
+        duplicated_population_keys["N_matches"] > 1
+    ].copy()
+
+    if len(duplicated_population_keys) > 0:
+        raise ValueError(
+            "Duplicated population matches were found for some "
+            "Year × Municipality_key pairs. Check population input files:\n"
+            f"{duplicated_population_keys.to_string(index=False)}"
+        )
+
     population_weights = expected_population.merge(
         population_data,
         on=["Year", "Municipality_key"],
@@ -1048,12 +1312,6 @@ def build_population_weights(inventory):
     population_weights = population_weights.sort_values(
         ["Area", "Municipality", "Year"]
     ).reset_index(drop=True)
-
-    # ------------------------------------------------------------
-    # Internal consistency check.
-    # This does not stop the script, but it prints a clear warning
-    # if one year is suspiciously larger than the previous years.
-    # ------------------------------------------------------------
 
     area_year_totals = (
         population_weights
@@ -1084,6 +1342,42 @@ def build_population_weights(inventory):
     return population_weights
 
 
+def validate_population_weights(population_weights):
+    """
+    Validate that all selected municipalities have population values
+    for all selected years.
+    """
+
+    missing_population = population_weights[
+        population_weights["Population"].isna()
+    ].copy()
+
+    if len(missing_population) > 0:
+        raise ValueError(
+            "Some selected municipalities have missing population values:\n"
+            f"{missing_population[['Area', 'Municipality', 'Year']].to_string(index=False)}"
+        )
+
+    duplicated_rows = (
+        population_weights
+        .groupby(["Area", "Municipality_key", "Year"])
+        .size()
+        .reset_index(name="N")
+    )
+
+    duplicated_rows = duplicated_rows[duplicated_rows["N"] > 1].copy()
+
+    if len(duplicated_rows) > 0:
+        raise ValueError(
+            "Duplicated rows found in population weights:\n"
+            f"{duplicated_rows.to_string(index=False)}"
+        )
+
+    print("\nPopulation weights validation passed.")
+    print("Population rows:", len(population_weights))
+    print("Expected population rows:", 37 * len(COMMON_YEARS))
+
+
 # ============================================================
 # AREA-LEVEL EXPOSURE INDICATORS
 # ============================================================
@@ -1094,6 +1388,8 @@ def build_arithmetic_area_mean(data):
 
     For each Date × Area × Pollutant:
     arithmetic mean = mean of available municipal values.
+
+    This is kept as descriptive/sensitivity indicator.
     """
 
     grouped = (
@@ -1105,16 +1401,16 @@ def build_arithmetic_area_mean(data):
         )
     )
 
-    total_municipalities = (
-        data
-        .groupby(["Area", "Pollutant"], as_index=False)["Municipality"]
+    expected_counts = (
+        build_expected_municipalities_table()
+        .groupby("Area", as_index=False)["Municipality"]
         .nunique()
         .rename(columns={"Municipality": "Total_municipalities"})
     )
 
     grouped = grouped.merge(
-        total_municipalities,
-        on=["Area", "Pollutant"],
+        expected_counts,
+        on="Area",
         how="left"
     )
 
@@ -1134,6 +1430,7 @@ def build_population_weighted_area_mean(data, population_weights):
     For each Date × Area × Pollutant:
     weighted mean = sum(value × municipal population) / sum(municipal population)
 
+    This remains the main exposure indicator.
     Missing pollutant values are excluded from both numerator and denominator.
     """
 
@@ -1150,6 +1447,16 @@ def build_population_weighted_area_mean(data, population_weights):
         on=["Year", "Area", "Municipality", "Municipality_key"],
         how="left"
     )
+
+    missing_population_after_merge = data_with_population[
+        data_with_population["Population"].isna()
+    ].copy()
+
+    if len(missing_population_after_merge) > 0:
+        raise ValueError(
+            "Population is missing after merging ModAria data with population weights:\n"
+            f"{missing_population_after_merge[['Area', 'Municipality', 'Year']].drop_duplicates().to_string(index=False)}"
+        )
 
     data_with_population["Weighted_value"] = (
         data_with_population["Value"]
@@ -1258,24 +1565,26 @@ def run_modaria_data_validation():
     """
     Run Part 4.1: ModAria data validation and area exposure construction.
 
-    This script:
-    - reads all ModAria municipal CSV files;
-    - identifies area, municipality and pollutant from file names;
-    - cleans metadata rows, dates and concentration values;
-    - filters the selected non-COVID years;
-    - builds a long daily dataset;
-    - builds wide daily datasets by area and pollutant;
-    - checks data availability and missing dates;
-    - loads ISTAT population files;
-    - builds arithmetic area mean exposure;
-    - builds population-weighted area mean exposure.
+    This health-aligned version:
+    - reads only Dati/raw/ModariaDataset_health_aligned;
+    - uses the 37 municipalities covered by the health dataset;
+    - checks that exactly 74 ModAria CSV files are present;
+    - stops if extra/missing/duplicated municipality-pollutant files exist;
+    - filters to selected non-COVID years;
+    - builds long and wide daily municipal datasets;
+    - builds arithmetic and population-weighted area exposure indicators.
     """
 
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     print("\n========================================")
     print("MODARIA DATA VALIDATION AND AREA EXPOSURE")
+    print("HEALTH-ALIGNED VERSION")
     print("========================================")
+
+    print(f"\nInput folder: {MODARIA_INPUT_DIR}")
+    print(f"Expected total files: {EXPECTED_TOTAL_FILES}")
+    print(f"Expected files by area: {EXPECTED_FILE_COUNTS}")
 
     # ------------------------------------------------------------
     # 1. File inventory
@@ -1306,19 +1615,24 @@ def run_modaria_data_validation():
     print("\nExpected file check:")
     print(inventory_check)
 
-    missing_files = inventory_check[inventory_check["File_found"] == False].copy()
-
-    if len(missing_files) > 0:
-        print("\nWARNING: Some expected files are missing:")
-        print(missing_files)
-    else:
-        print("\nAll expected municipality-pollutant files were found.")
+    validate_file_inventory(
+        inventory=inventory,
+        inventory_check=inventory_check
+    )
 
     # ------------------------------------------------------------
     # 2. Load and clean all ModAria files
     # ------------------------------------------------------------
 
     data = load_all_modaria_data(inventory)
+
+    loaded_check = validate_loaded_modaria_data(data)
+
+    loaded_check.to_csv(
+        os.path.join(OUTPUT_DIR, "modaria_loaded_data_check.csv"),
+        index=False,
+        sep=";"
+    )
 
     data_output_path = os.path.join(
         OUTPUT_DIR,
@@ -1350,10 +1664,7 @@ def run_modaria_data_validation():
     # 3. Quality checks
     # ------------------------------------------------------------
 
-    quality = summarize_modaria_quality(
-        data=data,
-        inventory_check=inventory_check
-    )
+    quality = summarize_modaria_quality(data)
 
     quality.to_csv(
         os.path.join(OUTPUT_DIR, "modaria_data_quality_summary.csv"),
@@ -1396,7 +1707,9 @@ def run_modaria_data_validation():
     # 5. Population weights
     # ------------------------------------------------------------
 
-    population_weights = build_population_weights(inventory)
+    population_weights = build_population_weights()
+
+    validate_population_weights(population_weights)
 
     population_weights.to_csv(
         os.path.join(OUTPUT_DIR, "modaria_population_weights.csv"),
@@ -1406,19 +1719,6 @@ def run_modaria_data_validation():
 
     print("\nPopulation weights:")
     print(population_weights.head(40))
-
-    print("\nMissing population values:")
-    print(population_weights["Population"].isna().sum())
-
-    missing_population = population_weights[
-        population_weights["Population"].isna()
-    ].copy()
-
-    if len(missing_population) > 0:
-        print("\nWARNING: Some municipalities have missing population values:")
-        print(missing_population)
-    else:
-        print("\nAll selected municipalities were matched with population data.")
 
     # ------------------------------------------------------------
     # 6. Area-level arithmetic mean exposure

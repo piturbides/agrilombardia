@@ -33,9 +33,16 @@ OUTPUT_DIR = (
     "4.2-Area pollutant comparison"
 )
 
-# Candidate names for the main 4.1 output.
-# The script will use the first existing file.
 INPUT_CANDIDATES = [
+    # Updated health-aligned Part 4.1 outputs.
+    # Prefer the wide summary because it has exactly one row per Date × Area
+    # and contains both pollutants and both exposure indicators.
+    os.path.join(INPUT_DIR, "modaria_daily_area_exposure_summary_wide.csv"),
+
+    # Long summary is also valid and can be used as fallback.
+    os.path.join(INPUT_DIR, "modaria_daily_area_exposure_summary_long.csv"),
+
+    # Older possible names kept only for backward compatibility.
     os.path.join(INPUT_DIR, "modaria_daily_area_exposure.csv"),
     os.path.join(INPUT_DIR, "daily_area_exposure.csv"),
     os.path.join(INPUT_DIR, "modaria_area_exposure_daily.csv"),
@@ -490,6 +497,91 @@ def load_and_standardize_daily_area_exposure():
 
     return data
 
+
+def validate_daily_standardized_dataset(daily):
+    """
+    Validate the standardized daily area exposure dataset produced for Part 4.2.
+
+    Expected structure:
+    1826 selected days × 2 areas × 2 pollutants = 7304 rows.
+    """
+
+    expected_days = 1826
+    expected_rows = expected_days * len(AREA_ORDER) * len(POLLUTANTS)
+
+    errors = []
+
+    if len(daily) != expected_rows:
+        errors.append(
+            f"Expected {expected_rows} daily rows "
+            f"({expected_days} days × {len(AREA_ORDER)} areas × {len(POLLUTANTS)} pollutants), "
+            f"but found {len(daily)}."
+        )
+
+    observed_years = sorted(daily["Year"].dropna().unique().tolist())
+
+    if observed_years != COMMON_YEARS:
+        errors.append(
+            f"Expected years {COMMON_YEARS}, but found {observed_years}."
+        )
+
+    row_counts = (
+        daily
+        .groupby(["Area", "Pollutant"])
+        .size()
+        .reset_index(name="N_rows")
+    )
+
+    wrong_counts = row_counts[row_counts["N_rows"] != expected_days].copy()
+
+    if len(wrong_counts) > 0:
+        errors.append(
+            "Unexpected number of daily rows for some Area × Pollutant groups:\n"
+            f"{wrong_counts.to_string(index=False)}"
+        )
+
+    missing_values = daily[
+        [
+            "Date",
+            "Area",
+            "Pollutant",
+            "Arithmetic_mean",
+            "Population_weighted_mean",
+        ]
+    ].isna().sum()
+
+    if missing_values.sum() > 0:
+        errors.append(
+            "Missing values found in standardized daily dataset:\n"
+            f"{missing_values.to_string()}"
+        )
+
+    duplicated_rows = (
+        daily
+        .groupby(["Date", "Area", "Pollutant"])
+        .size()
+        .reset_index(name="N")
+    )
+
+    duplicated_rows = duplicated_rows[duplicated_rows["N"] > 1].copy()
+
+    if len(duplicated_rows) > 0:
+        errors.append(
+            "Duplicated Date × Area × Pollutant rows found:\n"
+            f"{duplicated_rows.to_string(index=False)}"
+        )
+
+    if errors:
+        raise ValueError(
+            "\nPART 4.2 DAILY STANDARDIZED DATASET VALIDATION FAILED\n\n"
+            + "\n\n".join(errors)
+        )
+
+    print("\nDaily standardized dataset validation passed.")
+    print(f"Expected rows: {expected_rows}")
+    print(f"Observed rows: {len(daily)}")
+    print("Rows by Area × Pollutant:")
+    print(row_counts)
 
 # ============================================================
 # TEMPORAL AGGREGATION
@@ -1105,6 +1197,7 @@ def run_modaria_area_pollutant_comparison():
     # ------------------------------------------------------------
 
     daily = load_and_standardize_daily_area_exposure()
+    validate_daily_standardized_dataset(daily)
 
     daily_output_path = os.path.join(
         OUTPUT_DIR,

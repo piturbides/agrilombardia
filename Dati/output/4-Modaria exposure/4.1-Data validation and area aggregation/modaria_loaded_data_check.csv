@@ -1,0 +1,75 @@
+Area;Municipality;Municipality_key;Pollutant;Loaded_rows;First_date;Last_date
+Industrial;Brescia;brescia;NO2;1826;2016-01-01;2023-12-31
+Industrial;Brescia;brescia;PM25;1826;2016-01-01;2023-12-31
+Industrial;Rezzato;rezzato;NO2;1826;2016-01-01;2023-12-31
+Industrial;Rezzato;rezzato;PM25;1826;2016-01-01;2023-12-31
+Industrial;Castel Mella;castelmella;NO2;1826;2016-01-01;2023-12-31
+Industrial;Castel Mella;castelmella;PM25;1826;2016-01-01;2023-12-31
+Industrial;San Zeno Naviglio;sanzenonaviglio;NO2;1826;2016-01-01;2023-12-31
+Industrial;San Zeno Naviglio;sanzenonaviglio;PM25;1826;2016-01-01;2023-12-31
+Industrial;Gussago;gussago;NO2;1826;2016-01-01;2023-12-31
+Industrial;Gussago;gussago;PM25;1826;2016-01-01;2023-12-31
+Industrial;Roncadelle;roncadelle;NO2;1826;2016-01-01;2023-12-31
+Industrial;Roncadelle;roncadelle;PM25;1826;2016-01-01;2023-12-31
+Industrial;Collebeato;collebeato;NO2;1826;2016-01-01;2023-12-31
+Industrial;Collebeato;collebeato;PM25;1826;2016-01-01;2023-12-31
+Industrial;Flero;flero;NO2;1826;2016-01-01;2023-12-31
+Industrial;Flero;flero;PM25;1826;2016-01-01;2023-12-31
+Industrial;Botticino;botticino;NO2;1826;2016-01-01;2023-12-31
+Industrial;Botticino;botticino;PM25;1826;2016-01-01;2023-12-31
+Industrial;Castenedolo;castenedolo;NO2;1826;2016-01-01;2023-12-31
+Industrial;Castenedolo;castenedolo;PM25;1826;2016-01-01;2023-12-31
+Industrial;Borgosatollo;borgosatollo;NO2;1826;2016-01-01;2023-12-31
+Industrial;Borgosatollo;borgosatollo;PM25;1826;2016-01-01;2023-12-31
+Industrial;Cellatica;cellatica;NO2;1826;2016-01-01;2023-12-31
+Industrial;Cellatica;cellatica;PM25;1826;2016-01-01;2023-12-31
+Industrial;Torbole Casaglia;torbolecasaglia;NO2;1826;2016-01-01;2023-12-31
+Industrial;Torbole Casaglia;torbolecasaglia;PM25;1826;2016-01-01;2023-12-31
+Industrial;Concesio;concesio;NO2;1826;2016-01-01;2023-12-31
+Industrial;Concesio;concesio;PM25;1826;2016-01-01;2023-12-31
+Industrial;Nave;nave;NO2;1826;2016-01-01;2023-12-31
+Industrial;Nave;nave;PM25;1826;2016-01-01;2023-12-31
+Industrial;Bovezzo;bovezzo;NO2;1826;2016-01-01;2023-12-31
+Industrial;Bovezzo;bovezzo;PM25;1826;2016-01-01;2023-12-31
+Agricultural;Verolavecchia;verolavecchia;NO2;1826;2016-01-01;2023-12-31
+Agricultural;Verolavecchia;verolavecchia;PM25;1826;2016-01-01;2023-12-31
+Agricultural;Corte de' Cortesi con Cignone;cortedecortesiconcignone;NO2;1826;2016-01-01;2023-12-31
+Agricultural;Corte de' Cortesi con Cignone;cortedecortesiconcignone;PM25;1826;2016-01-01;2023-12-31
+Agricultural;Castelvisconti;castelvisconti;NO2;1826;2016-01-01;2023-12-31
+Agricultural;Castelvisconti;castelvisconti;PM25;1826;2016-01-01;2023-12-31
+Agricultural;Paderno Ponchielli;padernoponchielli;NO2;1826;2016-01-01;2023-12-31
+Agricultural;Paderno Ponchielli;padernoponchielli;PM25;1826;2016-01-01;2023-12-31
+Agricultural;Pontevico;pontevico;NO2;1826;2016-01-01;2023-12-31
+Agricultural;Pontevico;pontevico;PM25;1826;2016-01-01;2023-12-31
+Agricultural;Pozzaglio ed Uniti;pozzaglioeduniti;NO2;1826;2016-01-01;2023-12-31
+Agricultural;Pozzaglio ed Uniti;pozzaglioeduniti;PM25;1826;2016-01-01;2023-12-31
+Agricultural;Genivolta;genivolta;NO2;1826;2016-01-01;2023-12-31
+Agricultural;Genivolta;genivolta;PM25;1826;2016-01-01;2023-12-31
+Agricultural;Casalmorano;casalmorano;NO2;1826;2016-01-01;2023-12-31
+Agricultural;Casalmorano;casalmorano;PM25;1826;2016-01-01;2023-12-31
+Agricultural;Persico Dosimo;persicodosimo;NO2;1826;2016-01-01;2023-12-31
+Agricultural;Persico Dosimo;persicodosimo;PM25;1826;2016-01-01;2023-12-31
+Agricultural;Casalbuttano ed Uniti;casalbuttanoeduniti;NO2;1826;2016-01-01;2023-12-31
+Agricultural;Casalbuttano ed Uniti;casalbuttanoeduniti;PM25;1826;2016-01-01;2023-12-31
+Agricultural;Borgo San Giacomo;borgosangiacomo;NO2;1826;2016-01-01;2023-12-31
+Agricultural;Borgo San Giacomo;borgosangiacomo;PM25;1826;2016-01-01;2023-12-31
+Agricultural;Quinzano d'Oglio;quinzanodoglio;NO2;1826;2016-01-01;2023-12-31
+Agricultural;Quinzano d'Oglio;quinzanodoglio;PM25;1826;2016-01-01;2023-12-31
+Agricultural;Villachiara;villachiara;NO2;1826;2016-01-01;2023-12-31
+Agricultural;Villachiara;villachiara;PM25;1826;2016-01-01;2023-12-31
+Agricultural;Azzanello;azzanello;NO2;1826;2016-01-01;2023-12-31
+Agricultural;Azzanello;azzanello;PM25;1826;2016-01-01;2023-12-31
+Agricultural;Annicco;annicco;NO2;1826;2016-01-01;2023-12-31
+Agricultural;Annicco;annicco;PM25;1826;2016-01-01;2023-12-31
+Agricultural;Robecco d'Oglio;robeccodoglio;NO2;1826;2016-01-01;2023-12-31
+Agricultural;Robecco d'Oglio;robeccodoglio;PM25;1826;2016-01-01;2023-12-31
+Agricultural;Olmeneta;olmeneta;NO2;1826;2016-01-01;2023-12-31
+Agricultural;Olmeneta;olmeneta;PM25;1826;2016-01-01;2023-12-31
+Agricultural;Castelverde;castelverde;NO2;1826;2016-01-01;2023-12-31
+Agricultural;Castelverde;castelverde;PM25;1826;2016-01-01;2023-12-31
+Agricultural;Soresina;soresina;NO2;1826;2016-01-01;2023-12-31
+Agricultural;Soresina;soresina;PM25;1826;2016-01-01;2023-12-31
+Agricultural;Corte de' Frati;cortedefrati;NO2;1826;2016-01-01;2023-12-31
+Agricultural;Corte de' Frati;cortedefrati;PM25;1826;2016-01-01;2023-12-31
+Agricultural;Bordolano;bordolano;NO2;1826;2016-01-01;2023-12-31
+Agricultural;Bordolano;bordolano;PM25;1826;2016-01-01;2023-12-31
