@@ -18,8 +18,7 @@ from src.aphreh_adapter.prepare_aphreh_inputs import main as prepare_aphreh_inpu
 from src.aphreh_adapter.run_aphreh_pilot import main as run_aphreh_pilot
 from src.aphreh_adapter.inspect_aphreh_outputs import main as inspect_aphreh_outputs
 from src.aphreh_adapter.summarize_aphreh_outputs import main as summarize_aphreh_outputs
-
-
+from src.aphreh_adapter.plot_aphreh_outputs import main as plot_aphreh_outputs
 
 
 if __name__ == "__main__":
@@ -42,4 +41,5 @@ if __name__ == "__main__":
     #prepare_aphreh_inputs()
     #run_aphreh_pilot()
     #inspect_aphreh_outputs()
-    summarize_aphreh_outputs()
+    #summarize_aphreh_outputs()
+    plot_aphreh_outputs()
