@@ -14,7 +14,10 @@ from src.modaria_exposure.modaria_area_pollutant_comparison import run_modaria_a
 from src.modaria_exposure.modaria_environment_health_integration import run_modaria_environment_health_integration
 from src.modaria_exposure.modaria_monthly_weekly_lag_analysis import run_modaria_monthly_weekly_lag_analysis
 from src.preliminary_synthesis.preliminary_station_modaria_synthesis import (main as run_preliminary_synthesis,)
-
+from src.aphreh_adapter.prepare_aphreh_inputs import main as prepare_aphreh_inputs
+from src.aphreh_adapter.run_aphreh_pilot import main as run_aphreh_pilot
+from src.aphreh_adapter.inspect_aphreh_outputs import main as inspect_aphreh_outputs
+from src.aphreh_adapter.summarize_aphreh_outputs import main as summarize_aphreh_outputs
 
 
 
@@ -35,4 +38,8 @@ if __name__ == "__main__":
     #run_modaria_area_pollutant_comparison()
     #run_modaria_environment_health_integration()
     #run_modaria_monthly_weekly_lag_analysis()
-    run_preliminary_synthesis()
+    #run_preliminary_synthesis()
+    #prepare_aphreh_inputs()
+    #run_aphreh_pilot()
+    #inspect_aphreh_outputs()
+    summarize_aphreh_outputs()
