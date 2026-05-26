@@ -367,6 +367,289 @@ def interpret_spearman_result(rho, p_value):
 
     return f"{strength} {direction} association; {significance}"
 
+# ============================================================
+# VALIDATION FUNCTIONS
+# ============================================================
+
+def validate_monthly_input_dataset(data):
+    """
+    Validate the monthly integrated dataset used for lag analysis.
+
+    Expected structure:
+    60 months × 2 areas = 120 rows.
+    """
+
+    errors = []
+
+    expected_rows = 60 * len(AREA_ORDER)
+
+    if len(data) != expected_rows:
+        errors.append(
+            f"Monthly input dataset: expected {expected_rows} rows, found {len(data)}."
+        )
+
+    duplicated_rows = (
+        data
+        .groupby(["MonthPeriod", "Area"])
+        .size()
+        .reset_index(name="N")
+    )
+
+    duplicated_rows = duplicated_rows[duplicated_rows["N"] > 1].copy()
+
+    if len(duplicated_rows) > 0:
+        errors.append(
+            "Duplicated MonthPeriod × Area rows found:\n"
+            f"{duplicated_rows.to_string(index=False)}"
+        )
+
+    expected_rows_by_area = 60
+
+    rows_by_area = data["Area"].value_counts().to_dict()
+
+    for area in AREA_ORDER:
+        observed = rows_by_area.get(area, 0)
+
+        if observed != expected_rows_by_area:
+            errors.append(
+                f"{area}: expected {expected_rows_by_area} monthly rows, found {observed}."
+            )
+
+    observed_years = sorted(data["Year"].dropna().astype(int).unique().tolist())
+
+    if observed_years != COMMON_YEARS:
+        errors.append(
+            f"Monthly input dataset: expected years {COMMON_YEARS}, found {observed_years}."
+        )
+
+    required_columns = [
+        "MonthPeriod",
+        "Year",
+        "Month",
+        "Season",
+        "Area",
+        "Population",
+    ] + POLLUTANT_COLUMNS + OUTCOME_COLUMNS
+
+    missing_columns = [
+        col for col in required_columns
+        if col not in data.columns
+    ]
+
+    if missing_columns:
+        errors.append(
+            "Missing columns in monthly input dataset:\n"
+            f"{missing_columns}"
+        )
+
+    missing_values = data[required_columns].isna().sum()
+    missing_values = missing_values[missing_values > 0]
+
+    if len(missing_values) > 0:
+        errors.append(
+            "Missing values found in monthly input dataset:\n"
+            f"{missing_values.to_string()}"
+        )
+
+    if errors:
+        raise ValueError(
+            "\nMONTHLY INPUT DATASET VALIDATION FAILED\n\n"
+            + "\n\n".join(errors)
+        )
+
+    print("\nMonthly input dataset validation passed.")
+    print(f"Monthly rows: {len(data)} / expected {expected_rows}")
+    print("Rows by area:")
+    print(data["Area"].value_counts())
+
+
+def validate_weekly_integrated_dataset(integrated):
+    """
+    Validate the weekly environmental-health integrated dataset.
+
+    Expected structure with the current week definition:
+    261 weeks × 2 areas = 522 rows.
+    """
+
+    errors = []
+
+    expected_weeks_per_area = 261
+    expected_rows = expected_weeks_per_area * len(AREA_ORDER)
+
+    if len(integrated) != expected_rows:
+        errors.append(
+            f"Weekly integrated dataset: expected {expected_rows} rows "
+            f"({expected_weeks_per_area} weeks × {len(AREA_ORDER)} areas), "
+            f"found {len(integrated)}."
+        )
+
+    duplicated_rows = (
+        integrated
+        .groupby(["WeekStart", "Area"])
+        .size()
+        .reset_index(name="N")
+    )
+
+    duplicated_rows = duplicated_rows[duplicated_rows["N"] > 1].copy()
+
+    if len(duplicated_rows) > 0:
+        errors.append(
+            "Duplicated WeekStart × Area rows found:\n"
+            f"{duplicated_rows.to_string(index=False)}"
+        )
+
+    rows_by_area = integrated["Area"].value_counts().to_dict()
+
+    for area in AREA_ORDER:
+        observed = rows_by_area.get(area, 0)
+
+        if observed != expected_weeks_per_area:
+            errors.append(
+                f"{area}: expected {expected_weeks_per_area} weekly rows, found {observed}."
+            )
+
+    observed_years = sorted(integrated["Year"].dropna().astype(int).unique().tolist())
+
+    if observed_years != COMMON_YEARS:
+        errors.append(
+            f"Weekly integrated dataset: expected years {COMMON_YEARS}, found {observed_years}."
+        )
+
+    required_columns = [
+        "WeekStart",
+        "Year",
+        "Week",
+        "Area",
+        "Population",
+        "Respiratory_rate_per_10000",
+        "Cardiocirculatory_rate_per_10000",
+        "NO2_population_weighted_mean",
+        "PM25_population_weighted_mean",
+        "TimeLabel",
+    ]
+
+    missing_columns = [
+        col for col in required_columns
+        if col not in integrated.columns
+    ]
+
+    if missing_columns:
+        errors.append(
+            "Missing columns in weekly integrated dataset:\n"
+            f"{missing_columns}"
+        )
+
+    missing_values = integrated[required_columns].isna().sum()
+    missing_values = missing_values[missing_values > 0]
+
+    if len(missing_values) > 0:
+        errors.append(
+            "Missing values found in weekly integrated dataset:\n"
+            f"{missing_values.to_string()}"
+        )
+
+    if errors:
+        raise ValueError(
+            "\nWEEKLY INTEGRATED DATASET VALIDATION FAILED\n\n"
+            + "\n\n".join(errors)
+        )
+
+    print("\nWeekly integrated dataset validation passed.")
+    print(f"Weekly rows: {len(integrated)} / expected {expected_rows}")
+    print("Rows by area:")
+    print(integrated["Area"].value_counts())
+
+
+def expected_valid_lag_count(time_values, lag, lag_unit):
+    """
+    Compute how many valid lagged values are expected for a given time series.
+
+    This is based on exact temporal distance, so it respects the 2019-2023 gap.
+    """
+
+    time_series = pd.Series(
+        pd.to_datetime(sorted(pd.Series(time_values).dropna().unique()))
+    )
+
+    if lag == 0:
+        return len(time_series)
+
+    if lag_unit == "months":
+        time_idx = month_index(time_series)
+    elif lag_unit == "weeks":
+        time_idx = week_index(time_series)
+    else:
+        raise ValueError(f"Unknown lag unit: {lag_unit}")
+
+    lagged_time_idx = time_idx.shift(lag)
+
+    valid_lag = (time_idx - lagged_time_idx) == lag
+
+    return int(valid_lag.sum())
+
+
+def validate_lagged_dataset(lagged, lags, lag_unit, time_col):
+    """
+    Validate lagged pollutant columns.
+
+    The check confirms that the number of non-missing lagged values matches
+    the expected number after excluding invalid lags across temporal gaps.
+    """
+
+    errors = []
+
+    for area in AREA_ORDER:
+        area_data = lagged[lagged["Area"] == area].copy()
+
+        if area_data.empty:
+            errors.append(f"No lagged rows found for area: {area}.")
+            continue
+
+        for lag in lags:
+            expected_count = expected_valid_lag_count(
+                time_values=area_data[time_col],
+                lag=lag,
+                lag_unit=lag_unit
+            )
+
+            for pollutant_col in POLLUTANT_COLUMNS:
+                lag_col = f"{pollutant_col}_lag{lag}"
+                lag_date_col = f"{pollutant_col}_lag{lag}_{time_col}"
+
+                if lag_col not in lagged.columns:
+                    errors.append(f"Missing lag column: {lag_col}")
+                    continue
+
+                observed_count = int(area_data[lag_col].notna().sum())
+
+                if observed_count != expected_count:
+                    errors.append(
+                        f"{area}, {pollutant_col}, lag {lag} {lag_unit}: "
+                        f"expected {expected_count} valid lagged values, "
+                        f"found {observed_count}."
+                    )
+
+                if lag_date_col in lagged.columns:
+                    invalid_date_rows = area_data[
+                        area_data[lag_col].notna()
+                        & area_data[lag_date_col].isna()
+                    ].copy()
+
+                    if len(invalid_date_rows) > 0:
+                        errors.append(
+                            f"{area}, {pollutant_col}, lag {lag} {lag_unit}: "
+                            f"some non-missing lagged values have missing lag dates."
+                        )
+
+    if errors:
+        raise ValueError(
+            f"\n{lag_unit.upper()} LAGGED DATASET VALIDATION FAILED\n\n"
+            + "\n\n".join(errors)
+        )
+
+    print(f"\n{lag_unit.capitalize()} lagged dataset validation passed.")
+    print("Lagged values are consistent with exact temporal-distance checks.")
+
 
 # ============================================================
 # MONTHLY DATA LOADING AND STANDARDIZATION
@@ -1643,6 +1926,7 @@ def run_monthly_lag_analysis():
     print(MONTHLY_INPUT_PATH)
 
     data = load_modaria_monthly_integrated_dataset()
+    validate_monthly_input_dataset(data)
 
     data.to_csv(
         os.path.join(OUTPUT_DIR, "modaria_monthly_dataset_prepared_for_lag_analysis.csv"),
@@ -1666,6 +1950,12 @@ def run_monthly_lag_analysis():
     print(data.isna().sum())
 
     lagged = build_monthly_lagged_dataset(data)
+    validate_lagged_dataset(
+        lagged=lagged,
+        lags=MONTHLY_LAGS,
+        lag_unit="months",
+        time_col="MonthPeriod"
+    )
 
     lagged.to_csv(
         os.path.join(OUTPUT_DIR, "modaria_monthly_lag_integrated_dataset.csv"),
@@ -1809,6 +2099,7 @@ def run_weekly_lag_analysis():
     print(HEALTH_SELECTED_EVENTS_PATH)
 
     integrated = build_weekly_integrated_dataset()
+    validate_weekly_integrated_dataset(integrated)
 
     integrated.to_csv(
         os.path.join(OUTPUT_DIR, "modaria_weekly_environment_health_integrated_dataset.csv"),
@@ -1841,6 +2132,12 @@ def run_weekly_lag_analysis():
     )
 
     lagged = build_weekly_lagged_dataset(integrated)
+    validate_lagged_dataset(
+        lagged=lagged,
+        lags=WEEKLY_LAGS,
+        lag_unit="weeks",
+        time_col="WeekStart"
+    )
 
     lagged.to_csv(
         os.path.join(OUTPUT_DIR, "modaria_weekly_lag_integrated_dataset.csv"),

@@ -1166,6 +1166,139 @@ def build_missing_values_check(monthly_integrated, seasonal_integrated):
 
     return pd.DataFrame(rows)
 
+def validate_integrated_datasets(monthly_integrated, seasonal_integrated):
+    """
+    Validate the ModAria-health integrated datasets.
+
+    Expected structure:
+    - Monthly: 60 months × 2 areas = 120 rows
+    - Seasonal: 18 complete seasons × 2 areas = 36 rows
+
+    The exposure dataset contains both pollutants and both exposure indicators
+    as columns, while the health dataset contains both outcomes as columns.
+    """
+
+    errors = []
+
+    expected_monthly_rows = 60 * len(AREA_ORDER)
+    expected_seasonal_rows = 18 * len(AREA_ORDER)
+
+    if len(monthly_integrated) != expected_monthly_rows:
+        errors.append(
+            f"Monthly integrated dataset: expected {expected_monthly_rows} rows, "
+            f"found {len(monthly_integrated)}."
+        )
+
+    if len(seasonal_integrated) != expected_seasonal_rows:
+        errors.append(
+            f"Seasonal integrated dataset: expected {expected_seasonal_rows} rows, "
+            f"found {len(seasonal_integrated)}."
+        )
+
+    monthly_duplicates = (
+        monthly_integrated
+        .groupby(["MonthPeriod", "Area"])
+        .size()
+        .reset_index(name="N")
+    )
+
+    monthly_duplicates = monthly_duplicates[monthly_duplicates["N"] > 1].copy()
+
+    if len(monthly_duplicates) > 0:
+        errors.append(
+            "Duplicated MonthPeriod × Area rows found in monthly integrated dataset:\n"
+            f"{monthly_duplicates.to_string(index=False)}"
+        )
+
+    seasonal_duplicates = (
+        seasonal_integrated
+        .groupby(["SeasonYear", "Season", "Area"])
+        .size()
+        .reset_index(name="N")
+    )
+
+    seasonal_duplicates = seasonal_duplicates[seasonal_duplicates["N"] > 1].copy()
+
+    if len(seasonal_duplicates) > 0:
+        errors.append(
+            "Duplicated SeasonYear × Season × Area rows found in seasonal integrated dataset:\n"
+            f"{seasonal_duplicates.to_string(index=False)}"
+        )
+
+    required_exposure_cols = [
+        f"{pollutant}_{METHOD_SUFFIX[method]}"
+        for pollutant in POLLUTANTS
+        for method in METHODS.keys()
+    ]
+
+    required_health_cols = list(OUTCOMES.values())
+
+    required_monthly_cols = [
+        "MonthPeriod",
+        "Year",
+        "Month",
+        "Season",
+        "Area",
+        "Population",
+    ] + required_health_cols + required_exposure_cols
+
+    required_seasonal_cols = [
+        "SeasonYear",
+        "Season",
+        "Area",
+        "Population",
+    ] + required_health_cols + required_exposure_cols
+
+    missing_monthly_cols = [
+        col for col in required_monthly_cols
+        if col not in monthly_integrated.columns
+    ]
+
+    missing_seasonal_cols = [
+        col for col in required_seasonal_cols
+        if col not in seasonal_integrated.columns
+    ]
+
+    if missing_monthly_cols:
+        errors.append(
+            "Missing columns in monthly integrated dataset:\n"
+            f"{missing_monthly_cols}"
+        )
+
+    if missing_seasonal_cols:
+        errors.append(
+            "Missing columns in seasonal integrated dataset:\n"
+            f"{missing_seasonal_cols}"
+        )
+
+    monthly_missing = monthly_integrated.isna().sum()
+    monthly_missing = monthly_missing[monthly_missing > 0]
+
+    seasonal_missing = seasonal_integrated.isna().sum()
+    seasonal_missing = seasonal_missing[seasonal_missing > 0]
+
+    if len(monthly_missing) > 0:
+        errors.append(
+            "Missing values found in monthly integrated dataset:\n"
+            f"{monthly_missing.to_string()}"
+        )
+
+    if len(seasonal_missing) > 0:
+        errors.append(
+            "Missing values found in seasonal integrated dataset:\n"
+            f"{seasonal_missing.to_string()}"
+        )
+
+    if errors:
+        raise ValueError(
+            "\nPART 4.3 INTEGRATED DATASET VALIDATION FAILED\n\n"
+            + "\n\n".join(errors)
+        )
+
+    print("\nIntegrated dataset validation passed.")
+    print(f"Monthly integrated rows: {len(monthly_integrated)} / expected {expected_monthly_rows}")
+    print(f"Seasonal integrated rows: {len(seasonal_integrated)} / expected {expected_seasonal_rows}")
+
 
 # ============================================================
 # CORRELATION ANALYSIS
@@ -2088,6 +2221,11 @@ def run_modaria_environment_health_integration():
     seasonal_integrated = integrate_seasonal(
         seasonal_exposure=seasonal_exposure,
         seasonal_health=seasonal_health
+    )
+
+    validate_integrated_datasets(
+        monthly_integrated=monthly_integrated,
+        seasonal_integrated=seasonal_integrated
     )
 
     monthly_integrated.to_csv(

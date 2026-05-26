@@ -11,7 +11,7 @@ Pollutants;NO2, PM2.5
 Health outcomes;Respiratory and cardiocirculatory event rates
 Correlation method;Spearman correlation
 Maximum N by lag;"Lag 0: 522; Lag 1: 518; Lag 2: 514; Lag 3: 510; Lag 4: 506"
-Combinations where lag 0 is strongest positive rho;1
-Percentage where lag 0 is strongest positive rho;8.333333333333332
+Combinations where lag 0 is strongest positive rho;2
+Percentage where lag 0 is strongest positive rho;16.666666666666664
 Main methodological safeguard;Lagged pollutant values are kept only when the lagged week is exactly the expected number of weeks before the current health week. This prevents incorrect links across the 2019-2023 gap.
 Main interpretation rule;Lagged correlations are exploratory ecological associations. They should not be interpreted as causal delayed effects.

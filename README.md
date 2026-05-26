@@ -4,13 +4,14 @@ Exploratory ecological analysis of air pollution and acute health event data in 
 
 The project investigates whether areas with different emission-source profiles show different environmental patterns and whether these patterns are reflected in population-normalized respiratory and cardiocirculatory health indicators.
 
-The full analytical workflow includes:
+The current analytical workflow includes:
 
 1. station-based pollutant analysis;
 2. health event exploration, aggregation and rate construction;
 3. station-based environmental-health integration and lag analysis;
-4. ModAria municipality-based exposure reconstruction, integration and lag analysis;
-5. final synthesis comparing station-based and ModAria-based results.
+4. health-aligned ModAria municipality-based exposure reconstruction, integration and lag analysis;
+5. preliminary synthesis comparing station-based and health-aligned ModAria results;
+6. planned APHREH-ADSMap feasibility phase.
 
 The project is designed as a reproducible academic data science pipeline. Each script is organized around clear inputs, processing steps, outputs and interpretation-ready CSV/plot products.
 
@@ -66,58 +67,72 @@ The common years used for environmental-health integration are:
 
 The years 2020, 2021 and 2022 are not used because they are absent from the health dataset and may be affected by COVID-related changes in mobility, emissions, healthcare access and event reporting.
 
+All lag analyses include explicit temporal-distance checks to avoid invalid artificial links across the 2019-2023 gap.
+
 ---
 
-## Study areas
+## Definitive health-aligned study areas
 
-### Industrial area
+During the ModAria workflow, an important methodological issue was identified: the first ModAria municipality list did not match the 37 municipalities actually covered by the health dataset. Since the health dataset could not be expanded, the definitive choice was to keep the health/QGIS municipality list as the reference and rebuild the ModAria input folder accordingly.
+
+Therefore, the definitive ModAria pipeline uses the same 37 municipalities covered by the health dataset:
 
 ```text
-Borgosatollo
-Botticino
+21 Agricultural municipalities
+16 Industrial municipalities
+37 total municipalities
+```
+
+This health-aligned municipality set is used from Part 4.1 onward.
+
+### Industrial area — 16 municipalities
+
+```text
 Brescia
-Castenedolo
+Rezzato
+Castel Mella
+San Zeno Naviglio
+Gussago
+Roncadelle
 Collebeato
 Flero
-Gussago
-Mazzano
-Montirone
+Botticino
+Castenedolo
+Borgosatollo
+Cellatica
+Torbole Casaglia
+Concesio
 Nave
-Nuvolento
-Nuvolera
-Rezzato
-Roncadelle
-San Zeno Naviglio
-Villa Carcina
+Bovezzo
 ```
 
-### Agricultural area
+### Agricultural area — 21 municipalities
 
 ```text
-Acquanegra Cremonese
-Alfianello
-Annicco
-Azzanello
-Barbariga
-Bassano Bresciano
-Bordolano
-Cappella Cantone
-Casalbuttano ed Uniti
-Castelvisconti
+Verolavecchia
 Corte de' Cortesi con Cignone
-Corzano
-Dello
-Genivolta
-Longhena
-Orzinuovi
+Castelvisconti
+Paderno Ponchielli
 Pontevico
-Pralboino
+Pozzaglio ed Uniti
+Genivolta
+Casalmorano
+Persico Dosimo
+Casalbuttano ed Uniti
+Borgo San Giacomo
 Quinzano d'Oglio
-San Paolo
+Villachiara
+Azzanello
+Annicco
+Robecco d'Oglio
+Olmeneta
+Castelverde
 Soresina
+Corte de' Frati
+Bordolano
 ```
 
-The agricultural area is not equivalent to the province of Cremona. Some agricultural-area municipalities belong to the province of Brescia. All analyses therefore preserve the QGIS/shapefile-based area assignment instead of relying only on province boundaries.
+The agricultural area is not equivalent to the province of Cremona. Some agricultural-area municipalities belong to the province of Brescia. All analyses therefore preserve the QGIS/health-based area assignment instead of relying only on province boundaries.
 
 ---
 
@@ -141,11 +156,27 @@ Brescia Villaggio Sereno → Industrial
 
 This framework was useful to build and validate the complete environmental-health pipeline, but it has an important spatial limitation: one monitoring station cannot fully represent all municipalities in a study area.
 
-### 2. ModAria municipality-based framework
+### 2. Health-aligned ModAria municipality-based framework
 
-The second exposure framework uses ARPA Lombardia ModAria municipal pollutant estimates for all selected municipalities.
+The second exposure framework uses ARPA Lombardia ModAria municipal pollutant estimates for all 37 health-aligned municipalities.
 
 This improves spatial coherence because both exposure indicators and health outcomes are based on the same selected municipality sets.
+
+The definitive ModAria input folder is:
+
+```text
+Dati/raw/ModariaDataset_health_aligned/
+├── Agricultural/
+└── Industrial/
+```
+
+The previous folder:
+
+```text
+Dati/raw/ModariaDataset/
+```
+
+may still exist locally as a historical first ModAria attempt, but it is not the reference folder for the final health-aligned ModAria pipeline.
 
 Two ModAria exposure indicators are computed:
 
@@ -181,7 +212,7 @@ The **arithmetic mean** is retained as a sensitivity and descriptive territorial
 │   │   ├── Soresina_2016_2025_PM25.csv
 │   │   ├── Brescia_VillagioSereno_PM25_2016_2025.csv
 │   │   ├── Health_events_2015_2023.csv              # local only, ignored by Git
-│   │   ├── ModariaDataset/
+│   │   ├── ModariaDataset_health_aligned/
 │   │   │   ├── Agricultural/
 │   │   │   └── Industrial/
 │   │   └── population/
@@ -220,8 +251,9 @@ The **arithmetic mean** is retained as a sensitivity and descriptive territorial
 │       │   ├── 4.3-Modaria environmental health integration/
 │       │   └── 4.4-Modaria monthly and weekly lag analysis/
 │       │
-│       └── 5-Final synthesis/
-│           └── 5.1-Final project synthesis/
+│       └── 5-Preliminary synthesis/
+│           └── 5.1-Station vs ModAria synthesis/
+│               └── plots/
 │
 └── src/
     ├── data_loader.py
@@ -251,9 +283,9 @@ The **arithmetic mean** is retained as a sensitivity and descriptive territorial
     │   ├── modaria_environment_health_integration.py
     │   └── modaria_monthly_weekly_lag_analysis.py
     │
-    └── final_synthesis/
+    └── preliminary_synthesis/
         ├── __init__.py
-        └── final_project_synthesis.py
+        └── preliminary_station_modaria_synthesis.py
 ```
 
 ---
@@ -404,7 +436,7 @@ if __name__ == "__main__":
     run_weekly_lag_analysis()
 ```
 
-### Part 4.1 — ModAria data validation and exposure construction
+### Part 4.1 — Health-aligned ModAria data validation and exposure construction
 
 ```python
 from src.modaria_exposure.modaria_data_validation import run_modaria_data_validation
@@ -444,14 +476,14 @@ if __name__ == "__main__":
     run_modaria_lag_analysis()
 ```
 
-### Part 5.1 — Final project synthesis
+### Part 5.1 — Preliminary station-based vs ModAria synthesis
 
 ```python
-from src.final_synthesis.final_project_synthesis import main as run_final_project_synthesis
+from src.preliminary_synthesis.preliminary_station_modaria_synthesis import main as run_preliminary_synthesis
 
 
 if __name__ == "__main__":
-    run_final_project_synthesis()
+    run_preliminary_synthesis()
 ```
 
 ---
@@ -754,6 +786,12 @@ Expected municipality-year combinations = 185
 Found municipality-year combinations    = 185
 ```
 
+This corresponds to:
+
+```text
+37 municipalities × 5 common years = 185 municipality-year population rows
+```
+
 Main interpretation:
 
 ```text
@@ -1019,7 +1057,7 @@ The clearest weekly signal concerns respiratory outcomes, especially in the indu
 
 ---
 
-## Part 4 — ModAria municipality-based exposure analysis
+## Part 4 — Health-aligned ModAria municipality-based exposure analysis
 
 Output folder:
 
@@ -1035,9 +1073,15 @@ src/modaria_exposure/
 
 Part 4 replaces the station-based exposure proxies with municipality-level ModAria exposure estimates.
 
-This improves spatial coherence because exposure indicators are reconstructed from all selected municipalities, while health outcomes are aggregated over the same municipality sets.
+This improves spatial coherence because exposure indicators are reconstructed from all selected health-aligned municipalities, while health outcomes are aggregated over the same municipality sets.
 
-### Part 4.1 — ModAria data validation and area exposure construction
+The first ModAria attempt used a municipality list that did not fully match the health dataset. The definitive Part 4 pipeline therefore uses the health-aligned folder:
+
+```text
+Dati/raw/ModariaDataset_health_aligned/
+```
+
+### Part 4.1 — Health-aligned ModAria data validation and area exposure construction
 
 Script:
 
@@ -1055,20 +1099,27 @@ Expected input structure:
 
 ```text
 37 selected municipalities × 2 pollutants = 74 files
+
+Agricultural:
+21 municipalities × 2 pollutants = 42 files
+
+Industrial:
+16 municipalities × 2 pollutants = 32 files
 ```
 
 Input folders:
 
 ```text
-Dati/raw/ModariaDataset/Agricultural/
-Dati/raw/ModariaDataset/Industrial/
+Dati/raw/ModariaDataset_health_aligned/Agricultural/
+Dati/raw/ModariaDataset_health_aligned/Industrial/
 ```
 
 Main operations:
 
-- scan ModAria folders;
+- scan ModAria health-aligned folders;
 - build file inventory;
 - check expected municipality-pollutant combinations;
+- check that no extra municipalities are included;
 - clean files;
 - convert dates and pollutant values;
 - filter to 2016, 2017, 2018, 2019 and 2023;
@@ -1085,12 +1136,15 @@ Total files found = 74
 Industrial municipalities = 16
 Agricultural municipalities = 21
 All expected municipality-pollutant files were found
+No missing daily records in selected years
+Population rows = 185
+Expected population rows = 185
 ```
 
 Main interpretation:
 
 ```text
-The ModAria dataset is complete and suitable for area-level exposure reconstruction.
+The health-aligned ModAria dataset is complete and suitable for area-level exposure reconstruction.
 This step provides a stronger exposure basis than the previous single-station proxy approach.
 ```
 
@@ -1138,7 +1192,7 @@ If paired differences are not normally distributed: Wilcoxon signed-rank test.
 Main interpretation:
 
 ```text
-NO2 is higher in the industrial area when exposure is reconstructed from all selected municipalities.
+NO2 is higher in the industrial area when exposure is reconstructed from all selected health-aligned municipalities.
 This is coherent with NO2 as a combustion-related pollutant linked to urban and industrial activity.
 
 PM2.5 shows stronger overlap between areas and behaves more as a regional, seasonally shared pollutant.
@@ -1205,36 +1259,32 @@ Main monthly Spearman results using population-weighted exposure:
 
 ```text
 Overall:
-NO2 vs Respiratory rate:          rho = 0.373, p = 2.79e-05
-NO2 vs Cardiocirculatory rate:    rho = 0.431, p = 8.94e-07
-PM2.5 vs Respiratory rate:        rho = 0.450, p = 2.52e-07
-PM2.5 vs Cardiocirculatory rate:  rho = 0.218, p = 0.0166
+NO2 vs Respiratory rate:          rho = 0.324, p = 0.000313
+NO2 vs Cardiocirculatory rate:    rho = 0.433, p = 7.81e-07
+PM2.5 vs Respiratory rate:        rho = 0.450, p = 2.48e-07
+PM2.5 vs Cardiocirculatory rate:  rho = 0.221, p = 0.0152
 
 Industrial:
-NO2 vs Respiratory rate:          rho = 0.307, p = 0.0170
-NO2 vs Cardiocirculatory rate:    rho = 0.380, p = 0.00275
-PM2.5 vs Respiratory rate:        rho = 0.430, p = 0.000603
-PM2.5 vs Cardiocirculatory rate:  rho = 0.385, p = 0.00236
+NO2 vs Respiratory rate:          rho = 0.293
+NO2 vs Cardiocirculatory rate:    rho = 0.375
+PM2.5 vs Respiratory rate:        rho = 0.425
+PM2.5 vs Cardiocirculatory rate:  rho = 0.387
 
 Agricultural:
-NO2 vs Respiratory rate:          rho = 0.465, p = 0.000184
-NO2 vs Cardiocirculatory rate:    rho = 0.277, p = 0.0318
-PM2.5 vs Respiratory rate:        rho = 0.432, p = 0.000573
-PM2.5 vs Cardiocirculatory rate:  rho = 0.126, p = 0.337
+NO2 vs Respiratory rate:          rho = 0.396
+NO2 vs Cardiocirculatory rate:    rho = 0.281
+PM2.5 vs Respiratory rate:        rho = 0.444
+PM2.5 vs Cardiocirculatory rate:  rho = 0.125
 ```
 
 Main seasonal Spearman results using population-weighted exposure:
 
 ```text
 Overall:
-NO2 vs Respiratory rate:          rho = 0.318, p = 0.0588
-NO2 vs Cardiocirculatory rate:    rho = 0.508, p = 0.00155
-PM2.5 vs Respiratory rate:        rho = 0.433, p = 0.00827
-PM2.5 vs Cardiocirculatory rate:  rho = 0.124, p = 0.470
-
-Agricultural:
-NO2 vs Respiratory rate:          rho = 0.600, p = 0.00854
-PM2.5 vs Respiratory rate:        rho = 0.589, p = 0.0101
+NO2 vs Respiratory rate:          rho = 0.279, p = 0.0994
+NO2 vs Cardiocirculatory rate:    rho = 0.504, p = 0.00172
+PM2.5 vs Respiratory rate:        rho = 0.453, p = 0.00559
+PM2.5 vs Cardiocirculatory rate:  rho = 0.152, p = 0.377
 ```
 
 Main interpretation:
@@ -1243,7 +1293,7 @@ Main interpretation:
 Respiratory outcomes remain the most consistent endpoint.
 They show positive associations with pollutant variation in both study areas.
 
-Cardiocirculatory outcomes become more visible in the industrial area, especially with ModAria NO2 and PM2.5.
+Cardiocirculatory outcomes become more visible in the ModAria framework, especially for NO2 and in the industrial/urban context.
 
 The agricultural area is not a clean reference area: respiratory rates show coherent associations with both NO2 and PM2.5, especially at seasonal scale.
 ```
@@ -1251,6 +1301,8 @@ The agricultural area is not a clean reference area: respiratory rates show cohe
 Pearson correlation was computed as a secondary linear sensitivity check. The results generally supported the Spearman interpretation.
 
 The arithmetic exposure sensitivity showed that population-weighted and arithmetic exposure produced very similar correlation patterns. Therefore, the main conclusions are not driven by the population-weighting method.
+
+A season-stratified monthly sensitivity analysis was also performed. It showed that many within-season correlations were weaker than the full monthly correlations, suggesting that shared seasonality contributes substantially to the monthly pollutant-health associations.
 
 Main CSV outputs:
 
@@ -1359,6 +1411,34 @@ Main monthly result:
 Lag 0 months is the strongest positive association in 12 out of 12 pollutant-outcome-group combinations.
 ```
 
+Main overall monthly Spearman results:
+
+```text
+NO2 vs Respiratory:
+lag 0 rho = 0.324
+lag 1 rho = 0.286
+lag 2 rho = 0.137
+lag 3 rho = 0.005
+
+NO2 vs Cardiocirculatory:
+lag 0 rho = 0.433
+lag 1 rho = 0.334
+lag 2 rho = 0.208
+lag 3 rho = 0.150
+
+PM2.5 vs Respiratory:
+lag 0 rho = 0.450
+lag 1 rho = 0.413
+lag 2 rho = 0.299
+lag 3 rho = 0.057
+
+PM2.5 vs Cardiocirculatory:
+lag 0 rho = 0.221
+lag 1 rho = 0.122
+lag 2 rho = 0.073
+lag 3 rho = 0.007
+```
+
 Main monthly interpretation:
 
 ```text
@@ -1404,34 +1484,31 @@ Main overall weekly best lags:
 
 ```text
 NO2 vs Respiratory:
-best lag = 1 week
-rho = 0.268
+best lag = 2 weeks
+rho = 0.325
+p = 4.32e-14
 
 NO2 vs Cardiocirculatory:
 best lag = 2 weeks
-rho = 0.296
+rho = 0.415
+p = 7.68e-23
 
 PM2.5 vs Respiratory:
 best lag = 1 week
-rho = 0.331
+rho = 0.189
+p = 1.48e-05
 
 PM2.5 vs Cardiocirculatory:
 best lag = 1 week
-rho = 0.185
+rho = 0.072
+p = 0.104
 ```
 
 Main weekly result:
 
 ```text
-Lag 0 weeks is the strongest positive association in only 1 out of 12 pollutant-outcome-group combinations.
-Most best lags occur at lag 1 or lag 2 weeks.
-```
-
-Main interpretation:
-
-```text
-The same-month signal observed in monthly analysis may contain shorter delayed associations within the month.
-Weekly analysis suggests a short-lag window of approximately 1-2 weeks, especially in the industrial area.
+Lag 0 weeks is the strongest positive association in only 2 out of 12 pollutant-outcome-group combinations.
+Most best lags occur at lag 1 or lag 2 weeks overall and in the industrial area.
 ```
 
 Industrial weekly best lags:
@@ -1439,39 +1516,39 @@ Industrial weekly best lags:
 ```text
 NO2 vs Respiratory:
 best lag = 2 weeks
-rho = 0.249
+rho = 0.235
 
 NO2 vs Cardiocirculatory:
 best lag = 2 weeks
-rho = 0.336
+rho = 0.315
 
 PM2.5 vs Respiratory:
 best lag = 1 week
-rho = 0.364
+rho = 0.358
 
 PM2.5 vs Cardiocirculatory:
 best lag = 2 weeks
-rho = 0.354
+rho = 0.336
 ```
 
 Agricultural weekly best lags:
 
 ```text
 NO2 vs Respiratory:
-best lag = 1 week
-rho = 0.304
+best lag = 4 weeks
+rho = 0.152
 
 PM2.5 vs Respiratory:
-best lag = 1 week
-rho = 0.295
+best lag = 4 weeks
+rho = 0.169
 
 NO2 vs Cardiocirculatory:
-best lag = 1 week
-rho = 0.136
+best lag = 0 weeks
+rho = 0.116
 
 PM2.5 vs Cardiocirculatory:
 best lag = 0 weeks
-rho = 0.118
+rho = 0.113
 ```
 
 Main interpretation by area:
@@ -1481,7 +1558,8 @@ Industrial area:
 clearest short-lag structure, especially around lag 1-2 weeks.
 
 Agricultural area:
-coherent respiratory associations, but weaker and less sharply lagged.
+positive respiratory associations, but weaker and less sharply lagged.
+The apparent lag 4 pattern should be interpreted cautiously as broad temporal coherence, not as a precise 4-week delay.
 
 Respiratory outcomes:
 most consistent temporal endpoint.
@@ -1523,33 +1601,35 @@ modaria_weekly_best_positive_lag_summary.png
 
 ---
 
-## Part 5 — Final project synthesis
+## Part 5 — Preliminary synthesis
 
 Output folder:
 
 ```text
-Dati/output/5-Final synthesis/5.1-Final project synthesis/
+Dati/output/5-Preliminary synthesis/5.1-Station vs ModAria synthesis/
 ```
 
 Code folder:
 
 ```text
-src/final_synthesis/
+src/preliminary_synthesis/
 ```
 
 Script:
 
 ```text
-src/final_synthesis/final_project_synthesis.py
+src/preliminary_synthesis/preliminary_station_modaria_synthesis.py
 ```
 
 Aim:
 
 ```text
-Summarize and compare the station-based pipeline and the ModAria-based pipeline.
+Summarize and compare the station-based pipeline and the health-aligned ModAria-based pipeline.
 ```
 
-Part 5 is not a new exposure or health analysis. It is a final synthesis step designed to make the project easier to interpret, present and reproduce.
+Part 5 is not a new exposure or health analysis. It is a preliminary synthesis step designed to make the project easier to interpret, present and reproduce.
+
+The synthesis was renamed from final synthesis to preliminary synthesis because the project may continue with a following APHREH-ADSMap feasibility phase.
 
 The analysis compares:
 
@@ -1557,7 +1637,7 @@ The analysis compares:
 Station-based pipeline:
 Part 3 seasonal/monthly integration and lag analysis
 
-ModAria-based pipeline:
+Health-aligned ModAria pipeline:
 Part 4.3 integration and Part 4.4 lag analysis
 ```
 
@@ -1568,9 +1648,9 @@ Main goals:
 - compare station-based and ModAria-based lag patterns;
 - identify which conclusions are robust to the change in exposure assessment;
 - produce compact summary tables;
-- produce final presentation-ready plots;
+- produce presentation-ready plots;
 - build a qualitative evidence strength table;
-- summarize the whole analytical workflow.
+- summarize the whole analytical workflow before APHREH-ADSMap feasibility.
 
 Main standardized correlation table:
 
@@ -1616,9 +1696,9 @@ Main lag comparison table:
 24 rows
 ```
 
-### Final correlation synthesis
+### Preliminary correlation synthesis
 
-The final synthesis showed that all station-based and ModAria correlations had the same positive direction.
+The preliminary synthesis showed that all station-based and ModAria correlations had the same positive direction.
 
 Summary:
 
@@ -1636,23 +1716,23 @@ Mean absolute rho = 0.386
 ModAria, Seasonal:
 Positive correlations = 12/12
 Significant correlations = 4/12
-Mean absolute rho = 0.340
+Mean absolute rho = 0.338
 
 ModAria, Monthly:
 Positive correlations = 12/12
 Significant correlations = 11/12
-Mean absolute rho = 0.356
+Mean absolute rho = 0.346
 ```
 
 Interpretation:
 
 ```text
-The direction of the environmental-health associations is robust to the change from station-based exposure to ModAria area-level exposure.
+The direction of the environmental-health associations is robust to the change from station-based exposure to health-aligned ModAria area-level exposure.
 
 Monthly associations are more robust than seasonal associations in both pipelines, mainly because the monthly datasets contain more observations.
 ```
 
-### Final lag synthesis
+### Preliminary lag synthesis
 
 Summary:
 
@@ -1670,8 +1750,8 @@ Lag 0 best = 1/12
 Median best lag = 1 week
 
 ModAria weekly lag:
-Lag 0 best = 1/12
-Median best lag = 1 week
+Lag 0 best = 2/12
+Median best lag = 2 weeks
 ```
 
 Interpretation:
@@ -1679,14 +1759,14 @@ Interpretation:
 ```text
 Both pipelines agree that monthly associations are mainly strongest at lag 0 months.
 
-Both pipelines also agree that weekly associations often peak around lag 1 week.
+Both pipelines also agree that weekly associations often peak in a short-lag window around 1-2 weeks.
 
 This suggests that the same-month signal observed at monthly scale may contain shorter lagged structures visible only at weekly scale.
 ```
 
-### Final qualitative synthesis
+### Preliminary qualitative synthesis
 
-The final qualitative evidence summary supports the following conclusions:
+The preliminary qualitative evidence summary supports the following conclusions:
 
 ```text
 NO2 industrial contrast:
@@ -1713,40 +1793,38 @@ supported by both station-based and ModAria pipelines.
 Main CSV outputs:
 
 ```text
-final_standardized_correlation_results.csv
-final_station_vs_modaria_correlation_comparison.csv
-final_standardized_lag_best_results.csv
-final_standardized_lag_full_results.csv
-final_station_vs_modaria_lag_comparison.csv
-final_methodological_comparison_station_vs_modaria.csv
-final_robust_conclusions_summary.csv
-final_quantitative_synthesis_summary.csv
-final_project_synthesis_summary.csv
+preliminary_standardized_correlation_results.csv
+preliminary_station_vs_modaria_correlation_comparison.csv
+preliminary_standardized_lag_best_results.csv
+preliminary_standardized_lag_full_results.csv
+preliminary_station_vs_modaria_lag_comparison.csv
+preliminary_methodological_comparison_station_vs_modaria.csv
+preliminary_robust_conclusions_summary.csv
+preliminary_quantitative_synthesis_summary.csv
+preliminary_project_synthesis_summary.csv
 ```
 
 Main plot outputs:
 
 ```text
-final_project_pipeline_overview.png
-final_monthly_station_vs_modaria_correlations.png
-final_seasonal_station_vs_modaria_correlations.png
-final_monthly_delta_rho_modaria_minus_station.png
-final_seasonal_delta_rho_modaria_minus_station.png
-final_monthly_best_lag_station_vs_modaria.png
-final_weekly_best_lag_station_vs_modaria.png
-final_overall_monthly_rho_vs_lag_station_vs_modaria.png
-final_overall_weekly_rho_vs_lag_station_vs_modaria.png
-final_evidence_strength_heatmap.png
+preliminary_project_pipeline_overview.png
+preliminary_monthly_station_vs_modaria_correlations.png
+preliminary_seasonal_station_vs_modaria_correlations.png
+preliminary_monthly_delta_rho_modaria_minus_station.png
+preliminary_seasonal_delta_rho_modaria_minus_station.png
+preliminary_monthly_best_lag_station_vs_modaria.png
+preliminary_weekly_best_lag_station_vs_modaria.png
+preliminary_monthly_overall_rho_vs_lag_station_vs_modaria.png
+preliminary_weekly_overall_rho_vs_lag_station_vs_modaria.png
+preliminary_evidence_strength_heatmap.png
 ```
 
 Main interpretation:
 
 ```text
-The analytical coding pipeline is complete.
-
 The station-based pipeline was useful to develop the complete workflow.
 
-The ModAria pipeline improves spatial coherence and provides the strongest final exposure framework.
+The health-aligned ModAria pipeline improves spatial coherence and provides the strongest current exposure framework.
 
 The main conclusions are robust when interpreted cautiously:
 NO2 better characterizes the industrial/urban context.
@@ -1755,6 +1833,42 @@ Respiratory outcomes are the most temporally coherent health endpoint.
 Cardiocirculatory burden is structurally higher in the industrial area and becomes more visible in the ModAria framework.
 Monthly lag analyses do not show clear 1-3 month delayed patterns.
 Weekly lag analyses suggest short-lag windows around 1-2 weeks.
+```
+
+---
+
+## Planned Part 6 — APHREH-ADSMap feasibility
+
+Part 6 is planned as a future branch of the project.
+
+The aim will be to evaluate whether the health-aligned municipality framework can be adapted to the APHREH-ADSMap model structure.
+
+This phase is not part of the current correlation-based ModAria synthesis, but it is the natural next methodological step after completing the health-aligned exposure reconstruction.
+
+The APHREH-ADSMap model is expected to require inputs such as:
+
+```text
+exposure_data.csv
+outcome_data.csv
+BSA.csv
+SRCBSA.csv
+exposure thresholds
+exposed/non-exposed days
+daily lags
+lagged incidence
+bootstrap outputs
+MARM/WMARM indicators
+spatial outputs by BSA/municipality
+```
+
+The current project provides a useful basis for this phase because the ModAria data have now been aligned with the same 37 municipalities used in the health dataset.
+
+Suggested future branch name:
+
+```bash
+git checkout main
+git pull
+git checkout -b feature/aphreh-adsmap-feasibility
 ```
 
 ---
@@ -1770,15 +1884,15 @@ Station-based framework:
 NO2 does not clearly separate agricultural and industrial contexts.
 Soresina is slightly higher than Rezzato, but the difference is modest and strongly affected by seasonality.
 
-ModAria framework:
+Health-aligned ModAria framework:
 NO2 is higher in the industrial area.
 This is coherent with its interpretation as a combustion-related pollutant associated with traffic, heating, urbanization and industrial activity.
 ```
 
-Final interpretation:
+Current interpretation:
 
 ```text
-NO2 is the clearest pollutant for identifying the industrial/urban exposure profile when exposure is reconstructed at area level using ModAria municipal estimates.
+NO2 is the clearest pollutant for identifying the industrial/urban exposure profile when exposure is reconstructed at area level using health-aligned ModAria municipal estimates.
 ```
 
 ### PM2.5
@@ -1787,11 +1901,11 @@ NO2 is the clearest pollutant for identifying the industrial/urban exposure prof
 Station-based framework:
 Soresina shows higher PM2.5 than Brescia Villaggio Sereno, especially outside winter.
 
-ModAria framework:
+Health-aligned ModAria framework:
 Agricultural and industrial PM2.5 exposure patterns are strongly overlapping and temporally similar.
 ```
 
-Final interpretation:
+Current interpretation:
 
 ```text
 PM2.5 behaves more as a regional/shared pollutant than as a simple agricultural-versus-industrial discriminator.
@@ -1810,7 +1924,7 @@ They show the clearest temporal coherence with pollutant variation.
 Associations are positive in both station-based and ModAria frameworks.
 ```
 
-Final interpretation:
+Current interpretation:
 
 ```text
 Respiratory acute event rates are the most consistent environmental-health endpoint in the project.
@@ -1823,10 +1937,10 @@ Cardiocirculatory rates are consistently higher in the industrial area after pop
 The higher industrial cardiocirculatory burden is not fully explained by age structure, especially because it is visible in the <65 group.
 
 Pollutant-health correlations for cardiocirculatory outcomes are more heterogeneous than respiratory correlations.
-They are more visible in the industrial area and in the ModAria framework.
+They are more visible in the industrial area and in the ModAria framework, especially with NO2.
 ```
 
-Final interpretation:
+Current interpretation:
 
 ```text
 Cardiocirculatory outcomes are relevant for the industrial context, but their association with pollutant variation is more complex and more likely influenced by structural, demographic and unmeasured factors.
@@ -1842,7 +1956,7 @@ Cardiocirculatory outcomes are relevant for the industrial context, but their as
 Station-based monthly lag:
 Lag 0 dominates most combinations.
 
-ModAria monthly lag:
+Health-aligned ModAria monthly lag:
 Lag 0 dominates all combinations.
 ```
 
@@ -1859,8 +1973,8 @@ Monthly associations are mainly same-month and seasonally structured.
 Station-based weekly lag:
 Best lags often occur around 1-2 weeks.
 
-ModAria weekly lag:
-Best lags often occur around 1-2 weeks.
+Health-aligned ModAria weekly lag:
+Best lags often occur around 1-2 weeks overall and in the industrial area.
 ```
 
 Interpretation:
@@ -1872,26 +1986,26 @@ Weekly results should be interpreted as a short-lag window, not as a precise cau
 
 ---
 
-# Final interpretation
+# Current interpretation
 
-The final project interpretation is:
+The current project interpretation is:
 
 ```text
 Industrial and agricultural areas show different environmental-health profiles, but the difference is pollutant-specific, outcome-specific and scale-dependent.
 
-NO2 is the clearest pollutant for the industrial/urban exposure profile when using ModAria area-level exposure.
+NO2 is the clearest pollutant for the industrial/urban exposure profile when using health-aligned ModAria area-level exposure.
 
-PM2.5 behaves as a regional/shared pollutant affecting both areas.
+PM2.5 behaves as a regional/shared pollutant affecting both agricultural and industrial areas.
 
 Respiratory outcomes show the most consistent temporal coherence with pollutant variation.
 
-Cardiocirculatory outcomes are structurally higher in the industrial area and become more visible in the ModAria framework, but their association with pollutant variation is more heterogeneous.
+Cardiocirculatory outcomes are structurally higher in the industrial area and become more visible in the ModAria framework, but their interpretation is more complex.
 
 Monthly lag analysis does not show clear delayed patterns at 1-3 months.
 
-Weekly lag analysis suggests short-lag windows around 1-2 weeks.
+Weekly lag analysis suggests short-lag windows around 1-2 weeks, especially in the industrial area.
 
-The ModAria framework provides the most spatially coherent final exposure assessment.
+The health-aligned ModAria framework provides the most spatially coherent current exposure assessment.
 ```
 
 ---
@@ -1937,7 +2051,7 @@ Age remains an important potential confounder.
 
 The station-based framework uses one monitoring station per pollutant and area. This is useful but spatially limited.
 
-The ModAria framework improves spatial coherence but still provides area-level ecological exposure estimates. It does not represent individual exposure and does not account for within-municipality variability.
+The ModAria framework improves spatial coherence because it uses all 37 health-aligned municipalities, but it still provides area-level ecological exposure estimates. It does not represent individual exposure and does not account for within-municipality variability.
 
 ## Meteorology and seasonality
 
@@ -1997,7 +2111,7 @@ This limits the ability to directly attribute PM2.5 patterns to agricultural or 
 
 # Current project status
 
-The Python analytical pipeline is complete.
+The station-based and health-aligned ModAria correlation-based analytical pipeline is complete.
 
 Completed parts:
 
@@ -2012,27 +2126,29 @@ Part 3:
 Station-based seasonal/monthly environmental-health integration and lag analysis.
 
 Part 4:
-ModAria exposure reconstruction, area pollutant comparison, environmental-health integration and lag analysis.
+Health-aligned ModAria exposure reconstruction, area pollutant comparison, environmental-health integration and lag analysis.
 
 Part 5:
-Final synthesis comparing station-based and ModAria-based pipelines.
+Preliminary synthesis comparing station-based and health-aligned ModAria-based pipelines.
 ```
 
 The project is ready for:
 
-- final report preparation;
+- README update and GitHub merge into main;
+- provisional final report preparation;
 - final presentation figure selection;
-- final GitHub commit;
-- optional QGIS-based spatial visualization by the group.
+- optional QGIS-based spatial visualization by the group;
+- creation of a new branch for APHREH-ADSMap feasibility.
 
 ---
 
 # Possible future extensions
 
-The following extensions could build on this project, but they are beyond the current analytical coding scope.
+The following extensions could build on this project, but they are beyond the current correlation-based analytical scope.
 
 Possible future work:
 
+- evaluate APHREH-ADSMap feasibility;
 - include meteorological variables;
 - include NH3 if reliable data become available;
 - add PM chemical speciation or source apportionment;
@@ -2073,46 +2189,63 @@ git commit -m "Add seasonal environmental health integration"
 git commit -m "Add monthly environmental health integration"
 git commit -m "Add monthly lag analysis"
 git commit -m "Add weekly lag analysis"
-git commit -m "Add ModAria data validation and area exposure construction"
-git commit -m "Add ModAria area pollutant comparison"
-git commit -m "Add ModAria environmental health integration"
-git commit -m "Add ModAria monthly and weekly lag analysis"
-git commit -m "Add final project synthesis"
-git commit -m "Update README with final project documentation"
+git commit -m "Add health-aligned ModAria data validation and area exposure construction"
+git commit -m "Add health-aligned ModAria area pollutant comparison"
+git commit -m "Add health-aligned ModAria environmental health integration"
+git commit -m "Add health-aligned ModAria monthly and weekly lag analysis"
+git commit -m "Add preliminary station vs ModAria synthesis"
+git commit -m "Update README with health-aligned ModAria workflow"
 ```
 
-Recommended final commit:
+Recommended commit for the current branch:
 
 ```bash
 git add -A
-git commit -m "Finalize project synthesis and README"
+git commit -m "Update README and preliminary synthesis documentation"
 git push
+```
+
+Recommended merge workflow after the branch is complete:
+
+```bash
+git checkout main
+git pull
+git merge feature/modaria-health-aligned
+git push
+```
+
+Recommended branch for the next phase:
+
+```bash
+git checkout main
+git pull
+git checkout -b feature/aphreh-adsmap-feasibility
 ```
 
 ---
 
-# Final conclusion
+# Current conclusion
 
 This repository contains a complete exploratory data science workflow for comparing agricultural/rural and industrial/urban environmental-health patterns in Lombardy.
 
-The project progressively moves from station-based pollutant comparisons to a more spatially coherent ModAria municipality-based exposure framework.
+The project progressively moves from station-based pollutant comparisons to a more spatially coherent health-aligned ModAria municipality-based exposure framework.
 
-The final results suggest that:
+The current results suggest that:
 
 ```text
-NO2 is the clearest marker of the industrial/urban exposure profile in the ModAria framework.
+NO2 is the clearest marker of the industrial/urban exposure profile in the health-aligned ModAria framework.
 
 PM2.5 behaves as a regional/shared pollutant affecting both agricultural and industrial areas.
 
 Respiratory acute event rates show the most consistent temporal coherence with pollutant variation.
 
-Cardiocirculatory rates are structurally higher in the industrial area and are more visible in the ModAria integration, but their interpretation is more complex.
+Cardiocirculatory rates are structurally higher in the industrial area and are more visible in the ModAria integration, especially with NO2, but their interpretation is more complex.
 
 Monthly associations are mainly same-month and seasonally structured.
 
-Weekly analyses suggest possible short-lag windows of approximately 1-2 weeks.
+Weekly analyses suggest possible short-lag windows of approximately 1-2 weeks, especially in the industrial area.
 ```
 
 All conclusions should be interpreted as ecological and exploratory, not as individual-level causal evidence.
 
-The analytical Python part of the project is complete and provides a reproducible foundation for final reporting, presentation and optional spatial visualization.
+The station-based and health-aligned ModAria analytical Python workflow is complete and provides a reproducible foundation for provisional reporting, presentation, optional spatial visualization and the planned APHREH-ADSMap feasibility phase.

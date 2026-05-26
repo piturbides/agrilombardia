@@ -5,7 +5,7 @@ Main exposure indicator;Population_weighted_mean;Population-weighted exposure is
 Secondary exposure indicator;Arithmetic_mean;Used as sensitivity check, not as main exposure indicator.
 Main correlation method;Spearman;Main ecological association metric because no linear exposure-response relationship is assumed.
 Secondary correlation method;Pearson;Computed as linear sensitivity check and saved in separate files.
-Strongest monthly main Spearman association;Agricultural | NO2 | Respiratory | rho=0.465 | p=0.000184;Moderate positive, statistically significant
-Strongest seasonal main Spearman association;Agricultural | NO2 | Respiratory | rho=0.600 | p=0.00854;Strong positive, statistically significant
+Strongest monthly main Spearman association;Overall | PM25 | Respiratory | rho=0.450 | p=2.48e-07;Moderate positive, statistically significant
+Strongest seasonal main Spearman association;Agricultural | PM25 | Respiratory | rho=0.610 | p=0.0072;Strong positive, statistically significant
 Brief station-based comparison note;Qualitative comparison only in Part 4.3;Use Part 4.3 to check whether the ModAria-based direction is broadly similar or different from the previous station-based integration. A complete station-based vs ModAria synthesis is better placed after monthly and weekly lag analyses.
 Causal interpretation warning;Ecological association only;Rows represent area-time aggregates, not individual exposure-response observations. No adjustment for meteorology, autocorrelation, demographic structure or socioeconomic factors is included.

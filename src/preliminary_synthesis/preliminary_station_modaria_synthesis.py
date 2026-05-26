@@ -1,19 +1,23 @@
 """
-Final project synthesis for the Human Health and Environment Data Science Laboratory project.
+Preliminary synthesis for the Human Health and Environment Data Science Laboratory project.
 
 Part 5 is not a new environmental-health analysis.
-It is a final synthesis layer that compares the previous station-based pipeline
-with the newer ModAria-based pipeline and produces compact tables and plots
-for final reporting and presentation.
+It is a preliminary synthesis layer that compares the previous station-based pipeline
+with the updated health-aligned ModAria-based pipeline and produces compact tables
+and plots for reporting.
+
+This step closes the current station-vs-ModAria analytical workflow, but it is not
+the final end of the project. A following Part 6 will evaluate the feasibility of
+implementing the APHREH-ADSMap model.
 
 Recommended location:
-    src/final_synthesis/final_project_synthesis.py
+    src/preliminary_synthesis/preliminary_station_modaria_synthesis.py
 
 Run from main.py:
-    from src.final_synthesis.final_project_synthesis import main as run_final_synthesis
+    from src.preliminary_synthesis.preliminary_station_modaria_synthesis import main as run_preliminary_synthesis
 
     if __name__ == "__main__":
-        run_final_synthesis()
+        run_preliminary_synthesis()
 """
 
 from __future__ import annotations
@@ -32,37 +36,128 @@ import matplotlib.pyplot as plt
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
-OUTPUT_DIR = PROJECT_ROOT / "Dati" / "output" / "5-Final synthesis" / "5.1-Final project synthesis"
+OUTPUT_DIR = (
+    PROJECT_ROOT
+    / "Dati"
+    / "output"
+    / "5-Preliminary synthesis"
+    / "5.1-Station vs ModAria synthesis"
+)
+
 PLOTS_DIR = OUTPUT_DIR / "plots"
 
 STATION_CORRELATION_FILES = {
-    "Seasonal": PROJECT_ROOT / "Dati" / "output" / "3-Environmental health integration" / "3.1-Seasonal integration" / "spearman_correlation_summary.csv",
-    "Monthly": PROJECT_ROOT / "Dati" / "output" / "3-Environmental health integration" / "3.2-Monthly integration" / "spearman_correlation_summary.csv",
+    "Seasonal": (
+        PROJECT_ROOT
+        / "Dati"
+        / "output"
+        / "3-Environmental health integration"
+        / "3.1-Seasonal integration"
+        / "spearman_correlation_summary.csv"
+    ),
+    "Monthly": (
+        PROJECT_ROOT
+        / "Dati"
+        / "output"
+        / "3-Environmental health integration"
+        / "3.2-Monthly integration"
+        / "spearman_correlation_summary.csv"
+    ),
 }
 
 MODARIA_CORRELATION_FILES = {
-    "Seasonal": PROJECT_ROOT / "Dati" / "output" / "4-Modaria exposure" / "4.3-Modaria environmental health integration" / "spearman_population_weighted_correlation_summary_seasonal.csv",
-    "Monthly": PROJECT_ROOT / "Dati" / "output" / "4-Modaria exposure" / "4.3-Modaria environmental health integration" / "spearman_population_weighted_correlation_summary_monthly.csv",
+    "Seasonal": (
+        PROJECT_ROOT
+        / "Dati"
+        / "output"
+        / "4-Modaria exposure"
+        / "4.3-Modaria environmental health integration"
+        / "spearman_population_weighted_correlation_summary_seasonal.csv"
+    ),
+    "Monthly": (
+        PROJECT_ROOT
+        / "Dati"
+        / "output"
+        / "4-Modaria exposure"
+        / "4.3-Modaria environmental health integration"
+        / "spearman_population_weighted_correlation_summary_monthly.csv"
+    ),
 }
 
 STATION_LAG_BEST_FILES = {
-    "Monthly": PROJECT_ROOT / "Dati" / "output" / "3-Environmental health integration" / "3.3-Monthly lag analysis" / "monthly_lag_best_lag_summary.csv",
-    "Weekly": PROJECT_ROOT / "Dati" / "output" / "3-Environmental health integration" / "3.4-Weekly lag analysis" / "weekly_lag_best_lag_summary.csv",
+    "Monthly": (
+        PROJECT_ROOT
+        / "Dati"
+        / "output"
+        / "3-Environmental health integration"
+        / "3.3-Monthly lag analysis"
+        / "monthly_lag_best_lag_summary.csv"
+    ),
+    "Weekly": (
+        PROJECT_ROOT
+        / "Dati"
+        / "output"
+        / "3-Environmental health integration"
+        / "3.4-Weekly lag analysis"
+        / "weekly_lag_best_lag_summary.csv"
+    ),
 }
 
 STATION_LAG_FULL_FILES = {
-    "Monthly": PROJECT_ROOT / "Dati" / "output" / "3-Environmental health integration" / "3.3-Monthly lag analysis" / "monthly_lag_spearman_summary.csv",
-    "Weekly": PROJECT_ROOT / "Dati" / "output" / "3-Environmental health integration" / "3.4-Weekly lag analysis" / "weekly_lag_spearman_summary.csv",
+    "Monthly": (
+        PROJECT_ROOT
+        / "Dati"
+        / "output"
+        / "3-Environmental health integration"
+        / "3.3-Monthly lag analysis"
+        / "monthly_lag_spearman_summary.csv"
+    ),
+    "Weekly": (
+        PROJECT_ROOT
+        / "Dati"
+        / "output"
+        / "3-Environmental health integration"
+        / "3.4-Weekly lag analysis"
+        / "weekly_lag_spearman_summary.csv"
+    ),
 }
 
 MODARIA_LAG_BEST_FILES = {
-    "Monthly": PROJECT_ROOT / "Dati" / "output" / "4-Modaria exposure" / "4.4-Modaria monthly and weekly lag analysis" / "modaria_monthly_lag_best_lag_summary.csv",
-    "Weekly": PROJECT_ROOT / "Dati" / "output" / "4-Modaria exposure" / "4.4-Modaria monthly and weekly lag analysis" / "modaria_weekly_lag_best_lag_summary.csv",
+    "Monthly": (
+        PROJECT_ROOT
+        / "Dati"
+        / "output"
+        / "4-Modaria exposure"
+        / "4.4-Modaria monthly and weekly lag analysis"
+        / "modaria_monthly_lag_best_lag_summary.csv"
+    ),
+    "Weekly": (
+        PROJECT_ROOT
+        / "Dati"
+        / "output"
+        / "4-Modaria exposure"
+        / "4.4-Modaria monthly and weekly lag analysis"
+        / "modaria_weekly_lag_best_lag_summary.csv"
+    ),
 }
 
 MODARIA_LAG_FULL_FILES = {
-    "Monthly": PROJECT_ROOT / "Dati" / "output" / "4-Modaria exposure" / "4.4-Modaria monthly and weekly lag analysis" / "modaria_monthly_lag_spearman_summary.csv",
-    "Weekly": PROJECT_ROOT / "Dati" / "output" / "4-Modaria exposure" / "4.4-Modaria monthly and weekly lag analysis" / "modaria_weekly_lag_spearman_summary.csv",
+    "Monthly": (
+        PROJECT_ROOT
+        / "Dati"
+        / "output"
+        / "4-Modaria exposure"
+        / "4.4-Modaria monthly and weekly lag analysis"
+        / "modaria_monthly_lag_spearman_summary.csv"
+    ),
+    "Weekly": (
+        PROJECT_ROOT
+        / "Dati"
+        / "output"
+        / "4-Modaria exposure"
+        / "4.4-Modaria monthly and weekly lag analysis"
+        / "modaria_weekly_lag_spearman_summary.csv"
+    ),
 }
 
 GROUP_ORDER = ["Overall", "Industrial", "Agricultural"]
@@ -142,7 +237,14 @@ def to_numeric_safe(series: pd.Series) -> pd.Series:
 
 
 def normalize_pollutant(value: object) -> str:
-    text = str(value).upper().replace(".", "").replace("_", "").replace("-", "").replace(" ", "")
+    text = (
+        str(value)
+        .upper()
+        .replace(".", "")
+        .replace("_", "")
+        .replace("-", "")
+        .replace(" ", "")
+    )
 
     if "NO2" in text:
         return "NO2"
@@ -190,6 +292,7 @@ def direction_label(rho: object) -> str:
         return "positive"
     if r < 0:
         return "negative"
+
     return "zero"
 
 
@@ -207,6 +310,7 @@ def strength_label(rho: object) -> str:
         return "moderate"
     if r < 0.70:
         return "strong"
+
     return "very strong"
 
 
@@ -233,22 +337,33 @@ def sort_summary_table(df: pd.DataFrame) -> pd.DataFrame:
     result = df.copy()
 
     if "Temporal_scale" in result.columns:
-        result["Temporal_order"] = result["Temporal_scale"].map({"Seasonal": 0, "Monthly": 1, "Weekly": 2})
+        result["Temporal_order"] = result["Temporal_scale"].map(
+            {"Seasonal": 0, "Monthly": 1, "Weekly": 2}
+        )
 
     if "Pipeline" in result.columns:
-        result["Pipeline_order"] = result["Pipeline"].map({"Station-based": 0, "ModAria": 1})
+        result["Pipeline_order"] = result["Pipeline"].map(
+            {"Station-based": 0, "ModAria": 1}
+        )
 
     if "Group" in result.columns:
-        result["Group_order"] = result["Group"].map({g: i for i, g in enumerate(GROUP_ORDER)})
+        result["Group_order"] = result["Group"].map(
+            {g: i for i, g in enumerate(GROUP_ORDER)}
+        )
 
     if "Pollutant" in result.columns:
-        result["Pollutant_order"] = result["Pollutant"].map({p: i for i, p in enumerate(POLLUTANT_ORDER)})
+        result["Pollutant_order"] = result["Pollutant"].map(
+            {p: i for i, p in enumerate(POLLUTANT_ORDER)}
+        )
 
     if "Outcome" in result.columns:
-        result["Outcome_order"] = result["Outcome"].map({o: i for i, o in enumerate(OUTCOME_ORDER)})
+        result["Outcome_order"] = result["Outcome"].map(
+            {o: i for i, o in enumerate(OUTCOME_ORDER)}
+        )
 
     sort_cols = [
-        c for c in [
+        c
+        for c in [
             "Temporal_order",
             "Pipeline_order",
             "Group_order",
@@ -291,8 +406,14 @@ def standardize_correlation_table(
         return pd.DataFrame()
 
     group_col = find_column(df, ["Group", "Area_group", "Aggregation"])
-    pollutant_col = find_column(df, ["Pollutant", "Pollutant_column", "Exposure", "Exposure_variable"])
-    outcome_col = find_column(df, ["Outcome", "Outcome_column", "Health_outcome", "Outcome_variable"])
+    pollutant_col = find_column(
+        df,
+        ["Pollutant", "Pollutant_column", "Exposure", "Exposure_variable"],
+    )
+    outcome_col = find_column(
+        df,
+        ["Outcome", "Outcome_column", "Health_outcome", "Outcome_variable"],
+    )
     rho_col = find_column(df, ["Spearman_rho", "Rho", "rho", "Correlation"])
     p_col = find_column(df, ["p_value", "P_value", "p", "P"])
     n_col = find_column(df, ["N", "n"])
@@ -307,8 +428,6 @@ def standardize_correlation_table(
         print(f"          Available columns: {list(df.columns)}")
         return pd.DataFrame()
 
-    # IMPORTANT FIX:
-    # DataFrame is initialized with df.index so scalar metadata are correctly broadcast.
     out = pd.DataFrame(index=df.index)
 
     out["Temporal_scale"] = temporal_scale
@@ -389,8 +508,14 @@ def standardize_lag_best_table(
         return pd.DataFrame()
 
     group_col = find_column(df, ["Group", "Area_group", "Aggregation"])
-    pollutant_col = find_column(df, ["Pollutant", "Pollutant_column", "Exposure", "Exposure_variable"])
-    outcome_col = find_column(df, ["Outcome", "Outcome_column", "Health_outcome", "Outcome_variable"])
+    pollutant_col = find_column(
+        df,
+        ["Pollutant", "Pollutant_column", "Exposure", "Exposure_variable"],
+    )
+    outcome_col = find_column(
+        df,
+        ["Outcome", "Outcome_column", "Health_outcome", "Outcome_variable"],
+    )
 
     best_lag_col = find_column(
         df,
@@ -428,14 +553,27 @@ def standardize_lag_best_table(
         ],
     )
 
-    n_col = find_column(df, ["N_at_best_positive_lag", "N_at_best_abs_lag", "N_at_best_lag", "N"])
+    n_col = find_column(
+        df,
+        ["N_at_best_positive_lag", "N_at_best_abs_lag", "N_at_best_lag", "N"],
+    )
 
     lag0_rho_col = find_column(df, ["Lag0_Spearman_rho", "Lag0_Rho"])
     lag0_p_col = find_column(df, ["Lag0_p_value", "Lag0_P_value"])
-    lag0_best_col = find_column(df, ["Lag0_is_best_positive_rho", "Lag0_is_best_abs_rho", "Lag0_is_best"])
+    lag0_best_col = find_column(
+        df,
+        ["Lag0_is_best_positive_rho", "Lag0_is_best_abs_rho", "Lag0_is_best"],
+    )
     interpretation_col = find_column(df, ["Interpretation"])
 
-    required = [group_col, pollutant_col, outcome_col, best_lag_col, best_rho_col, best_p_col]
+    required = [
+        group_col,
+        pollutant_col,
+        outcome_col,
+        best_lag_col,
+        best_rho_col,
+        best_p_col,
+    ]
 
     if any(col is None for col in required):
         print("[WARNING] Could not standardize best-lag table because required columns are missing.")
@@ -444,8 +582,6 @@ def standardize_lag_best_table(
         print(f"          Available columns: {list(df.columns)}")
         return pd.DataFrame()
 
-    # IMPORTANT FIX:
-    # DataFrame is initialized with df.index so scalar metadata are correctly broadcast.
     out = pd.DataFrame(index=df.index)
 
     out["Temporal_scale"] = temporal_scale
@@ -493,8 +629,14 @@ def standardize_lag_full_table(
         return pd.DataFrame()
 
     group_col = find_column(df, ["Group", "Area_group", "Aggregation"])
-    pollutant_col = find_column(df, ["Pollutant", "Pollutant_column", "Exposure", "Exposure_variable"])
-    outcome_col = find_column(df, ["Outcome", "Outcome_column", "Health_outcome", "Outcome_variable"])
+    pollutant_col = find_column(
+        df,
+        ["Pollutant", "Pollutant_column", "Exposure", "Exposure_variable"],
+    )
+    outcome_col = find_column(
+        df,
+        ["Outcome", "Outcome_column", "Health_outcome", "Outcome_variable"],
+    )
     lag_col = find_column(df, [f"Lag_{lag_unit}", "Lag_months", "Lag_weeks", "Lag"])
     rho_col = find_column(df, ["Spearman_rho", "Rho", "rho", "Correlation"])
     p_col = find_column(df, ["p_value", "P_value", "p", "P"])
@@ -510,8 +652,6 @@ def standardize_lag_full_table(
         print(f"          Available columns: {list(df.columns)}")
         return pd.DataFrame()
 
-    # IMPORTANT FIX:
-    # DataFrame is initialized with df.index so scalar metadata are correctly broadcast.
     out = pd.DataFrame(index=df.index)
 
     out["Temporal_scale"] = temporal_scale
@@ -543,7 +683,12 @@ def load_lag_summaries() -> Tuple[pd.DataFrame, pd.DataFrame]:
     for temporal_scale, path in STATION_LAG_BEST_FILES.items():
         lag_unit = "months" if temporal_scale == "Monthly" else "weeks"
         df = read_csv_robust(path)
-        standardized = standardize_lag_best_table(df, temporal_scale, lag_unit, "Station-based")
+        standardized = standardize_lag_best_table(
+            df=df,
+            temporal_scale=temporal_scale,
+            lag_unit=lag_unit,
+            pipeline="Station-based",
+        )
 
         if not standardized.empty:
             best_frames.append(standardized)
@@ -551,7 +696,12 @@ def load_lag_summaries() -> Tuple[pd.DataFrame, pd.DataFrame]:
     for temporal_scale, path in MODARIA_LAG_BEST_FILES.items():
         lag_unit = "months" if temporal_scale == "Monthly" else "weeks"
         df = read_csv_robust(path)
-        standardized = standardize_lag_best_table(df, temporal_scale, lag_unit, "ModAria")
+        standardized = standardize_lag_best_table(
+            df=df,
+            temporal_scale=temporal_scale,
+            lag_unit=lag_unit,
+            pipeline="ModAria",
+        )
 
         if not standardized.empty:
             best_frames.append(standardized)
@@ -559,7 +709,12 @@ def load_lag_summaries() -> Tuple[pd.DataFrame, pd.DataFrame]:
     for temporal_scale, path in STATION_LAG_FULL_FILES.items():
         lag_unit = "months" if temporal_scale == "Monthly" else "weeks"
         df = read_csv_robust(path)
-        standardized = standardize_lag_full_table(df, temporal_scale, lag_unit, "Station-based")
+        standardized = standardize_lag_full_table(
+            df=df,
+            temporal_scale=temporal_scale,
+            lag_unit=lag_unit,
+            pipeline="Station-based",
+        )
 
         if not standardized.empty:
             full_frames.append(standardized)
@@ -567,7 +722,12 @@ def load_lag_summaries() -> Tuple[pd.DataFrame, pd.DataFrame]:
     for temporal_scale, path in MODARIA_LAG_FULL_FILES.items():
         lag_unit = "months" if temporal_scale == "Monthly" else "weeks"
         df = read_csv_robust(path)
-        standardized = standardize_lag_full_table(df, temporal_scale, lag_unit, "ModAria")
+        standardized = standardize_lag_full_table(
+            df=df,
+            temporal_scale=temporal_scale,
+            lag_unit=lag_unit,
+            pipeline="ModAria",
+        )
 
         if not standardized.empty:
             full_frames.append(standardized)
@@ -586,7 +746,16 @@ def build_correlation_comparison(corr: pd.DataFrame) -> pd.DataFrame:
     if corr.empty:
         return pd.DataFrame()
 
-    required_cols = ["Temporal_scale", "Pipeline", "Group", "Pollutant", "Outcome", "Rho", "P_value", "N"]
+    required_cols = [
+        "Temporal_scale",
+        "Pipeline",
+        "Group",
+        "Pollutant",
+        "Outcome",
+        "Rho",
+        "P_value",
+        "N",
+    ]
 
     missing = [c for c in required_cols if c not in corr.columns]
     if missing:
@@ -655,7 +824,9 @@ def build_correlation_comparison(corr: pd.DataFrame) -> pd.DataFrame:
         how="outer",
     )
 
-    comparison["Delta_Rho_ModAria_minus_Station"] = comparison["ModAria_Rho"] - comparison["Station_Rho"]
+    comparison["Delta_Rho_ModAria_minus_Station"] = (
+        comparison["ModAria_Rho"] - comparison["Station_Rho"]
+    )
 
     def direction_agreement(row: pd.Series) -> str:
         s = row.get("Station_Rho")
@@ -689,7 +860,7 @@ def build_correlation_comparison(corr: pd.DataFrame) -> pd.DataFrame:
 
         return "similar magnitude"
 
-    def final_interpretation(row: pd.Series) -> str:
+    def preliminary_interpretation(row: pd.Series) -> str:
         direction = direction_agreement(row)
         change = magnitude_change(row)
 
@@ -697,10 +868,10 @@ def build_correlation_comparison(corr: pd.DataFrame) -> pd.DataFrame:
             return "Robust pattern with similar direction and magnitude across exposure frameworks."
 
         if direction == "same direction" and change == "stronger in ModAria":
-            return "Same direction, strengthened by the ModAria exposure reconstruction."
+            return "Same direction, strengthened by the ModAria health-aligned exposure reconstruction."
 
         if direction == "same direction" and change == "weaker in ModAria":
-            return "Same direction, but weaker after ModAria exposure reconstruction."
+            return "Same direction, but weaker after ModAria health-aligned exposure reconstruction."
 
         if direction == "opposite direction":
             return "Different direction across exposure frameworks; interpret with caution."
@@ -709,7 +880,10 @@ def build_correlation_comparison(corr: pd.DataFrame) -> pd.DataFrame:
 
     comparison["Direction_agreement"] = comparison.apply(direction_agreement, axis=1)
     comparison["Magnitude_change"] = comparison.apply(magnitude_change, axis=1)
-    comparison["Final_interpretation"] = comparison.apply(final_interpretation, axis=1)
+    comparison["Preliminary_interpretation"] = comparison.apply(
+        preliminary_interpretation,
+        axis=1,
+    )
 
     return sort_summary_table(comparison)
 
@@ -805,8 +979,13 @@ def build_lag_comparison(best_lags: pd.DataFrame) -> pd.DataFrame:
         how="outer",
     )
 
-    comparison["Delta_best_lag_ModAria_minus_Station"] = comparison["ModAria_Best_lag"] - comparison["Station_Best_lag"]
-    comparison["Delta_best_rho_ModAria_minus_Station"] = comparison["ModAria_Best_Rho"] - comparison["Station_Best_Rho"]
+    comparison["Delta_best_lag_ModAria_minus_Station"] = (
+        comparison["ModAria_Best_lag"] - comparison["Station_Best_lag"]
+    )
+
+    comparison["Delta_best_rho_ModAria_minus_Station"] = (
+        comparison["ModAria_Best_Rho"] - comparison["Station_Best_Rho"]
+    )
 
     def lag_agreement(row: pd.Series) -> str:
         s = row.get("Station_Best_lag")
@@ -823,7 +1002,7 @@ def build_lag_comparison(best_lags: pd.DataFrame) -> pd.DataFrame:
 
         return "different lag structure"
 
-    def final_interpretation(row: pd.Series) -> str:
+    def preliminary_interpretation(row: pd.Series) -> str:
         agreement = lag_agreement(row)
 
         if agreement == "same best lag":
@@ -838,7 +1017,10 @@ def build_lag_comparison(best_lags: pd.DataFrame) -> pd.DataFrame:
         return "Comparison incomplete because one pipeline result is missing."
 
     comparison["Best_lag_agreement"] = comparison.apply(lag_agreement, axis=1)
-    comparison["Final_interpretation"] = comparison.apply(final_interpretation, axis=1)
+    comparison["Preliminary_interpretation"] = comparison.apply(
+        preliminary_interpretation,
+        axis=1,
+    )
 
     return sort_summary_table(comparison)
 
@@ -852,50 +1034,50 @@ def build_methodological_comparison_table() -> pd.DataFrame:
         {
             "Aspect": "Exposure spatial representation",
             "Station_based_pipeline": "One monitoring station per pollutant and study area.",
-            "ModAria_based_pipeline": "Municipality-level exposure estimates for all selected municipalities.",
-            "Final_interpretation": "ModAria improves spatial coherence with the health-event aggregation.",
+            "ModAria_based_pipeline": "Health-aligned municipality-level exposure estimates for all selected municipalities.",
+            "Preliminary_interpretation": "ModAria improves spatial coherence with the health-event aggregation.",
         },
         {
             "Aspect": "Exposure-health spatial coherence",
             "Station_based_pipeline": "Health data are aggregated over many municipalities, while exposure is represented by one station.",
-            "ModAria_based_pipeline": "Both health and exposure are aligned to the same selected municipality sets.",
-            "Final_interpretation": "ModAria reduces the spatial mismatch of the first pipeline.",
+            "ModAria_based_pipeline": "Both health and exposure are aligned to the same 37 selected municipalities.",
+            "Preliminary_interpretation": "ModAria reduces the spatial mismatch of the first pipeline.",
         },
         {
             "Aspect": "Industrial vs agricultural comparison",
             "Station_based_pipeline": "Useful first comparison, but strongly dependent on station representativeness.",
             "ModAria_based_pipeline": "More coherent area-level comparison between industrial and agricultural municipalities.",
-            "Final_interpretation": "Final interpretation should rely mainly on ModAria, using station results as exploratory support.",
+            "Preliminary_interpretation": "Current interpretation should rely mainly on ModAria, using station results as exploratory support.",
         },
         {
             "Aspect": "NO2 interpretation",
             "Station_based_pipeline": "NO2 reflects local traffic/industrial signal only at selected stations.",
-            "ModAria_based_pipeline": "NO2 is reconstructed over all selected municipalities.",
-            "Final_interpretation": "The ModAria framework gives stronger evidence for the industrial NO2 contrast.",
+            "ModAria_based_pipeline": "NO2 is reconstructed over all selected health-aligned municipalities.",
+            "Preliminary_interpretation": "The ModAria framework gives stronger evidence for the industrial NO2 contrast.",
         },
         {
             "Aspect": "PM2.5 interpretation",
             "Station_based_pipeline": "PM2.5 may appear station-specific and sensitive to local measurement context.",
             "ModAria_based_pipeline": "PM2.5 shows broader regional/shared behavior across the selected territory.",
-            "Final_interpretation": "PM2.5 should be interpreted as a regional pollutant rather than a simple industrial/agricultural discriminator.",
+            "Preliminary_interpretation": "PM2.5 should be interpreted as a regional pollutant rather than a simple industrial/agricultural discriminator.",
         },
         {
             "Aspect": "Temporal lag interpretation",
             "Station_based_pipeline": "Exploratory lag structure based on station exposure.",
-            "ModAria_based_pipeline": "Lag structure based on population-weighted area exposure.",
-            "Final_interpretation": "Lag results are descriptive and useful for temporal coherence, not causal inference.",
+            "ModAria_based_pipeline": "Lag structure based on population-weighted health-aligned area exposure.",
+            "Preliminary_interpretation": "Lag results are descriptive and useful for temporal coherence, not causal inference.",
         },
         {
             "Aspect": "Main limitation",
             "Station_based_pipeline": "Potential exposure misclassification due to station representativeness.",
             "ModAria_based_pipeline": "Modelled exposure may smooth local peaks and depends on ModAria reconstruction quality.",
-            "Final_interpretation": "The two pipelines are complementary and should be compared rather than treated as interchangeable.",
+            "Preliminary_interpretation": "The two pipelines are complementary and should be compared rather than treated as interchangeable.",
         },
         {
-            "Aspect": "Final role in project",
+            "Aspect": "Current role in project",
             "Station_based_pipeline": "Exploratory baseline analysis.",
-            "ModAria_based_pipeline": "Final spatially coherent exposure-health analysis.",
-            "Final_interpretation": "The project conclusions are stronger when robust patterns are consistent across both pipelines.",
+            "ModAria_based_pipeline": "Current spatially coherent exposure-health analysis before APHREH-ADSMap feasibility.",
+            "Preliminary_interpretation": "This synthesis closes the station-vs-ModAria workflow and prepares the next feasibility phase.",
         },
     ]
 
@@ -909,56 +1091,56 @@ def build_robust_conclusions_table() -> pd.DataFrame:
             "Supported_by_station_pipeline": "Partly",
             "Supported_by_ModAria_pipeline": "Yes",
             "Strength": "Strong",
-            "Final_interpretation": "Differences are pollutant-specific, outcome-specific and scale-dependent.",
+            "Preliminary_interpretation": "Differences are pollutant-specific, outcome-specific and scale-dependent.",
         },
         {
             "Conclusion": "NO2 is the clearest pollutant for characterizing the industrial/urban exposure profile.",
             "Supported_by_station_pipeline": "Weakly",
             "Supported_by_ModAria_pipeline": "Yes",
             "Strength": "Strengthened by ModAria",
-            "Final_interpretation": "The ModAria framework makes the industrial NO2 contrast much clearer.",
+            "Preliminary_interpretation": "The ModAria framework makes the industrial NO2 contrast much clearer.",
         },
         {
             "Conclusion": "PM2.5 behaves more as a shared/regional pollutant than as a simple area discriminator.",
             "Supported_by_station_pipeline": "Partly",
             "Supported_by_ModAria_pipeline": "Yes",
             "Strength": "Moderate",
-            "Final_interpretation": "PM2.5 should be interpreted with attention to regional background and secondary formation.",
+            "Preliminary_interpretation": "PM2.5 should be interpreted with attention to regional background and secondary formation.",
         },
         {
             "Conclusion": "Respiratory outcomes show the most temporally coherent environmental-health associations.",
             "Supported_by_station_pipeline": "Yes",
             "Supported_by_ModAria_pipeline": "Yes",
             "Strength": "Strong",
-            "Final_interpretation": "Respiratory rates are the most consistent health outcome across the project.",
+            "Preliminary_interpretation": "Respiratory rates are the most consistent health outcome across the project.",
         },
         {
-            "Conclusion": "Cardiocirculatory associations are present but more heterogeneous.",
+            "Conclusion": "Cardiocirculatory associations are present but more heterogeneous and more area-dependent.",
             "Supported_by_station_pipeline": "Partly",
             "Supported_by_ModAria_pipeline": "Partly",
             "Strength": "Moderate",
-            "Final_interpretation": "Cardiocirculatory results should be interpreted more cautiously than respiratory ones.",
+            "Preliminary_interpretation": "Cardiocirculatory results are more visible in the ModAria industrial/NO2 framework but remain exploratory.",
         },
         {
             "Conclusion": "Monthly lag analysis mainly supports same-month association structure.",
             "Supported_by_station_pipeline": "Yes",
             "Supported_by_ModAria_pipeline": "Yes",
             "Strength": "Strong",
-            "Final_interpretation": "The monthly signal does not strongly support delayed multi-month effects.",
+            "Preliminary_interpretation": "The monthly signal does not strongly support delayed multi-month effects.",
         },
         {
             "Conclusion": "Weekly lag analysis suggests short-lag temporal structure.",
             "Supported_by_station_pipeline": "Partly",
             "Supported_by_ModAria_pipeline": "Yes",
             "Strength": "Moderate",
-            "Final_interpretation": "Weekly results are useful as a more granular temporal sensitivity check.",
+            "Preliminary_interpretation": "Weekly results are useful as a more granular temporal sensitivity check.",
         },
         {
             "Conclusion": "The project remains exploratory and ecological.",
             "Supported_by_station_pipeline": "Yes",
             "Supported_by_ModAria_pipeline": "Yes",
             "Strength": "Important limitation",
-            "Final_interpretation": "Results describe population-level associations and should not be interpreted as individual-level causality.",
+            "Preliminary_interpretation": "Results describe population-level associations and should not be interpreted as individual-level causality.",
         },
     ]
 
@@ -974,13 +1156,16 @@ def build_quantitative_synthesis_summary(
     if not corr.empty:
         for pipeline in ["Station-based", "ModAria"]:
             for scale in ["Seasonal", "Monthly"]:
-                sub = corr[(corr["Pipeline"] == pipeline) & (corr["Temporal_scale"] == scale)]
+                sub = corr[
+                    (corr["Pipeline"] == pipeline)
+                    & (corr["Temporal_scale"] == scale)
+                ]
 
                 if sub.empty:
                     continue
 
-                positive = (sub["Rho"] > 0).sum()
-                significant = (sub["P_value"] < 0.05).sum()
+                positive = int((sub["Rho"] > 0).sum())
+                significant = int((sub["P_value"] < 0.05).sum())
                 total = len(sub)
                 mean_abs_rho = sub["Rho"].abs().mean()
 
@@ -998,12 +1183,15 @@ def build_quantitative_synthesis_summary(
     if not lag_best.empty:
         for pipeline in ["Station-based", "ModAria"]:
             for scale in ["Monthly", "Weekly"]:
-                sub = lag_best[(lag_best["Pipeline"] == pipeline) & (lag_best["Temporal_scale"] == scale)]
+                sub = lag_best[
+                    (lag_best["Pipeline"] == pipeline)
+                    & (lag_best["Temporal_scale"] == scale)
+                ]
 
                 if sub.empty:
                     continue
 
-                lag0_best = sub["Lag0_is_best"].sum()
+                lag0_best = int(sub["Lag0_is_best"].sum())
                 total = len(sub)
                 median_best_lag = sub["Best_lag"].median()
 
@@ -1021,7 +1209,7 @@ def build_quantitative_synthesis_summary(
     return pd.DataFrame(rows)
 
 
-def build_final_project_summary() -> pd.DataFrame:
+def build_preliminary_project_summary() -> pd.DataFrame:
     rows = [
         {
             "Item": "Output folder",
@@ -1029,7 +1217,7 @@ def build_final_project_summary() -> pd.DataFrame:
         },
         {
             "Item": "Main interpretation",
-            "Value": "ModAria improves spatial exposure coherence and strengthens the final interpretation of the industrial-versus-agricultural comparison.",
+            "Value": "ModAria improves spatial exposure coherence and strengthens the current interpretation of the industrial-versus-agricultural comparison before the APHREH-ADSMap feasibility phase.",
         },
         {
             "Item": "Role of station-based pipeline",
@@ -1037,7 +1225,7 @@ def build_final_project_summary() -> pd.DataFrame:
         },
         {
             "Item": "Role of ModAria pipeline",
-            "Value": "Final spatially coherent exposure reconstruction based on municipality-level population-weighted pollutant estimates.",
+            "Value": "Current spatially coherent exposure reconstruction based on health-aligned municipality-level population-weighted pollutant estimates.",
         },
         {
             "Item": "Main robust result",
@@ -1046,6 +1234,10 @@ def build_final_project_summary() -> pd.DataFrame:
         {
             "Item": "Main limitation",
             "Value": "The project remains exploratory and ecological; correlations and lag patterns should not be interpreted as individual-level causal effects.",
+        },
+        {
+            "Item": "Next planned phase",
+            "Value": "Part 6 will evaluate the feasibility of implementing APHREH-ADSMap using the health-aligned municipality framework.",
         },
     ]
 
@@ -1061,16 +1253,17 @@ def plot_pipeline_overview() -> None:
         "Station data\nPart 1",
         "Health rates\nPart 2",
         "Station-based\nintegration\nPart 3",
-        "ModAria exposure\nPart 4.1-4.2",
-        "ModAria integration\nPart 4.3",
+        "Health-aligned\nModAria exposure\nPart 4.1-4.2",
+        "ModAria\nintegration\nPart 4.3",
         "ModAria lags\nPart 4.4",
-        "Final synthesis\nPart 5",
+        "Preliminary\nsynthesis\nPart 5",
+        "APHREH-ADSMap\nfeasibility\nPart 6",
     ]
 
     x = np.arange(len(labels))
     y = np.zeros(len(labels))
 
-    plt.figure(figsize=(15, 3))
+    plt.figure(figsize=(17, 3))
 
     for i, label in enumerate(labels):
         plt.text(
@@ -1091,15 +1284,20 @@ def plot_pipeline_overview() -> None:
             )
 
     plt.axis("off")
-    plt.title("Final project pipeline overview")
-    save_plot("final_project_pipeline_overview.png")
+    plt.title("Preliminary project pipeline overview")
+    save_plot("preliminary_project_pipeline_overview.png")
 
 
-def plot_correlation_comparison(corr_comparison: pd.DataFrame, temporal_scale: str) -> None:
+def plot_correlation_comparison(
+    corr_comparison: pd.DataFrame,
+    temporal_scale: str,
+) -> None:
     if corr_comparison.empty:
         return
 
-    sub = corr_comparison[corr_comparison["Temporal_scale"] == temporal_scale].copy()
+    sub = corr_comparison[
+        corr_comparison["Temporal_scale"] == temporal_scale
+    ].copy()
 
     if sub.empty:
         return
@@ -1110,21 +1308,26 @@ def plot_correlation_comparison(corr_comparison: pd.DataFrame, temporal_scale: s
 
     plt.figure(figsize=(max(12, len(sub) * 0.7), 5))
     plt.bar(x - width / 2, sub["Station_Rho"], width, label="Station-based")
-    plt.bar(x + width / 2, sub["ModAria_Rho"], width, label="ModAria")
+    plt.bar(x + width / 2, sub["ModAria_Rho"], width, label="ModAria health-aligned")
     plt.axhline(0, linestyle="--", linewidth=1)
     plt.xticks(x, sub["Label"], rotation=75, ha="right")
     plt.ylabel("Spearman rho")
-    plt.title(f"{temporal_scale} station-based vs ModAria correlations")
+    plt.title(f"{temporal_scale} station-based vs ModAria health-aligned correlations")
     plt.legend()
 
-    save_plot(f"final_{temporal_scale.lower()}_station_vs_modaria_correlations.png")
+    save_plot(f"preliminary_{temporal_scale.lower()}_station_vs_modaria_correlations.png")
 
 
-def plot_correlation_delta(corr_comparison: pd.DataFrame, temporal_scale: str) -> None:
+def plot_correlation_delta(
+    corr_comparison: pd.DataFrame,
+    temporal_scale: str,
+) -> None:
     if corr_comparison.empty:
         return
 
-    sub = corr_comparison[corr_comparison["Temporal_scale"] == temporal_scale].copy()
+    sub = corr_comparison[
+        corr_comparison["Temporal_scale"] == temporal_scale
+    ].copy()
 
     if sub.empty:
         return
@@ -1137,16 +1340,23 @@ def plot_correlation_delta(corr_comparison: pd.DataFrame, temporal_scale: str) -
     plt.axhline(0, linestyle="--", linewidth=1)
     plt.xticks(x, sub["Label"], rotation=75, ha="right")
     plt.ylabel("Delta rho: ModAria - station-based")
-    plt.title(f"{temporal_scale} change in correlation after ModAria exposure reconstruction")
+    plt.title(
+        f"{temporal_scale} change in correlation after ModAria health-aligned exposure reconstruction"
+    )
 
-    save_plot(f"final_{temporal_scale.lower()}_delta_rho_modaria_minus_station.png")
+    save_plot(f"preliminary_{temporal_scale.lower()}_delta_rho_modaria_minus_station.png")
 
 
-def plot_lag_best_comparison(lag_comparison: pd.DataFrame, temporal_scale: str) -> None:
+def plot_lag_best_comparison(
+    lag_comparison: pd.DataFrame,
+    temporal_scale: str,
+) -> None:
     if lag_comparison.empty:
         return
 
-    sub = lag_comparison[lag_comparison["Temporal_scale"] == temporal_scale].copy()
+    sub = lag_comparison[
+        lag_comparison["Temporal_scale"] == temporal_scale
+    ].copy()
 
     if sub.empty:
         return
@@ -1157,16 +1367,19 @@ def plot_lag_best_comparison(lag_comparison: pd.DataFrame, temporal_scale: str) 
 
     plt.figure(figsize=(max(12, len(sub) * 0.7), 5))
     plt.bar(x - width / 2, sub["Station_Best_lag"], width, label="Station-based")
-    plt.bar(x + width / 2, sub["ModAria_Best_lag"], width, label="ModAria")
+    plt.bar(x + width / 2, sub["ModAria_Best_lag"], width, label="ModAria health-aligned")
     plt.xticks(x, sub["Label"], rotation=75, ha="right")
     plt.ylabel(f"Best lag ({'months' if temporal_scale == 'Monthly' else 'weeks'})")
     plt.title(f"{temporal_scale} best lag comparison")
     plt.legend()
 
-    save_plot(f"final_{temporal_scale.lower()}_best_lag_station_vs_modaria.png")
+    save_plot(f"preliminary_{temporal_scale.lower()}_best_lag_station_vs_modaria.png")
 
 
-def plot_lag_rho_overall(lag_full: pd.DataFrame, temporal_scale: str) -> None:
+def plot_lag_rho_overall(
+    lag_full: pd.DataFrame,
+    temporal_scale: str,
+) -> None:
     if lag_full.empty:
         return
 
@@ -1201,7 +1414,7 @@ def plot_lag_rho_overall(lag_full: pd.DataFrame, temporal_scale: str) -> None:
     plt.title(f"{temporal_scale} overall rho vs lag: station-based vs ModAria")
     plt.legend(fontsize=8)
 
-    save_plot(f"final_{temporal_scale.lower()}_overall_rho_vs_lag_station_vs_modaria.png")
+    save_plot(f"preliminary_{temporal_scale.lower()}_overall_rho_vs_lag_station_vs_modaria.png")
 
 
 def plot_evidence_strength_heatmap() -> None:
@@ -1214,7 +1427,7 @@ def plot_evidence_strength_heatmap() -> None:
         "Weekly short-lag signal",
     ]
 
-    cols = ["Station-based", "ModAria", "Final confidence"]
+    cols = ["Station-based", "ModAria", "Current confidence"]
 
     values = np.array(
         [
@@ -1233,13 +1446,13 @@ def plot_evidence_strength_heatmap() -> None:
     plt.xticks(np.arange(len(cols)), cols, rotation=30, ha="right")
     plt.yticks(np.arange(len(rows)), rows)
     plt.colorbar(label="Qualitative evidence score")
-    plt.title("Final qualitative evidence strength summary")
+    plt.title("Preliminary qualitative evidence strength summary")
 
     for i in range(values.shape[0]):
         for j in range(values.shape[1]):
             plt.text(j, i, int(values[i, j]), ha="center", va="center")
 
-    save_plot("final_evidence_strength_heatmap.png")
+    save_plot("preliminary_evidence_strength_heatmap.png")
 
 
 def generate_all_plots(
@@ -1268,8 +1481,8 @@ def main() -> None:
     ensure_output_dirs()
 
     print("\n========================================")
-    print("PART 5 - FINAL PROJECT SYNTHESIS")
-    print("Station-based vs ModAria comparison")
+    print("PART 5 - PRELIMINARY SYNTHESIS")
+    print("Station-based vs health-aligned ModAria comparison")
     print("========================================\n")
 
     print("Loading station-based correlation summaries...")
@@ -1287,7 +1500,7 @@ def main() -> None:
 
     if not all_corr.empty:
         all_corr = sort_summary_table(all_corr)
-        save_csv(all_corr, "final_standardized_correlation_results.csv")
+        save_csv(all_corr, "preliminary_standardized_correlation_results.csv")
         print(f"Standardized correlation results: {len(all_corr)} rows")
         print(all_corr[["Temporal_scale", "Pipeline"]].drop_duplicates().to_string(index=False))
     else:
@@ -1297,7 +1510,10 @@ def main() -> None:
     corr_comparison = build_correlation_comparison(all_corr)
 
     if not corr_comparison.empty:
-        save_csv(corr_comparison, "final_station_vs_modaria_correlation_comparison.csv")
+        save_csv(
+            corr_comparison,
+            "preliminary_station_vs_modaria_correlation_comparison.csv",
+        )
         print(f"Correlation comparison: {len(corr_comparison)} rows")
     else:
         print("[WARNING] Correlation comparison could not be created.")
@@ -1307,7 +1523,7 @@ def main() -> None:
 
     if not lag_best.empty:
         lag_best = sort_summary_table(lag_best)
-        save_csv(lag_best, "final_standardized_lag_best_results.csv")
+        save_csv(lag_best, "preliminary_standardized_lag_best_results.csv")
         print(f"Standardized best-lag results: {len(lag_best)} rows")
         print(lag_best[["Temporal_scale", "Lag_unit", "Pipeline"]].drop_duplicates().to_string(index=False))
     else:
@@ -1315,7 +1531,7 @@ def main() -> None:
 
     if not lag_full.empty:
         lag_full = sort_summary_table(lag_full)
-        save_csv(lag_full, "final_standardized_lag_full_results.csv")
+        save_csv(lag_full, "preliminary_standardized_lag_full_results.csv")
         print(f"Standardized full lag results: {len(lag_full)} rows")
         print(lag_full[["Temporal_scale", "Lag_unit", "Pipeline"]].drop_duplicates().to_string(index=False))
     else:
@@ -1325,28 +1541,37 @@ def main() -> None:
     lag_comparison = build_lag_comparison(lag_best)
 
     if not lag_comparison.empty:
-        save_csv(lag_comparison, "final_station_vs_modaria_lag_comparison.csv")
+        save_csv(
+            lag_comparison,
+            "preliminary_station_vs_modaria_lag_comparison.csv",
+        )
         print(f"Lag comparison: {len(lag_comparison)} rows")
     else:
         print("[WARNING] Lag comparison could not be created.")
 
     print("Building qualitative methodological comparison table...")
     methodological_comparison = build_methodological_comparison_table()
-    save_csv(methodological_comparison, "final_methodological_comparison_station_vs_modaria.csv")
+    save_csv(
+        methodological_comparison,
+        "preliminary_methodological_comparison_station_vs_modaria.csv",
+    )
 
     print("Building robust conclusions table...")
     robust_conclusions = build_robust_conclusions_table()
-    save_csv(robust_conclusions, "final_robust_conclusions_summary.csv")
+    save_csv(robust_conclusions, "preliminary_robust_conclusions_summary.csv")
 
     print("Building compact quantitative synthesis summary...")
     quantitative_summary = build_quantitative_synthesis_summary(all_corr, lag_best)
-    save_csv(quantitative_summary, "final_quantitative_synthesis_summary.csv")
+    save_csv(
+        quantitative_summary,
+        "preliminary_quantitative_synthesis_summary.csv",
+    )
 
-    print("Building final project synthesis summary...")
-    final_summary = build_final_project_summary()
-    save_csv(final_summary, "final_project_synthesis_summary.csv")
+    print("Building preliminary project synthesis summary...")
+    preliminary_summary = build_preliminary_project_summary()
+    save_csv(preliminary_summary, "preliminary_project_synthesis_summary.csv")
 
-    print("Generating final synthesis plots...")
+    print("Generating preliminary synthesis plots...")
     generate_all_plots(
         corr_comparison=corr_comparison,
         lag_comparison=lag_comparison,
@@ -1354,7 +1579,7 @@ def main() -> None:
     )
 
     print("\n========================================")
-    print("FINAL PROJECT SYNTHESIS COMPLETED")
+    print("PRELIMINARY SYNTHESIS COMPLETED")
     print("========================================")
     print(f"Results saved in: {OUTPUT_DIR}")
     print(f"Plots saved in:   {PLOTS_DIR}")

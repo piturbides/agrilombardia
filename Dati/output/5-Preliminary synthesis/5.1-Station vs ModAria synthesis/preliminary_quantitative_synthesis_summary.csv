@@ -1,9 +1,9 @@
 ﻿Section;Pipeline;Temporal_scale;Metric;Value;Interpretation
 Correlation summary;Station-based;Seasonal;positive/significant correlations;"12/12 positive; 4/12 significant; mean |rho| = 0.349";Descriptive count of monotonic environmental-health associations.
 Correlation summary;Station-based;Monthly;positive/significant correlations;"12/12 positive; 11/12 significant; mean |rho| = 0.386";Descriptive count of monotonic environmental-health associations.
-Correlation summary;ModAria;Seasonal;positive/significant correlations;"12/12 positive; 4/12 significant; mean |rho| = 0.340";Descriptive count of monotonic environmental-health associations.
-Correlation summary;ModAria;Monthly;positive/significant correlations;"12/12 positive; 11/12 significant; mean |rho| = 0.356";Descriptive count of monotonic environmental-health associations.
+Correlation summary;ModAria;Seasonal;positive/significant correlations;"12/12 positive; 4/12 significant; mean |rho| = 0.338";Descriptive count of monotonic environmental-health associations.
+Correlation summary;ModAria;Monthly;positive/significant correlations;"12/12 positive; 11/12 significant; mean |rho| = 0.346";Descriptive count of monotonic environmental-health associations.
 Lag summary;Station-based;Monthly;lag 0 dominance;"11/12 lag-0 best; median best lag = 0.0";"Monthly lag 0 dominance suggests same-period structure; weekly results describe short-lag sensitivity."
 Lag summary;Station-based;Weekly;lag 0 dominance;"1/12 lag-0 best; median best lag = 1.0";"Monthly lag 0 dominance suggests same-period structure; weekly results describe short-lag sensitivity."
 Lag summary;ModAria;Monthly;lag 0 dominance;"12/12 lag-0 best; median best lag = 0.0";"Monthly lag 0 dominance suggests same-period structure; weekly results describe short-lag sensitivity."
-Lag summary;ModAria;Weekly;lag 0 dominance;"1/12 lag-0 best; median best lag = 1.0";"Monthly lag 0 dominance suggests same-period structure; weekly results describe short-lag sensitivity."
+Lag summary;ModAria;Weekly;lag 0 dominance;"2/12 lag-0 best; median best lag = 2.0";"Monthly lag 0 dominance suggests same-period structure; weekly results describe short-lag sensitivity."

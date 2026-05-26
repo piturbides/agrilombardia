@@ -11,18 +11,18 @@ Seasonal;Station-based;Agricultural;NO2;Respiratory;0.5830753353973168;0.0110924
 Seasonal;Station-based;Agricultural;NO2;Cardiocirculatory;0.1186790505675954;0.6390493358496443;18;"very weak positive association; not statistically significant";positive;weak;not statistically significant
 Seasonal;Station-based;Agricultural;PM25;Respiratory;0.5686274509803922;0.0138004376117254;18;"moderate positive association; statistically significant at p < 0.05";positive;strong;statistically significant
 Seasonal;Station-based;Agricultural;PM25;Cardiocirculatory;0.1475748194014448;0.5589695952802587;18;"very weak positive association; not statistically significant";positive;weak;not statistically significant
-Seasonal;ModAria;Overall;NO2;Respiratory;0.3178893178893179;0.0588433613894391;36;Moderate positive, not statistically significant;positive;moderate;not statistically significant
-Seasonal;ModAria;Overall;NO2;Cardiocirculatory;0.5083655083655083;0.0015475672917802;36;Strong positive, statistically significant;positive;strong;statistically significant
-Seasonal;ModAria;Overall;PM25;Respiratory;0.4334620334620335;0.0082676824559966;36;Moderate positive, statistically significant;positive;moderate;statistically significant
-Seasonal;ModAria;Overall;PM25;Cardiocirculatory;0.1243243243243243;0.4700299454080242;36;Weak positive, not statistically significant;positive;weak;not statistically significant
+Seasonal;ModAria;Overall;NO2;Respiratory;0.2790218790218791;0.0993604163056179;36;Weak positive, not statistically significant;positive;weak;not statistically significant
+Seasonal;ModAria;Overall;NO2;Cardiocirculatory;0.5039897039897041;0.0017249189001204;36;Strong positive, statistically significant;positive;strong;statistically significant
+Seasonal;ModAria;Overall;PM25;Respiratory;0.4525096525096525;0.0055883267139997;36;Moderate positive, statistically significant;positive;moderate;statistically significant
+Seasonal;ModAria;Overall;PM25;Cardiocirculatory;0.1518661518661518;0.376597242620258;36;Weak positive, not statistically significant;positive;weak;not statistically significant
 Seasonal;ModAria;Industrial;NO2;Respiratory;0.1455108359133127;0.5645405304670835;18;Weak positive, not statistically significant;positive;weak;not statistically significant
 Seasonal;ModAria;Industrial;NO2;Cardiocirculatory;0.3787409700722394;0.1211642258637085;18;Moderate positive, not statistically significant;positive;moderate;not statistically significant
 Seasonal;ModAria;Industrial;PM25;Respiratory;0.283797729618163;0.2537564179087559;18;Weak positive, not statistically significant;positive;weak;not statistically significant
 Seasonal;ModAria;Industrial;PM25;Cardiocirculatory;0.4447884416924664;0.0643852241036506;18;Moderate positive, not statistically significant;positive;moderate;not statistically significant
-Seasonal;ModAria;Agricultural;NO2;Respiratory;0.5995872033023736;0.008536698768223;18;Strong positive, statistically significant;positive;strong;statistically significant
-Seasonal;ModAria;Agricultural;NO2;Cardiocirculatory;0.1372549019607843;0.5870615369663565;18;Weak positive, not statistically significant;positive;weak;not statistically significant
-Seasonal;ModAria;Agricultural;PM25;Respiratory;0.5892672858617131;0.0100707539123342;18;Strong positive, statistically significant;positive;strong;statistically significant
-Seasonal;ModAria;Agricultural;PM25;Cardiocirculatory;0.1228070175438596;0.627346145423968;18;Weak positive, not statistically significant;positive;weak;not statistically significant
+Seasonal;ModAria;Agricultural;NO2;Respiratory;0.5356037151702786;0.021973121639608;18;Strong positive, statistically significant;positive;strong;statistically significant
+Seasonal;ModAria;Agricultural;NO2;Cardiocirculatory;0.1393188854489164;0.5813962095847576;18;Weak positive, not statistically significant;positive;weak;not statistically significant
+Seasonal;ModAria;Agricultural;PM25;Respiratory;0.6099071207430341;0.007196658594982;18;Strong positive, statistically significant;positive;strong;statistically significant
+Seasonal;ModAria;Agricultural;PM25;Cardiocirculatory;0.1289989680082559;0.6099496263278285;18;Weak positive, not statistically significant;positive;weak;not statistically significant
 Monthly;Station-based;Overall;NO2;Respiratory;0.4847937662091103;2.0119946151050678e-08;120;"moderate positive association; statistically significant at p < 0.05";positive;moderate;statistically significant
 Monthly;Station-based;Overall;NO2;Cardiocirculatory;0.2805442120447313;0.0019117094176661;120;"weak positive association; statistically significant at p < 0.05";positive;weak;statistically significant
 Monthly;Station-based;Overall;PM25;Respiratory;0.4577130495562704;1.4720479885226677e-07;120;"moderate positive association; statistically significant at p < 0.05";positive;moderate;statistically significant
@@ -35,15 +35,15 @@ Monthly;Station-based;Agricultural;NO2;Respiratory;0.456795101597182;0.000243768
 Monthly;Station-based;Agricultural;NO2;Cardiocirculatory;0.2545641490491571;0.0496654975054746;60;"weak positive association; statistically significant at p < 0.05";positive;weak;statistically significant
 Monthly;Station-based;Agricultural;PM25;Respiratory;0.4109767984261844;0.001106822013453;60;"moderate positive association; statistically significant at p < 0.05";positive;moderate;statistically significant
 Monthly;Station-based;Agricultural;PM25;Cardiocirculatory;0.2110235787955175;0.1055591829272798;60;"weak positive association; not statistically significant";positive;weak;not statistically significant
-Monthly;ModAria;Overall;NO2;Respiratory;0.3725301590535438;2.789638988029301e-05;120;Moderate positive, statistically significant;positive;moderate;statistically significant
-Monthly;ModAria;Overall;NO2;Cardiocirculatory;0.4309664694695818;8.938431903914261e-07;120;Moderate positive, statistically significant;positive;moderate;statistically significant
-Monthly;ModAria;Overall;PM25;Respiratory;0.4500059034083907;2.515052023456657e-07;120;Moderate positive, statistically significant;positive;moderate;statistically significant
-Monthly;ModAria;Overall;PM25;Cardiocirculatory;0.2183202767107847;0.0165968655405018;120;Weak positive, statistically significant;positive;weak;statistically significant
-Monthly;ModAria;Industrial;NO2;Respiratory;0.3070981010489429;0.0169995311745666;60;Moderate positive, statistically significant;positive;moderate;statistically significant
-Monthly;ModAria;Industrial;NO2;Cardiocirculatory;0.3800050016749413;0.0027461918088383;60;Moderate positive, statistically significant;positive;moderate;statistically significant
-Monthly;ModAria;Industrial;PM25;Respiratory;0.4301651920320924;0.0006026513637952;60;Moderate positive, statistically significant;positive;moderate;statistically significant
-Monthly;ModAria;Industrial;PM25;Cardiocirculatory;0.3853677514060954;0.0023608207312718;60;Moderate positive, statistically significant;positive;moderate;statistically significant
-Monthly;ModAria;Agricultural;NO2;Respiratory;0.4647149582680177;0.0001835443502391;60;Moderate positive, statistically significant;positive;moderate;statistically significant
-Monthly;ModAria;Agricultural;NO2;Cardiocirculatory;0.2774890942478858;0.0318286684446803;60;Weak positive, statistically significant;positive;weak;statistically significant
-Monthly;ModAria;Agricultural;PM25;Respiratory;0.4317016609874816;0.0005731223212215;60;Moderate positive, statistically significant;positive;moderate;statistically significant
-Monthly;ModAria;Agricultural;PM25;Cardiocirculatory;0.1261844559362757;0.336699615768896;60;Weak positive, not statistically significant;positive;weak;not statistically significant
+Monthly;ModAria;Overall;NO2;Respiratory;0.3235292075681221;0.0003128380346126;120;Moderate positive, statistically significant;positive;moderate;statistically significant
+Monthly;ModAria;Overall;NO2;Cardiocirculatory;0.4330395588939005;7.814666047289544e-07;120;Moderate positive, statistically significant;positive;moderate;statistically significant
+Monthly;ModAria;Overall;PM25;Respiratory;0.4502142555513376;2.4793237120116466e-07;120;Moderate positive, statistically significant;positive;moderate;statistically significant
+Monthly;ModAria;Overall;PM25;Cardiocirculatory;0.2210913409664067;0.0152370826733234;120;Weak positive, statistically significant;positive;weak;statistically significant
+Monthly;ModAria;Industrial;NO2;Respiratory;0.2932603473100383;0.0229629511473227;60;Weak positive, statistically significant;positive;weak;statistically significant
+Monthly;ModAria;Industrial;NO2;Cardiocirculatory;0.3749201146241578;0.0031622699130691;60;Moderate positive, statistically significant;positive;moderate;statistically significant
+Monthly;ModAria;Industrial;PM25;Respiratory;0.425469247490175;0.0007016469427235;60;Moderate positive, statistically significant;positive;moderate;statistically significant
+Monthly;ModAria;Industrial;PM25;Cardiocirculatory;0.3874239352408384;0.0022263579901614;60;Moderate positive, statistically significant;positive;moderate;statistically significant
+Monthly;ModAria;Agricultural;NO2;Respiratory;0.3961873563372079;0.0017267250268031;60;Moderate positive, statistically significant;positive;moderate;statistically significant
+Monthly;ModAria;Agricultural;NO2;Cardiocirculatory;0.2807680561066131;0.0297813897154036;60;Weak positive, statistically significant;positive;weak;statistically significant
+Monthly;ModAria;Agricultural;PM25;Respiratory;0.4438176522453214;0.0003824263630649;60;Moderate positive, statistically significant;positive;moderate;statistically significant
+Monthly;ModAria;Agricultural;PM25;Cardiocirculatory;0.1252118825036024;0.3404669850858701;60;Weak positive, not statistically significant;positive;weak;not statistically significant
