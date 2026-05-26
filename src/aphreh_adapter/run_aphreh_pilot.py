@@ -62,7 +62,7 @@ RUNTIME_DIR = (
 # First technical test:
 # True  -> run only P75_L0
 # False -> run the full sweep P75-P95 and lag 0-14
-SINGLE_COMBINATION_TEST = True
+SINGLE_COMBINATION_TEST = False
 
 
 # =============================================================================
@@ -206,22 +206,15 @@ if optmode_flag == 0:
     timelag_list = [timedelta(days=lag_list[0])]
 
 if optmode_flag == 1:
-    # Full pilot search:
-    # P75, P80, P85, P90, P95
-    # lags 0-14
-    exposure_percentile_params = [0.75, 0.95, 0.05]
+    # Intermediate pilot search:
+    # 3 exposure thresholds x 4 lags = 12 combinations.
+    # This is lighter than the full 75-combination sweep and allows us to test
+    # the MAX_WMARM optimization workflow before running the full model.
+    exposure_percentile_params = [0.75, 0.95, 0.10]
     lag_params = [0, 14, 1]
 
-    exposure_percentile_list = [
-        x / 100
-        for x in range(
-            int(exposure_percentile_params[0] * 100),
-            int(exposure_percentile_params[1] * 100) + 1,
-            int(exposure_percentile_params[2] * 100),
-        )
-    ]
-
-    lag_list = list(range(lag_params[0], lag_params[1] + 1, lag_params[2]))
+    exposure_percentile_list = [0.75, 0.85, 0.95]
+    lag_list = [0, 3, 7, 14]
     timelag_list = [timedelta(days=l) for l in lag_list]
 
 
@@ -344,9 +337,12 @@ def patch_runtime_model_compatibility() -> None:
                outpath/PXX_LYY/
            We patch it to search in the correct Parametric folder.
 
-        3. Single-combination test:
-           In SINGLE_COMBINATION_TEST mode, the 3D WMARM surface plot is not meaningful.
-           We skip the 3D chart and save WMARM.csv only.
+        3. Robust WMARM chart handling:
+           The original 3D chart assumes a regular lag grid based on lag_params.
+           Our intermediate mini-sweep uses explicit irregular lags [0, 3, 7, 14],
+           so chart generation may fail. We wrap generate_chart() in try/except:
+           - if the chart works, it is saved normally;
+           - if it fails, WMARM.csv is saved and the model still completes.
     """
 
     # -------------------------------------------------------------------------
@@ -378,19 +374,18 @@ def patch_runtime_model_compatibility() -> None:
             print("Patched MAX_WMARM source folder path in: E_compute_MARM.py")
 
     # -------------------------------------------------------------------------
-    # 3. Skip 3D chart in single-combination mode
+    # 3. Robust WMARM chart handling
     # -------------------------------------------------------------------------
-    if SINGLE_COMBINATION_TEST:
-        main_file = RUNTIME_DIR / "main.py"
+    main_file = RUNTIME_DIR / "main.py"
 
-        if main_file.exists():
-            text = main_file.read_text(encoding="utf-8")
+    if main_file.exists():
+        text = main_file.read_text(encoding="utf-8")
 
-            old_line = "generate_chart(updated_main_res.wmarm_db)"
+        old_line = "generate_chart(updated_main_res.wmarm_db)"
 
-            new_block = """if len(conf.exposure_percentile_list) > 1 and len(conf.lag_list) > 1:
+        new_block = """try:
     generate_chart(updated_main_res.wmarm_db)
-else:
+except Exception as exc:
     import os
     plot_dir = os.path.join(conf.outpath, 'PLOT')
     os.makedirs(plot_dir, exist_ok=True)
@@ -401,13 +396,14 @@ else:
     )
     updated_main_res.wmarm_db.to_csv(os.path.join(plot_dir, 'WMARM.csv'))
 
-    print('Single-combination mode: skipped 3D WMARM chart; saved WMARM.csv only.')"""
+    print('WMARM chart generation failed, but WMARM.csv was saved.')
+    print(f'Chart error: {exc}')"""
 
-            patched = text.replace(old_line, new_block)
+        patched = text.replace(old_line, new_block)
 
-            if patched != text:
-                main_file.write_text(patched, encoding="utf-8")
-                print("Patched single-combination chart handling in: main.py")
+        if patched != text:
+            main_file.write_text(patched, encoding="utf-8")
+            print("Patched robust WMARM chart handling in: main.py")
 
 # =============================================================================
 # Model execution
@@ -449,7 +445,7 @@ def main() -> None:
     patch_runtime_model_compatibility()
     run_model()
 
-    print("\\nAPHREH-ADSMap pilot completed.")
+    print("\nAPHREH-ADSMap pilot completed.")
     print(f"Results folder: {RESULTS_DIR.relative_to(PROJECT_ROOT)}")
 
 
