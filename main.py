@@ -19,6 +19,10 @@ from src.aphreh_adapter.run_aphreh_pilot import main as run_aphreh_pilot
 from src.aphreh_adapter.inspect_aphreh_outputs import main as inspect_aphreh_outputs
 from src.aphreh_adapter.summarize_aphreh_outputs import main as summarize_aphreh_outputs
 from src.aphreh_adapter.plot_aphreh_outputs import main as plot_aphreh_outputs
+from src.aphreh_adapter.run_aphreh_sensitivity import main as run_aphreh_sensitivity
+from src.aphreh_adapter.summarize_aphreh_sensitivity_outputs import main as summarize_aphreh_sensitivity_outputs
+from src.aphreh_adapter.plot_aphreh_sensitivity_outputs import main as plot_aphreh_sensitivity_outputs
+
 
 
 if __name__ == "__main__":
@@ -42,4 +46,7 @@ if __name__ == "__main__":
     #run_aphreh_pilot()
     #inspect_aphreh_outputs()
     #summarize_aphreh_outputs()
-    plot_aphreh_outputs()
+    #plot_aphreh_outputs()
+    #run_aphreh_sensitivity()
+    #summarize_aphreh_sensitivity_outputs()
+    plot_aphreh_sensitivity_outputs()
