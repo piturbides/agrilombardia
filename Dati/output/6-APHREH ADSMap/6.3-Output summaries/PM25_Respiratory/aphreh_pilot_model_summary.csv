@@ -1,0 +1,2 @@
+Pilot;Selected_parameter_folder;Selected_parameter;Pollutant;Outcome;Exposure_percentile;Lag_days;N_parameter_combinations;MARM;WMARM;Interpretation_note
+PM25_Respiratory;MAX_WMARM_P75_L0;P75_L0;PM2.5;Respiratory;75;0;12;2.29878100126681e-05;1.9381330441725092e-05;Intermediate percentile-lag mini-sweep. The selected parameter maximizes WMARM within the reduced grid only.

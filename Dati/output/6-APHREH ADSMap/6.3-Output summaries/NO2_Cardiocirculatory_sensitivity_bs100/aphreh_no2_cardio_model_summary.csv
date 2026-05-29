@@ -1,0 +1,2 @@
+Run;Selected_parameter_folder;Selected_parameter;Pollutant;Outcome;Exposure_percentile;Lag_days;N_parameter_combinations;Bootstrap_iterations;Sensitivity_analysis;Sensitivity_range;MARM;WMARM;Interpretation_note
+NO2_Cardiocirculatory_sensitivity_bs100;MAX_WMARM_P95_L14;P95_L14;NO2;Cardiocirculatory;95;14;12;100;ON;-40% to +100%, step 20%;5.726184239764619e-05;5.948046441758197e-05;Final complementary APHREH-ADSMap NO2-cardiocirculatory sensitivity run. The selected parameter maximizes WMARM within the focused 12-combination grid.

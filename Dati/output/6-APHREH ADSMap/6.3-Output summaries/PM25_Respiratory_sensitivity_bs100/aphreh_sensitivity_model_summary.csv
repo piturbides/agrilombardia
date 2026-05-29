@@ -1,0 +1,2 @@
+Run;Selected_parameter_folder;Selected_parameter;Pollutant;Outcome;Exposure_percentile;Lag_days;N_parameter_combinations;Bootstrap_iterations;Sensitivity_analysis;Sensitivity_range;MARM;WMARM;Interpretation_note
+PM25_Respiratory_sensitivity_bs100;MAX_WMARM_P75_L0;P75_L0;PM2.5;Respiratory;75;0;12;100;ON;-40% to +100%, step 20%;5.013541620711021e-05;4.169430392991401e-05;Final APHREH-ADSMap PM2.5-respiratory sensitivity run. The selected parameter maximizes WMARM within the focused 12-combination grid, using 100 bootstrap iterations and sensitivity analysis enabled.
