@@ -1,8 +1,8 @@
 Indicator;Value
 Temporal scale;Weekly
 Number of pollutant-outcome-group combinations;12
-Combinations where lag 0 is strongest positive rho;2
-Percentage where lag 0 is strongest positive rho;16.666666666666664
-Combinations where lag 0 is strongest absolute rho;2
-Percentage where lag 0 is strongest absolute rho;16.666666666666664
+Combinations where lag 0 is strongest positive rho;1
+Percentage where lag 0 is strongest positive rho;8.333333333333332
+Combinations where lag 0 is strongest absolute rho;1
+Percentage where lag 0 is strongest absolute rho;8.333333333333332
 Suggested decision rule;Weekly lag results refine the interpretation of same-month patterns. They remain exploratory and should not be interpreted as causal delays.

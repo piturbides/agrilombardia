@@ -1,0 +1,9 @@
+Combination;Area;Pollutant;Outcome;Spearman_rho;p_value;N
+NO2 → Respiratory;Industrial;NO2_population_weighted_mean;Respiratory_rate_per_10000;0.29326034731003836;0.0229629511473227;60
+NO2 → Respiratory;Agricultural;NO2_population_weighted_mean;Respiratory_rate_per_10000;0.3961873563372079;0.001726725026803133;60
+NO2 → Cardiocirculatory;Industrial;NO2_population_weighted_mean;Cardiocirculatory_rate_per_10000;0.3749201146241578;0.0031622699130691065;60
+NO2 → Cardiocirculatory;Agricultural;NO2_population_weighted_mean;Cardiocirculatory_rate_per_10000;0.28076805610661315;0.029781389715403686;60
+PM2.5 → Respiratory;Industrial;PM25_population_weighted_mean;Respiratory_rate_per_10000;0.425469247490175;0.0007016469427235561;60
+PM2.5 → Respiratory;Agricultural;PM25_population_weighted_mean;Respiratory_rate_per_10000;0.44381765224532144;0.00038242636306497175;60
+PM2.5 → Cardiocirculatory;Industrial;PM25_population_weighted_mean;Cardiocirculatory_rate_per_10000;0.3874239352408384;0.0022263579901614134;60
+PM2.5 → Cardiocirculatory;Agricultural;PM25_population_weighted_mean;Cardiocirculatory_rate_per_10000;0.1252118825036024;0.34046698508587014;60

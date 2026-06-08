@@ -1,5 +1,5 @@
 import os
-
+import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from scipy.stats import spearmanr
@@ -1791,6 +1791,93 @@ def plot_monthly_vs_weekly_overall_summary(monthly_summary, weekly_summary):
         plt.savefig(os.path.join(PLOTS_DIR, filename), dpi=300)
         plt.close()
 
+def plot_same_month_spearman_matrix(data, output_dir, plots_dir):
+    """
+    Plot compact 2 pollutants × 2 outcomes × 2 areas Spearman matrix.
+
+    Values are same-month Spearman correlations between ModAria
+    population-weighted exposure and health-event rates.
+    """
+
+    rows = [
+        ("NO2 → Respiratory", "NO2_population_weighted_mean", "Respiratory_rate_per_10000"),
+        ("NO2 → Cardiocirculatory", "NO2_population_weighted_mean", "Cardiocirculatory_rate_per_10000"),
+        ("PM2.5 → Respiratory", "PM25_population_weighted_mean", "Respiratory_rate_per_10000"),
+        ("PM2.5 → Cardiocirculatory", "PM25_population_weighted_mean", "Cardiocirculatory_rate_per_10000"),
+    ]
+
+    matrix = []
+    summary_rows = []
+
+    for label, pollutant_col, outcome_col in rows:
+        row_values = []
+
+        for area in AREA_ORDER:
+            subset = data[data["Area"] == area][[pollutant_col, outcome_col]].dropna()
+
+            if len(subset) >= 3:
+                rho, p_value = spearmanr(subset[pollutant_col], subset[outcome_col])
+            else:
+                rho, p_value = np.nan, np.nan
+
+            row_values.append(rho)
+
+            summary_rows.append({
+                "Combination": label,
+                "Area": area,
+                "Pollutant": pollutant_col,
+                "Outcome": outcome_col,
+                "Spearman_rho": rho,
+                "p_value": p_value,
+                "N": len(subset)
+            })
+
+        matrix.append(row_values)
+
+    summary = pd.DataFrame(summary_rows)
+    summary.to_csv(
+        os.path.join(output_dir, "modaria_same_month_spearman_matrix_summary.csv"),
+        index=False,
+        sep=";"
+    )
+
+    matrix = np.array(matrix, dtype=float)
+
+    fig, ax = plt.subplots(figsize=(7.5, 4.5))
+
+    im = ax.imshow(matrix, vmin=-1, vmax=1, cmap="coolwarm")
+
+    ax.set_xticks(range(len(AREA_ORDER)))
+    ax.set_xticklabels(AREA_ORDER)
+
+    ax.set_yticks(range(len(rows)))
+    ax.set_yticklabels([r[0] for r in rows])
+
+    for i in range(matrix.shape[0]):
+        for j in range(matrix.shape[1]):
+            value = matrix[i, j]
+            text = "NA" if np.isnan(value) else f"{value:.2f}"
+            ax.text(j, i, text, ha="center", va="center", fontsize=10)
+
+    ax.set_title("Same-month Spearman correlation matrix")
+    cbar = plt.colorbar(im, ax=ax)
+    cbar.set_label("Spearman rho")
+
+    plt.tight_layout()
+
+    plt.savefig(
+        os.path.join(plots_dir, "modaria_same_month_spearman_matrix.png"),
+        dpi=300
+    )
+
+    plt.savefig(
+        os.path.join(plots_dir, "modaria_same_month_spearman_matrix_transparent.png"),
+        dpi=300,
+        transparent=True
+    )
+
+    plt.close()
+
 
 # ============================================================
 # SUMMARY TABLES
@@ -1927,6 +2014,12 @@ def run_monthly_lag_analysis():
 
     data = load_modaria_monthly_integrated_dataset()
     validate_monthly_input_dataset(data)
+
+    plot_same_month_spearman_matrix(
+        data=data,
+        output_dir=OUTPUT_DIR,
+        plots_dir=PLOTS_DIR
+    )
 
     data.to_csv(
         os.path.join(OUTPUT_DIR, "modaria_monthly_dataset_prepared_for_lag_analysis.csv"),

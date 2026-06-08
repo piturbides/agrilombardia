@@ -278,66 +278,221 @@ def find_column(columns, possible_names):
 
 def load_single_population_file(path):
     """
-    Load one ISTAT population CSV file and return population by municipality.
+    Load one ISTAT population CSV file and return total population by municipality.
 
-    Two input formats are supported:
+    Supported formats:
 
-    1. Long format, used for 2016-2018:
+    1. Long format:
        Codice comune | Comune | Età | Sesso | Popolazione
 
-       In this case, population is obtained by summing population values
-       where Sesso = Totale.
+       Population is obtained by selecting Sesso = Totale and:
+       - using the explicit total age row if present;
+       - otherwise summing all age-specific rows.
 
-    2. Wide format, used for 2019 and 2023:
-       Codice comune | Comune | ... | Totale
+    2. Wide age-by-municipality format:
+       Codice comune | Comune | Età | ... | Totale
 
-       In this case, the column Totale is used directly.
+       This is the format of the 2023 ISTAT files.
+       Population is obtained from the row where Età = 999, if present.
+       If no total-age row is present, age-specific totals are summed.
+
+    3. Wide municipality-total format:
+       Codice comune | Comune | Totale
+
+       The Totale column is used directly.
     """
 
     year = infer_year_from_filename(path)
 
-    df = pd.read_csv(
-        path,
-        sep=",",
-        encoding="latin1",
-        dtype=str
+    # ------------------------------------------------------------
+    # Robust CSV reader
+    # ------------------------------------------------------------
+    # Some ISTAT files have:
+    # - semicolon separator
+    # - UTF-8 BOM
+    # - a first descriptive row before the real header
+    #
+    # We try multiple reading strategies and keep the first one
+    # where municipality code and municipality name columns are found.
+    # ------------------------------------------------------------
+
+    read_attempts = [
+        {"sep": ";", "encoding": "utf-8-sig", "skiprows": 1},
+        {"sep": ";", "encoding": "utf-8-sig", "skiprows": 0},
+        {"sep": ";", "encoding": "latin1", "skiprows": 1},
+        {"sep": ";", "encoding": "latin1", "skiprows": 0},
+        {"sep": ",", "encoding": "utf-8-sig", "skiprows": 0},
+        {"sep": ",", "encoding": "latin1", "skiprows": 0},
+    ]
+
+    df = None
+    code_col = None
+    municipality_col = None
+
+    for attempt in read_attempts:
+        try:
+            temp = pd.read_csv(
+                path,
+                sep=attempt["sep"],
+                encoding=attempt["encoding"],
+                skiprows=attempt["skiprows"],
+                dtype=str
+            )
+
+            temp.columns = [
+                str(col).strip().replace("\ufeff", "")
+                for col in temp.columns
+            ]
+
+            temp_code_col = find_column(
+                temp.columns,
+                [
+                    "Codice comune",
+                    "codice comune",
+                    "Codice Comune",
+                    "Codice ISTAT",
+                    "Codice ISTAT comune",
+                    "PRO_COM",
+                    "COD_COM",
+                    "CODISTAT",
+                    "ITTER107"
+                ]
+            )
+
+            temp_municipality_col = find_column(
+                temp.columns,
+                [
+                    "Comune",
+                    "comune",
+                    "Denominazione",
+                    "Denominazione comune",
+                    "Territorio",
+                    "DEN_COM"
+                ]
+            )
+
+            if temp_code_col is not None and temp_municipality_col is not None:
+                df = temp
+                code_col = temp_code_col
+                municipality_col = temp_municipality_col
+                break
+
+        except Exception:
+            continue
+
+    if df is None or code_col is None or municipality_col is None:
+        raise ValueError(
+            f"Missing municipality code or municipality name column in {path}. "
+            f"Try checking separator, encoding or header rows."
+        )
+
+    # ------------------------------------------------------------
+    # Detect relevant columns
+    # ------------------------------------------------------------
+
+    total_col = find_column(
+        df.columns,
+        [
+            "Totale",
+            "totale",
+            "Totale residenti",
+            "Totale generale",
+            "Total"
+        ]
     )
 
-    df.columns = [str(col).strip().replace("\ufeff", "") for col in df.columns]
+    sex_col = find_column(
+        df.columns,
+        [
+            "Sesso",
+            "sesso",
+            "Sex",
+            "SEXISTAT1"
+        ]
+    )
 
-    code_col = find_column(df.columns, ["Codice comune", "codice comune"])
-    municipality_col = find_column(df.columns, ["Comune", "comune"])
-    total_col = find_column(df.columns, ["Totale", "totale"])
-    sex_col = find_column(df.columns, ["Sesso", "sesso"])
-    population_col = find_column(df.columns, ["Popolazione", "popolazione"])
-    age_col = find_column(df.columns, ["Età", "Eta", "età", "eta"])
+    population_col = find_column(
+        df.columns,
+        [
+            "Popolazione",
+            "popolazione",
+            "Population",
+            "Value",
+            "Valore",
+            "OBS_VALUE",
+            "Residenti"
+        ]
+    )
 
-    if code_col is None or municipality_col is None:
-        raise ValueError(f"Missing municipality code or municipality name column in {path}")
+    age_col = find_column(
+        df.columns,
+        [
+            "Età",
+            "Eta",
+            "età",
+            "eta",
+            "Age",
+            "ETA1"
+        ]
+    )
 
     # ------------------------------------------------------------
-    # Wide format: direct total population column
+    # Case 1: wide format with Totale column
+    # Example: 2023 ISTAT file
+    # Codice comune | Comune | Età | ... | Totale
     # ------------------------------------------------------------
+
     if total_col is not None:
-        pop = df[[code_col, municipality_col, total_col]].copy()
-        pop.columns = ["Municipality_code", "Municipality", "Population"]
-        pop["Population"] = pop["Population"].apply(clean_numeric)
+        temp = df[[code_col, municipality_col, total_col] + ([age_col] if age_col is not None else [])].copy()
+        temp["Population"] = temp[total_col].apply(clean_numeric)
 
-    # ------------------------------------------------------------
-    # Long format: sum across ages for Sesso = Totale
-    # ------------------------------------------------------------
-    elif sex_col is not None and population_col is not None:
-        temp = df.copy()
-        temp["Sesso_clean"] = temp[sex_col].apply(clean_text)
-        temp["Population"] = temp[population_col].apply(clean_numeric)
-
-        temp = temp[temp["Sesso_clean"] == "TOTALE"].copy()
-
-        # If the file contains an explicit total age row, use it.
-        # Otherwise, sum all age-specific rows.
         if age_col is not None:
             temp["Age_clean"] = temp[age_col].apply(clean_text)
 
+            # In the 2023 ISTAT files, the total population row is Età = 999.
+            total_age_rows = temp[
+                temp["Age_clean"].isin(["TOTALE", "TOTAL", "999"])
+            ].copy()
+
+            if len(total_age_rows) > 0:
+                # Use only the explicit total rows.
+                temp = total_age_rows
+
+                pop = temp[[code_col, municipality_col, "Population"]].copy()
+                pop.columns = ["Municipality_code", "Municipality", "Population"]
+
+            else:
+                # If no explicit total row exists, sum age-specific totals.
+                pop = (
+                    temp.groupby([code_col, municipality_col])["Population"]
+                    .sum()
+                    .reset_index()
+                )
+                pop.columns = ["Municipality_code", "Municipality", "Population"]
+
+        else:
+            # Municipality-total wide format: one row per municipality.
+            pop = temp[[code_col, municipality_col, "Population"]].copy()
+            pop.columns = ["Municipality_code", "Municipality", "Population"]
+
+    # ------------------------------------------------------------
+    # Case 2: long format
+    # Codice comune | Comune | Età | Sesso | Popolazione
+    # ------------------------------------------------------------
+
+    elif sex_col is not None and population_col is not None:
+        temp = df.copy()
+
+        temp["Sesso_clean"] = temp[sex_col].apply(clean_text)
+        temp["Population"] = temp[population_col].apply(clean_numeric)
+
+        # Keep total sex only.
+        temp = temp[temp["Sesso_clean"] == "TOTALE"].copy()
+
+        if age_col is not None:
+            temp["Age_clean"] = temp[age_col].apply(clean_text)
+
+            # If the file contains an explicit total age row, use it.
             total_age_rows = temp[
                 temp["Age_clean"].isin(["TOTALE", "TOTAL", "999", "100 E PIÙ", "100+"])
             ].copy()
@@ -353,17 +508,32 @@ def load_single_population_file(path):
 
         pop.columns = ["Municipality_code", "Municipality", "Population"]
 
+    # ------------------------------------------------------------
+    # Unsupported format
+    # ------------------------------------------------------------
+
     else:
         raise ValueError(
             f"Unsupported population file format for {path}. "
             f"Columns found: {df.columns.tolist()}"
         )
 
+    # ------------------------------------------------------------
+    # Final standardization
+    # ------------------------------------------------------------
+
     pop["Year"] = year
     pop["Municipality_code"] = pop["Municipality_code"].apply(normalize_municipality_code)
     pop["Municipality"] = pop["Municipality"].apply(clean_text)
+    pop["Population"] = pop["Population"].apply(clean_numeric)
 
     pop = pop[["Year", "Municipality_code", "Municipality", "Population"]]
+
+    # Safety: if duplicates remain, aggregate them.
+    pop = (
+        pop.groupby(["Year", "Municipality_code", "Municipality"], as_index=False)["Population"]
+        .sum()
+    )
 
     return pop
 
@@ -657,6 +827,80 @@ def plot_population_by_area(population_by_area_year, output_dir):
     plt.savefig(f"{output_dir}/population_by_area_year.png", dpi=300)
     plt.show()
 
+def plot_mean_annual_health_rate_by_outcome_area(annual_rates, output_dir):
+    """
+    Plot mean annual health-event rates by outcome and study area.
+
+    This plot is intended as a compact presentation figure:
+    - x-axis: selected health outcomes
+    - bars: Industrial vs Agricultural area
+    - y-axis: mean annual event rate per 10,000 inhabitants
+
+    It summarizes the normalized annual rates across the common
+    non-COVID study years.
+    """
+
+    summary = (
+        annual_rates[annual_rates["Year"].isin(COMMON_YEARS)]
+        .groupby(["Outcome", "Area"], as_index=False)["Rate_per_10000"]
+        .mean()
+    )
+
+    # Save numerical values for reproducibility and reporting
+    summary.to_csv(
+        f"{output_dir}/mean_annual_health_event_rate_by_outcome_area.csv",
+        index=False,
+        sep=";"
+    )
+
+    pivot = (
+        summary
+        .pivot(index="Outcome", columns="Area", values="Rate_per_10000")
+        .reindex(OUTCOME_ORDER)
+    )
+
+    pivot = pivot[AREA_ORDER]
+
+    ax = pivot.plot(
+        kind="bar",
+        figsize=(8, 5),
+        width=0.70,
+        color=["#1f77b4", "#ff7f0e"]
+    )
+
+    plt.title("Mean annual health-event rate by study area")
+    plt.xlabel("Health outcome")
+    plt.ylabel("Mean annual rate per 10,000 inhabitants")
+    plt.xticks(rotation=0)
+    plt.grid(axis="y", alpha=0.3)
+    plt.legend(title="Area")
+
+    # Add value labels above bars
+    max_value = pivot.max().max()
+    plt.ylim(0, max_value * 1.18)
+
+    for container in ax.containers:
+        ax.bar_label(
+            container,
+            fmt="%.1f",
+            padding=3,
+            fontsize=9
+        )
+
+    plt.tight_layout()
+
+    plt.savefig(
+        f"{output_dir}/mean_annual_health_event_rate_by_outcome_area.png",
+        dpi=300
+    )
+
+    plt.savefig(
+        f"{output_dir}/mean_annual_health_event_rate_by_outcome_area_transparent.png",
+        dpi=300,
+        transparent=True
+    )
+
+    plt.show()
 
 # ============================================================
 # MAIN ANALYSIS FUNCTION
@@ -917,6 +1161,8 @@ def run_health_event_aggregation():
 
     plot_annual_rates(annual_rates, OUTPUT_DIR)
     plot_monthly_rates(monthly_rates, OUTPUT_DIR)
+    plot_population_by_area(population_by_area_year, OUTPUT_DIR)
+    plot_mean_annual_health_rate_by_outcome_area(annual_rates, OUTPUT_DIR)
 
     # ------------------------------------------------------------
     # 8. Final summary
